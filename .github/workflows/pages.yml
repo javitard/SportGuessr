@@ -1,0 +1,44 @@
+# Publishes the site to GitHub Pages on every push to main.
+# Before uploading, it stamps the commit id into index.html (asset ?v= query strings and
+# the app-version meta tag) and writes version.json, so browsers never mix old cached
+# files with a new release. Requires Settings → Pages → Source: "GitHub Actions".
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stamp version
+        run: |
+          VERSION="${GITHUB_SHA::8}"
+          sed -i "s/__VERSION__/${VERSION}/g" index.html
+          printf '{"version":"%s"}\n' "$VERSION" > version.json
+          grep -c "$VERSION" index.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
