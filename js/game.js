@@ -94,7 +94,7 @@
 
   function questionsForDay(day) {
     if (schedule[day]) return schedule[day];
-    const all = window.QUESTIONS.map((q, i) => ({ ...q, id: i }));
+    const all = window.QUESTIONS;
     const pools = LEVEL_MIX.map((count, i) => ({
       count,
       salt: i + 1,
@@ -142,7 +142,7 @@
   }
 
   function randomQuestions() {
-    return shuffle(window.QUESTIONS.map((q, i) => ({ ...q, id: i })), Math.random)
+    return shuffle(window.QUESTIONS, Math.random)
       .slice(0, ROUNDS)
       .sort((a, b) => a.level - b.level);
   }
@@ -513,12 +513,23 @@
 
   // Identifies today's question set, so saved progress is dropped if the bank was edited.
   function puzzleKey() {
-    return game.questions.map((q) => q.answer).join("|");
+    return game.questions.map((q) => q.id).join("|");
+  }
+
+  function recordHistory() {
+    window.Profile.addGame({
+      day: game.day,
+      date: todayKey(),
+      practice: game.practice,
+      questions: game.questions,
+      guesses: game.guesses
+    });
   }
 
   // ── End of game ─────────────────────────────────────────
   function finish() {
     if (!game.practice) recordGame(game.day, totalScore());
+    recordHistory();
     showSummaryMap();
     openResults(true);
   }
@@ -608,9 +619,71 @@
     countdownTimer = setInterval(tick, 1000);
   }
 
-  // ── Stats modal ─────────────────────────────────────────
+  // ── Profile modal ───────────────────────────────────────
+  const ACHIEVEMENT_ICONS = {
+    kickoff: '<path d="M8 5v14l11-7z"/>',
+    bullseye: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+    hattrick: '<circle cx="5.5" cy="12" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="18.5" cy="12" r="2.5"/>',
+    cleansheet: '<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
+    club4000: '<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M8 20h8"/>',
+    week: '<path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5.5.5 2 1.5 3 2.5 3.5 0-3 0-5.5 0-8z"/>',
+    allrounder: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+    marathon: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>'
+  };
+
+  const SPORTS_SHOWN = 6;   // the rest go in a "show all" fold
+  let profileMap = null;
+  let profilePins = null;
+
+  function drawProfileMap(pins) {
+    if (!profileMap) {
+      profileMap = L.map("profile-map", {
+        zoomControl: false,
+        attributionControl: false,
+        preferCanvas: true,
+        minZoom: 0,
+        maxZoom: 6,
+        zoomSnap: 0.25,
+        worldCopyJump: false
+      });
+      L.geoJSON(countries, {
+        interactive: false,
+        style: { fillColor: cssVar("--land"), fillOpacity: 1, color: cssVar("--land-border"), weight: 0.5 }
+      }).addTo(profileMap);
+      profilePins = L.layerGroup().addTo(profileMap);
+    }
+    profileMap.invalidateSize();
+    profilePins.clearLayers();
+    for (const p of pins) {
+      L.circleMarker([p.lat, p.lng], {
+        radius: 5,
+        color: cssVar("--bg"),
+        weight: 1.5,
+        fillColor: cssVar(`--t${tier(p.points)}`),
+        fillOpacity: 1,
+        interactive: false
+      }).addTo(profilePins);
+    }
+    if (pins.length) profileMap.fitBounds(L.latLngBounds(pins.map((p) => [p.lat, p.lng])), { padding: [24, 24], maxZoom: 4 });
+    else profileMap.fitBounds(WORLD_VIEW);
+  }
+
+  function meterRow(label, avg, sub) {
+    return `<div class="meter-row">
+      <span class="mr-label">${label}</span>
+      <span class="mr-bar"><span style="width:${(avg / MAX_POINTS) * 100}%; background:${TIER_COLORS[tier(avg)]}"></span></span>
+      <span class="mr-value num">${num(avg)}</span>
+      <small class="mr-sub">${sub}</small>
+    </div>`;
+  }
+
   function openStats() {
     const s = loadStats();
+    const history = window.Profile.loadHistory();
+    const byId = new Map(window.QUESTIONS.map((q) => [q.id, q]));
+    const p = window.Profile.compute(history, s, byId);
+    const sportName = (sport) => `${SPORT_ICONS[sport] || "🏆"} ${t("sports")[sport] || sport}`;
+
     const avg = s.played ? Math.round(s.total / s.played) : 0;
     const items = [
       [s.played, t("played")],
@@ -627,7 +700,40 @@
       `<div class="dist-row"><span>${DIST_LABELS[i]}</span>
         <div class="dist-bar${i === todayBucket ? " today" : ""}" style="width:${10 + (n / max) * 90}%">${n}</div></div>`
     ).reverse().join("");
+
+    const hasData = p.answers > 0;
+    $("profile-empty").hidden = hasData;
+    $("profile-data").hidden = !hasData;
+
+    if (hasData) {
+      $("highlights").innerHTML = p.strongest
+        ? `<div class="highlight"><small>${t("strongest")}</small><b>${sportName(p.strongest.sport)}</b><span class="num">${num(p.strongest.avg)}</span></div>
+           <div class="highlight"><small>${t("weakest")}</small><b>${sportName(p.weakest.sport)}</b><span class="num">${num(p.weakest.avg)}</span></div>`
+        : `<p class="muted">${t("needMore")}</p>`;
+      const answers = (n) => (n === 1 ? t("answersOne") : t("answersN", { n }));
+      const sportRows = p.bySport.map((x) => meterRow(sportName(x.sport), x.avg, answers(x.n)));
+      $("by-sport").innerHTML = sportRows.slice(0, SPORTS_SHOWN).join("");
+      $("by-sport-more").innerHTML = sportRows.slice(SPORTS_SHOWN).join("");
+      $("by-sport-more-wrap").hidden = sportRows.length <= SPORTS_SHOWN;
+      $("by-sport-more-label").textContent = t("showAllSports", { n: sportRows.length });
+      $("by-level").innerHTML = p.byLevel
+        .filter((x) => x.n)
+        .map((x) => meterRow(t("levels")[x.level], x.avg, answers(x.n)))
+        .join("");
+      $("achievements").innerHTML = p.achievements.map((a) => `
+        <div class="badge-card${a.unlocked ? " unlocked" : ""}">
+          <svg viewBox="0 0 24 24" aria-hidden="true">${ACHIEVEMENT_ICONS[a.key]}</svg>
+          <div>
+            <b>${t("achievements")[a.key][0]}</b>
+            <small>${t("achievements")[a.key][1]}${a.goal && !a.unlocked ? ` · ${a.value}/${a.goal}` : ""}</small>
+          </div>
+        </div>`).join("");
+      $("achievements-count").textContent =
+        `${p.achievements.filter((a) => a.unlocked).length}/${p.achievements.length}`;
+    }
+
     openModal("modal-stats");
+    if (hasData) requestAnimationFrame(() => drawProfileMap(p.pins));
   }
 
   // ── Modals ──────────────────────────────────────────────
@@ -719,6 +825,7 @@
     }
 
     if (game.guesses.length >= ROUNDS) {
+      recordHistory();   // no-op if already recorded; fills in games finished before history existed
       document.body.classList.remove("is-intro");
       renderPanelHead();
       showSummaryMap();

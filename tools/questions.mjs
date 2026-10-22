@@ -78,7 +78,7 @@ export function render(questions) {
       current = sectionOf(q);
     }
     return `${head}  {
-    sport: ${s(q.sport)}, level: ${q.level}, tags: ${s(q.tags || [])},
+    id: ${s(q.id)}, sport: ${s(q.sport)}, level: ${q.level}, tags: ${s(q.tags || [])},
     q: ${s(q.q)},
     answer: ${s(q.answer)},
     lat: ${q.lat}, lng: ${q.lng}, year: ${q.year},
@@ -94,7 +94,8 @@ export function render(questions) {
 // Rule: the question must never name the place (or anything right next to it).
 // Edit by hand or with tools/questions.mjs (see docs/QUESTIONS.md), then run
 // \`node tools/questions.mjs check\`.
-// Fields: sport, level (1 easy, 2 medium, 3 hard — how hard the place is to pin),
+// Fields: id (permanent, never reused: players' history refers to it),
+//         sport, level (1 easy, 2 medium, 3 hard — how hard the place is to pin),
 //         tags (from js/tags.js), q (question), answer (place shown after guessing),
 //         lat, lng (the venue itself), year, fact (short trivia shown on reveal),
 //         es: { q, answer, fact } — Spanish version of the texts.
@@ -132,6 +133,7 @@ export function validate(questions, tags) {
     const err = (msg) => errors.push(`${label(q, i)}: ${msg}`);
     const warn = (msg) => warnings.push(`${label(q, i)}: ${msg}`);
 
+    if (typeof q.id !== "string" || !/^q\d{4}$/.test(q.id)) err(`id must look like "q0042", got ${JSON.stringify(q.id)}`);
     for (const f of ["q", "answer", "fact"]) {
       if (typeof q[f] !== "string" || !q[f].trim()) err(`missing ${f}`);
       if (!q.es || typeof q.es[f] !== "string" || !q.es[f].trim()) err(`missing es.${f}`);
@@ -156,6 +158,13 @@ export function validate(questions, tags) {
     if (!/[?¿]/.test(q.q) || !/\?/.test(q.es.q)) warn("question should end with a question mark");
     if (q.q.length > 180) warn(`long question (${q.q.length} chars)`);
     if (q.q === q.es.q || q.fact === q.es.fact) warn("Spanish text looks untranslated");
+  });
+
+  // Ids are permanent: each one used once.
+  const ids = new Map();
+  questions.forEach((q, i) => {
+    if (ids.has(q.id)) errors.push(`#${i} reuses id ${q.id} (also #${ids.get(q.id)})`);
+    else ids.set(q.id, i);
   });
 
   // Duplicates: same question, or same answer, year and sport.
@@ -269,7 +278,7 @@ function find(text) {
     .map((q, i) => ({ q, i }))
     .filter(({ q }) => [q.q, q.answer, q.fact, q.es.q, q.es.answer, q.es.fact].some((t) => normalize(t).includes(needle)));
   for (const { q, i } of hits) {
-    console.log(`#${i}  L${q.level} ${q.sport} ${q.year}  ${q.answer}  [${q.tags.join(", ")}]\n      ${q.q}`);
+    console.log(`${q.id}  L${q.level} ${q.sport} ${q.year}  ${q.answer}  [${q.tags.join(", ")}]\n       ${q.q}`);
   }
   console.log(`${hits.length} match${hits.length === 1 ? "" : "es"}`);
 }
@@ -306,6 +315,7 @@ export function parseCsv(text) {
   return data.map((r) => {
     const get = (name) => (r[cols.indexOf(name)] ?? "").trim();
     return {
+      id: get("id") || undefined,
       sport: get("sport"),
       level: Number(get("level")),
       tags: get("tags").split("|").map((t) => t.trim()).filter(Boolean),
@@ -325,6 +335,7 @@ function add(file) {
   const text = fs.readFileSync(file, "utf8");
   const incoming = file.endsWith(".csv") ? parseCsv(text) : JSON.parse(text);
   const questions = loadQuestions();
+  assignIds(questions, incoming);
   const merged = [...questions, ...incoming];
   const { errors, warnings } = validate(merged, loadTags());
   warnings.forEach((w) => console.log(`warning  ${w}`));
@@ -338,6 +349,15 @@ function add(file) {
   console.log(`Added ${incoming.length} questions (${merged.length} in total).`);
 }
 
+// New questions get the next free ids. Ids are never renumbered or reused, because
+// players' saved history refers to them.
+export function assignIds(existing, incoming) {
+  let next = Math.max(0, ...existing.map((q) => Number(String(q.id).slice(1)) || 0)) + 1;
+  for (const q of incoming) {
+    if (!q.id) q.id = `q${String(next++).padStart(4, "0")}`;
+  }
+}
+
 function format() {
   save(loadQuestions());
   console.log("js/questions.js rewritten.");
@@ -345,7 +365,7 @@ function format() {
 
 const COMMANDS = { check, report, find, add, format };
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const [cmd, ...args] = process.argv.slice(2);
   if (!COMMANDS[cmd]) {
     console.log("usage: node tools/questions.mjs <check|report|find|add|format> [args]");
