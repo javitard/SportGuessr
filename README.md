@@ -1,4 +1,4 @@
-# SportGuessr 📍
+# Matchpin 📍
 
 A daily sports geography game. Every day you get **5 famous sporting moments** (mostly European) —
 click on the map where they happened. The closer you are, the more points you score (up to 1,000 per
