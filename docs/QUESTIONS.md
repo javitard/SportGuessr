@@ -24,6 +24,7 @@ question; generic words like *Stadium* or *Olympic* are allowed (list in `GENERI
 
 | Field | Meaning |
 | --- | --- |
+| `id` | Permanent identifier like `q0042`. `add` assigns it; never change or reuse one, since players' history refers to it. |
 | `sport` | One of the sports listed in `SPORTS` (tools/questions.mjs). A new sport also needs an icon in `js/game.js` and names in `js/i18n.js`. |
 | `level` | How hard the **place** is to pin, not how obscure the fact is. `1` easy (famous city), `2` medium, `3` hard (small town or a surprise). Each day uses 2 easy, 2 medium and 1 hard. |
 | `tags` | At least one, from `js/tags.js` (below). |

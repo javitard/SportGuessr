@@ -2,14 +2,15 @@
 // Rule: the question must never name the place (or anything right next to it).
 // Edit by hand or with tools/questions.mjs (see docs/QUESTIONS.md), then run
 // `node tools/questions.mjs check`.
-// Fields: sport, level (1 easy, 2 medium, 3 hard — how hard the place is to pin),
+// Fields: id (permanent, never reused: players' history refers to it),
+//         sport, level (1 easy, 2 medium, 3 hard — how hard the place is to pin),
 //         tags (from js/tags.js), q (question), answer (place shown after guessing),
 //         lat, lng (the venue itself), year, fact (short trivia shown on reveal),
 //         es: { q, answer, fact } — Spanish version of the texts.
 window.QUESTIONS = [
   // ───────────── Football ─────────────
   {
-    sport: "football", level: 1, tags: ["champions-league","final"],
+    id: "q0001", sport: "football", level: 1, tags: ["champions-league","final"],
     q: "Liverpool came back from 3-0 down at half-time to beat AC Milan in the 2005 Champions League final. Where?",
     answer: "Atatürk Olympic Stadium, Istanbul",
     lat: 41.0745, lng: 28.7656, year: 2005,
@@ -21,7 +22,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","final"],
+    id: "q0002", sport: "football", level: 2, tags: ["champions-league","final"],
     q: "Manchester United scored twice in injury time to beat Bayern Munich in the 1999 Champions League final. Where?",
     answer: "Camp Nou, Barcelona",
     lat: 41.3809, lng: 2.1228, year: 1999,
@@ -33,7 +34,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["euros","final","upset"],
+    id: "q0003", sport: "football", level: 1, tags: ["euros","final","upset"],
     q: "Where did Greece shock Portugal to win the Euro 2004 final?",
     answer: "Estádio da Luz, Lisbon",
     lat: 38.7527, lng: -9.1847, year: 2004,
@@ -45,7 +46,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["euros","final","upset"],
+    id: "q0004", sport: "football", level: 2, tags: ["euros","final","upset"],
     q: "Denmark only qualified for Euro 1992 as a late replacement — and then won it. Where was the final?",
     answer: "Ullevi, Gothenburg",
     lat: 57.7058, lng: 11.9873, year: 1992,
@@ -57,7 +58,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["world-cup","final"],
+    id: "q0005", sport: "football", level: 1, tags: ["world-cup","final"],
     q: "England's only World Cup triumph came in 1966. Where was the final played?",
     answer: "Wembley Stadium, London",
     lat: 51.556, lng: -0.2796, year: 1966,
@@ -69,7 +70,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["euros","final"],
+    id: "q0006", sport: "football", level: 3, tags: ["euros","final"],
     q: "Antonín Panenka chipped the decisive penalty to win Euro 1976 for Czechoslovakia. In which stadium?",
     answer: "Red Star Stadium (Marakana), Belgrade",
     lat: 44.7833, lng: 20.4647, year: 1976,
@@ -81,7 +82,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final"],
+    id: "q0007", sport: "football", level: 2, tags: ["world-cup","final"],
     q: "Zinedine Zidane's career ended with a red card for a headbutt in the 2006 World Cup final. Where?",
     answer: "Olympiastadion, Berlin",
     lat: 52.5147, lng: 13.2395, year: 2006,
@@ -93,7 +94,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0008", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Goalkeeper Helmuth Duckadam saved four penalties as Steaua Bucharest won the 1986 European Cup. Where?",
     answer: "Estadio Ramón Sánchez-Pizjuán, Seville",
     lat: 37.384, lng: -5.9705, year: 1986,
@@ -105,7 +106,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0009", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Red Star Belgrade became European champions in 1991, beating Marseille on penalties. Where was the final?",
     answer: "Stadio San Nicola, Bari",
     lat: 41.0847, lng: 16.84, year: 1991,
@@ -117,7 +118,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0010", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "José Mourinho's Porto won the 2004 Champions League final against Monaco. Where was it played?",
     answer: "Arena AufSchalke, Gelsenkirchen",
     lat: 51.5546, lng: 7.0676, year: 2004,
@@ -129,7 +130,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["euros","upset"],
+    id: "q0011", sport: "football", level: 3, tags: ["euros","upset"],
     q: "Iceland knocked England out of Euro 2016 with a famous 2-1 win. Where?",
     answer: "Allianz Riviera, Nice",
     lat: 43.7051, lng: 7.1926, year: 2016,
@@ -141,7 +142,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","final"],
+    id: "q0012", sport: "football", level: 2, tags: ["champions-league","final"],
     q: "Inter Milan completed a historic treble by winning the 2010 Champions League final. Where?",
     answer: "Santiago Bernabéu, Madrid",
     lat: 40.4531, lng: -3.6883, year: 2010,
@@ -153,7 +154,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["uefa-cups","final"],
+    id: "q0013", sport: "football", level: 2, tags: ["uefa-cups","final"],
     q: "Ademola Lookman's hat-trick ended Bayer Leverkusen's 51-game unbeaten run in the 2024 Europa League final. Where?",
     answer: "Aviva Stadium, Dublin",
     lat: 53.3352, lng: -6.2285, year: 2024,
@@ -165,7 +166,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["euros","final"],
+    id: "q0014", sport: "football", level: 2, tags: ["euros","final"],
     q: "Spain won Euro 2008, their first major title in 44 years, by beating Germany in the final. Where?",
     answer: "Ernst-Happel-Stadion, Vienna",
     lat: 48.2072, lng: 16.4206, year: 2008,
@@ -177,7 +178,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["euros","final","record"],
+    id: "q0015", sport: "football", level: 2, tags: ["euros","final","record"],
     q: "Spain thrashed Italy 4-0 in the Euro 2012 final, the biggest win in a Euro final. Where?",
     answer: "Olympic Stadium, Kyiv",
     lat: 50.4333, lng: 30.5217, year: 2012,
@@ -189,7 +190,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["euros","final"],
+    id: "q0016", sport: "football", level: 2, tags: ["euros","final"],
     q: "David Trezeguet's golden goal won Euro 2000 for France against Italy. Where?",
     answer: "De Kuip, Rotterdam",
     lat: 51.8939, lng: 4.5231, year: 2000,
@@ -201,7 +202,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final"],
+    id: "q0017", sport: "football", level: 2, tags: ["world-cup","final"],
     q: "West Germany beat Johan Cruyff's Netherlands in the 1974 World Cup final. Where?",
     answer: "Olympiastadion, Munich",
     lat: 48.1731, lng: 11.5466, year: 1974,
@@ -213,7 +214,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final"],
+    id: "q0018", sport: "football", level: 2, tags: ["world-cup","final"],
     q: "West Germany beat Argentina 1-0 in the 1990 World Cup final. Where?",
     answer: "Stadio Olimpico, Rome",
     lat: 41.9339, lng: 12.4547, year: 1990,
@@ -225,7 +226,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["uefa-cups","final","first"],
+    id: "q0019", sport: "football", level: 3, tags: ["uefa-cups","final","first"],
     q: "Galatasaray became the first Turkish club to win a European trophy, beating Arsenal in the 2000 UEFA Cup final. Where?",
     answer: "Parken Stadium, Copenhagen",
     lat: 55.7025, lng: 12.5722, year: 2000,
@@ -237,7 +238,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["first","upset"],
+    id: "q0020", sport: "football", level: 3, tags: ["first","upset"],
     q: "The Faroe Islands beat Austria 1-0 in their first ever competitive match (1990). Their 'home' game was played in another country. Where?",
     answer: "Landskrona, Sweden",
     lat: 55.8708, lng: 12.8301, year: 1990,
@@ -249,7 +250,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["euros"],
+    id: "q0021", sport: "football", level: 3, tags: ["euros"],
     q: "Hal Robson-Kanu's 'Cruyff turn' goal helped Wales beat Belgium 3-1 in the Euro 2016 quarter-final. Where?",
     answer: "Stade Pierre-Mauroy, Lille",
     lat: 50.6119, lng: 3.1305, year: 2016,
@@ -261,7 +262,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["first"],
+    id: "q0022", sport: "football", level: 2, tags: ["first"],
     q: "The first official international football match, Scotland vs England, was played in 1872. Where?",
     answer: "Hamilton Crescent, Partick (Glasgow)",
     lat: 55.871, lng: -4.303, year: 1872,
@@ -273,7 +274,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","final","first"],
+    id: "q0023", sport: "football", level: 2, tags: ["champions-league","final","first"],
     q: "Real Madrid won the very first European Cup final in 1956, coming back from 2-0 down to win 4-3. Where?",
     answer: "Parc des Princes, Paris",
     lat: 48.8414, lng: 2.253, year: 1956,
@@ -285,7 +286,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["venue"],
+    id: "q0024", sport: "football", level: 1, tags: ["venue"],
     q: "The 'Yellow Wall', Europe's largest standing terrace, is in which stadium?",
     answer: "Signal Iduna Park, Dortmund",
     lat: 51.4926, lng: 7.4519, year: 1974,
@@ -297,7 +298,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["record"],
+    id: "q0025", sport: "football", level: 2, tags: ["record"],
     q: "Hungary beat England 7-1 in 1954, still England's heaviest ever defeat. Where?",
     answer: "Népstadion (now Puskás Aréna), Budapest",
     lat: 47.503, lng: 19.098, year: 1954,
@@ -309,7 +310,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["history"],
+    id: "q0026", sport: "football", level: 3, tags: ["history"],
     q: "During the 1914 Christmas Truce, British and German soldiers famously played football in no man's land. Near which town?",
     answer: "Ploegsteert / Messines, near Ypres (Belgium)",
     lat: 50.738, lng: 2.88, year: 1914,
@@ -321,7 +322,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["world-cup","upset"],
+    id: "q0027", sport: "football", level: 3, tags: ["world-cup","upset"],
     q: "Germany beat Brazil 7-1 in the 2014 World Cup semi-final. Where?",
     answer: "Estádio Mineirão, Belo Horizonte",
     lat: -19.8658, lng: -43.9711, year: 2014,
@@ -333,7 +334,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["world-cup","final"],
+    id: "q0028", sport: "football", level: 1, tags: ["world-cup","final"],
     q: "Argentina beat France on penalties after a 3-3 draw in the 2022 World Cup final. Where?",
     answer: "Lusail Stadium, Qatar",
     lat: 25.4207, lng: 51.4904, year: 2022,
@@ -345,7 +346,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["champions-league","venue"],
+    id: "q0029", sport: "football", level: 1, tags: ["champions-league","venue"],
     q: "Ajax won their first European Cup in 1971 and their latest Champions League in 1995. Where is the club's current home?",
     answer: "Johan Cruijff ArenA, Amsterdam",
     lat: 52.3143, lng: 4.9419, year: 1996,
@@ -357,7 +358,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final"],
+    id: "q0030", sport: "football", level: 2, tags: ["world-cup","final"],
     q: "Andrés Iniesta scored the extra-time winner that made Spain world champions in 2010. Where?",
     answer: "Soccer City, Johannesburg",
     lat: -26.2348, lng: 27.9825, year: 2010,
@@ -369,7 +370,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","final"],
+    id: "q0031", sport: "football", level: 2, tags: ["champions-league","final"],
     q: "Sergio Ramos' 93rd-minute header forced extra time in the 2014 Champions League final, which Real Madrid went on to win 4-1. Where?",
     answer: "Estádio da Luz, Lisbon",
     lat: 38.7527, lng: -9.1847, year: 2014,
@@ -381,7 +382,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league"],
+    id: "q0032", sport: "football", level: 2, tags: ["champions-league"],
     q: "Cristiano Ronaldo's bicycle kick against Juventus in 2018 earned him a standing ovation from the home fans. Where?",
     answer: "Allianz Stadium, Turin",
     lat: 45.1096, lng: 7.6413, year: 2018,
@@ -393,7 +394,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0033", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Gareth Bale's overhead kick helped Real Madrid beat Liverpool in the 2018 Champions League final. Where?",
     answer: "Olympic Stadium, Kyiv",
     lat: 50.4333, lng: 30.5217, year: 2018,
@@ -405,7 +406,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0034", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Barcelona beat Manchester United in the 2009 Champions League final, with Lionel Messi heading the second goal. Where?",
     answer: "Stadio Olimpico, Rome",
     lat: 41.9339, lng: 12.4547, year: 2009,
@@ -417,7 +418,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["euros","final","record"],
+    id: "q0035", sport: "football", level: 2, tags: ["euros","final","record"],
     q: "Spain beat England in the Euro 2024 final to become the first four-time European champions. Where?",
     answer: "Olympiastadion, Berlin",
     lat: 52.5147, lng: 13.2395, year: 2024,
@@ -429,7 +430,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["euros","final"],
+    id: "q0036", sport: "football", level: 1, tags: ["euros","final"],
     q: "Italy beat England on penalties in the Euro 2020 final, played in 2021. Where?",
     answer: "Wembley Stadium, London",
     lat: 51.556, lng: -0.2796, year: 2021,
@@ -441,7 +442,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["euros","final"],
+    id: "q0037", sport: "football", level: 2, tags: ["euros","final"],
     q: "Éder's extra-time strike won Euro 2016 for Portugal. Where?",
     answer: "Stade de France, Saint-Denis",
     lat: 48.9245, lng: 2.3602, year: 2016,
@@ -453,7 +454,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["world-cup","final"],
+    id: "q0038", sport: "football", level: 1, tags: ["world-cup","final"],
     q: "Zinedine Zidane scored two headers in the 1998 World Cup final, a 3-0 win over Brazil. Where?",
     answer: "Stade de France, Saint-Denis",
     lat: 48.9245, lng: 2.3602, year: 1998,
@@ -465,7 +466,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final"],
+    id: "q0039", sport: "football", level: 2, tags: ["world-cup","final"],
     q: "Ronaldo scored twice as Brazil beat Germany in the 2002 World Cup final. Where?",
     answer: "International Stadium Yokohama",
     lat: 35.51, lng: 139.6062, year: 2002,
@@ -477,7 +478,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0040", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Andriy Shevchenko scored the winning penalty in the all-Italian 2003 Champions League final between Milan and Juventus. Where?",
     answer: "Old Trafford, Manchester",
     lat: 53.4631, lng: -2.2913, year: 2003,
@@ -489,7 +490,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["venue"],
+    id: "q0041", sport: "football", level: 1, tags: ["venue"],
     q: "Which football stadium is nicknamed 'The Theatre of Dreams'?",
     answer: "Old Trafford, Manchester",
     lat: 53.4631, lng: -2.2913, year: 1910,
@@ -501,7 +502,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0042", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Liverpool beat Tottenham in the 2019 Champions League final to win their sixth European Cup. Where?",
     answer: "Metropolitano Stadium, Madrid",
     lat: 40.4362, lng: -3.5995, year: 2019,
@@ -513,7 +514,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0043", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Kai Havertz's goal won the 2021 Champions League final for Chelsea against Manchester City. Where?",
     answer: "Estádio do Dragão, Porto",
     lat: 41.1617, lng: -8.5839, year: 2021,
@@ -525,7 +526,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","final"],
+    id: "q0044", sport: "football", level: 2, tags: ["champions-league","final"],
     q: "Rodri's goal against Inter gave Manchester City their first Champions League in 2023. Where?",
     answer: "Atatürk Olympic Stadium, Istanbul",
     lat: 41.0745, lng: 28.7656, year: 2023,
@@ -537,7 +538,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final","record"],
+    id: "q0045", sport: "football", level: 3, tags: ["champions-league","final","record"],
     q: "PSG won their first Champions League in 2025 with a record 5-0 final win over Inter. Where?",
     answer: "Allianz Arena, Munich",
     lat: 48.2188, lng: 11.6247, year: 2025,
@@ -549,7 +550,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0046", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Bayern Munich completed a treble in 2020 by winning a Champions League final played behind closed doors during the pandemic. Where?",
     answer: "Estádio da Luz, Lisbon",
     lat: 38.7527, lng: -9.1847, year: 2020,
@@ -561,7 +562,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","final"],
+    id: "q0047", sport: "football", level: 2, tags: ["champions-league","final"],
     q: "Ronald Koeman's extra-time free kick won Barcelona their first European Cup in 1992. Where?",
     answer: "Wembley Stadium, London",
     lat: 51.556, lng: -0.2796, year: 1992,
@@ -573,7 +574,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final","first"],
+    id: "q0048", sport: "football", level: 3, tags: ["champions-league","final","first"],
     q: "Marseille beat AC Milan in 1993 to become the first French club to win the Champions League. Where?",
     answer: "Olympiastadion, Munich",
     lat: 48.1731, lng: 11.5466, year: 1993,
@@ -585,7 +586,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup"],
+    id: "q0049", sport: "football", level: 2, tags: ["world-cup"],
     q: "Diego Maradona's 'Hand of God' and 'Goal of the Century' both came in the same 1986 World Cup quarter-final against England. Where?",
     answer: "Estadio Azteca, Mexico City",
     lat: 19.3029, lng: -99.1505, year: 1986,
@@ -597,7 +598,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["first"],
+    id: "q0050", sport: "football", level: 3, tags: ["first"],
     q: "The oldest football club in the world still playing today was founded in 1857. In which city?",
     answer: "Sheffield (Sheffield FC)",
     lat: 53.3811, lng: -1.4701, year: 1857,
@@ -609,7 +610,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final","first"],
+    id: "q0051", sport: "football", level: 2, tags: ["world-cup","final","first"],
     q: "Where was the very first World Cup final played, in 1930?",
     answer: "Estadio Centenario, Montevideo",
     lat: -34.8944, lng: -56.1528, year: 1930,
@@ -621,7 +622,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0052", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Zinedine Zidane scored a stunning left-footed volley to win the 2002 Champions League final. Where?",
     answer: "Hampden Park, Glasgow",
     lat: 55.8258, lng: -4.2519, year: 2002,
@@ -633,7 +634,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0053", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "A crowd of 127,000 watched Real Madrid beat Eintracht Frankfurt 7-3 in the 1960 European Cup final. Where?",
     answer: "Hampden Park, Glasgow",
     lat: 55.8258, lng: -4.2519, year: 1960,
@@ -645,7 +646,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["euros","final"],
+    id: "q0054", sport: "football", level: 3, tags: ["euros","final"],
     q: "Gerd Müller scored twice as West Germany beat the USSR 3-0 in the Euro 1972 final. Where?",
     answer: "Heysel Stadium (now King Baudouin Stadium), Brussels",
     lat: 50.8958, lng: 4.3342, year: 1972,
@@ -657,7 +658,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["euros","final"],
+    id: "q0055", sport: "football", level: 2, tags: ["euros","final"],
     q: "Marco van Basten scored an impossible volley in the Euro 1988 final against the USSR. Where?",
     answer: "Olympiastadion, Munich",
     lat: 48.1731, lng: 11.5466, year: 1988,
@@ -669,7 +670,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["euros","final"],
+    id: "q0056", sport: "football", level: 2, tags: ["euros","final"],
     q: "Marcelino's header won Spain their first European Championship in 1964, against the USSR. Where?",
     answer: "Santiago Bernabéu, Madrid",
     lat: 40.4531, lng: -3.6883, year: 1964,
@@ -681,7 +682,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final"],
+    id: "q0057", sport: "football", level: 2, tags: ["world-cup","final"],
     q: "Italy won the 1982 World Cup final, remembered for Marco Tardelli's wild celebration. Where?",
     answer: "Santiago Bernabéu, Madrid",
     lat: 40.4531, lng: -3.6883, year: 1982,
@@ -693,7 +694,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0058", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Real Madrid beat Atlético on penalties in the 2016 Champions League final. Where?",
     answer: "San Siro, Milan",
     lat: 45.4781, lng: 9.124, year: 2016,
@@ -705,7 +706,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final","upset"],
+    id: "q0059", sport: "football", level: 3, tags: ["champions-league","final","upset"],
     q: "AC Milan thrashed Johan Cruyff's Barcelona 4-0 in the 1994 Champions League final. Where?",
     answer: "Olympic Stadium (OAKA), Athens",
     lat: 38.0362, lng: 23.7876, year: 1994,
@@ -717,7 +718,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0060", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Lars Ricken's lob helped Borussia Dortmund beat Juventus in the 1997 Champions League final. Where?",
     answer: "Olympiastadion, Munich",
     lat: 48.1731, lng: 11.5466, year: 1997,
@@ -729,7 +730,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0061", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "An 18-year-old Patrick Kluivert scored the winner as Ajax beat AC Milan in the 1995 Champions League final. Where?",
     answer: "Ernst-Happel-Stadion, Vienna",
     lat: 48.2072, lng: 16.4206, year: 1995,
@@ -741,7 +742,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["world-cup","final"],
+    id: "q0062", sport: "football", level: 1, tags: ["world-cup","final"],
     q: "France beat Croatia 4-2 in the 2018 World Cup final. Where?",
     answer: "Luzhniki Stadium, Moscow",
     lat: 55.7158, lng: 37.5539, year: 2018,
@@ -753,7 +754,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["world-cup"],
+    id: "q0063", sport: "football", level: 3, tags: ["world-cup"],
     q: "Robin van Persie's flying header started the Netherlands' 5-1 win over Spain at the 2014 World Cup. Where?",
     answer: "Arena Fonte Nova, Salvador",
     lat: -12.9787, lng: -38.5043, year: 2014,
@@ -765,7 +766,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final"],
+    id: "q0064", sport: "football", level: 2, tags: ["world-cup","final"],
     q: "Mario Götze's extra-time goal won the 2014 World Cup for Germany. Where?",
     answer: "Maracanã, Rio de Janeiro",
     lat: -22.9122, lng: -43.2302, year: 2014,
@@ -777,7 +778,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["world-cup"],
+    id: "q0065", sport: "football", level: 3, tags: ["world-cup"],
     q: "Paolo Rossi's hat-trick knocked Brazil out of the 1982 World Cup. Where?",
     answer: "Estadi de Sarrià, Barcelona",
     lat: 41.3936, lng: 2.1278, year: 1982,
@@ -789,7 +790,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["history"],
+    id: "q0066", sport: "football", level: 3, tags: ["history"],
     q: "Zlatan Ibrahimović scored a 30-metre bicycle kick against England in 2012. Where?",
     answer: "Friends Arena (now Strawberry Arena), Solna",
     lat: 59.3727, lng: 18.0004, year: 2012,
@@ -801,7 +802,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","women","final"],
+    id: "q0067", sport: "football", level: 2, tags: ["world-cup","women","final"],
     q: "Olga Carmona's goal made Spain women's world champions in 2023. Where?",
     answer: "Stadium Australia, Sydney",
     lat: -33.8471, lng: 151.0634, year: 2023,
@@ -813,7 +814,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["venue"],
+    id: "q0068", sport: "football", level: 2, tags: ["venue"],
     q: "Which football stadium can light up its outside red, blue or white?",
     answer: "Allianz Arena, Munich",
     lat: 48.2188, lng: 11.6247, year: 2005,
@@ -825,7 +826,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["birthplace"],
+    id: "q0069", sport: "football", level: 2, tags: ["birthplace"],
     q: "Lionel Messi was born and grew up in which city?",
     answer: "Rosario, Argentina",
     lat: -32.9442, lng: -60.6505, year: 1987,
@@ -837,7 +838,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["birthplace"],
+    id: "q0070", sport: "football", level: 2, tags: ["birthplace"],
     q: "Cristiano Ronaldo was born on which island?",
     answer: "Funchal, Madeira",
     lat: 32.6669, lng: -16.9241, year: 1985,
@@ -849,7 +850,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["birthplace"],
+    id: "q0071", sport: "football", level: 2, tags: ["birthplace"],
     q: "Zinedine Zidane was born and grew up in which city?",
     answer: "Marseille, France",
     lat: 43.2965, lng: 5.3698, year: 1972,
@@ -861,7 +862,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["organisation"],
+    id: "q0072", sport: "football", level: 2, tags: ["organisation"],
     q: "Where is FIFA headquartered?",
     answer: "Home of FIFA, Zurich",
     lat: 47.3815, lng: 8.5745, year: 1932,
@@ -873,7 +874,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["organisation"],
+    id: "q0073", sport: "football", level: 3, tags: ["organisation"],
     q: "In which small lakeside town is UEFA headquartered?",
     answer: "Nyon, Switzerland",
     lat: 46.3762, lng: 6.2324, year: 1995,
@@ -885,7 +886,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["derby"],
+    id: "q0074", sport: "football", level: 1, tags: ["derby"],
     q: "The 'Superclásico' between Boca Juniors and River Plate is played in which city?",
     answer: "La Bombonera, Buenos Aires",
     lat: -34.6356, lng: -58.3647, year: 1913,
@@ -897,7 +898,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["derby"],
+    id: "q0075", sport: "football", level: 1, tags: ["derby"],
     q: "The 'Intercontinental Derby' between Fenerbahçe and Galatasaray gets its name because the two clubs are on different continents. In which city?",
     answer: "Istanbul",
     lat: 40.9876, lng: 29.0369, year: 1934,
@@ -909,7 +910,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["derby"],
+    id: "q0076", sport: "football", level: 1, tags: ["derby"],
     q: "The 'Old Firm' derby between Celtic and Rangers is played in which city?",
     answer: "Glasgow",
     lat: 55.8497, lng: -4.2055, year: 1888,
@@ -921,7 +922,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["venue"],
+    id: "q0077", sport: "football", level: 1, tags: ["venue"],
     q: "Where is the famous stand called 'The Kop', home of 'You'll Never Walk Alone'?",
     answer: "Anfield, Liverpool",
     lat: 53.4308, lng: -2.9608, year: 1906,
@@ -933,7 +934,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["venue"],
+    id: "q0078", sport: "football", level: 1, tags: ["venue"],
     q: "Lionel Messi played his home games for 17 seasons in Europe's biggest stadium. Which one?",
     answer: "Camp Nou, Barcelona",
     lat: 41.3809, lng: 2.1228, year: 2021,
@@ -945,7 +946,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["birthplace"],
+    id: "q0079", sport: "football", level: 1, tags: ["birthplace"],
     q: "Kylian Mbappé grew up in a suburb of which city, where a giant mural of him now hangs?",
     answer: "Bondy, near Paris",
     lat: 48.9022, lng: 2.4828, year: 1998,
@@ -957,7 +958,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["birthplace"],
+    id: "q0080", sport: "football", level: 1, tags: ["birthplace"],
     q: "Johan Cruyff grew up a few hundred metres from his club's old stadium. In which city?",
     answer: "Betondorp, Amsterdam",
     lat: 52.3485, lng: 4.9447, year: 1947,
@@ -969,7 +970,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["venue"],
+    id: "q0081", sport: "football", level: 1, tags: ["venue"],
     q: "Which city is home to the Santiago Bernabéu stadium?",
     answer: "Madrid",
     lat: 40.4531, lng: -3.6883, year: 1947,
@@ -981,7 +982,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["venue"],
+    id: "q0082", sport: "football", level: 1, tags: ["venue"],
     q: "Which city renamed its football stadium after Diego Maradona in 2020?",
     answer: "Naples",
     lat: 40.8279, lng: 14.1931, year: 2020,
@@ -993,7 +994,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["derby","venue"],
+    id: "q0083", sport: "football", level: 2, tags: ["derby","venue"],
     q: "The 'Derby della Madonnina' is played in a stadium shared by both rivals. Where?",
     answer: "San Siro, Milan",
     lat: 45.4781, lng: 9.124, year: 1926,
@@ -1005,7 +1006,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["derby"],
+    id: "q0084", sport: "football", level: 2, tags: ["derby"],
     q: "Red Star and Partizan contest the 'Eternal Derby'. In which city?",
     answer: "Belgrade",
     lat: 44.7833, lng: 20.4647, year: 1946,
@@ -1017,7 +1018,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["venue"],
+    id: "q0085", sport: "football", level: 2, tags: ["venue"],
     q: "Which city is home to the Stade Vélodrome?",
     answer: "Marseille",
     lat: 43.2699, lng: 5.3959, year: 1937,
@@ -1029,7 +1030,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["venue"],
+    id: "q0086", sport: "football", level: 2, tags: ["venue"],
     q: "Which city is home to the Mestalla, a stadium opened in 1923?",
     answer: "Valencia",
     lat: 39.4746, lng: -0.3583, year: 1923,
@@ -1041,7 +1042,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["record"],
+    id: "q0087", sport: "football", level: 2, tags: ["record"],
     q: "Pelé scored his 1,000th goal, a penalty, in 1969. In which stadium?",
     answer: "Maracanã, Rio de Janeiro",
     lat: -22.9122, lng: -43.2302, year: 1969,
@@ -1053,7 +1054,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final","first"],
+    id: "q0088", sport: "football", level: 2, tags: ["world-cup","final","first"],
     q: "A 17-year-old Pelé scored twice as Brazil won their first World Cup final in 1958, against the hosts. Where?",
     answer: "Råsunda Stadium, Solna (Stockholm)",
     lat: 59.3628, lng: 18, year: 1958,
@@ -1065,7 +1066,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final","first"],
+    id: "q0089", sport: "football", level: 2, tags: ["world-cup","final","first"],
     q: "Italy won their first World Cup in 1934, beating Czechoslovakia in extra time. Where?",
     answer: "Stadio Nazionale PNF (later Flaminio), Rome",
     lat: 41.9285, lng: 12.472, year: 1934,
@@ -1077,7 +1078,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final","first"],
+    id: "q0090", sport: "football", level: 2, tags: ["world-cup","final","first"],
     q: "Argentina won their first World Cup in 1978, beating the Netherlands in extra time. Where?",
     answer: "Estadio Monumental, Buenos Aires",
     lat: -34.5453, lng: -58.4498, year: 1978,
@@ -1089,7 +1090,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final"],
+    id: "q0091", sport: "football", level: 2, tags: ["world-cup","final"],
     q: "Roberto Baggio missed the decisive penalty in the 1994 World Cup final. Where?",
     answer: "Rose Bowl, Pasadena",
     lat: 34.1613, lng: -118.1676, year: 1994,
@@ -1101,7 +1102,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","final","venue"],
+    id: "q0092", sport: "football", level: 2, tags: ["world-cup","final","venue"],
     q: "Which stadium was chosen to host the 2026 World Cup final, the first with 48 teams?",
     answer: "MetLife Stadium, East Rutherford (New York area)",
     lat: 40.8135, lng: -74.0745, year: 2026,
@@ -1113,7 +1114,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["world-cup","venue"],
+    id: "q0093", sport: "football", level: 2, tags: ["world-cup","venue"],
     q: "The 2026 World Cup opened in the first stadium to host matches at three World Cups. Which one?",
     answer: "Estadio Azteca, Mexico City",
     lat: 19.3029, lng: -99.1505, year: 2026,
@@ -1125,7 +1126,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["euros","final"],
+    id: "q0094", sport: "football", level: 2, tags: ["euros","final"],
     q: "Michel Platini scored nine goals in five games as France won Euro 1984. Where was the final?",
     answer: "Parc des Princes, Paris",
     lat: 48.8414, lng: 2.253, year: 1984,
@@ -1137,7 +1138,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","final","first"],
+    id: "q0095", sport: "football", level: 2, tags: ["champions-league","final","first"],
     q: "Manchester United became the first English European champions in 1968, with George Best scoring in extra time. Where?",
     answer: "Wembley Stadium, London",
     lat: 51.556, lng: -0.2796, year: 1968,
@@ -1149,7 +1150,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","final"],
+    id: "q0096", sport: "football", level: 2, tags: ["champions-league","final"],
     q: "John Terry slipped taking a penalty in the 2008 Champions League final between Manchester United and Chelsea. Where?",
     answer: "Luzhniki Stadium, Moscow",
     lat: 55.7158, lng: 37.5539, year: 2008,
@@ -1161,7 +1162,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","final"],
+    id: "q0097", sport: "football", level: 2, tags: ["champions-league","final"],
     q: "Messi, Suárez and Neymar's Barcelona beat Juventus in the 2015 Champions League final. Where?",
     answer: "Olympiastadion, Berlin",
     lat: 52.5147, lng: 13.2395, year: 2015,
@@ -1173,7 +1174,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","final"],
+    id: "q0098", sport: "football", level: 2, tags: ["champions-league","final"],
     q: "Real Madrid won their 15th European Cup in 2024, beating Borussia Dortmund 2-0. Where?",
     answer: "Wembley Stadium, London",
     lat: 51.556, lng: -0.2796, year: 2024,
@@ -1185,7 +1186,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["birthplace"],
+    id: "q0099", sport: "football", level: 2, tags: ["birthplace"],
     q: "George Best was born and grew up in which city?",
     answer: "Belfast",
     lat: 54.5973, lng: -5.9301, year: 1946,
@@ -1197,7 +1198,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["birthplace"],
+    id: "q0100", sport: "football", level: 2, tags: ["birthplace"],
     q: "Zlatan Ibrahimović grew up on a housing estate in which city, where he started his professional career?",
     answer: "Malmö",
     lat: 55.585, lng: 13.0333, year: 1981,
@@ -1209,7 +1210,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["birthplace"],
+    id: "q0101", sport: "football", level: 2, tags: ["birthplace"],
     q: "Franz Beckenbauer was born and grew up in which city?",
     answer: "Munich",
     lat: 48.1351, lng: 11.582, year: 1945,
@@ -1221,7 +1222,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["birthplace"],
+    id: "q0102", sport: "football", level: 2, tags: ["birthplace"],
     q: "Diego Maradona grew up in a shanty town on the edge of which city?",
     answer: "Villa Fiorito, Buenos Aires",
     lat: -34.7036, lng: -58.444, year: 1960,
@@ -1233,7 +1234,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["world-cup","final"],
+    id: "q0103", sport: "football", level: 3, tags: ["world-cup","final"],
     q: "Italy retained the World Cup in 1938, beating Hungary 4-2 in the final. Where?",
     answer: "Stade Olympique Yves-du-Manoir, Colombes (Paris)",
     lat: 48.9294, lng: 2.2482, year: 1938,
@@ -1245,7 +1246,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["world-cup","final"],
+    id: "q0104", sport: "football", level: 3, tags: ["world-cup","final"],
     q: "Garrincha starred as Brazil won the 1962 World Cup, with Pelé injured. Where was the final?",
     answer: "Estadio Nacional, Santiago",
     lat: -33.4646, lng: -70.6106, year: 1962,
@@ -1257,7 +1258,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["world-cup","women","final"],
+    id: "q0105", sport: "football", level: 3, tags: ["world-cup","women","final"],
     q: "Megan Rapinoe's USA beat the Netherlands in the 2019 Women's World Cup final. Where?",
     answer: "Groupama Stadium, Décines (Lyon)",
     lat: 45.7653, lng: 4.9822, year: 2019,
@@ -1269,7 +1270,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["euros","women","final"],
+    id: "q0106", sport: "football", level: 3, tags: ["euros","women","final"],
     q: "England beat Spain on penalties in the final of the Women's Euro 2025. Where?",
     answer: "St. Jakob-Park, Basel",
     lat: 47.5414, lng: 7.6201, year: 2025,
@@ -1281,7 +1282,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["euros","final","first"],
+    id: "q0107", sport: "football", level: 3, tags: ["euros","final","first"],
     q: "The USSR won the very first European Championship in 1960, beating Yugoslavia after extra time. Where?",
     answer: "Parc des Princes, Paris",
     lat: 48.8414, lng: 2.253, year: 1960,
@@ -1293,7 +1294,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["euros","final"],
+    id: "q0108", sport: "football", level: 3, tags: ["euros","final"],
     q: "Horst Hrubesch scored twice as West Germany beat Belgium in the Euro 1980 final. Where?",
     answer: "Stadio Olimpico, Rome",
     lat: 41.9339, lng: 12.4547, year: 1980,
@@ -1305,7 +1306,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final","first"],
+    id: "q0109", sport: "football", level: 3, tags: ["champions-league","final","first"],
     q: "Benfica won their first European Cup in 1961, beating Barcelona 3-2. Where?",
     answer: "Wankdorf Stadium, Bern",
     lat: 46.9632, lng: 7.4646, year: 1961,
@@ -1317,7 +1318,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0110", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Eusébio scored twice as Benfica beat Real Madrid 5-3 in the 1962 European Cup final. Where?",
     answer: "Olympic Stadium, Amsterdam",
     lat: 52.3434, lng: 4.8547, year: 1962,
@@ -1329,7 +1330,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0111", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Rabah Madjer's backheel helped Porto beat Bayern Munich in the 1987 European Cup final. Where?",
     answer: "Ernst-Happel-Stadion (then Prater Stadium), Vienna",
     lat: 48.2072, lng: 16.4206, year: 1987,
@@ -1341,7 +1342,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0112", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Arrigo Sacchi's AC Milan crushed Steaua Bucharest 4-0 in the 1989 European Cup final, cheered on by tens of thousands of travelling fans. Where?",
     answer: "Camp Nou, Barcelona",
     lat: 41.3809, lng: 2.1228, year: 1989,
@@ -1353,7 +1354,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0113", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Predrag Mijatović's goal ended Real Madrid's 32-year wait for a European Cup in 1998. Where?",
     answer: "Amsterdam ArenA (now Johan Cruijff ArenA)",
     lat: 52.3143, lng: 4.9419, year: 1998,
@@ -1365,7 +1366,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final","first"],
+    id: "q0114", sport: "football", level: 3, tags: ["champions-league","final","first"],
     q: "The first all-Spanish Champions League final, Real Madrid vs Valencia, was played in 2000. Where?",
     answer: "Stade de France, Saint-Denis",
     lat: 48.9245, lng: 2.3602, year: 2000,
@@ -1377,7 +1378,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0115", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "Barcelona came from behind to beat Arsenal in the 2006 Champions League final. Where?",
     answer: "Stade de France, Saint-Denis",
     lat: 48.9245, lng: 2.3602, year: 2006,
@@ -1389,7 +1390,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final"],
+    id: "q0116", sport: "football", level: 3, tags: ["champions-league","final"],
     q: "AC Milan got revenge for their 2005 defeat by beating Liverpool in the 2007 Champions League final. Where?",
     answer: "Olympic Stadium (OAKA), Athens",
     lat: 38.0362, lng: 23.7876, year: 2007,
@@ -1401,7 +1402,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["champions-league","final","first"],
+    id: "q0117", sport: "football", level: 3, tags: ["champions-league","final","first"],
     q: "Real Madrid beat Juventus 4-1 in the 2017 Champions League final, the first played under a closed roof. Where?",
     answer: "Principality Stadium, Cardiff",
     lat: 51.4782, lng: -3.1826, year: 2017,
@@ -1413,7 +1414,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["uefa-cups","final","upset"],
+    id: "q0118", sport: "football", level: 3, tags: ["uefa-cups","final","upset"],
     q: "Alex Ferguson's Aberdeen beat Real Madrid in the 1983 Cup Winners' Cup final. Where?",
     answer: "Ullevi, Gothenburg",
     lat: 57.7058, lng: 11.9873, year: 1983,
@@ -1425,7 +1426,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["uefa-cups","final"],
+    id: "q0119", sport: "football", level: 3, tags: ["uefa-cups","final"],
     q: "Around 80,000 Celtic fans travelled to the 2003 UEFA Cup final, which they lost to José Mourinho's Porto. Where?",
     answer: "Estadio de La Cartuja, Seville",
     lat: 37.4166, lng: -6.0047, year: 2003,
@@ -1437,7 +1438,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["uefa-cups","final"],
+    id: "q0120", sport: "football", level: 3, tags: ["uefa-cups","final"],
     q: "Sevilla won their first European trophy in 2006, thrashing Middlesbrough 4-0 in the UEFA Cup final. Where?",
     answer: "Philips Stadion, Eindhoven",
     lat: 51.4417, lng: 5.4675, year: 2006,
@@ -1449,7 +1450,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["uefa-cups","final","record"],
+    id: "q0121", sport: "football", level: 3, tags: ["uefa-cups","final","record"],
     q: "Sevilla won a record seventh Europa League in 2023, beating José Mourinho's Roma on penalties. Where?",
     answer: "Puskás Aréna, Budapest",
     lat: 47.503, lng: 19.098, year: 2023,
@@ -1461,7 +1462,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["uefa-cups","final"],
+    id: "q0122", sport: "football", level: 3, tags: ["uefa-cups","final"],
     q: "Antoine Griezmann scored twice as Atlético Madrid beat Marseille in the 2018 Europa League final. Where?",
     answer: "Groupama Stadium, Décines (Lyon)",
     lat: 45.7653, lng: 4.9822, year: 2018,
@@ -1473,7 +1474,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["uefa-cups","final"],
+    id: "q0123", sport: "football", level: 3, tags: ["uefa-cups","final"],
     q: "Tottenham ended a 17-year wait for a trophy by beating Manchester United in the 2025 Europa League final. Where?",
     answer: "San Mamés, Bilbao",
     lat: 43.2641, lng: -2.9494, year: 2025,
@@ -1485,7 +1486,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["uefa-cups","final","first"],
+    id: "q0124", sport: "football", level: 3, tags: ["uefa-cups","final","first"],
     q: "José Mourinho's Roma won the first ever Conference League final in 2022, against Feyenoord. Where?",
     answer: "Air Albania Stadium, Tirana",
     lat: 41.3184, lng: 19.8241, year: 2022,
@@ -1497,7 +1498,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["birthplace"],
+    id: "q0125", sport: "football", level: 3, tags: ["birthplace"],
     q: "Erling Haaland was born in 2000 in which city, where his father was playing at the time?",
     answer: "Leeds",
     lat: 53.8008, lng: -1.5491, year: 2000,
@@ -1509,7 +1510,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["birthplace"],
+    id: "q0126", sport: "football", level: 3, tags: ["birthplace"],
     q: "Luka Modrić spent his childhood as a war refugee living in a hotel in which coastal city?",
     answer: "Zadar",
     lat: 44.1194, lng: 15.2314, year: 1985,
@@ -1521,7 +1522,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["birthplace"],
+    id: "q0127", sport: "football", level: 3, tags: ["birthplace"],
     q: "Eusébio, 'the Black Panther', was born in which city?",
     answer: "Maputo (then Lourenço Marques)",
     lat: -25.9692, lng: 32.5732, year: 1942,
@@ -1533,7 +1534,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["first","venue"],
+    id: "q0128", sport: "football", level: 3, tags: ["first","venue"],
     q: "The oldest stadium in the world still hosting professional football opened in 1855 as a cricket ground. Where?",
     answer: "Bramall Lane, Sheffield",
     lat: 53.3703, lng: -1.4709, year: 1855,
@@ -1545,7 +1546,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["venue","record"],
+    id: "q0129", sport: "football", level: 3, tags: ["venue","record"],
     q: "Which city has the stadium officially listed as the largest in the world, with room for over 100,000?",
     answer: "Rungrado 1st of May Stadium, Pyongyang",
     lat: 39.0496, lng: 125.7752, year: 1989,
@@ -1557,7 +1558,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["euros","upset"],
+    id: "q0130", sport: "football", level: 3, tags: ["euros","upset"],
     q: "Ray Houghton's header gave the Republic of Ireland a famous win over England at Euro 88. Where?",
     answer: "Neckarstadion, Stuttgart",
     lat: 48.7922, lng: 9.2321, year: 1988,
@@ -1569,7 +1570,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["birthplace"],
+    id: "q0131", sport: "football", level: 3, tags: ["birthplace"],
     q: "Roy Keane was born and grew up in which city?",
     answer: "Cork, Ireland",
     lat: 51.8985, lng: -8.4756, year: 1971,
@@ -1581,7 +1582,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["record"],
+    id: "q0132", sport: "football", level: 3, tags: ["record"],
     q: "Robert Lewandowski came off the bench to score five goals in nine minutes in 2015. Where?",
     answer: "Allianz Arena, Munich",
     lat: 48.2188, lng: 11.6247, year: 2015,
@@ -1593,7 +1594,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["euros","host"],
+    id: "q0133", sport: "football", level: 2, tags: ["euros","host"],
     q: "Which city hosted the opening match of Euro 2012?",
     answer: "National Stadium, Warsaw",
     lat: 52.2394, lng: 21.0458, year: 2012,
@@ -1605,7 +1606,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["world-cup","history"],
+    id: "q0134", sport: "football", level: 3, tags: ["world-cup","history"],
     q: "Poland lost to West Germany in the 1974 World Cup's 'Water Battle', played on a flooded pitch. Where?",
     answer: "Waldstadion, Frankfurt",
     lat: 50.0686, lng: 8.6455, year: 1974,
@@ -1617,7 +1618,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["upset"],
+    id: "q0135", sport: "football", level: 2, tags: ["upset"],
     q: "Norway's 2-1 win over England in 1981 inspired one of the most famous commentaries ever. Where?",
     answer: "Ullevaal Stadion, Oslo",
     lat: 59.9488, lng: 10.7343, year: 1981,
@@ -1629,7 +1630,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["derby"],
+    id: "q0136", sport: "football", level: 1, tags: ["derby"],
     q: "Sparta and Slavia have been bitter football rivals since 1896. In which city?",
     answer: "Prague",
     lat: 50.0997, lng: 14.416, year: 1896,
@@ -1641,7 +1642,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["history"],
+    id: "q0137", sport: "football", level: 3, tags: ["history"],
     q: "Zvonimir Boban's kick at a policeman during a 1990 match became a symbol of a nation's road to independence. Where?",
     answer: "Maksimir Stadium, Zagreb",
     lat: 45.8189, lng: 16.0182, year: 1990,
@@ -1653,7 +1654,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["birthplace"],
+    id: "q0138", sport: "football", level: 3, tags: ["birthplace"],
     q: "Gheorghe Hagi, 'the Maradona of the Carpathians', was born near which Black Sea port?",
     answer: "Constanța, Romania",
     lat: 44.1598, lng: 28.6348, year: 1965,
@@ -1665,7 +1666,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["birthplace"],
+    id: "q0139", sport: "football", level: 3, tags: ["birthplace"],
     q: "Hristo Stoichkov was born and grew up in which city?",
     answer: "Plovdiv, Bulgaria",
     lat: 42.1354, lng: 24.7453, year: 1966,
@@ -1677,7 +1678,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["derby"],
+    id: "q0140", sport: "football", level: 2, tags: ["derby"],
     q: "Olympiacos and Panathinaikos contest the 'Derby of the Eternal Enemies'. In which metropolitan area?",
     answer: "Athens and Piraeus",
     lat: 37.9466, lng: 23.6644, year: 1925,
@@ -1689,7 +1690,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["world-cup","record"],
+    id: "q0141", sport: "football", level: 3, tags: ["world-cup","record"],
     q: "Hakan Şükür scored after about 11 seconds in the 2002 World Cup third-place play-off. Where?",
     answer: "Daegu World Cup Stadium",
     lat: 35.8297, lng: 128.6853, year: 2002,
@@ -1701,7 +1702,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["derby"],
+    id: "q0142", sport: "football", level: 1, tags: ["derby"],
     q: "Benfica and Sporting CP are fierce rivals in which city?",
     answer: "Lisbon",
     lat: 38.7612, lng: -9.1608, year: 1907,
@@ -1713,7 +1714,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["venue"],
+    id: "q0143", sport: "football", level: 1, tags: ["venue"],
     q: "Which city is home to the Puskás Aréna?",
     answer: "Budapest",
     lat: 47.503, lng: 19.098, year: 2019,
@@ -1725,7 +1726,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["venue"],
+    id: "q0144", sport: "football", level: 1, tags: ["venue"],
     q: "Which city is home to the Estádio do Dragão?",
     answer: "Porto",
     lat: 41.1617, lng: -8.5839, year: 2003,
@@ -1737,7 +1738,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["venue"],
+    id: "q0145", sport: "football", level: 1, tags: ["venue"],
     q: "Which city is home to Juventus?",
     answer: "Turin",
     lat: 45.1096, lng: 7.6413, year: 2011,
@@ -1749,7 +1750,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["organisation"],
+    id: "q0146", sport: "football", level: 1, tags: ["organisation"],
     q: "In which city is the Ballon d'Or ceremony traditionally held?",
     answer: "Théâtre du Châtelet, Paris",
     lat: 48.8575, lng: 2.3469, year: 1956,
@@ -1761,7 +1762,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 1, tags: ["organisation"],
+    id: "q0147", sport: "football", level: 1, tags: ["organisation"],
     q: "The Champions League draw is traditionally held each August in which tiny state?",
     answer: "Monaco (Grimaldi Forum)",
     lat: 43.745, lng: 7.431, year: 1998,
@@ -1773,7 +1774,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["venue"],
+    id: "q0148", sport: "football", level: 2, tags: ["venue"],
     q: "Cristiano Ronaldo joined Al-Nassr in 2023. In which city do they play?",
     answer: "Riyadh",
     lat: 24.6669, lng: 46.6889, year: 2023,
@@ -1785,7 +1786,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 2, tags: ["champions-league","women","record"],
+    id: "q0149", sport: "football", level: 2, tags: ["champions-league","women","record"],
     q: "In 2022 a women's Champions League match drew a then world-record crowd of 91,553. Where?",
     answer: "Camp Nou, Barcelona",
     lat: 41.3809, lng: 2.1228, year: 2022,
@@ -1797,7 +1798,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["birthplace","women"],
+    id: "q0150", sport: "football", level: 3, tags: ["birthplace","women"],
     q: "Alexia Putellas grew up in which town?",
     answer: "Mollet del Vallès, Spain",
     lat: 41.5396, lng: 2.2134, year: 1994,
@@ -1809,7 +1810,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "football", level: 3, tags: ["world-cup","women","first"],
+    id: "q0151", sport: "football", level: 3, tags: ["world-cup","women","first"],
     q: "The USA beat Norway in the first ever Women's World Cup final, in 1991. Where?",
     answer: "Tianhe Stadium, Guangzhou",
     lat: 23.1376, lng: 113.3259, year: 1991,
@@ -1823,7 +1824,7 @@ window.QUESTIONS = [
 
   // ───────────── Tennis ─────────────
   {
-    sport: "tennis", level: 1, tags: ["grand-slam","record"],
+    id: "q0152", sport: "tennis", level: 1, tags: ["grand-slam","record"],
     q: "John Isner and Nicolas Mahut played the longest tennis match ever (11 hours, 5 minutes) in 2010. Where?",
     answer: "All England Club, Wimbledon",
     lat: 51.434, lng: -0.2143, year: 2010,
@@ -1835,7 +1836,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 1, tags: ["grand-slam","record"],
+    id: "q0153", sport: "tennis", level: 1, tags: ["grand-slam","record"],
     q: "Rafael Nadal won a record 14 titles at this Grand Slam venue. Where is it?",
     answer: "Stade Roland-Garros, Paris",
     lat: 48.847, lng: 2.2494, year: 2022,
@@ -1847,7 +1848,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["history"],
+    id: "q0154", sport: "tennis", level: 2, tags: ["history"],
     q: "Roger Federer played his final professional match, a doubles with Rafael Nadal, at the 2022 Laver Cup. Where?",
     answer: "The O2 Arena, London",
     lat: 51.503, lng: 0.0032, year: 2022,
@@ -1859,7 +1860,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["birthplace"],
+    id: "q0155", sport: "tennis", level: 2, tags: ["birthplace"],
     q: "Rafael Nadal was born, still lives and has his tennis academy in which town?",
     answer: "Manacor, Mallorca",
     lat: 39.5696, lng: 3.2096, year: 2016,
@@ -1871,7 +1872,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 1, tags: ["grand-slam","final"],
+    id: "q0156", sport: "tennis", level: 1, tags: ["grand-slam","final"],
     q: "Björn Borg and John McEnroe played their legendary 18-16 tie-break in the 1980 final. Where?",
     answer: "All England Club, Wimbledon",
     lat: 51.434, lng: -0.2143, year: 1980,
@@ -1883,7 +1884,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 1, tags: ["grand-slam","venue"],
+    id: "q0157", sport: "tennis", level: 1, tags: ["grand-slam","venue"],
     q: "Which Grand Slam tournament is the only one still played on grass?",
     answer: "All England Club, Wimbledon",
     lat: 51.434, lng: -0.2143, year: 1877,
@@ -1895,7 +1896,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["grand-slam","record"],
+    id: "q0158", sport: "tennis", level: 2, tags: ["grand-slam","record"],
     q: "Novak Djokovic won one Grand Slam tournament a record 10 times. Where is it played?",
     answer: "Melbourne Park, Melbourne",
     lat: -37.8216, lng: 144.9785, year: 2023,
@@ -1907,7 +1908,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["grand-slam","final","record"],
+    id: "q0159", sport: "tennis", level: 2, tags: ["grand-slam","final","record"],
     q: "Carlos Alcaraz won his first Grand Slam in 2022 and became the youngest world No. 1 in history. Where?",
     answer: "USTA Billie Jean King National Tennis Center, New York",
     lat: 40.7498, lng: -73.8458, year: 2022,
@@ -1919,7 +1920,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["olympics"],
+    id: "q0160", sport: "tennis", level: 2, tags: ["olympics"],
     q: "Rafael Nadal won Olympic singles gold in 2008. Where?",
     answer: "Olympic Green Tennis Centre, Beijing",
     lat: 39.9996, lng: 116.383, year: 2008,
@@ -1931,7 +1932,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["venue"],
+    id: "q0161", sport: "tennis", level: 3, tags: ["venue"],
     q: "Since 2021, the ATP Finals have been held in which city?",
     answer: "Inalpi Arena, Turin",
     lat: 45.0417, lng: 7.65, year: 2021,
@@ -1943,7 +1944,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["venue"],
+    id: "q0162", sport: "tennis", level: 3, tags: ["venue"],
     q: "A clay court surrounded by marble statues, named after Nicola Pietrangeli, is part of which tournament venue?",
     answer: "Foro Italico, Rome",
     lat: 41.93, lng: 12.457, year: 1930,
@@ -1955,7 +1956,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["birthplace"],
+    id: "q0163", sport: "tennis", level: 2, tags: ["birthplace"],
     q: "Roger Federer was born and grew up in which city?",
     answer: "Basel, Switzerland",
     lat: 47.5596, lng: 7.5886, year: 1981,
@@ -1967,7 +1968,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["olympics","record"],
+    id: "q0164", sport: "tennis", level: 2, tags: ["olympics","record"],
     q: "Steffi Graf completed her 'Golden Slam' in 1988, adding Olympic gold to all four majors. Where?",
     answer: "Olympic Park, Seoul",
     lat: 37.5205, lng: 127.1215, year: 1988,
@@ -1979,7 +1980,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["olympics"],
+    id: "q0165", sport: "tennis", level: 2, tags: ["olympics"],
     q: "Novak Djokovic finally won Olympic gold in 2024, beating Carlos Alcaraz. Where was the tennis played?",
     answer: "Stade Roland-Garros, Paris",
     lat: 48.847, lng: 2.2494, year: 2024,
@@ -1991,7 +1992,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["women","history"],
+    id: "q0166", sport: "tennis", level: 3, tags: ["women","history"],
     q: "Billie Jean King beat Bobby Riggs in the 1973 'Battle of the Sexes' in front of 30,000 fans. Where?",
     answer: "Astrodome, Houston",
     lat: 29.6847, lng: -95.4107, year: 1973,
@@ -2003,7 +2004,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 1, tags: ["grand-slam","venue"],
+    id: "q0167", sport: "tennis", level: 1, tags: ["grand-slam","venue"],
     q: "Which Grand Slam tournament is played on red clay every spring?",
     answer: "Stade Roland-Garros, Paris",
     lat: 48.847, lng: 2.2494, year: 1928,
@@ -2015,7 +2016,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 1, tags: ["grand-slam","venue"],
+    id: "q0168", sport: "tennis", level: 1, tags: ["grand-slam","venue"],
     q: "Which Grand Slam is played in the world's largest tennis stadium, with room for about 23,000 fans?",
     answer: "Arthur Ashe Stadium, New York",
     lat: 40.7498, lng: -73.8458, year: 1997,
@@ -2027,7 +2028,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["grand-slam","women","record"],
+    id: "q0169", sport: "tennis", level: 2, tags: ["grand-slam","women","record"],
     q: "Serena Williams won her 23rd and last Grand Slam singles title in 2017 while pregnant. Where?",
     answer: "Melbourne Park, Melbourne",
     lat: -37.8216, lng: 144.9785, year: 2017,
@@ -2039,7 +2040,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["grand-slam","women","final","upset"],
+    id: "q0170", sport: "tennis", level: 2, tags: ["grand-slam","women","final","upset"],
     q: "Arantxa Sánchez Vicario won her first Grand Slam in 1989, stunning Steffi Graf in the final. Where?",
     answer: "Stade Roland-Garros, Paris",
     lat: 48.847, lng: 2.2494, year: 1989,
@@ -2051,7 +2052,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["grand-slam","women","record"],
+    id: "q0171", sport: "tennis", level: 2, tags: ["grand-slam","women","record"],
     q: "Martina Navratilova won a record nine singles titles at which tournament?",
     answer: "All England Club, Wimbledon",
     lat: 51.434, lng: -0.2143, year: 1990,
@@ -2063,7 +2064,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["birthplace","women"],
+    id: "q0172", sport: "tennis", level: 2, tags: ["birthplace","women"],
     q: "Iga Świątek, four-time Roland-Garros champion, was born and raised in which capital?",
     answer: "Warsaw",
     lat: 52.2297, lng: 21.0122, year: 2001,
@@ -2075,7 +2076,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["birthplace"],
+    id: "q0173", sport: "tennis", level: 2, tags: ["birthplace"],
     q: "Novak Djokovic was born and grew up in which city?",
     answer: "Belgrade",
     lat: 44.8125, lng: 20.4612, year: 1987,
@@ -2087,7 +2088,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["birthplace","women"],
+    id: "q0174", sport: "tennis", level: 3, tags: ["birthplace","women"],
     q: "Steffi Graf grew up in which small town, where her father ran a tennis school?",
     answer: "Brühl, Germany",
     lat: 49.4, lng: 8.5333, year: 1969,
@@ -2099,7 +2100,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["final","history"],
+    id: "q0175", sport: "tennis", level: 2, tags: ["final","history"],
     q: "Spain won the 2004 Davis Cup on a clay court built inside a football stadium, with an 18-year-old Rafael Nadal beating Andy Roddick. Where?",
     answer: "Estadio de La Cartuja, Seville",
     lat: 37.4166, lng: -6.0047, year: 2004,
@@ -2111,7 +2112,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["birthplace"],
+    id: "q0176", sport: "tennis", level: 3, tags: ["birthplace"],
     q: "Björn Borg grew up in which town, where he also played ice hockey as a boy?",
     answer: "Södertälje, Sweden",
     lat: 59.1955, lng: 17.6253, year: 1956,
@@ -2123,7 +2124,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["first"],
+    id: "q0177", sport: "tennis", level: 3, tags: ["first"],
     q: "The Laver Cup, Europe vs the Rest of the World, was first played in 2017. Where?",
     answer: "O2 Arena, Prague",
     lat: 50.1047, lng: 14.4932, year: 2017,
@@ -2135,7 +2136,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["final","history"],
+    id: "q0178", sport: "tennis", level: 2, tags: ["final","history"],
     q: "Spain won its first Davis Cup in 2000, with Juan Carlos Ferrero clinching it against Australia. Where?",
     answer: "Palau Sant Jordi, Barcelona",
     lat: 41.3634, lng: 2.1525, year: 2000,
@@ -2147,7 +2148,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["birthplace","women"],
+    id: "q0179", sport: "tennis", level: 3, tags: ["birthplace","women"],
     q: "Martina Hingis was born in which city, before moving to Switzerland as a child?",
     answer: "Košice, Slovakia",
     lat: 48.7164, lng: 21.2611, year: 1980,
@@ -2159,7 +2160,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["birthplace","women"],
+    id: "q0180", sport: "tennis", level: 3, tags: ["birthplace","women"],
     q: "Caroline Wozniacki, a former world No. 1, was born in which city?",
     answer: "Odense, Denmark",
     lat: 55.4038, lng: 10.4024, year: 1990,
@@ -2171,7 +2172,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["birthplace","women"],
+    id: "q0181", sport: "tennis", level: 3, tags: ["birthplace","women"],
     q: "Justine Henin, owner of one of the best one-handed backhands ever, was born in which city?",
     answer: "Liège, Belgium",
     lat: 50.6326, lng: 5.5797, year: 1982,
@@ -2183,7 +2184,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["birthplace"],
+    id: "q0182", sport: "tennis", level: 3, tags: ["birthplace"],
     q: "Andy Murray grew up in which small town?",
     answer: "Dunblane, Scotland",
     lat: 56.1867, lng: -3.965, year: 1987,
@@ -2195,7 +2196,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 2, tags: ["final","venue"],
+    id: "q0183", sport: "tennis", level: 2, tags: ["final","venue"],
     q: "The Davis Cup Finals were held in 2023 and 2024 in a coastal city known as Picasso's birthplace. Which one?",
     answer: "Palacio de los Deportes Martín Carpena, Málaga",
     lat: 36.7125, lng: -4.4314, year: 2023,
@@ -2207,7 +2208,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "tennis", level: 3, tags: ["olympics","women","first"],
+    id: "q0184", sport: "tennis", level: 3, tags: ["olympics","women","first"],
     q: "Charlotte Cooper became the first woman to win an Olympic title, at tennis, in 1900. Where?",
     answer: "Île de Puteaux, Paris",
     lat: 48.878, lng: 2.242, year: 1900,
@@ -2221,7 +2222,7 @@ window.QUESTIONS = [
 
   // ───────────── Cycling ─────────────
   {
-    sport: "cycling", level: 2, tags: ["tour-de-france","first"],
+    id: "q0185", sport: "cycling", level: 2, tags: ["tour-de-france","first"],
     q: "Because of the Paris Olympics, the 2024 Tour de France finished outside Paris for the first time. Where?",
     answer: "Nice",
     lat: 43.695, lng: 7.265, year: 2024,
@@ -2233,7 +2234,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 2, tags: ["tour-de-france","venue"],
+    id: "q0186", sport: "cycling", level: 2, tags: ["tour-de-france","venue"],
     q: "Which legendary Tour de France climb is famous for its 21 numbered hairpin bends?",
     answer: "Alpe d'Huez",
     lat: 45.092, lng: 6.07, year: 1952,
@@ -2245,7 +2246,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 2, tags: ["tour-de-france","host"],
+    id: "q0187", sport: "cycling", level: 2, tags: ["tour-de-france","host"],
     q: "The 2022 Tour de France had its Grand Départ in the most northern city ever to host the start. Which one?",
     answer: "Copenhagen",
     lat: 55.6761, lng: 12.5683, year: 2022,
@@ -2257,7 +2258,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 3, tags: ["tour-de-france","history"],
+    id: "q0188", sport: "cycling", level: 3, tags: ["tour-de-france","history"],
     q: "Chris Froome ran up a mountain without his bike after crashing into a motorbike during the 2016 Tour. Which mountain?",
     answer: "Mont Ventoux",
     lat: 44.174, lng: 5.2789, year: 2016,
@@ -2269,7 +2270,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 3, tags: ["tour-de-france","record","venue"],
+    id: "q0189", sport: "cycling", level: 3, tags: ["tour-de-france","record","venue"],
     q: "Which mountain pass has been climbed more often than any other in Tour de France history? It first featured in 1910.",
     answer: "Col du Tourmalet",
     lat: 42.9081, lng: 0.1453, year: 1910,
@@ -2281,7 +2282,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 1, tags: ["tour-de-france","venue"],
+    id: "q0190", sport: "cycling", level: 1, tags: ["tour-de-france","venue"],
     q: "On which famous avenue does the Tour de France traditionally finish?",
     answer: "Champs-Élysées, Paris",
     lat: 48.8698, lng: 2.3078, year: 1975,
@@ -2293,7 +2294,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 3, tags: ["tour-de-france","host"],
+    id: "q0191", sport: "cycling", level: 3, tags: ["tour-de-france","host"],
     q: "Jasper Philipsen won the opening stage of the 2025 Tour de France, which started and finished in the same city. Where?",
     answer: "Lille",
     lat: 50.6292, lng: 3.0573, year: 2025,
@@ -2305,7 +2306,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 3, tags: ["record"],
+    id: "q0192", sport: "cycling", level: 3, tags: ["record"],
     q: "Eddy Merckx set the hour record in 1972, riding at altitude. Where?",
     answer: "Agustín Melgar Velodrome, Mexico City",
     lat: 19.4044, lng: -99.0886, year: 1972,
@@ -2317,7 +2318,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 1, tags: ["tour-de-france","host"],
+    id: "q0193", sport: "cycling", level: 1, tags: ["tour-de-france","host"],
     q: "The 2023 Tour de France started in a city famous for its titanium-clad art museum. Which one?",
     answer: "Bilbao",
     lat: 43.263, lng: -2.935, year: 2023,
@@ -2329,7 +2330,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 1, tags: ["tour-de-france","host","first"],
+    id: "q0194", sport: "cycling", level: 1, tags: ["tour-de-france","host","first"],
     q: "In 2024 the Tour de France started in Italy for the first time, in the city of the Renaissance. Which one?",
     answer: "Florence",
     lat: 43.7696, lng: 11.2558, year: 2024,
@@ -2341,7 +2342,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 2, tags: ["tour-de-france","host"],
+    id: "q0195", sport: "cycling", level: 2, tags: ["tour-de-france","host"],
     q: "The 2026 Tour de France began with a team time trial in a city outside France. Which one?",
     answer: "Barcelona",
     lat: 41.3851, lng: 2.1734, year: 2026,
@@ -2353,7 +2354,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 2, tags: ["tour-de-france","host"],
+    id: "q0196", sport: "cycling", level: 2, tags: ["tour-de-france","host"],
     q: "The 2019 Tour de France started in the capital where Eddy Merckx grew up, 50 years after his first Tour win. Where?",
     answer: "Brussels",
     lat: 50.8466, lng: 4.3528, year: 2019,
@@ -2365,7 +2366,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 2, tags: ["birthplace"],
+    id: "q0197", sport: "cycling", level: 2, tags: ["birthplace"],
     q: "Five-time Tour winner Miguel Induráin comes from a town on the edge of which city, famous for its bull run?",
     answer: "Villava (Pamplona)",
     lat: 42.8333, lng: -1.6167, year: 1964,
@@ -2377,7 +2378,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 3, tags: ["tour-de-france","first"],
+    id: "q0198", sport: "cycling", level: 3, tags: ["tour-de-france","first"],
     q: "Where did the very first Tour de France start, in 1903?",
     answer: "Montgeron, south of Paris",
     lat: 48.705, lng: 2.46, year: 1903,
@@ -2389,7 +2390,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 3, tags: ["venue"],
+    id: "q0199", sport: "cycling", level: 3, tags: ["venue"],
     q: "Which steep cobbled 'wall', with a chapel at the top, is one of the most famous climbs of the spring classics?",
     answer: "Muur van Geraardsbergen (Kapelmuur)",
     lat: 50.7693, lng: 3.8676, year: 1950,
@@ -2401,7 +2402,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 3, tags: ["history"],
+    id: "q0200", sport: "cycling", level: 3, tags: ["history"],
     q: "Before winning the Tour de France, Jonas Vingegaard worked at a fish factory in which port town?",
     answer: "Hanstholm, Denmark",
     lat: 57.1167, lng: 8.6167, year: 2022,
@@ -2413,7 +2414,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 3, tags: ["birthplace"],
+    id: "q0201", sport: "cycling", level: 3, tags: ["birthplace"],
     q: "Peter Sagan, three-time road race world champion, grew up in which city?",
     answer: "Žilina, Slovakia",
     lat: 49.2231, lng: 18.7394, year: 1990,
@@ -2425,7 +2426,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 3, tags: ["birthplace"],
+    id: "q0202", sport: "cycling", level: 3, tags: ["birthplace"],
     q: "Tadej Pogačar grew up in a village just north of which capital?",
     answer: "Komenda, near Ljubljana",
     lat: 46.2036, lng: 14.5381, year: 1998,
@@ -2437,7 +2438,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 1, tags: ["venue"],
+    id: "q0203", sport: "cycling", level: 1, tags: ["venue"],
     q: "In which city does the Vuelta traditionally finish?",
     answer: "Madrid",
     lat: 40.4193, lng: -3.6932, year: 1935,
@@ -2449,7 +2450,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cycling", level: 3, tags: ["venue"],
+    id: "q0204", sport: "cycling", level: 3, tags: ["venue"],
     q: "The Giro d'Italia has finished inside a Roman amphitheatre. In which city?",
     answer: "Verona",
     lat: 45.439, lng: 10.9944, year: 2019,
@@ -2463,7 +2464,7 @@ window.QUESTIONS = [
 
   // ───────────── Motorsport ─────────────
   {
-    sport: "motorsport", level: 1, tags: ["f1","venue"],
+    id: "q0205", sport: "motorsport", level: 1, tags: ["f1","venue"],
     q: "Which Formula 1 street circuit runs through a tunnel and around a famous harbour?",
     answer: "Circuit de Monaco, Monte Carlo",
     lat: 43.7347, lng: 7.4206, year: 1929,
@@ -2475,7 +2476,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["f1","venue"],
+    id: "q0206", sport: "motorsport", level: 2, tags: ["f1","venue"],
     q: "Eau Rouge and Raidillon form one of the most famous corners in motorsport. On which circuit?",
     answer: "Spa-Francorchamps, Belgium",
     lat: 50.4372, lng: 5.9714, year: 1925,
@@ -2487,7 +2488,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 1, tags: ["f1","venue"],
+    id: "q0207", sport: "motorsport", level: 1, tags: ["f1","venue"],
     q: "The 'Temple of Speed', where the Tifosi invade the track after every Grand Prix, is where?",
     answer: "Autodromo Nazionale Monza",
     lat: 45.6156, lng: 9.2811, year: 1922,
@@ -2499,7 +2500,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["f1","first"],
+    id: "q0208", sport: "motorsport", level: 2, tags: ["f1","first"],
     q: "The very first Formula 1 World Championship race was held in 1950 on a former RAF airfield. Where?",
     answer: "Silverstone, England",
     lat: 52.0786, lng: -1.0169, year: 1950,
@@ -2511,7 +2512,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["f1","history"],
+    id: "q0209", sport: "motorsport", level: 2, tags: ["f1","history"],
     q: "Niki Lauda was nearly killed in a fiery crash in 1976 — and was racing again six weeks later. Where?",
     answer: "Nürburgring Nordschleife",
     lat: 50.3356, lng: 6.9475, year: 1976,
@@ -2523,7 +2524,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 1, tags: ["venue"],
+    id: "q0210", sport: "motorsport", level: 1, tags: ["venue"],
     q: "Where is the world's most famous 24-hour endurance race held?",
     answer: "Circuit de la Sarthe, Le Mans",
     lat: 47.956, lng: 0.2077, year: 1923,
@@ -2535,7 +2536,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["motogp","venue"],
+    id: "q0211", sport: "motorsport", level: 2, tags: ["motogp","venue"],
     q: "The TT, the world's oldest and most dangerous motorcycle road race, is held on which island? (Click the start line.)",
     answer: "Snaefell Mountain Course, Douglas, Isle of Man",
     lat: 54.167, lng: -4.482, year: 1907,
@@ -2547,7 +2548,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["f1","venue"],
+    id: "q0212", sport: "motorsport", level: 2, tags: ["f1","venue"],
     q: "F1 returned in 2021, after 36 years away, to a circuit among the sand dunes. Where?",
     answer: "Circuit Zandvoort, Netherlands",
     lat: 52.3888, lng: 4.5409, year: 2021,
@@ -2559,7 +2560,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["f1","first"],
+    id: "q0213", sport: "motorsport", level: 2, tags: ["f1","first"],
     q: "In 1986 F1 held its first Grand Prix behind the Iron Curtain. Where?",
     answer: "Hungaroring, near Budapest",
     lat: 47.5789, lng: 19.2486, year: 1986,
@@ -2571,7 +2572,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["motogp","venue"],
+    id: "q0214", sport: "motorsport", level: 3, tags: ["motogp","venue"],
     q: "MotoGP's 'Cathedral of Speed' has hosted motorcycle Grands Prix every year since 1949. Where is it?",
     answer: "TT Circuit Assen, Netherlands",
     lat: 52.9614, lng: 6.5236, year: 1949,
@@ -2583,7 +2584,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["motogp","record"],
+    id: "q0215", sport: "motorsport", level: 3, tags: ["motogp","record"],
     q: "Valentino Rossi won seven consecutive MotoGP races here, from 2002 to 2008. Which circuit?",
     answer: "Mugello Circuit, Scarperia",
     lat: 43.9975, lng: 11.3719, year: 2002,
@@ -2595,7 +2596,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["f1","venue"],
+    id: "q0216", sport: "motorsport", level: 3, tags: ["f1","venue"],
     q: "Which F1 circuit is famous for 'Turn 8', a fast left-hander with four apexes?",
     answer: "Istanbul Park",
     lat: 40.9517, lng: 29.405, year: 2020,
@@ -2607,7 +2608,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["f1","first"],
+    id: "q0217", sport: "motorsport", level: 3, tags: ["f1","first"],
     q: "Lewis Hamilton won his first F1 race in 2007, on a circuit built on an island. Where?",
     answer: "Circuit Gilles Villeneuve, Montreal",
     lat: 45.5, lng: -73.5228, year: 2007,
@@ -2619,7 +2620,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["f1","record"],
+    id: "q0218", sport: "motorsport", level: 3, tags: ["f1","record"],
     q: "Fernando Alonso became F1's youngest ever champion (at the time) in 2005. Where did he clinch the title?",
     answer: "Interlagos, São Paulo",
     lat: -23.7036, lng: -46.6997, year: 2005,
@@ -2631,7 +2632,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["f1"],
+    id: "q0219", sport: "motorsport", level: 3, tags: ["f1"],
     q: "In 2000 Michael Schumacher won Ferrari's first drivers' title in 21 years. Where did he clinch it?",
     answer: "Suzuka Circuit",
     lat: 34.8431, lng: 136.541, year: 2000,
@@ -2643,7 +2644,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["f1","record"],
+    id: "q0220", sport: "motorsport", level: 2, tags: ["f1","record"],
     q: "Max Verstappen won on his Red Bull debut in 2016, aged 18, becoming F1's youngest ever winner. Where?",
     answer: "Circuit de Barcelona-Catalunya, Montmeló",
     lat: 41.57, lng: 2.2611, year: 2016,
@@ -2655,7 +2656,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["f1","organisation"],
+    id: "q0221", sport: "motorsport", level: 2, tags: ["f1","organisation"],
     q: "Where are Ferrari's headquarters and private test track?",
     answer: "Maranello (Fiorano circuit)",
     lat: 44.5333, lng: 10.8569, year: 1947,
@@ -2667,7 +2668,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["motogp","venue"],
+    id: "q0222", sport: "motorsport", level: 3, tags: ["motogp","venue"],
     q: "Which circuit, with grandstands wrapped around the track like a stadium, has traditionally hosted MotoGP's season finale?",
     answer: "Circuit Ricardo Tormo, Cheste (Valencia)",
     lat: 39.489, lng: -0.629, year: 1999,
@@ -2679,7 +2680,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["f1","first"],
+    id: "q0223", sport: "motorsport", level: 2, tags: ["f1","first"],
     q: "Where was F1's first ever night race held, in 2008?",
     answer: "Marina Bay Street Circuit, Singapore",
     lat: 1.2914, lng: 103.864, year: 2008,
@@ -2691,7 +2692,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 1, tags: ["f1","record"],
+    id: "q0224", sport: "motorsport", level: 1, tags: ["f1","record"],
     q: "Lewis Hamilton won his home Grand Prix a record nine times. Where is it held?",
     answer: "Silverstone",
     lat: 52.0786, lng: -1.0169, year: 2024,
@@ -2703,7 +2704,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["birthplace"],
+    id: "q0225", sport: "motorsport", level: 2, tags: ["birthplace"],
     q: "Fernando Alonso was born and grew up in which city?",
     answer: "Oviedo",
     lat: 43.3614, lng: -5.8494, year: 1981,
@@ -2715,7 +2716,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 2, tags: ["f1"],
+    id: "q0226", sport: "motorsport", level: 2, tags: ["f1"],
     q: "Ayrton Senna won his home Grand Prix for the first time in 1991, stuck in sixth gear and barely able to lift the trophy. Where?",
     answer: "Interlagos, São Paulo",
     lat: -23.7036, lng: -46.6997, year: 1991,
@@ -2727,7 +2728,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["f1","first"],
+    id: "q0227", sport: "motorsport", level: 3, tags: ["f1","first"],
     q: "Fernando Alonso won his first F1 race in 2003, becoming the youngest winner at the time. Where?",
     answer: "Hungaroring, near Budapest",
     lat: 47.5789, lng: 19.2486, year: 2003,
@@ -2739,7 +2740,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["f1","first"],
+    id: "q0228", sport: "motorsport", level: 3, tags: ["f1","first"],
     q: "Carlos Sainz won his first Formula 1 race in 2022. Where?",
     answer: "Silverstone",
     lat: 52.0786, lng: -1.0169, year: 2022,
@@ -2751,7 +2752,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["motogp","venue"],
+    id: "q0229", sport: "motorsport", level: 3, tags: ["motogp","venue"],
     q: "Where is the famous 'Corkscrew', a blind, plunging chicane that drops about five storeys?",
     answer: "Laguna Seca, California",
     lat: 36.5847, lng: -121.7536, year: 1957,
@@ -2763,7 +2764,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["first","venue"],
+    id: "q0230", sport: "motorsport", level: 3, tags: ["first","venue"],
     q: "Where was the world's first purpose-built motor racing circuit, opened in 1907 with steep banked corners?",
     answer: "Brooklands, Weybridge",
     lat: 51.3517, lng: -0.4734, year: 1907,
@@ -2775,7 +2776,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["birthplace","f1"],
+    id: "q0231", sport: "motorsport", level: 3, tags: ["birthplace","f1"],
     q: "Kimi Räikkönen, the 2007 Formula 1 champion, was born in which city?",
     answer: "Espoo, Finland",
     lat: 60.2055, lng: 24.6559, year: 1979,
@@ -2787,7 +2788,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["venue"],
+    id: "q0232", sport: "motorsport", level: 3, tags: ["venue"],
     q: "Which city hosts the rally known as the 'Grand Prix on gravel', famous for cars flying over huge jumps?",
     answer: "Jyväskylä, Finland",
     lat: 62.2426, lng: 25.7473, year: 1951,
@@ -2799,7 +2800,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["birthplace","motogp"],
+    id: "q0233", sport: "motorsport", level: 3, tags: ["birthplace","motogp"],
     q: "Valentino Rossi grew up in a small hill town where the number 46 is painted everywhere. Which one?",
     answer: "Tavullia, Italy",
     lat: 43.896, lng: 12.752, year: 1979,
@@ -2811,7 +2812,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "motorsport", level: 3, tags: ["birthplace","motogp"],
+    id: "q0234", sport: "motorsport", level: 3, tags: ["birthplace","motogp"],
     q: "Marc Márquez was born and grew up in which town?",
     answer: "Cervera, Spain",
     lat: 41.6704, lng: 1.2717, year: 1993,
@@ -2825,7 +2826,7 @@ window.QUESTIONS = [
 
   // ───────────── Athletics & Olympics ─────────────
   {
-    sport: "athletics", level: 2, tags: ["record","first"],
+    id: "q0235", sport: "athletics", level: 2, tags: ["record","first"],
     q: "Roger Bannister ran the first sub-four-minute mile in 1954. Where?",
     answer: "Iffley Road track, Oxford",
     lat: 51.7488, lng: -1.2367, year: 1954,
@@ -2837,7 +2838,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 2, tags: ["record"],
+    id: "q0236", sport: "athletics", level: 2, tags: ["record"],
     q: "Usain Bolt set the 100 m world record of 9.58 seconds at the 2009 World Championships. Where?",
     answer: "Olympiastadion, Berlin",
     lat: 52.5147, lng: 13.2395, year: 2009,
@@ -2849,7 +2850,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 2, tags: ["record","first"],
+    id: "q0237", sport: "athletics", level: 2, tags: ["record","first"],
     q: "Eliud Kipchoge became the first person to run a marathon in under two hours in 2019. In which city?",
     answer: "Prater park, Vienna",
     lat: 48.2167, lng: 16.4167, year: 2019,
@@ -2861,7 +2862,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","first","host"],
+    id: "q0238", sport: "olympics", level: 1, tags: ["olympics","first","host"],
     q: "The first modern Olympic Games in 1896 were held in a stadium built entirely of marble. Where?",
     answer: "Panathenaic Stadium, Athens",
     lat: 37.9683, lng: 23.7411, year: 1896,
@@ -2873,7 +2874,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["olympics","first","venue"],
+    id: "q0239", sport: "olympics", level: 2, tags: ["olympics","first","venue"],
     q: "Where were the Ancient Olympic Games held, from 776 BC onwards?",
     answer: "Olympia, Greece",
     lat: 37.6383, lng: 21.63, year: -776,
@@ -2885,7 +2886,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics"],
+    id: "q0240", sport: "olympics", level: 1, tags: ["olympics"],
     q: "Abebe Bikila won the 1960 Olympic marathon running barefoot. Where was the finish line?",
     answer: "Arch of Constantine, Rome",
     lat: 41.8898, lng: 12.4906, year: 1960,
@@ -2897,7 +2898,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["olympics","record"],
+    id: "q0241", sport: "olympics", level: 2, tags: ["olympics","record"],
     q: "Emil Zátopek won the 5,000 m, 10,000 m and marathon at the same Olympics in 1952. Where?",
     answer: "Helsinki Olympic Stadium",
     lat: 60.187, lng: 24.927, year: 1952,
@@ -2909,7 +2910,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["olympics","first"],
+    id: "q0242", sport: "olympics", level: 2, tags: ["olympics","first"],
     q: "Romanian gymnast Nadia Comăneci scored the first perfect 10 in Olympic history in 1976. Where?",
     answer: "Montreal Forum, Canada",
     lat: 45.4899, lng: -73.5872, year: 1976,
@@ -2921,7 +2922,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 1, tags: ["olympics","record"],
+    id: "q0243", sport: "athletics", level: 1, tags: ["olympics","record"],
     q: "Jesse Owens won four gold medals at the 1936 Olympics. Where?",
     answer: "Olympiastadion, Berlin",
     lat: 52.5147, lng: 13.2395, year: 1936,
@@ -2933,7 +2934,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 2, tags: ["record"],
+    id: "q0244", sport: "athletics", level: 2, tags: ["record"],
     q: "Bob Beamon's 8.90 m long jump in 1968 smashed the world record by 55 cm. Where?",
     answer: "Estadio Olímpico Universitario, Mexico City",
     lat: 19.3317, lng: -99.1922, year: 1968,
@@ -2945,7 +2946,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 3, tags: ["record","first"],
+    id: "q0245", sport: "athletics", level: 3, tags: ["record","first"],
     q: "Mondo Duplantis set his first pole vault world record, 6.17 m, in 2020. Where?",
     answer: "Arena Toruń, Poland",
     lat: 53.0136, lng: 18.6276, year: 2020,
@@ -2957,7 +2958,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 2, tags: ["women","record"],
+    id: "q0246", sport: "athletics", level: 2, tags: ["women","record"],
     q: "Paula Radcliffe ran a marathon world record of 2:15:25 in 2003. In which city?",
     answer: "London (finish on The Mall)",
     lat: 51.5033, lng: -0.1347, year: 2003,
@@ -2969,7 +2970,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 2, tags: ["record"],
+    id: "q0247", sport: "athletics", level: 2, tags: ["record"],
     q: "Eliud Kipchoge set an official marathon world record of 2:01:09 in 2022. In which city?",
     answer: "Berlin (finish by the Brandenburg Gate)",
     lat: 52.5163, lng: 13.3777, year: 2022,
@@ -2981,7 +2982,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 2, tags: ["first","venue"],
+    id: "q0248", sport: "athletics", level: 2, tags: ["first","venue"],
     q: "The world's oldest annual marathon has been run every year since 1897. Where?",
     answer: "Boston (finish on Boylston Street)",
     lat: 42.3497, lng: -71.0786, year: 1897,
@@ -2993,7 +2994,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host"],
+    id: "q0249", sport: "olympics", level: 1, tags: ["olympics","host"],
     q: "Which city hosted the 1992 Summer Olympics, where an archer lit the cauldron with a flaming arrow?",
     answer: "Estadi Olímpic, Barcelona",
     lat: 41.3647, lng: 2.1557, year: 1992,
@@ -3005,7 +3006,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 3, tags: ["olympics","host"],
+    id: "q0250", sport: "olympics", level: 3, tags: ["olympics","host"],
     q: "At the 2024 Olympics, the surfing took place nearly 16,000 km from the host city. Where?",
     answer: "Teahupo'o, Tahiti",
     lat: -17.8494, lng: -149.267, year: 2024,
@@ -3017,7 +3018,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","record"],
+    id: "q0251", sport: "olympics", level: 1, tags: ["olympics","record"],
     q: "Michael Phelps won a record eight gold medals at a single Games in 2008. Where?",
     answer: "National Aquatics Center ('Water Cube'), Beijing",
     lat: 39.993, lng: 116.3842, year: 2008,
@@ -3029,7 +3030,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 3, tags: ["olympics","women"],
+    id: "q0252", sport: "olympics", level: 3, tags: ["olympics","women"],
     q: "Fanny Blankers-Koen, a 30-year-old mother of two, won four gold medals at the 1948 Olympics. Where?",
     answer: "Wembley Stadium, London",
     lat: 51.556, lng: -0.2796, year: 1948,
@@ -3041,7 +3042,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["olympics","host"],
+    id: "q0253", sport: "olympics", level: 2, tags: ["olympics","host"],
     q: "Which city hosted the 1980 Summer Olympics, boycotted by the United States?",
     answer: "Luzhniki Stadium, Moscow",
     lat: 55.7158, lng: 37.5539, year: 1980,
@@ -3053,7 +3054,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["olympics","organisation"],
+    id: "q0254", sport: "olympics", level: 2, tags: ["olympics","organisation"],
     q: "Where is the International Olympic Committee headquartered?",
     answer: "Olympic House, Lausanne",
     lat: 46.5189, lng: 6.5953, year: 1915,
@@ -3065,7 +3066,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host"],
+    id: "q0255", sport: "olympics", level: 1, tags: ["olympics","host"],
     q: "Which city hosted the 2004 Summer Olympics, as the Games returned to their birthplace?",
     answer: "Olympic Stadium (OAKA), Athens",
     lat: 38.0362, lng: 23.7876, year: 2004,
@@ -3077,7 +3078,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host","record"],
+    id: "q0256", sport: "olympics", level: 1, tags: ["olympics","host","record"],
     q: "Which city became the first to host the Summer Olympics three times, in 2012?",
     answer: "Olympic Stadium, Stratford (London)",
     lat: 51.5386, lng: -0.0166, year: 2012,
@@ -3089,7 +3090,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host"],
+    id: "q0257", sport: "olympics", level: 1, tags: ["olympics","host"],
     q: "Which city hosted the 2024 Summer Olympics, exactly 100 years after it last had?",
     answer: "Paris",
     lat: 48.8566, lng: 2.3522, year: 2024,
@@ -3101,7 +3102,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host"],
+    id: "q0258", sport: "olympics", level: 1, tags: ["olympics","host"],
     q: "Which city hosted the Summer Olympics that were postponed by a year and held without spectators in 2021?",
     answer: "Japan National Stadium, Tokyo",
     lat: 35.6778, lng: 139.7145, year: 2021,
@@ -3113,7 +3114,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host"],
+    id: "q0259", sport: "olympics", level: 1, tags: ["olympics","host"],
     q: "Which city will host the 2028 Summer Olympics, its third Games?",
     answer: "Los Angeles Memorial Coliseum",
     lat: 34.0141, lng: -118.2879, year: 2028,
@@ -3125,7 +3126,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host"],
+    id: "q0260", sport: "olympics", level: 1, tags: ["olympics","host"],
     q: "Which city hosted the 2000 Summer Olympics, where Cathy Freeman won the 400 m?",
     answer: "Stadium Australia, Sydney",
     lat: -33.8471, lng: 151.0634, year: 2000,
@@ -3137,7 +3138,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host"],
+    id: "q0261", sport: "olympics", level: 1, tags: ["olympics","host"],
     q: "Which city hosted the 2016 Summer Olympics, Usain Bolt's last?",
     answer: "Maracanã, Rio de Janeiro",
     lat: -22.9122, lng: -43.2302, year: 2016,
@@ -3149,7 +3150,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["olympics","host"],
+    id: "q0262", sport: "olympics", level: 2, tags: ["olympics","host"],
     q: "Which city hosted the 1996 Summer Olympics, where Muhammad Ali lit the cauldron?",
     answer: "Atlanta",
     lat: 33.749, lng: -84.388, year: 1996,
@@ -3161,7 +3162,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 3, tags: ["olympics","first"],
+    id: "q0263", sport: "olympics", level: 3, tags: ["olympics","first"],
     q: "The games that grew into the Paralympics began in 1948 at a hospital. Where?",
     answer: "Stoke Mandeville Hospital, Aylesbury",
     lat: 51.799, lng: -0.806, year: 1948,
@@ -3173,7 +3174,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 1, tags: ["olympics","record"],
+    id: "q0264", sport: "athletics", level: 1, tags: ["olympics","record"],
     q: "Usain Bolt won the 100 m in a world record 9.69 seconds in 2008, while slowing down to celebrate. Where?",
     answer: "Beijing National Stadium ('Bird's Nest')",
     lat: 39.9917, lng: 116.3906, year: 2008,
@@ -3185,7 +3186,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 1, tags: ["venue"],
+    id: "q0265", sport: "athletics", level: 1, tags: ["venue"],
     q: "The world's largest marathon starts on a bridge and passes through five boroughs. Which city?",
     answer: "New York (finish in Central Park)",
     lat: 40.7725, lng: -73.9753, year: 1970,
@@ -3197,7 +3198,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 2, tags: ["record"],
+    id: "q0266", sport: "athletics", level: 2, tags: ["record"],
     q: "Mondo Duplantis cleared a world record 6.30 m to win the 2025 World Championships. Where?",
     answer: "Japan National Stadium, Tokyo",
     lat: 35.6778, lng: 139.7145, year: 2025,
@@ -3209,7 +3210,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 3, tags: ["record"],
+    id: "q0267", sport: "athletics", level: 3, tags: ["record"],
     q: "Jonathan Edwards set a triple jump world record of 18.29 m at the 1995 World Championships. Where?",
     answer: "Ullevi, Gothenburg",
     lat: 57.7058, lng: 11.9873, year: 1995,
@@ -3221,7 +3222,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 3, tags: ["record","women"],
+    id: "q0268", sport: "athletics", level: 3, tags: ["record","women"],
     q: "Florence Griffith-Joyner ran a 100 m world record of 10.49 seconds at the 1988 US Olympic trials. Where?",
     answer: "Indianapolis",
     lat: 39.7735, lng: -86.172, year: 1988,
@@ -3233,7 +3234,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 3, tags: ["first"],
+    id: "q0269", sport: "athletics", level: 3, tags: ["first"],
     q: "The first ever World Athletics Championships were held in 1983. Where?",
     answer: "Helsinki Olympic Stadium",
     lat: 60.187, lng: 24.927, year: 1983,
@@ -3245,7 +3246,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 2, tags: ["organisation"],
+    id: "q0270", sport: "athletics", level: 2, tags: ["organisation"],
     q: "The headquarters of World Athletics are in a tiny state better known for a Grand Prix. Where?",
     answer: "Monaco",
     lat: 43.7347, lng: 7.4206, year: 1993,
@@ -3257,7 +3258,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host"],
+    id: "q0271", sport: "olympics", level: 1, tags: ["olympics","host"],
     q: "Which city hosted the 1988 Summer Olympics, where Ben Johnson was stripped of his 100 m gold?",
     answer: "Seoul",
     lat: 37.5157, lng: 127.0728, year: 1988,
@@ -3269,7 +3270,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host"],
+    id: "q0272", sport: "olympics", level: 1, tags: ["olympics","host"],
     q: "Which city hosted the 1972 Summer Olympics, where Mark Spitz won seven gold medals?",
     answer: "Olympiastadion, Munich",
     lat: 48.1731, lng: 11.5466, year: 1972,
@@ -3281,7 +3282,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","first","host"],
+    id: "q0273", sport: "olympics", level: 1, tags: ["olympics","first","host"],
     q: "Which city hosted the 1964 Summer Olympics, the first held in Asia?",
     answer: "Tokyo",
     lat: 35.6778, lng: 139.7145, year: 1964,
@@ -3293,7 +3294,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["olympics"],
+    id: "q0274", sport: "olympics", level: 2, tags: ["olympics"],
     q: "Jim Thorpe won both the pentathlon and the decathlon at the 1912 Olympics. Where?",
     answer: "Stockholm Olympic Stadium",
     lat: 59.3456, lng: 18.0786, year: 1912,
@@ -3305,7 +3306,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["olympics","first"],
+    id: "q0275", sport: "olympics", level: 2, tags: ["olympics","first"],
     q: "An Olympic flame burned in the stadium for the first time at the 1928 Games. Where?",
     answer: "Olympic Stadium, Amsterdam",
     lat: 52.3434, lng: 4.8547, year: 1928,
@@ -3317,7 +3318,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 3, tags: ["olympics","first"],
+    id: "q0276", sport: "olympics", level: 3, tags: ["olympics","first"],
     q: "The Olympic flag with its five rings flew for the first time at the 1920 Games. Where?",
     answer: "Olympisch Stadion, Antwerp",
     lat: 51.1859, lng: 4.4114, year: 1920,
@@ -3329,7 +3330,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["olympics","host"],
+    id: "q0277", sport: "olympics", level: 2, tags: ["olympics","host"],
     q: "Which city will host the 2032 Summer Olympics?",
     answer: "Brisbane",
     lat: -27.4858, lng: 153.0381, year: 2032,
@@ -3341,7 +3342,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["olympics","first","host"],
+    id: "q0278", sport: "olympics", level: 2, tags: ["olympics","first","host"],
     q: "The 1956 Summer Olympics were the first held in the Southern Hemisphere. Where?",
     answer: "Melbourne Cricket Ground",
     lat: -37.82, lng: 144.9834, year: 1956,
@@ -3353,7 +3354,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 3, tags: ["birthplace","record"],
+    id: "q0279", sport: "athletics", level: 3, tags: ["birthplace","record"],
     q: "Karsten Warholm, 400 m hurdles world record holder, grew up in which small coastal town?",
     answer: "Ulsteinvik, Norway",
     lat: 62.3433, lng: 5.8487, year: 1996,
@@ -3365,7 +3366,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 2, tags: ["venue","olympics"],
+    id: "q0280", sport: "olympics", level: 2, tags: ["venue","olympics"],
     q: "A statue of Paavo Nurmi, winner of nine Olympic golds, stands outside which stadium?",
     answer: "Helsinki Olympic Stadium",
     lat: 60.187, lng: 24.927, year: 1925,
@@ -3377,7 +3378,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 3, tags: ["first","venue"],
+    id: "q0281", sport: "athletics", level: 3, tags: ["first","venue"],
     q: "Europe's oldest marathon has been run every year since 1924. In which city?",
     answer: "Košice, Slovakia",
     lat: 48.7164, lng: 21.2611, year: 1924,
@@ -3389,7 +3390,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 3, tags: ["record","first"],
+    id: "q0282", sport: "athletics", level: 3, tags: ["record","first"],
     q: "Sergey Bubka became the first man to clear 6 metres in the pole vault in 1985. Where?",
     answer: "Stade Jean-Bouin, Paris",
     lat: 48.8432, lng: 2.253, year: 1985,
@@ -3401,7 +3402,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 3, tags: ["olympics","history"],
+    id: "q0283", sport: "olympics", level: 3, tags: ["olympics","history"],
     q: "Weeks after the Soviet invasion of their country, Hungary beat the USSR in the 1956 Olympic water polo 'Blood in the Water' match. Where?",
     answer: "Swimming Stadium, Melbourne",
     lat: -37.8226, lng: 144.981, year: 1956,
@@ -3413,7 +3414,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 2, tags: ["women","first","history"],
+    id: "q0284", sport: "athletics", level: 2, tags: ["women","first","history"],
     q: "Kathrine Switzer became the first woman to run a marathon with an official number in 1967, despite an official trying to push her off the course. Where?",
     answer: "Boston",
     lat: 42.3497, lng: -71.0786, year: 1967,
@@ -3425,7 +3426,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 2, tags: ["birthplace","women"],
+    id: "q0285", sport: "athletics", level: 2, tags: ["birthplace","women"],
     q: "Rosa Mota, the 1988 Olympic marathon champion, comes from which city?",
     answer: "Porto",
     lat: 41.1579, lng: -8.6291, year: 1958,
@@ -3437,7 +3438,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "olympics", level: 1, tags: ["olympics","host"],
+    id: "q0286", sport: "olympics", level: 1, tags: ["olympics","host"],
     q: "Which city hosted the 1960 Summer Olympics, where an 18-year-old Cassius Clay won boxing gold?",
     answer: "Rome",
     lat: 41.9339, lng: 12.4547, year: 1960,
@@ -3449,7 +3450,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "athletics", level: 3, tags: ["record"],
+    id: "q0287", sport: "athletics", level: 3, tags: ["record"],
     q: "Hicham El Guerrouj ran the mile in 3:43.13 in 1999. Where?",
     answer: "Stadio Olimpico, Rome",
     lat: 41.9339, lng: 12.4547, year: 1999,
@@ -3463,7 +3464,7 @@ window.QUESTIONS = [
 
   // ───────────── Winter sports ─────────────
   {
-    sport: "winter", level: 2, tags: ["venue"],
+    id: "q0288", sport: "winter", level: 2, tags: ["venue"],
     q: "The Streif, the most feared downhill in alpine skiing, hosts the Hahnenkamm race every January. Where?",
     answer: "Kitzbühel, Austria",
     lat: 47.4467, lng: 12.3917, year: 1937,
@@ -3475,7 +3476,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 1, tags: ["venue","first"],
+    id: "q0289", sport: "winter", level: 1, tags: ["venue","first"],
     q: "Which iconic ski jump has hosted competitions since 1892?",
     answer: "Holmenkollbakken, Oslo",
     lat: 59.9636, lng: 10.6672, year: 1892,
@@ -3487,7 +3488,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["venue"],
+    id: "q0290", sport: "winter", level: 3, tags: ["venue"],
     q: "The Four Hills Tournament begins every December in which village?",
     answer: "Oberstdorf, Germany",
     lat: 47.4097, lng: 10.2789, year: 1953,
@@ -3499,7 +3500,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["record","first","venue"],
+    id: "q0291", sport: "winter", level: 3, tags: ["record","first","venue"],
     q: "The first ski jump of over 100 metres was made here in 1936; today jumpers fly over 250 metres. Where?",
     answer: "Planica, Slovenia",
     lat: 46.4797, lng: 13.7231, year: 1934,
@@ -3511,7 +3512,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["venue","first"],
+    id: "q0292", sport: "winter", level: 3, tags: ["venue","first"],
     q: "The Vasaloppet, the world's oldest and biggest cross-country ski race, finishes in which town?",
     answer: "Mora, Sweden",
     lat: 61.007, lng: 14.543, year: 1922,
@@ -3523,7 +3524,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","first","host"],
+    id: "q0293", sport: "winter", level: 2, tags: ["winter-olympics","first","host"],
     q: "Where were the very first Winter Olympics held, in 1924?",
     answer: "Chamonix, France",
     lat: 45.9237, lng: 6.8694, year: 1924,
@@ -3535,7 +3536,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","record"],
+    id: "q0294", sport: "winter", level: 2, tags: ["winter-olympics","record"],
     q: "Torvill and Dean scored perfect 6.0s across the board with their 'Boléro' at the 1984 Winter Olympics. Where?",
     answer: "Zetra Olympic Hall, Sarajevo",
     lat: 43.8676, lng: 18.4115, year: 1984,
@@ -3547,7 +3548,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","host"],
+    id: "q0295", sport: "winter", level: 2, tags: ["winter-olympics","host"],
     q: "What many call the best Winter Olympics ever were held in 1994, in a small town of around 25,000 people. Which one?",
     answer: "Lillehammer, Norway",
     lat: 61.1153, lng: 10.4662, year: 1994,
@@ -3559,7 +3560,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["venue","first"],
+    id: "q0296", sport: "winter", level: 2, tags: ["venue","first"],
     q: "The Cresta Run, a head-first toboggan track built in 1884, is in which glamorous resort?",
     answer: "St. Moritz, Switzerland",
     lat: 46.4983, lng: 9.839, year: 1884,
@@ -3571,7 +3572,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["venue"],
+    id: "q0297", sport: "winter", level: 3, tags: ["venue"],
     q: "The Lauberhorn is the longest downhill on the World Cup circuit. In which village is it raced?",
     answer: "Wengen, Switzerland",
     lat: 46.605, lng: 7.921, year: 1930,
@@ -3583,7 +3584,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["venue","record"],
+    id: "q0298", sport: "winter", level: 3, tags: ["venue","record"],
     q: "Speed skating's most famous oval, where dozens of world records have been set, is where?",
     answer: "Thialf, Heerenveen",
     lat: 52.95, lng: 5.935, year: 1967,
@@ -3595,7 +3596,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["venue"],
+    id: "q0299", sport: "winter", level: 3, tags: ["venue"],
     q: "The legendary 200 km Elfstedentocht skating race on frozen canals starts and ends in which city?",
     answer: "Leeuwarden, Netherlands",
     lat: 53.2012, lng: 5.7999, year: 1909,
@@ -3607,7 +3608,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["final","first"],
+    id: "q0300", sport: "winter", level: 2, tags: ["final","first"],
     q: "Finland won their first ever Ice Hockey World Championship in 1995, beating rivals Sweden in the final. Where?",
     answer: "Globen, Stockholm",
     lat: 59.2936, lng: 18.0833, year: 1995,
@@ -3619,7 +3620,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 1, tags: ["winter-olympics","host"],
+    id: "q0301", sport: "winter", level: 1, tags: ["winter-olympics","host"],
     q: "Which city hosted the 2014 Winter Olympics?",
     answer: "Sochi, Russia",
     lat: 43.4025, lng: 39.9564, year: 2014,
@@ -3631,7 +3632,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 1, tags: ["winter-olympics","first","host"],
+    id: "q0302", sport: "winter", level: 1, tags: ["winter-olympics","first","host"],
     q: "In 2022, which city became the first to host both the Summer and Winter Olympics?",
     answer: "Beijing National Stadium ('Bird's Nest')",
     lat: 39.9917, lng: 116.3906, year: 2022,
@@ -3643,7 +3644,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 1, tags: ["winter-olympics","host"],
+    id: "q0303", sport: "winter", level: 1, tags: ["winter-olympics","host"],
     q: "Which city hosted the 2010 Winter Olympics, where Sidney Crosby scored the 'Golden Goal' in ice hockey?",
     answer: "Vancouver",
     lat: 49.2768, lng: -123.1119, year: 2010,
@@ -3655,7 +3656,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","host"],
+    id: "q0304", sport: "winter", level: 2, tags: ["winter-olympics","host"],
     q: "Which city hosted the 2006 Winter Olympics?",
     answer: "Turin, Italy",
     lat: 45.0703, lng: 7.6869, year: 2006,
@@ -3667,7 +3668,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","venue"],
+    id: "q0305", sport: "winter", level: 2, tags: ["winter-olympics","venue"],
     q: "The 2026 Winter Olympics opened in a famous football stadium. Which one?",
     answer: "San Siro, Milan",
     lat: 45.4781, lng: 9.124, year: 2026,
@@ -3679,7 +3680,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["winter-olympics","history"],
+    id: "q0306", sport: "winter", level: 3, tags: ["winter-olympics","history"],
     q: "Eddie 'the Eagle' Edwards became a cult hero by finishing last in ski jumping at the 1988 Winter Olympics. Where?",
     answer: "Canada Olympic Park, Calgary",
     lat: 51.083, lng: -114.214, year: 1988,
@@ -3691,7 +3692,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["venue"],
+    id: "q0307", sport: "winter", level: 3, tags: ["venue"],
     q: "Up to 50,000 fans watch the floodlit 'Nightrace' slalom every January. Where?",
     answer: "Schladming, Austria",
     lat: 47.3928, lng: 13.6888, year: 1997,
@@ -3703,7 +3704,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["record"],
+    id: "q0308", sport: "winter", level: 3, tags: ["record"],
     q: "Stefan Kraft set a ski-flying world record of 253.5 m in 2017. Where?",
     answer: "Vikersundbakken, Vikersund (Norway)",
     lat: 59.9906, lng: 9.9876, year: 2017,
@@ -3715,7 +3716,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","upset"],
+    id: "q0309", sport: "winter", level: 2, tags: ["winter-olympics","upset"],
     q: "A team of US college players beat the Soviet Union in the 1980 'Miracle on Ice'. Where?",
     answer: "Lake Placid, New York",
     lat: 44.2795, lng: -73.9799, year: 1980,
@@ -3727,7 +3728,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["history"],
+    id: "q0310", sport: "winter", level: 3, tags: ["history"],
     q: "Paul Henderson's late goal won the 1972 Summit Series for Canada against the USSR. Where?",
     answer: "Luzhniki Palace of Sports, Moscow",
     lat: 55.7158, lng: 37.5539, year: 1972,
@@ -3739,7 +3740,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 1, tags: ["winter-olympics","host"],
+    id: "q0311", sport: "winter", level: 1, tags: ["winter-olympics","host"],
     q: "Which city hosted the 2002 Winter Olympics?",
     answer: "Salt Lake City",
     lat: 40.76, lng: -111.8489, year: 2002,
@@ -3751,7 +3752,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","host"],
+    id: "q0312", sport: "winter", level: 2, tags: ["winter-olympics","host"],
     q: "Which city hosted the 1998 Winter Olympics?",
     answer: "Nagano",
     lat: 36.6485, lng: 138.195, year: 1998,
@@ -3763,7 +3764,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","host"],
+    id: "q0313", sport: "winter", level: 2, tags: ["winter-olympics","host"],
     q: "Which town hosted the 1992 Winter Olympics, the last held in the same year as the Summer Games?",
     answer: "Albertville",
     lat: 45.6755, lng: 6.3925, year: 1992,
@@ -3775,7 +3776,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","host"],
+    id: "q0314", sport: "winter", level: 2, tags: ["winter-olympics","host"],
     q: "Which city hosted the Winter Olympics in both 1964 and 1976?",
     answer: "Innsbruck",
     lat: 47.2692, lng: 11.4041, year: 1976,
@@ -3787,7 +3788,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","record"],
+    id: "q0315", sport: "winter", level: 2, tags: ["winter-olympics","record"],
     q: "Jean-Claude Killy won all three alpine skiing golds at the 1968 Winter Olympics. Where?",
     answer: "Grenoble",
     lat: 45.1885, lng: 5.7245, year: 1968,
@@ -3799,7 +3800,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","first","host"],
+    id: "q0316", sport: "winter", level: 2, tags: ["winter-olympics","first","host"],
     q: "Which city hosted the 1972 Winter Olympics, the first held in Asia?",
     answer: "Sapporo",
     lat: 43.0618, lng: 141.3545, year: 1972,
@@ -3811,7 +3812,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","history"],
+    id: "q0317", sport: "winter", level: 2, tags: ["winter-olympics","history"],
     q: "At the 2018 Winter Olympics, athletes from North and South Korea marched together at the opening ceremony. Where?",
     answer: "PyeongChang",
     lat: 37.6705, lng: 128.7059, year: 2018,
@@ -3823,7 +3824,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["winter-olympics","first","host"],
+    id: "q0318", sport: "winter", level: 3, tags: ["winter-olympics","first","host"],
     q: "The 1956 Winter Olympics were the first to be broadcast on television. Which resort hosted them?",
     answer: "Cortina d'Ampezzo",
     lat: 46.5405, lng: 12.1357, year: 1956,
@@ -3835,7 +3836,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["winter-olympics","first"],
+    id: "q0319", sport: "winter", level: 3, tags: ["winter-olympics","first"],
     q: "Alpine skiing made its Olympic debut at the 1936 Winter Games. Where?",
     answer: "Garmisch-Partenkirchen",
     lat: 47.4921, lng: 11.0958, year: 1936,
@@ -3847,7 +3848,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["winter-olympics","host"],
+    id: "q0320", sport: "winter", level: 3, tags: ["winter-olympics","host"],
     q: "The 1960 Winter Olympics went to a resort that had barely one chairlift when it won the bid. Where?",
     answer: "Squaw Valley (now Palisades Tahoe)",
     lat: 39.197, lng: -120.2357, year: 1960,
@@ -3859,7 +3860,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["organisation","venue"],
+    id: "q0321", sport: "winter", level: 2, tags: ["organisation","venue"],
     q: "Where is the Hockey Hall of Fame, home of the Stanley Cup?",
     answer: "Toronto",
     lat: 43.6473, lng: -79.3772, year: 1943,
@@ -3871,7 +3872,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["birthplace"],
+    id: "q0322", sport: "winter", level: 3, tags: ["birthplace"],
     q: "Ski jumper Adam Małysz, four-time world champion, comes from which mountain town?",
     answer: "Wisła, Poland",
     lat: 49.655, lng: 18.859, year: 1977,
@@ -3883,7 +3884,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["birthplace","record"],
+    id: "q0323", sport: "winter", level: 3, tags: ["birthplace","record"],
     q: "Ingemar Stenmark, winner of a record 86 World Cup races, grew up in which small northern village?",
     answer: "Tärnaby, Sweden",
     lat: 65.7167, lng: 15.2667, year: 1956,
@@ -3895,7 +3896,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["record","women"],
+    id: "q0324", sport: "winter", level: 3, tags: ["record","women"],
     q: "Mikaela Shiffrin broke Ingemar Stenmark's record with her 87th World Cup win in 2023. Where?",
     answer: "Åre, Sweden",
     lat: 63.399, lng: 13.08, year: 2023,
@@ -3907,7 +3908,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 3, tags: ["birthplace"],
+    id: "q0325", sport: "winter", level: 3, tags: ["birthplace"],
     q: "Ice hockey legend Jaromír Jágr was born and grew up in which city?",
     answer: "Kladno, Czech Republic",
     lat: 50.1473, lng: 14.1029, year: 1972,
@@ -3919,7 +3920,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "winter", level: 2, tags: ["winter-olympics","upset"],
+    id: "q0326", sport: "winter", level: 2, tags: ["winter-olympics","upset"],
     q: "Dominik Hašek's saves won ice hockey gold for the Czech Republic at the 1998 Winter Olympics. Where?",
     answer: "Big Hat arena, Nagano",
     lat: 36.6514, lng: 138.2, year: 1998,
@@ -3933,7 +3934,7 @@ window.QUESTIONS = [
 
   // ───────────── Rugby ─────────────
   {
-    sport: "rugby", level: 1, tags: ["rugby-world-cup","final"],
+    id: "q0327", sport: "rugby", level: 1, tags: ["rugby-world-cup","final"],
     q: "Jonny Wilkinson's last-minute drop goal won England the 2003 Rugby World Cup. Where?",
     answer: "Stadium Australia, Sydney",
     lat: -33.8471, lng: 151.0634, year: 2003,
@@ -3945,7 +3946,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "rugby", level: 1, tags: ["venue","record"],
+    id: "q0328", sport: "rugby", level: 1, tags: ["venue","record"],
     q: "The largest dedicated rugby union stadium in the world is where?",
     answer: "Twickenham Stadium, London",
     lat: 51.456, lng: -0.3415, year: 1909,
@@ -3957,7 +3958,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "rugby", level: 1, tags: ["rugby-world-cup","final","venue"],
+    id: "q0329", sport: "rugby", level: 1, tags: ["rugby-world-cup","final","venue"],
     q: "A national rugby stadium with a retractable roof, right in a city centre, hosted the 1999 Rugby World Cup final. Where?",
     answer: "Principality (Millennium) Stadium, Cardiff",
     lat: 51.4782, lng: -3.1826, year: 1999,
@@ -3969,7 +3970,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "rugby", level: 2, tags: ["rugby-world-cup","final"],
+    id: "q0330", sport: "rugby", level: 2, tags: ["rugby-world-cup","final"],
     q: "Nelson Mandela presented the trophy as South Africa won the 1995 Rugby World Cup. Where?",
     answer: "Ellis Park, Johannesburg",
     lat: -26.1975, lng: 28.0606, year: 1995,
@@ -3981,7 +3982,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "rugby", level: 2, tags: ["rugby-world-cup","final","first"],
+    id: "q0331", sport: "rugby", level: 2, tags: ["rugby-world-cup","final","first"],
     q: "Where was the very first Rugby World Cup final played, in 1987?",
     answer: "Eden Park, Auckland",
     lat: -36.875, lng: 174.7444, year: 1987,
@@ -3993,7 +3994,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "rugby", level: 2, tags: ["rugby-world-cup","final","record"],
+    id: "q0332", sport: "rugby", level: 2, tags: ["rugby-world-cup","final","record"],
     q: "South Africa won a record fourth Rugby World Cup in 2023, beating New Zealand 12-11. Where?",
     answer: "Stade de France, Saint-Denis",
     lat: 48.9245, lng: 2.3602, year: 2023,
@@ -4005,7 +4006,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "rugby", level: 3, tags: ["rugby-world-cup","final"],
+    id: "q0333", sport: "rugby", level: 3, tags: ["rugby-world-cup","final"],
     q: "South Africa beat England in the 2019 Rugby World Cup final. Where?",
     answer: "International Stadium Yokohama",
     lat: 35.51, lng: 139.6062, year: 2019,
@@ -4017,7 +4018,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "rugby", level: 3, tags: ["upset","first"],
+    id: "q0334", sport: "rugby", level: 3, tags: ["upset","first"],
     q: "Ireland beat New Zealand at rugby for the first time in 2016, after 111 years of trying. Where?",
     answer: "Soldier Field, Chicago",
     lat: 41.8623, lng: -87.6167, year: 2016,
@@ -4031,7 +4032,7 @@ window.QUESTIONS = [
 
   // ───────────── Golf ─────────────
   {
-    sport: "golf", level: 1, tags: ["venue","first"],
+    id: "q0335", sport: "golf", level: 1, tags: ["venue","first"],
     q: "Which course is known as 'The Home of Golf'?",
     answer: "Old Course, St Andrews",
     lat: 56.3433, lng: -2.803, year: 1552,
@@ -4043,7 +4044,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 3, tags: ["ryder-cup","first"],
+    id: "q0336", sport: "golf", level: 3, tags: ["ryder-cup","first"],
     q: "In 1997 the Ryder Cup was held in continental Europe for the first time. Where?",
     answer: "Valderrama, Sotogrande (Spain)",
     lat: 36.295, lng: -5.3, year: 1997,
@@ -4055,7 +4056,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 3, tags: ["upset"],
+    id: "q0337", sport: "golf", level: 3, tags: ["upset"],
     q: "Jean van de Velde famously waded into the Barry Burn and threw away the 1999 Open. Where?",
     answer: "Carnoustie, Scotland",
     lat: 56.497, lng: -2.715, year: 1999,
@@ -4067,7 +4068,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 3, tags: ["first"],
+    id: "q0338", sport: "golf", level: 3, tags: ["first"],
     q: "The very first Open Championship was played in 1860 on a 12-hole course. Where?",
     answer: "Prestwick Golf Club, Scotland",
     lat: 55.495, lng: -4.615, year: 1860,
@@ -4079,7 +4080,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 1, tags: ["venue"],
+    id: "q0339", sport: "golf", level: 1, tags: ["venue"],
     q: "Where is the Masters played every April?",
     answer: "Augusta National Golf Club",
     lat: 33.503, lng: -82.023, year: 1934,
@@ -4091,7 +4092,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 3, tags: ["ryder-cup"],
+    id: "q0340", sport: "golf", level: 3, tags: ["ryder-cup"],
     q: "Europe won the 2025 Ryder Cup away from home. Where?",
     answer: "Bethpage Black, Farmingdale (New York)",
     lat: 40.744, lng: -73.454, year: 2025,
@@ -4103,7 +4104,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 3, tags: ["first"],
+    id: "q0341", sport: "golf", level: 3, tags: ["first"],
     q: "Seve Ballesteros won his first Open in 1979, famously hitting a shot from a car park. Where?",
     answer: "Royal Lytham & St Annes",
     lat: 53.7489, lng: -3.0186, year: 1979,
@@ -4115,7 +4116,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 3, tags: ["venue","record"],
+    id: "q0342", sport: "golf", level: 3, tags: ["venue","record"],
     q: "The 'Postage Stamp', the shortest hole in Open Championship golf, is on which course?",
     answer: "Royal Troon",
     lat: 55.531, lng: -4.65, year: 1923,
@@ -4127,7 +4128,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 2, tags: ["record"],
+    id: "q0343", sport: "golf", level: 2, tags: ["record"],
     q: "Rory McIlroy completed golf's career Grand Slam in a play-off in 2025. Where?",
     answer: "Augusta National Golf Club",
     lat: 33.503, lng: -82.023, year: 2025,
@@ -4139,7 +4140,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 3, tags: ["ryder-cup","record"],
+    id: "q0344", sport: "golf", level: 3, tags: ["ryder-cup","record"],
     q: "Francesco Molinari won all five of his matches as Europe won the 2018 Ryder Cup. Where?",
     answer: "Le Golf National, Guyancourt (Paris)",
     lat: 48.7541, lng: 2.0742, year: 2018,
@@ -4151,7 +4152,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 3, tags: ["birthplace"],
+    id: "q0345", sport: "golf", level: 3, tags: ["birthplace"],
     q: "Seve Ballesteros grew up learning golf on the beach of which village?",
     answer: "Pedreña, Cantabria",
     lat: 43.4475, lng: -3.7547, year: 1957,
@@ -4163,7 +4164,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 2, tags: ["history"],
+    id: "q0346", sport: "golf", level: 2, tags: ["history"],
     q: "Shane Lowry won the 2019 Open in front of a home crowd, at a course hosting it for the first time since 1951. Where?",
     answer: "Royal Portrush, Northern Ireland",
     lat: 55.2008, lng: -6.634, year: 2019,
@@ -4175,7 +4176,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 3, tags: ["women","record"],
+    id: "q0347", sport: "golf", level: 3, tags: ["women","record"],
     q: "Annika Sörenstam shot a 59 in 2001, the first round under 60 in women's professional golf. Where?",
     answer: "Moon Valley Country Club, Phoenix",
     lat: 33.6372, lng: -112.0718, year: 2001,
@@ -4187,7 +4188,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "golf", level: 3, tags: ["women"],
+    id: "q0348", sport: "golf", level: 3, tags: ["women"],
     q: "The 2023 Solheim Cup ended in a 14-14 draw, with Europe keeping the trophy. Where?",
     answer: "Finca Cortesín, Casares (Spain)",
     lat: 36.4161, lng: -5.2647, year: 2023,
@@ -4201,7 +4202,7 @@ window.QUESTIONS = [
 
   // ───────────── Cricket ─────────────
   {
-    sport: "cricket", level: 1, tags: ["venue"],
+    id: "q0349", sport: "cricket", level: 1, tags: ["venue"],
     q: "Which ground is known as 'The Home of Cricket'?",
     answer: "Lord's Cricket Ground, St John's Wood",
     lat: 51.5297, lng: -0.1729, year: 1814,
@@ -4213,7 +4214,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cricket", level: 1, tags: ["upset","first"],
+    id: "q0350", sport: "cricket", level: 1, tags: ["upset","first"],
     q: "A shock Australian win in 1882 led to a mock obituary for English cricket — and the birth of The Ashes. Where was the match?",
     answer: "The Oval, Kennington (London)",
     lat: 51.4837, lng: -0.115, year: 1882,
@@ -4225,7 +4226,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cricket", level: 2, tags: ["first"],
+    id: "q0351", sport: "cricket", level: 2, tags: ["first"],
     q: "The very first Test match, Australia vs England, was played in 1877. Where?",
     answer: "Melbourne Cricket Ground",
     lat: -37.82, lng: 144.9834, year: 1877,
@@ -4237,7 +4238,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cricket", level: 3, tags: ["venue","record"],
+    id: "q0352", sport: "cricket", level: 3, tags: ["venue","record"],
     q: "Which city has the world's largest cricket stadium, with room for about 130,000?",
     answer: "Narendra Modi Stadium, Ahmedabad",
     lat: 23.0917, lng: 72.5976, year: 2020,
@@ -4249,7 +4250,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "cricket", level: 2, tags: ["final"],
+    id: "q0353", sport: "cricket", level: 2, tags: ["final"],
     q: "India won the 2011 Cricket World Cup final, with MS Dhoni finishing it with a six. Where?",
     answer: "Wankhede Stadium, Mumbai",
     lat: 18.9389, lng: 72.8258, year: 2011,
@@ -4263,7 +4264,7 @@ window.QUESTIONS = [
 
   // ───────────── Other sports ─────────────
   {
-    sport: "boxing", level: 3, tags: ["upset"],
+    id: "q0354", sport: "boxing", level: 3, tags: ["upset"],
     q: "Tyson Fury ended Wladimir Klitschko's nine-year reign as heavyweight champion in 2015. Where?",
     answer: "Esprit Arena, Düsseldorf",
     lat: 51.2617, lng: 6.7331, year: 2015,
@@ -4275,7 +4276,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "darts", level: 1, tags: ["venue"],
+    id: "q0355", sport: "darts", level: 1, tags: ["venue"],
     q: "The PDC World Darts Championship is held every winter at the 'People's Palace'. Where?",
     answer: "Alexandra Palace, London",
     lat: 51.5942, lng: -0.131, year: 2008,
@@ -4287,7 +4288,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "snooker", level: 2, tags: ["venue"],
+    id: "q0356", sport: "snooker", level: 2, tags: ["venue"],
     q: "The World Snooker Championship has been held at the same theatre since 1977. Where?",
     answer: "Crucible Theatre, Sheffield",
     lat: 53.38, lng: -1.467, year: 1977,
@@ -4299,7 +4300,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "horse racing", level: 1, tags: ["venue"],
+    id: "q0357", sport: "horse racing", level: 1, tags: ["venue"],
     q: "Where is the Grand National, the world's most famous steeplechase, run?",
     answer: "Aintree Racecourse, Liverpool",
     lat: 53.477, lng: -2.945, year: 1839,
@@ -4311,7 +4312,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "horse racing", level: 1, tags: ["venue"],
+    id: "q0358", sport: "horse racing", level: 1, tags: ["venue"],
     q: "Twice every summer, riders race bareback around a medieval piazza in the Palio. In which city?",
     answer: "Piazza del Campo, Siena",
     lat: 43.3184, lng: 11.3316, year: 1633,
@@ -4323,7 +4324,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "equestrian", level: 3, tags: ["venue"],
+    id: "q0359", sport: "equestrian", level: 3, tags: ["venue"],
     q: "The famous horse trials — and the sport of badminton — take their name from a country estate. Where?",
     answer: "Badminton House, Gloucestershire",
     lat: 51.544, lng: -2.284, year: 1949,
@@ -4335,7 +4336,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "climbing", level: 2, tags: ["first"],
+    id: "q0360", sport: "climbing", level: 2, tags: ["first"],
     q: "The birth of mountaineering: which peak was first climbed in 1786?",
     answer: "Mont Blanc",
     lat: 45.8326, lng: 6.8652, year: 1786,
@@ -4347,7 +4348,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "climbing", level: 2, tags: ["first"],
+    id: "q0361", sport: "climbing", level: 2, tags: ["first"],
     q: "Edward Whymper's party first reached this summit in 1865; four of them died on the way down. Which mountain?",
     answer: "Matterhorn",
     lat: 45.9763, lng: 7.6586, year: 1865,
@@ -4359,7 +4360,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "darts", level: 3, tags: ["venue"],
+    id: "q0362", sport: "darts", level: 3, tags: ["venue"],
     q: "For more than 30 years, the BDO World Darts Championship was held at a country club. Where?",
     answer: "Lakeside Country Club, Frimley Green",
     lat: 51.307, lng: -0.724, year: 1986,
@@ -4371,7 +4372,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "boxing", level: 3, tags: ["history"],
+    id: "q0363", sport: "boxing", level: 3, tags: ["history"],
     q: "Muhammad Ali defended his world title against Henry Cooper in 1966 at a football stadium. Where?",
     answer: "Highbury, London",
     lat: 51.555, lng: -0.1086, year: 1966,
@@ -4383,7 +4384,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "horse racing", level: 3, tags: ["first","venue"],
+    id: "q0364", sport: "horse racing", level: 3, tags: ["first","venue"],
     q: "The original Derby, first run in 1780, takes place at which racecourse?",
     answer: "Epsom Downs",
     lat: 51.315, lng: -0.255, year: 1780,
@@ -4395,7 +4396,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "horse racing", level: 3, tags: ["venue"],
+    id: "q0365", sport: "horse racing", level: 3, tags: ["venue"],
     q: "The roar of the crowd as the first race starts is famous at this four-day jumps festival every March. Where?",
     answer: "Cheltenham Racecourse",
     lat: 51.919, lng: -2.059, year: 1924,
@@ -4407,7 +4408,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "basketball", level: 3, tags: ["final"],
+    id: "q0366", sport: "basketball", level: 3, tags: ["final"],
     q: "Spain's 'golden generation' won the 2006 Basketball World Cup by beating Greece in the final, without the injured Pau Gasol. Where?",
     answer: "Saitama Super Arena, Japan",
     lat: 35.8949, lng: 139.6312, year: 2006,
@@ -4419,7 +4420,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "sailing", level: 3, tags: ["first"],
+    id: "q0367", sport: "sailing", level: 3, tags: ["first"],
     q: "In 2007 the America's Cup was held in Europe for the first time since 1851. Where?",
     answer: "Port of Valencia",
     lat: 39.46, lng: -0.32, year: 2007,
@@ -4431,7 +4432,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "equestrian", level: 2, tags: ["venue","organisation"],
+    id: "q0368", sport: "equestrian", level: 2, tags: ["venue","organisation"],
     q: "The famous 'Spanish' Riding School, home of the Lipizzaner horses, is actually in which city?",
     answer: "Hofburg, Vienna",
     lat: 48.2075, lng: 16.3664, year: 1565,
@@ -4443,7 +4444,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "boxing", level: 2, tags: ["history","upset"],
+    id: "q0369", sport: "boxing", level: 2, tags: ["history","upset"],
     q: "Muhammad Ali regained his title from George Foreman with his 'rope-a-dope' in the 1974 'Rumble in the Jungle'. Where?",
     answer: "Stade du 20 Mai, Kinshasa",
     lat: -4.3317, lng: 15.3122, year: 1974,
@@ -4455,7 +4456,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "boxing", level: 3, tags: ["upset"],
+    id: "q0370", sport: "boxing", level: 3, tags: ["upset"],
     q: "Buster Douglas knocked out the 'unbeatable' Mike Tyson in 1990, a 42-1 outsider. Where?",
     answer: "Tokyo Dome",
     lat: 35.7056, lng: 139.7519, year: 1990,
@@ -4467,7 +4468,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "boxing", level: 3, tags: ["history"],
+    id: "q0371", sport: "boxing", level: 3, tags: ["history"],
     q: "Oleksandr Usyk beat Tyson Fury in 2024 to become the first undisputed heavyweight champion in 25 years. Where?",
     answer: "Kingdom Arena, Riyadh",
     lat: 24.7136, lng: 46.6753, year: 2024,
@@ -4479,7 +4480,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "darts", level: 3, tags: ["venue"],
+    id: "q0372", sport: "darts", level: 3, tags: ["venue"],
     q: "Darts' World Matchplay has been held since 1994 in a Victorian ballroom in a seaside resort. Where?",
     answer: "Winter Gardens, Blackpool",
     lat: 53.8165, lng: -3.051, year: 1994,
@@ -4491,7 +4492,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "horse racing", level: 2, tags: ["venue"],
+    id: "q0373", sport: "horse racing", level: 2, tags: ["venue"],
     q: "Which racecourse hosts the 'Royal' meeting every June, attended by the monarch?",
     answer: "Ascot Racecourse",
     lat: 51.413, lng: -0.675, year: 1711,
@@ -4503,7 +4504,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "horse racing", level: 2, tags: ["venue"],
+    id: "q0374", sport: "horse racing", level: 2, tags: ["venue"],
     q: "Which horse race is said to 'stop a nation' on the first Tuesday of every November?",
     answer: "Flemington Racecourse, Melbourne (Melbourne Cup)",
     lat: -37.7908, lng: 144.9127, year: 1861,
@@ -4515,7 +4516,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "horse racing", level: 2, tags: ["venue","first"],
+    id: "q0375", sport: "horse racing", level: 2, tags: ["venue","first"],
     q: "Which race, first run in 1875, is called 'the most exciting two minutes in sports'?",
     answer: "Churchill Downs, Louisville (Kentucky Derby)",
     lat: 38.2034, lng: -85.7708, year: 1875,
@@ -4527,7 +4528,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "sailing", level: 2, tags: ["final"],
+    id: "q0376", sport: "sailing", level: 2, tags: ["final"],
     q: "Emirates Team New Zealand won the 2024 America's Cup off the beaches of which city?",
     answer: "Barcelona",
     lat: 41.38, lng: 2.19, year: 2024,
@@ -4539,7 +4540,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "basketball", level: 1, tags: ["venue"],
+    id: "q0377", sport: "basketball", level: 1, tags: ["venue"],
     q: "Which arena is known as 'the Mecca of basketball'?",
     answer: "Madison Square Garden, New York",
     lat: 40.7505, lng: -73.9934, year: 1968,
@@ -4551,7 +4552,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "climbing", level: 1, tags: ["first"],
+    id: "q0378", sport: "climbing", level: 1, tags: ["first"],
     q: "Edmund Hillary and Tenzing Norgay first reached this summit in 1953. Which mountain?",
     answer: "Mount Everest",
     lat: 27.9881, lng: 86.925, year: 1953,
@@ -4563,7 +4564,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "climbing", level: 2, tags: ["first"],
+    id: "q0379", sport: "climbing", level: 2, tags: ["first"],
     q: "Which mountain, the second highest on Earth, was first climbed by an Italian expedition in 1954?",
     answer: "K2",
     lat: 35.8825, lng: 76.5133, year: 1954,
@@ -4575,7 +4576,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "climbing", level: 2, tags: ["first"],
+    id: "q0380", sport: "climbing", level: 2, tags: ["first"],
     q: "Hans Meyer and Ludwig Purtscheller first reached the summit of Africa's highest peak in 1889. Which mountain?",
     answer: "Kilimanjaro",
     lat: -3.0674, lng: 37.3556, year: 1889,
@@ -4587,7 +4588,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "climbing", level: 2, tags: ["first","venue"],
+    id: "q0381", sport: "climbing", level: 2, tags: ["first","venue"],
     q: "Which mountain's north face, nicknamed the 'Mordwand' (murder wall), was first climbed in 1938?",
     answer: "Eiger, Switzerland",
     lat: 46.5775, lng: 8.0053, year: 1938,
@@ -4599,7 +4600,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "surfing", level: 2, tags: ["record","venue"],
+    id: "q0382", sport: "surfing", level: 2, tags: ["record","venue"],
     q: "Garrett McNamara rode a record-breaking giant wave in 2011 off a fishing town famous for its underwater canyon. Where?",
     answer: "Nazaré, Portugal",
     lat: 39.6041, lng: -9.0846, year: 2011,
@@ -4611,7 +4612,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "gaelic games", level: 2, tags: ["venue"],
+    id: "q0383", sport: "gaelic games", level: 2, tags: ["venue"],
     q: "Which stadium, one of Europe's biggest, hosts hurling's championship final every summer?",
     answer: "Croke Park, Dublin",
     lat: 53.3607, lng: -6.2512, year: 1884,
@@ -4623,7 +4624,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "basketball", level: 3, tags: ["final","first"],
+    id: "q0384", sport: "basketball", level: 3, tags: ["final","first"],
     q: "Spain won their first EuroBasket title in 2009, thrashing Serbia in the final. Where?",
     answer: "Spodek arena, Katowice",
     lat: 50.2664, lng: 19.0255, year: 2009,
@@ -4635,7 +4636,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "basketball", level: 2, tags: ["birthplace"],
+    id: "q0385", sport: "basketball", level: 2, tags: ["birthplace"],
     q: "Luka Dončić was born and raised in which capital?",
     answer: "Ljubljana",
     lat: 46.0569, lng: 14.5058, year: 1999,
@@ -4647,7 +4648,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "basketball", level: 3, tags: ["final","upset"],
+    id: "q0386", sport: "basketball", level: 3, tags: ["final","upset"],
     q: "Nikos Galis scored 40 points as Greece beat the USSR in the EuroBasket 1987 final. Where?",
     answer: "Peace and Friendship Stadium, Piraeus",
     lat: 37.9436, lng: 23.665, year: 1987,
@@ -4659,7 +4660,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "sailing", level: 3, tags: ["olympics","host"],
+    id: "q0387", sport: "sailing", level: 3, tags: ["olympics","host"],
     q: "The sailing at the 1980 Moscow Olympics was held hundreds of kilometres away, in another city. Which one?",
     answer: "Pirita, Tallinn",
     lat: 59.4683, lng: 24.8331, year: 1980,
@@ -4671,7 +4672,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "swimming", level: 3, tags: ["olympics","first"],
+    id: "q0388", sport: "swimming", level: 3, tags: ["olympics","first"],
     q: "The swimming events of the first modern Olympics, in 1896, were held in the open sea. Where?",
     answer: "Bay of Zea, Piraeus",
     lat: 37.937, lng: 23.646, year: 1896,
@@ -4683,7 +4684,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "equestrian", level: 3, tags: ["venue"],
+    id: "q0389", sport: "equestrian", level: 3, tags: ["venue"],
     q: "Which city hosts show jumping's most prestigious meeting, nicknamed 'the Wimbledon of equestrian sport'?",
     answer: "Aachen (Soers showground)",
     lat: 50.793, lng: 6.095, year: 1924,
@@ -4695,7 +4696,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "snooker", level: 2, tags: ["record"],
+    id: "q0390", sport: "snooker", level: 2, tags: ["record"],
     q: "Ronnie O'Sullivan made a maximum 147 break in 5 minutes 8 seconds in 1997. Where?",
     answer: "Crucible Theatre, Sheffield",
     lat: 53.38, lng: -1.467, year: 1997,
@@ -4707,7 +4708,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "basketball", level: 2, tags: ["venue"],
+    id: "q0391", sport: "basketball", level: 2, tags: ["venue"],
     q: "Žalgiris, the 1999 EuroLeague champions, play in front of 15,000 fans in which city?",
     answer: "Kaunas, Lithuania",
     lat: 54.89, lng: 23.915, year: 2011,
@@ -4719,7 +4720,7 @@ window.QUESTIONS = [
     }
   },
   {
-    sport: "climbing", level: 2, tags: ["first"],
+    id: "q0392", sport: "climbing", level: 2, tags: ["first"],
     q: "In 1950 a French expedition made the first ascent of any 8,000-metre peak. Which mountain?",
     answer: "Annapurna",
     lat: 28.5961, lng: 83.8203, year: 1950,

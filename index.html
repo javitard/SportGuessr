@@ -120,14 +120,30 @@
     <button class="btn primary" data-close data-i18n="gotIt"></button>
   </dialog>
 
-  <!-- Stats -->
-  <dialog class="modal" id="modal-stats">
+  <!-- Profile -->
+  <dialog class="modal profile" id="modal-stats">
     <button class="close" data-close data-i18n-aria="close">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
     <p class="modal-kicker">Matchpin</p>
     <h2 data-i18n="statsTitle"></h2>
     <div class="stat-grid" id="stat-grid"></div>
+    <p class="muted" id="profile-empty" data-i18n="emptyProfile"></p>
+    <div id="profile-data" hidden>
+      <div class="highlights" id="highlights"></div>
+      <h3><span data-i18n="achievementsTitle"></span> <span class="h3-count" id="achievements-count"></span></h3>
+      <div class="badges" id="achievements"></div>
+      <h3 data-i18n="bySport"></h3>
+      <div class="meter-list" id="by-sport"></div>
+      <details class="more" id="by-sport-more-wrap">
+        <summary id="by-sport-more-label"></summary>
+        <div class="meter-list" id="by-sport-more"></div>
+      </details>
+      <h3 data-i18n="byLevel"></h3>
+      <div class="meter-list" id="by-level"></div>
+      <h3 data-i18n="pinsTitle"></h3>
+      <div class="profile-map" id="profile-map" role="img" data-i18n-aria="pinsTitle"></div>
+    </div>
     <h3 data-i18n="distTitle"></h3>
     <div class="dist" id="dist"></div>
   </dialog>
@@ -168,6 +184,7 @@
   <script src="vendor/world/countries-50m.js?v=__VERSION__"></script>
   <script src="js/i18n.js?v=__VERSION__"></script>
   <script src="js/tags.js?v=__VERSION__"></script>
+  <script src="js/profile.js?v=__VERSION__"></script>
   <script src="js/questions.js?v=__VERSION__"></script>
   <script src="js/game.js?v=__VERSION__"></script>
 </body>
