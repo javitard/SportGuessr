@@ -41,32 +41,18 @@ new release, and a page served from the browser cache notices the newer `version
 
 ## Adding questions
 
-Questions live in [`js/questions.js`](js/questions.js):
+Questions live in [`js/questions.js`](js/questions.js), with English and Spanish texts, a difficulty level and tags.
+See **[docs/QUESTIONS.md](docs/QUESTIONS.md)** for the fields, tags and writing rules, and use the tool:
 
-```js
-{
-  sport: "football",                 // used for the icon
-  level: 2,                          // 1 easy, 2 medium, 3 hard (how hard the place is to pin)
-  q: "Where did ... happen?",
-  answer: "Stadium name, City",
-  lat: 41.0745, lng: 28.7656,        // the venue itself
-  year: 2005,
-  fact: "Short trivia shown after guessing.",
-  es: {                              // Spanish texts
-    q: "¿Dónde ocurrió ...?",
-    answer: "Nombre del estadio, Ciudad",
-    fact: "Dato curioso que se muestra al responder."
-  }
-}
+```bash
+node tools/questions.mjs check        # validate (also runs in CI and before every deploy)
+node tools/questions.mjs report       # coverage by level, sport, competition, country, decade
+node tools/questions.mjs find <text>  # search existing questions
+node tools/questions.mjs add new.csv  # add a batch from a spreadsheet or JSON file
 ```
 
-Golden rule: **the question must never name the place** (city, region, stadium) or anything right next to it,
-including inside team or event names (e.g. "Miracle of Bern", "Lisbon Lions", Paris–Roubaix).
-
-Interface texts are in [`js/i18n.js`](js/i18n.js).
-
-Puzzle #1 is 22 October 2026 (`LAUNCH` in `js/game.js`). Adding questions to the bank changes the
-upcoming sequence, so it's best to add them in batches.
+Puzzle #1 is 22 October 2026 (`LAUNCH` in `js/game.js`). Adding questions changes the upcoming sequence, so it's
+best to add them in batches.
 
 ## Credits
 

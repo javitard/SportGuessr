@@ -86,8 +86,8 @@
 
   // Each difficulty pool is walked in a shuffled order; once exhausted, a new cycle
   // with a different shuffle starts. A question that can't be used on its day (same
-  // venue as another pick, or seen in the last few days) waits in a queue and goes
-  // first on a later day, so no question is ever skipped or bunched up.
+  // venue or same competition as another pick, or seen in the last few days) waits in
+  // a queue and goes first on a later day, so no question is ever skipped or bunched up.
   // Days are built in order from day 1, so the same day gives the same questions
   // to everyone.
   const schedule = [];   // schedule[day] = 5 questions
@@ -103,6 +103,8 @@
       waiting: []
     }));
     const lastSeen = new Map();   // question id → last day it was played
+    const competitions = window.TAGS.competitions;
+    const sameCompetition = (a, b) => a.tags.some((t) => competitions[t] && b.tags.includes(t));
 
     const nextFrom = (pool) => {
       if (pool.waiting.length) return pool.waiting.shift();
@@ -121,9 +123,15 @@
              tries < pool.items.length + pool.waiting.length; tries++) {
           const q = nextFrom(pool);
           const recent = lastSeen.has(q.id) && d - lastSeen.get(q.id) <= RECENT_DAYS;
-          const clash = picks.some((p) => haversineKm(p, q) < 1);
+          const clash = picks.some((p) => haversineKm(p, q) < 1 || sameCompetition(p, q));
           if (recent || clash) deferred.push(q);
           else picks.push(q);
+        }
+        // Safety net for a small bank: rather than a short puzzle, accept a repeated competition.
+        while (picks.filter((q) => q.level === pool.salt).length < pool.count && deferred.length) {
+          const i = deferred.findIndex((q) => !picks.some((p) => p.id === q.id || haversineKm(p, q) < 1));
+          if (i < 0) break;
+          picks.push(deferred.splice(i, 1)[0]);
         }
         pool.waiting.push(...deferred);
       });
