@@ -20,7 +20,7 @@
     olympics: "🏅", winter: "⛷️", rugby: "🏉", golf: "⛳", cricket: "🏏",
     boxing: "🥊", darts: "🎯", snooker: "🎱", "horse racing": "🏇", rowing: "🚣",
     sailing: "⛵", swimming: "🏊", equestrian: "🐎", climbing: "🧗",
-    basketball: "🏀", "gaelic games": "🏑"
+    basketball: "🏀", "gaelic games": "🏑", surfing: "🏄"
   };
   const LEVEL_COLORS = { 1: "var(--t4)", 2: "var(--t3)", 3: "var(--t1)" };
   const TIER_COLORS = { 4: "var(--t4)", 3: "var(--t3)", 2: "var(--t2)", 1: "var(--t1)" };
@@ -82,29 +82,55 @@
     return a;
   }
 
-  // Each pool is walked in a shuffled order; once exhausted, a new cycle
-  // with a different shuffle starts. Same day → same questions for everyone.
-  function pickFromPool(pool, index, salt) {
-    const cycle = Math.floor(index / pool.length);
-    const order = shuffle(pool, mulberry32(SEED + salt * 7919 + cycle * 104729));
-    return order[index % pool.length];
-  }
+  const RECENT_DAYS = 20;   // a question never comes back within this many days
 
-  // Every day gets the same difficulty mix, played from easiest to hardest.
+  // Each difficulty pool is walked in a shuffled order; once exhausted, a new cycle
+  // with a different shuffle starts. A question that can't be used on its day (same
+  // venue as another pick, or seen in the last few days) waits in a queue and goes
+  // first on a later day, so no question is ever skipped or bunched up.
+  // Days are built in order from day 1, so the same day gives the same questions
+  // to everyone.
+  const schedule = [];   // schedule[day] = 5 questions
+
   function questionsForDay(day) {
+    if (schedule[day]) return schedule[day];
     const all = window.QUESTIONS.map((q, i) => ({ ...q, id: i }));
-    const picks = [];
-    // Skip repeats (possible where two shuffle cycles meet) and venues already used today.
-    const take = (pool, count, salt) => {
-      for (let i = (day - 1) * count, added = 0; added < count; i++) {
-        const q = pickFromPool(pool, i, salt);
-        if (picks.some((p) => p.id === q.id || haversineKm(p, q) < 1)) continue;
-        picks.push(q);
-        added++;
-      }
+    const pools = LEVEL_MIX.map((count, i) => ({
+      count,
+      salt: i + 1,
+      items: all.filter((q) => q.level === i + 1),
+      cursor: 0,
+      waiting: []
+    }));
+    const lastSeen = new Map();   // question id → last day it was played
+
+    const nextFrom = (pool) => {
+      if (pool.waiting.length) return pool.waiting.shift();
+      const cycle = Math.floor(pool.cursor / pool.items.length);
+      const order = shuffle(pool.items, mulberry32(SEED + pool.salt * 7919 + cycle * 104729));
+      return order[pool.cursor++ % pool.items.length];
     };
-    LEVEL_MIX.forEach((count, i) => take(all.filter((q) => q.level === i + 1), count, i + 1));
-    return picks;
+
+    // Rebuilt from day 1 so every pool's position is right; cheap even years in.
+    for (let d = 1; d <= day; d++) {
+      const picks = [];
+      pools.forEach((pool) => {
+        const deferred = [];
+        // Never look at more than the whole pool, so a tiny bank can't loop forever.
+        for (let tries = 0; picks.filter((q) => q.level === pool.salt).length < pool.count &&
+             tries < pool.items.length + pool.waiting.length; tries++) {
+          const q = nextFrom(pool);
+          const recent = lastSeen.has(q.id) && d - lastSeen.get(q.id) <= RECENT_DAYS;
+          const clash = picks.some((p) => haversineKm(p, q) < 1);
+          if (recent || clash) deferred.push(q);
+          else picks.push(q);
+        }
+        pool.waiting.push(...deferred);
+      });
+      picks.forEach((q) => lastSeen.set(q.id, d));
+      schedule[d] = picks;
+    }
+    return schedule[day];
   }
 
   function randomQuestions() {

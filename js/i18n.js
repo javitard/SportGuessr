@@ -59,7 +59,7 @@ window.I18N = {
       golf: "golf", cricket: "cricket", boxing: "boxing", darts: "darts", snooker: "snooker",
       "horse racing": "horse racing", rowing: "rowing", sailing: "sailing", swimming: "swimming",
       equestrian: "equestrian", climbing: "mountaineering", basketball: "basketball",
-      "gaelic games": "gaelic games"
+      "gaelic games": "gaelic games", surfing: "surfing"
     }
   },
   es: {
@@ -120,7 +120,7 @@ window.I18N = {
       golf: "golf", cricket: "críquet", boxing: "boxeo", darts: "dardos", snooker: "snooker",
       "horse racing": "hípica", rowing: "remo", sailing: "vela", swimming: "natación",
       equestrian: "equitación", climbing: "alpinismo", basketball: "baloncesto",
-      "gaelic games": "deportes gaélicos"
+      "gaelic games": "deportes gaélicos", surfing: "surf"
     }
   }
 };

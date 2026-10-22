@@ -11,7 +11,7 @@ Inspired by [Farflung](https://farflung.game/) and [GeoSports](https://geosports
 - Same 5 questions for everyone each day (deterministic, no backend needed), new set at local midnight
 - Distance-based scoring: `1000 × e^(-km / 500)`, full marks within 10 km
 - Every day has the same difficulty curve: 2 easy, 2 medium and 1 hard question, played in that order
-- Football plus F1, cycling, tennis, winter sports, rugby, golf, Olympics and more (193 questions)
+- Football plus F1, cycling, tennis, winter sports, rugby, golf, Olympics and more (314 questions)
 - English and Spanish: picks the browser language, switchable with the EN/ES button
 - Shareable emoji result (🟩🟨🟧🟥), stats & streaks saved in the browser
 - Practice rounds with random questions after finishing the daily game
