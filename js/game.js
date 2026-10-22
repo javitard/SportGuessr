@@ -12,7 +12,8 @@
   const STORE_STATE = "sg_state_v1";
   const STORE_STATS = "sg_stats_v1";
   const STORE_LANG = "sg_lang";
-  const GAME_VIEW = { center: [48, 12], zoom: 4 };
+  // Starting view for every question: the inhabited world, so no continent is favoured.
+  const WORLD_VIEW = [[-42, -125], [66, 150]];
 
   const SPORT_ICONS = {
     football: "⚽", tennis: "🎾", cycling: "🚴", motorsport: "🏎️", athletics: "🏃",
@@ -213,13 +214,14 @@
 
   // ── Map ─────────────────────────────────────────────────
   const map = L.map("map", {
-    center: GAME_VIEW.center,
-    zoom: GAME_VIEW.zoom,
-    minZoom: 2,
+    center: [20, 10],
+    zoom: 2,
+    minZoom: 1,
+    zoomSnap: 0.25,
     maxZoom: 10,
     preferCanvas: true,
     worldCopyJump: false,
-    maxBounds: [[-85, -200], [85, 200]],
+    maxBounds: [[-85, -400], [85, 400]],   // wide enough to offset the world beside the intro text
     maxBoundsViscosity: 1,
     zoomControl: false,
     attributionControl: true
@@ -331,8 +333,14 @@
   function showIntro() {
     document.body.classList.add("is-intro");
     renderIntro();
+    // Keep the world clear of the intro text: on the right on wide screens, above it on phones.
     const wide = window.innerWidth > 900;
-    map.setView(wide ? [47, -14] : [42, 10], wide ? 4 : 3, { animate: false });
+    const text = document.querySelector(".intro-inner").getBoundingClientRect();
+    map.fitBounds(WORLD_VIEW, {
+      paddingTopLeft: [wide ? text.right + 24 : 8, 64],
+      paddingBottomRight: [8, wide ? 24 : window.innerHeight - text.top + 8],
+      animate: false
+    });
   }
 
   function startGame() {
@@ -386,7 +394,11 @@
     $("btn-show-results").hidden = true;
     map.getContainer().classList.remove("map-locked");
     renderPanelHead();
-    map.flyTo(GAME_VIEW.center, GAME_VIEW.zoom, { duration: 0.8 });
+    map.flyToBounds(WORLD_VIEW, {
+      paddingTopLeft: [8, 64],
+      paddingBottomRight: [8, $("panel").offsetHeight + 24],
+      duration: 0.8
+    });
   }
 
   // Static texts of the answer card (safe to call again after a language switch).
