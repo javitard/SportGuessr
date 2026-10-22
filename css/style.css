@@ -159,6 +159,18 @@ button { font: inherit; cursor: pointer; }
   font-size: 10px;
 }
 
+.level {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  padding: 2px 7px;
+  border-radius: 99px;
+}
+.level.l1 { background: #dcfce7; color: #166534; }
+.level.l2 { background: #fef3c7; color: #92400e; }
+.level.l3 { background: #fee2e2; color: #991b1b; }
+
 .dots { display: flex; gap: 5px; }
 .dot {
   width: 9px;
@@ -362,6 +374,7 @@ button { font: inherit; cursor: pointer; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
 @media (max-width: 480px) {
+  .round-info { gap: 7px; }
   .panel { bottom: 8px; padding: 12px 14px 14px; }
   .question { font-size: 15.5px; }
   .final-score { font-size: 40px; }

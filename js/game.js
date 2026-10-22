@@ -7,7 +7,7 @@
   const MAX_POINTS = 1000;
   const PERFECT_KM = 10;                   // anything this close scores 1000
   const DECAY_KM = 500;                    // points = 1000 * e^(-km / DECAY_KM)
-  const FOOTBALL_PER_DAY = 2;              // keep the mix varied
+  const LEVEL_MIX = [2, 2, 1];             // easy, medium, hard questions per day
   const SEED = 0x5f0a7;
   const STORE_STATE = "sg_state_v1";
   const STORE_STATS = "sg_stats_v1";
@@ -49,11 +49,9 @@
     return order[index % pool.length];
   }
 
+  // Every day gets the same difficulty mix, played from easiest to hardest.
   function questionsForDay(day) {
     const all = window.QUESTIONS.map((q, i) => ({ ...q, id: i }));
-    const football = all.filter((q) => q.sport === "football");
-    const other = all.filter((q) => q.sport !== "football");
-    const otherPerDay = ROUNDS - FOOTBALL_PER_DAY;
     const picks = [];
     // Skip repeats (possible where two shuffle cycles meet) and venues already used today.
     const take = (pool, count, salt) => {
@@ -64,13 +62,14 @@
         added++;
       }
     };
-    take(football, FOOTBALL_PER_DAY, 1);
-    take(other, otherPerDay, 2);
-    return shuffle(picks, mulberry32(SEED + day));
+    LEVEL_MIX.forEach((count, i) => take(all.filter((q) => q.level === i + 1), count, i + 1));
+    return picks;
   }
 
   function randomQuestions() {
-    return shuffle(window.QUESTIONS.map((q, i) => ({ ...q, id: i })), Math.random).slice(0, ROUNDS);
+    return shuffle(window.QUESTIONS.map((q, i) => ({ ...q, id: i })), Math.random)
+      .slice(0, ROUNDS)
+      .sort((a, b) => a.level - b.level);
   }
 
   // ── Dates ───────────────────────────────────────────────
@@ -105,6 +104,7 @@
     if (points >= 250) return 2;
     return 1;
   }
+  const LEVEL_NAMES = { 1: "Easy", 2: "Medium", 3: "Hard" };
   const TIER_EMOJI = { 4: "🟩", 3: "🟨", 2: "🟧", 1: "🟥" };
 
   function fmtKm(km) {
@@ -210,6 +210,9 @@
     const q = game.questions[Math.min(idx, ROUNDS - 1)];
     const badge = $("sport-badge");
     badge.textContent = `${SPORT_ICONS[q.sport] || "🏆"} ${q.sport} · ${round}/${ROUNDS}`;
+    const level = $("level");
+    level.textContent = LEVEL_NAMES[q.level] || "";
+    level.className = `level l${q.level}`;
     badge.classList.toggle("practice", game.practice);
     $("score").textContent = totalScore().toLocaleString("en-GB");
 

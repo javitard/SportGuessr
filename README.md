@@ -10,7 +10,8 @@ Inspired by [Farflung](https://farflung.game/) and [GeoSports](https://geosports
 
 - Same 5 questions for everyone each day (deterministic, no backend needed), new set at local midnight
 - Distance-based scoring: `1000 × e^(-km / 500)`, full marks within 10 km
-- Always 2 football questions + 3 from other sports (F1, cycling, tennis, winter sports, rugby, golf, Olympics…)
+- Every day has the same difficulty curve: 2 easy, 2 medium and 1 hard question, played in that order
+- Football plus F1, cycling, tennis, winter sports, rugby, golf, Olympics and more
 - Shareable emoji result (🟩🟨🟧🟥), stats & streaks saved in the browser
 - Practice rounds with random questions after finishing the daily game
 - Unlabelled map tiles (no cheating by reading city names), light & dark mode, mobile friendly
@@ -37,7 +38,8 @@ Questions live in [`js/questions.js`](js/questions.js):
 
 ```js
 {
-  sport: "football",                 // used for the icon & the football/other mix
+  sport: "football",                 // used for the icon
+  level: 2,                          // 1 easy, 2 medium, 3 hard (how hard the place is to pin)
   q: "Where did ... happen?",
   answer: "Stadium name, City",
   lat: 41.0745, lng: 28.7656,        // the venue itself
