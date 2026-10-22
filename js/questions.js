@@ -1556,6 +1556,270 @@ window.QUESTIONS = [
       fact: "Su techo imita la forma de una flor de magnolia."
     }
   },
+  {
+    sport: "football", level: 3, tags: ["euros","upset"],
+    q: "Ray Houghton's header gave the Republic of Ireland a famous win over England at Euro 88. Where?",
+    answer: "Neckarstadion, Stuttgart",
+    lat: 48.7922, lng: 9.2321, year: 1988,
+    fact: "It was Ireland's first ever match at a major tournament.",
+    es: {
+      q: "El cabezazo de Ray Houghton dio a Irlanda una victoria histórica sobre Inglaterra en la Eurocopa de 1988. ¿Dónde?",
+      answer: "Neckarstadion, Stuttgart",
+      fact: "Era el primer partido de Irlanda en un gran torneo."
+    }
+  },
+  {
+    sport: "football", level: 3, tags: ["birthplace"],
+    q: "Roy Keane was born and grew up in which city?",
+    answer: "Cork, Ireland",
+    lat: 51.8985, lng: -8.4756, year: 1971,
+    fact: "He won seven Premier League titles with Manchester United.",
+    es: {
+      q: "¿En qué ciudad nació y se crió Roy Keane?",
+      answer: "Cork, Irlanda",
+      fact: "Ganó siete Premier League con el Manchester United."
+    }
+  },
+  {
+    sport: "football", level: 3, tags: ["record"],
+    q: "Robert Lewandowski came off the bench to score five goals in nine minutes in 2015. Where?",
+    answer: "Allianz Arena, Munich",
+    lat: 48.2188, lng: 11.6247, year: 2015,
+    fact: "He came on at half-time with his team 1-0 down.",
+    es: {
+      q: "Robert Lewandowski salió del banquillo y marcó cinco goles en nueve minutos en 2015. ¿Dónde?",
+      answer: "Allianz Arena, Múnich",
+      fact: "Entró en el descanso con su equipo perdiendo 1-0."
+    }
+  },
+  {
+    sport: "football", level: 2, tags: ["euros","host"],
+    q: "Which city hosted the opening match of Euro 2012?",
+    answer: "National Stadium, Warsaw",
+    lat: 52.2394, lng: 21.0458, year: 2012,
+    fact: "The tournament was co-hosted by Poland and Ukraine.",
+    es: {
+      q: "¿Qué ciudad acogió el partido inaugural de la Eurocopa 2012?",
+      answer: "Estadio Nacional, Varsovia",
+      fact: "El torneo lo organizaron Polonia y Ucrania."
+    }
+  },
+  {
+    sport: "football", level: 3, tags: ["world-cup","history"],
+    q: "Poland lost to West Germany in the 1974 World Cup's 'Water Battle', played on a flooded pitch. Where?",
+    answer: "Waldstadion, Frankfurt",
+    lat: 50.0686, lng: 8.6455, year: 1974,
+    fact: "Fire brigades pumped water off the pitch before kick-off.",
+    es: {
+      q: "Polonia perdió con la RFA en la 'Batalla del Agua' del Mundial de 1974, jugada en un campo inundado. ¿Dónde?",
+      answer: "Waldstadion, Fráncfort",
+      fact: "Los bomberos achicaron agua del campo antes del partido."
+    }
+  },
+  {
+    sport: "football", level: 2, tags: ["upset"],
+    q: "Norway's 2-1 win over England in 1981 inspired one of the most famous commentaries ever. Where?",
+    answer: "Ullevaal Stadion, Oslo",
+    lat: 59.9488, lng: 10.7343, year: 1981,
+    fact: "'Maggie Thatcher, your boys took a hell of a beating!' shouted Bjørge Lillelien.",
+    es: {
+      q: "La victoria de Noruega por 2-1 sobre Inglaterra en 1981 inspiró una de las narraciones más famosas de la historia. ¿Dónde?",
+      answer: "Ullevaal Stadion, Oslo",
+      fact: "'¡Maggie Thatcher, tus chicos se han llevado una paliza tremenda!', gritó Bjørge Lillelien."
+    }
+  },
+  {
+    sport: "football", level: 1, tags: ["derby"],
+    q: "Sparta and Slavia have been bitter football rivals since 1896. In which city?",
+    answer: "Prague",
+    lat: 50.0997, lng: 14.416, year: 1896,
+    fact: "Their first derby was played in 1896.",
+    es: {
+      q: "El Sparta y el Slavia son grandes rivales futbolísticos desde 1896. ¿En qué ciudad?",
+      answer: "Praga",
+      fact: "Su primer derbi se jugó en 1896."
+    }
+  },
+  {
+    sport: "football", level: 3, tags: ["history"],
+    q: "Zvonimir Boban's kick at a policeman during a 1990 match became a symbol of a nation's road to independence. Where?",
+    answer: "Maksimir Stadium, Zagreb",
+    lat: 45.8189, lng: 16.0182, year: 1990,
+    fact: "The match against Red Star was abandoned amid riots.",
+    es: {
+      q: "La patada de Zvonimir Boban a un policía en un partido de 1990 se convirtió en símbolo del camino de un país hacia la independencia. ¿Dónde?",
+      answer: "Estadio Maksimir, Zagreb",
+      fact: "El partido contra el Estrella Roja se suspendió entre disturbios."
+    }
+  },
+  {
+    sport: "football", level: 3, tags: ["birthplace"],
+    q: "Gheorghe Hagi, 'the Maradona of the Carpathians', was born near which Black Sea port?",
+    answer: "Constanța, Romania",
+    lat: 44.1598, lng: 28.6348, year: 1965,
+    fact: "His football academy is just outside the city.",
+    es: {
+      q: "¿Cerca de qué puerto del mar Negro nació Gheorghe Hagi, 'el Maradona de los Cárpatos'?",
+      answer: "Constanța, Rumanía",
+      fact: "Su academia de fútbol está a las afueras de la ciudad."
+    }
+  },
+  {
+    sport: "football", level: 3, tags: ["birthplace"],
+    q: "Hristo Stoichkov was born and grew up in which city?",
+    answer: "Plovdiv, Bulgaria",
+    lat: 42.1354, lng: 24.7453, year: 1966,
+    fact: "He won the Ballon d'Or in 1994.",
+    es: {
+      q: "¿En qué ciudad nació y se crió Hristo Stoichkov?",
+      answer: "Plovdiv, Bulgaria",
+      fact: "Ganó el Balón de Oro en 1994."
+    }
+  },
+  {
+    sport: "football", level: 2, tags: ["derby"],
+    q: "Olympiacos and Panathinaikos contest the 'Derby of the Eternal Enemies'. In which metropolitan area?",
+    answer: "Athens and Piraeus",
+    lat: 37.9466, lng: 23.6644, year: 1925,
+    fact: "Olympiacos play in the port of Piraeus, Panathinaikos in central Athens.",
+    es: {
+      q: "El Olympiacos y el Panathinaikos disputan el 'Derbi de los Eternos Enemigos'. ¿En qué área metropolitana?",
+      answer: "Atenas y El Pireo",
+      fact: "El Olympiacos juega en el puerto de El Pireo; el Panathinaikos, en el centro de Atenas."
+    }
+  },
+  {
+    sport: "football", level: 3, tags: ["world-cup","record"],
+    q: "Hakan Şükür scored after about 11 seconds in the 2002 World Cup third-place play-off. Where?",
+    answer: "Daegu World Cup Stadium",
+    lat: 35.8297, lng: 128.6853, year: 2002,
+    fact: "It's still the fastest goal in World Cup history.",
+    es: {
+      q: "Hakan Şükür marcó a los 11 segundos en el partido por el tercer puesto del Mundial de 2002. ¿Dónde?",
+      answer: "Estadio de la Copa del Mundo de Daegu",
+      fact: "Sigue siendo el gol más rápido de la historia del Mundial."
+    }
+  },
+  {
+    sport: "football", level: 1, tags: ["derby"],
+    q: "Benfica and Sporting CP are fierce rivals in which city?",
+    answer: "Lisbon",
+    lat: 38.7612, lng: -9.1608, year: 1907,
+    fact: "Their stadiums are less than three kilometres apart.",
+    es: {
+      q: "¿En qué ciudad son grandes rivales el Benfica y el Sporting de Portugal?",
+      answer: "Lisboa",
+      fact: "Sus estadios están a menos de tres kilómetros."
+    }
+  },
+  {
+    sport: "football", level: 1, tags: ["venue"],
+    q: "Which city is home to the Puskás Aréna?",
+    answer: "Budapest",
+    lat: 47.503, lng: 19.098, year: 2019,
+    fact: "It's named after Ferenc Puskás, Hungary's greatest player.",
+    es: {
+      q: "¿En qué ciudad está la Puskás Aréna?",
+      answer: "Budapest",
+      fact: "Lleva el nombre de Ferenc Puskás, el mejor jugador de la historia de Hungría."
+    }
+  },
+  {
+    sport: "football", level: 1, tags: ["venue"],
+    q: "Which city is home to the Estádio do Dragão?",
+    answer: "Porto",
+    lat: 41.1617, lng: -8.5839, year: 2003,
+    fact: "It opened in 2003, in time for Euro 2004.",
+    es: {
+      q: "¿En qué ciudad está el Estádio do Dragão?",
+      answer: "Oporto",
+      fact: "Se inauguró en 2003, a tiempo para la Eurocopa 2004."
+    }
+  },
+  {
+    sport: "football", level: 1, tags: ["venue"],
+    q: "Which city is home to Juventus?",
+    answer: "Turin",
+    lat: 45.1096, lng: 7.6413, year: 2011,
+    fact: "The club has won more Italian league titles than any other.",
+    es: {
+      q: "¿En qué ciudad juega la Juventus?",
+      answer: "Turín",
+      fact: "El club ha ganado más ligas italianas que ningún otro."
+    }
+  },
+  {
+    sport: "football", level: 1, tags: ["organisation"],
+    q: "In which city is the Ballon d'Or ceremony traditionally held?",
+    answer: "Théâtre du Châtelet, Paris",
+    lat: 48.8575, lng: 2.3469, year: 1956,
+    fact: "The award was created in 1956 by France Football magazine.",
+    es: {
+      q: "¿En qué ciudad se celebra tradicionalmente la gala del Balón de Oro?",
+      answer: "Théâtre du Châtelet, París",
+      fact: "El premio lo creó en 1956 la revista France Football."
+    }
+  },
+  {
+    sport: "football", level: 1, tags: ["organisation"],
+    q: "The Champions League draw is traditionally held each August in which tiny state?",
+    answer: "Monaco (Grimaldi Forum)",
+    lat: 43.745, lng: 7.431, year: 1998,
+    fact: "UEFA's European awards are presented at the same event.",
+    es: {
+      q: "¿En qué pequeño estado se celebra tradicionalmente cada agosto el sorteo de la Champions?",
+      answer: "Mónaco (Grimaldi Forum)",
+      fact: "En el mismo acto se entregan los premios europeos de la UEFA."
+    }
+  },
+  {
+    sport: "football", level: 2, tags: ["venue"],
+    q: "Cristiano Ronaldo joined Al-Nassr in 2023. In which city do they play?",
+    answer: "Riyadh",
+    lat: 24.6669, lng: 46.6889, year: 2023,
+    fact: "Ronaldo's arrival was followed by a wave of star signings in the league.",
+    es: {
+      q: "Cristiano Ronaldo fichó por el Al-Nassr en 2023. ¿En qué ciudad juegan?",
+      answer: "Riad",
+      fact: "Tras su llegada, la liga fichó a muchas otras estrellas."
+    }
+  },
+  {
+    sport: "football", level: 2, tags: ["champions-league","women","record"],
+    q: "In 2022 a women's Champions League match drew a then world-record crowd of 91,553. Where?",
+    answer: "Camp Nou, Barcelona",
+    lat: 41.3809, lng: 2.1228, year: 2022,
+    fact: "Barcelona beat Real Madrid 5-2 in the quarter-final.",
+    es: {
+      q: "En 2022 un partido de la Champions femenina reunió a 91.553 espectadores, récord mundial entonces. ¿Dónde?",
+      answer: "Camp Nou, Barcelona",
+      fact: "El Barcelona ganó 5-2 al Real Madrid en los cuartos de final."
+    }
+  },
+  {
+    sport: "football", level: 3, tags: ["birthplace","women"],
+    q: "Alexia Putellas grew up in which town?",
+    answer: "Mollet del Vallès, Spain",
+    lat: 41.5396, lng: 2.2134, year: 1994,
+    fact: "She won the Ballon d'Or in 2021 and 2022.",
+    es: {
+      q: "¿En qué ciudad se crió Alexia Putellas?",
+      answer: "Mollet del Vallès, España",
+      fact: "Ganó el Balón de Oro en 2021 y 2022."
+    }
+  },
+  {
+    sport: "football", level: 3, tags: ["world-cup","women","first"],
+    q: "The USA beat Norway in the first ever Women's World Cup final, in 1991. Where?",
+    answer: "Tianhe Stadium, Guangzhou",
+    lat: 23.1376, lng: 113.3259, year: 1991,
+    fact: "Michelle Akers scored both of the USA's goals.",
+    es: {
+      q: "Estados Unidos ganó a Noruega en la primera final del Mundial femenino, en 1991. ¿Dónde?",
+      answer: "Estadio Tianhe, Cantón",
+      fact: "Michelle Akers marcó los dos goles de Estados Unidos."
+    }
+  },
 
   // ───────────── Tennis ─────────────
   {
@@ -1738,6 +2002,222 @@ window.QUESTIONS = [
       fact: "Unos 90 millones de personas lo vieron por televisión en todo el mundo."
     }
   },
+  {
+    sport: "tennis", level: 1, tags: ["grand-slam","venue"],
+    q: "Which Grand Slam tournament is played on red clay every spring?",
+    answer: "Stade Roland-Garros, Paris",
+    lat: 48.847, lng: 2.2494, year: 1928,
+    fact: "It's named after Roland Garros, a pioneering First World War aviator.",
+    es: {
+      q: "¿Qué torneo de Grand Slam se juega cada primavera sobre tierra batida roja?",
+      answer: "Stade Roland-Garros, París",
+      fact: "Lleva el nombre de Roland Garros, pionero de la aviación en la Primera Guerra Mundial."
+    }
+  },
+  {
+    sport: "tennis", level: 1, tags: ["grand-slam","venue"],
+    q: "Which Grand Slam is played in the world's largest tennis stadium, with room for about 23,000 fans?",
+    answer: "Arthur Ashe Stadium, New York",
+    lat: 40.7498, lng: -73.8458, year: 1997,
+    fact: "It's named after Arthur Ashe, the first Black man to win Wimbledon.",
+    es: {
+      q: "¿Qué Grand Slam se juega en el mayor estadio de tenis del mundo, con capacidad para unas 23.000 personas?",
+      answer: "Arthur Ashe Stadium, Nueva York",
+      fact: "Lleva el nombre de Arthur Ashe, el primer hombre negro que ganó Wimbledon."
+    }
+  },
+  {
+    sport: "tennis", level: 2, tags: ["grand-slam","women","record"],
+    q: "Serena Williams won her 23rd and last Grand Slam singles title in 2017 while pregnant. Where?",
+    answer: "Melbourne Park, Melbourne",
+    lat: -37.8216, lng: 144.9785, year: 2017,
+    fact: "She beat her sister Venus in the final.",
+    es: {
+      q: "Serena Williams ganó su 23.º y último Grand Slam individual en 2017, estando embarazada. ¿Dónde?",
+      answer: "Melbourne Park, Melbourne",
+      fact: "Ganó la final a su hermana Venus."
+    }
+  },
+  {
+    sport: "tennis", level: 2, tags: ["grand-slam","women","final","upset"],
+    q: "Arantxa Sánchez Vicario won her first Grand Slam in 1989, stunning Steffi Graf in the final. Where?",
+    answer: "Stade Roland-Garros, Paris",
+    lat: 48.847, lng: 2.2494, year: 1989,
+    fact: "At 17 she was, at the time, the youngest women's champion there.",
+    es: {
+      q: "Arantxa Sánchez Vicario ganó su primer Grand Slam en 1989, sorprendiendo a Steffi Graf en la final. ¿Dónde?",
+      answer: "Stade Roland-Garros, París",
+      fact: "Con 17 años, fue entonces la campeona más joven del torneo."
+    }
+  },
+  {
+    sport: "tennis", level: 2, tags: ["grand-slam","women","record"],
+    q: "Martina Navratilova won a record nine singles titles at which tournament?",
+    answer: "All England Club, Wimbledon",
+    lat: 51.434, lng: -0.2143, year: 1990,
+    fact: "Her ninth title came in 1990, at the age of 33.",
+    es: {
+      q: "¿En qué torneo ganó Martina Navratilova un récord de nueve títulos individuales?",
+      answer: "All England Club, Wimbledon",
+      fact: "Su noveno título llegó en 1990, con 33 años."
+    }
+  },
+  {
+    sport: "tennis", level: 2, tags: ["birthplace","women"],
+    q: "Iga Świątek, four-time Roland-Garros champion, was born and raised in which capital?",
+    answer: "Warsaw",
+    lat: 52.2297, lng: 21.0122, year: 2001,
+    fact: "Her father rowed at the 1988 Olympics.",
+    es: {
+      q: "Iga Świątek, cuatro veces campeona de Roland-Garros, nació y se crió en ¿qué capital?",
+      answer: "Varsovia",
+      fact: "Su padre compitió en remo en los Juegos de 1988."
+    }
+  },
+  {
+    sport: "tennis", level: 2, tags: ["birthplace"],
+    q: "Novak Djokovic was born and grew up in which city?",
+    answer: "Belgrade",
+    lat: 44.8125, lng: 20.4612, year: 1987,
+    fact: "As a boy he trained in a drained swimming pool during the 1999 bombing of the city.",
+    es: {
+      q: "¿En qué ciudad nació y se crió Novak Djokovic?",
+      answer: "Belgrado",
+      fact: "De niño entrenaba en una piscina vacía durante los bombardeos de 1999 sobre la ciudad."
+    }
+  },
+  {
+    sport: "tennis", level: 3, tags: ["birthplace","women"],
+    q: "Steffi Graf grew up in which small town, where her father ran a tennis school?",
+    answer: "Brühl, Germany",
+    lat: 49.4, lng: 8.5333, year: 1969,
+    fact: "She started hitting balls with a sawn-off racket at the age of three.",
+    es: {
+      q: "¿En qué pequeña ciudad, donde su padre tenía una escuela de tenis, se crió Steffi Graf?",
+      answer: "Brühl, Alemania",
+      fact: "Empezó a dar golpes con una raqueta recortada a los tres años."
+    }
+  },
+  {
+    sport: "tennis", level: 2, tags: ["final","history"],
+    q: "Spain won the 2004 Davis Cup on a clay court built inside a football stadium, with an 18-year-old Rafael Nadal beating Andy Roddick. Where?",
+    answer: "Estadio de La Cartuja, Seville",
+    lat: 37.4166, lng: -6.0047, year: 2004,
+    fact: "More than 27,000 fans a day watched, a record for tennis at the time.",
+    es: {
+      q: "España ganó la Copa Davis de 2004 en una pista de tierra montada dentro de un estadio de fútbol, con un Rafa Nadal de 18 años ganando a Andy Roddick. ¿Dónde?",
+      answer: "Estadio de La Cartuja, Sevilla",
+      fact: "Más de 27.000 personas al día lo vieron, un récord para el tenis en aquel momento."
+    }
+  },
+  {
+    sport: "tennis", level: 3, tags: ["birthplace"],
+    q: "Björn Borg grew up in which town, where he also played ice hockey as a boy?",
+    answer: "Södertälje, Sweden",
+    lat: 59.1955, lng: 17.6253, year: 1956,
+    fact: "He won 11 Grand Slam titles before retiring at 26.",
+    es: {
+      q: "¿En qué ciudad se crió Björn Borg, donde de niño también jugaba al hockey sobre hielo?",
+      answer: "Södertälje, Suecia",
+      fact: "Ganó 11 Grand Slam antes de retirarse con 26 años."
+    }
+  },
+  {
+    sport: "tennis", level: 3, tags: ["first"],
+    q: "The Laver Cup, Europe vs the Rest of the World, was first played in 2017. Where?",
+    answer: "O2 Arena, Prague",
+    lat: 50.1047, lng: 14.4932, year: 2017,
+    fact: "Team Europe, led by Federer and Nadal, won it.",
+    es: {
+      q: "La Laver Cup, Europa contra el Resto del Mundo, se jugó por primera vez en 2017. ¿Dónde?",
+      answer: "O2 Arena, Praga",
+      fact: "Ganó el equipo europeo, liderado por Federer y Nadal."
+    }
+  },
+  {
+    sport: "tennis", level: 2, tags: ["final","history"],
+    q: "Spain won its first Davis Cup in 2000, with Juan Carlos Ferrero clinching it against Australia. Where?",
+    answer: "Palau Sant Jordi, Barcelona",
+    lat: 41.3634, lng: 2.1525, year: 2000,
+    fact: "The arena was built for the 1992 Olympics.",
+    es: {
+      q: "España ganó su primera Copa Davis en 2000, con Juan Carlos Ferrero cerrando la eliminatoria ante Australia. ¿Dónde?",
+      answer: "Palau Sant Jordi, Barcelona",
+      fact: "El pabellón se construyó para los Juegos de 1992."
+    }
+  },
+  {
+    sport: "tennis", level: 3, tags: ["birthplace","women"],
+    q: "Martina Hingis was born in which city, before moving to Switzerland as a child?",
+    answer: "Košice, Slovakia",
+    lat: 48.7164, lng: 21.2611, year: 1980,
+    fact: "She was named after Martina Navratilova.",
+    es: {
+      q: "¿En qué ciudad nació Martina Hingis, antes de mudarse de niña a Suiza?",
+      answer: "Košice, Eslovaquia",
+      fact: "Le pusieron el nombre por Martina Navratilova."
+    }
+  },
+  {
+    sport: "tennis", level: 3, tags: ["birthplace","women"],
+    q: "Caroline Wozniacki, a former world No. 1, was born in which city?",
+    answer: "Odense, Denmark",
+    lat: 55.4038, lng: 10.4024, year: 1990,
+    fact: "She spent 71 weeks at the top of the rankings.",
+    es: {
+      q: "¿En qué ciudad nació Caroline Wozniacki, ex número 1 del mundo?",
+      answer: "Odense, Dinamarca",
+      fact: "Pasó 71 semanas en lo más alto de la clasificación."
+    }
+  },
+  {
+    sport: "tennis", level: 3, tags: ["birthplace","women"],
+    q: "Justine Henin, owner of one of the best one-handed backhands ever, was born in which city?",
+    answer: "Liège, Belgium",
+    lat: 50.6326, lng: 5.5797, year: 1982,
+    fact: "She won Roland-Garros four times.",
+    es: {
+      q: "¿En qué ciudad nació Justine Henin, dueña de uno de los mejores revés a una mano de la historia?",
+      answer: "Lieja, Bélgica",
+      fact: "Ganó Roland-Garros cuatro veces."
+    }
+  },
+  {
+    sport: "tennis", level: 3, tags: ["birthplace"],
+    q: "Andy Murray grew up in which small town?",
+    answer: "Dunblane, Scotland",
+    lat: 56.1867, lng: -3.965, year: 1987,
+    fact: "He won Wimbledon in 2013 and 2016.",
+    es: {
+      q: "¿En qué pequeña ciudad se crió Andy Murray?",
+      answer: "Dunblane, Escocia",
+      fact: "Ganó Wimbledon en 2013 y 2016."
+    }
+  },
+  {
+    sport: "tennis", level: 2, tags: ["final","venue"],
+    q: "The Davis Cup Finals were held in 2023 and 2024 in a coastal city known as Picasso's birthplace. Which one?",
+    answer: "Palacio de los Deportes Martín Carpena, Málaga",
+    lat: 36.7125, lng: -4.4314, year: 2023,
+    fact: "Italy won both editions, led by Jannik Sinner.",
+    es: {
+      q: "Las Finales de la Copa Davis de 2023 y 2024 se celebraron en una ciudad costera conocida por ser la cuna de Picasso. ¿Cuál?",
+      answer: "Palacio de los Deportes Martín Carpena, Málaga",
+      fact: "Italia ganó las dos ediciones, con Jannik Sinner al frente."
+    }
+  },
+  {
+    sport: "tennis", level: 3, tags: ["olympics","women","first"],
+    q: "Charlotte Cooper became the first woman to win an Olympic title, at tennis, in 1900. Where?",
+    answer: "Île de Puteaux, Paris",
+    lat: 48.878, lng: 2.242, year: 1900,
+    fact: "Women competed at the Olympics for the first time that year.",
+    es: {
+      q: "Charlotte Cooper fue la primera mujer en ganar un título olímpico, en tenis, en 1900. ¿Dónde?",
+      answer: "Isla de Puteaux, París",
+      fact: "Ese año las mujeres compitieron por primera vez en unos Juegos."
+    }
+  },
 
   // ───────────── Cycling ─────────────
   {
@@ -1918,6 +2398,66 @@ window.QUESTIONS = [
       q: "¿Qué empinado 'muro' adoquinado, con una capilla en la cima, es una de las subidas más famosas de las clásicas de primavera?",
       answer: "Muur van Geraardsbergen (Kapelmuur)",
       fact: "Su tramo más duro llega a cerca del 20 %."
+    }
+  },
+  {
+    sport: "cycling", level: 3, tags: ["history"],
+    q: "Before winning the Tour de France, Jonas Vingegaard worked at a fish factory in which port town?",
+    answer: "Hanstholm, Denmark",
+    lat: 57.1167, lng: 8.6167, year: 2022,
+    fact: "He won the Tour in 2022 and 2023.",
+    es: {
+      q: "Antes de ganar el Tour de Francia, Jonas Vingegaard trabajó en una fábrica de pescado de ¿qué ciudad portuaria?",
+      answer: "Hanstholm, Dinamarca",
+      fact: "Ganó el Tour en 2022 y 2023."
+    }
+  },
+  {
+    sport: "cycling", level: 3, tags: ["birthplace"],
+    q: "Peter Sagan, three-time road race world champion, grew up in which city?",
+    answer: "Žilina, Slovakia",
+    lat: 49.2231, lng: 18.7394, year: 1990,
+    fact: "He won the world title three years in a row, 2015 to 2017.",
+    es: {
+      q: "¿En qué ciudad se crió Peter Sagan, tres veces campeón del mundo de ruta?",
+      answer: "Žilina, Eslovaquia",
+      fact: "Ganó el Mundial tres años seguidos, de 2015 a 2017."
+    }
+  },
+  {
+    sport: "cycling", level: 3, tags: ["birthplace"],
+    q: "Tadej Pogačar grew up in a village just north of which capital?",
+    answer: "Komenda, near Ljubljana",
+    lat: 46.2036, lng: 14.5381, year: 1998,
+    fact: "He won his first Tour de France in 2020, aged 21.",
+    es: {
+      q: "¿Tadej Pogačar se crió en un pueblo justo al norte de qué capital?",
+      answer: "Komenda, cerca de Liubliana",
+      fact: "Ganó su primer Tour de Francia en 2020, con 21 años."
+    }
+  },
+  {
+    sport: "cycling", level: 1, tags: ["venue"],
+    q: "In which city does the Vuelta traditionally finish?",
+    answer: "Madrid",
+    lat: 40.4193, lng: -3.6932, year: 1935,
+    fact: "The first Vuelta was held in 1935.",
+    es: {
+      q: "¿En qué ciudad termina tradicionalmente la Vuelta?",
+      answer: "Madrid",
+      fact: "La primera Vuelta se disputó en 1935."
+    }
+  },
+  {
+    sport: "cycling", level: 3, tags: ["venue"],
+    q: "The Giro d'Italia has finished inside a Roman amphitheatre. In which city?",
+    answer: "Verona",
+    lat: 45.439, lng: 10.9944, year: 2019,
+    fact: "The amphitheatre still hosts open-air opera every summer.",
+    es: {
+      q: "El Giro de Italia ha terminado dentro de un anfiteatro romano. ¿En qué ciudad?",
+      answer: "Verona",
+      fact: "El anfiteatro sigue acogiendo ópera al aire libre cada verano."
     }
   },
 
@@ -2232,6 +2772,54 @@ window.QUESTIONS = [
       q: "¿Dónde estaba el primer circuito del mundo construido para carreras de coches, inaugurado en 1907 con curvas peraltadas?",
       answer: "Brooklands, Weybridge",
       fact: "Hoy es un museo."
+    }
+  },
+  {
+    sport: "motorsport", level: 3, tags: ["birthplace","f1"],
+    q: "Kimi Räikkönen, the 2007 Formula 1 champion, was born in which city?",
+    answer: "Espoo, Finland",
+    lat: 60.2055, lng: 24.6559, year: 1979,
+    fact: "Fans nicknamed him 'the Iceman'.",
+    es: {
+      q: "¿En qué ciudad nació Kimi Räikkönen, campeón de Fórmula 1 en 2007?",
+      answer: "Espoo, Finlandia",
+      fact: "La afición le apodó 'el Hombre de Hielo'."
+    }
+  },
+  {
+    sport: "motorsport", level: 3, tags: ["venue"],
+    q: "Which city hosts the rally known as the 'Grand Prix on gravel', famous for cars flying over huge jumps?",
+    answer: "Jyväskylä, Finland",
+    lat: 62.2426, lng: 25.7473, year: 1951,
+    fact: "Cars regularly fly more than 40 metres off the crests.",
+    es: {
+      q: "¿Qué ciudad acoge el rally conocido como el 'Gran Premio sobre tierra', famoso por los enormes saltos de los coches?",
+      answer: "Jyväskylä, Finlandia",
+      fact: "Los coches vuelan a menudo más de 40 metros en los cambios de rasante."
+    }
+  },
+  {
+    sport: "motorsport", level: 3, tags: ["birthplace","motogp"],
+    q: "Valentino Rossi grew up in a small hill town where the number 46 is painted everywhere. Which one?",
+    answer: "Tavullia, Italy",
+    lat: 43.896, lng: 12.752, year: 1979,
+    fact: "His VR46 riders' academy is based nearby.",
+    es: {
+      q: "Valentino Rossi se crió en un pequeño pueblo en una colina donde el número 46 está pintado por todas partes. ¿Cuál?",
+      answer: "Tavullia, Italia",
+      fact: "Su academia de pilotos VR46 está muy cerca."
+    }
+  },
+  {
+    sport: "motorsport", level: 3, tags: ["birthplace","motogp"],
+    q: "Marc Márquez was born and grew up in which town?",
+    answer: "Cervera, Spain",
+    lat: 41.6704, lng: 1.2717, year: 1993,
+    fact: "He won six MotoGP titles, then a seventh in 2025 after a long comeback from injury.",
+    es: {
+      q: "¿En qué ciudad nació y se crió Marc Márquez?",
+      answer: "Cervera, España",
+      fact: "Ganó seis títulos de MotoGP y un séptimo en 2025, tras una larga vuelta de una lesión."
     }
   },
 
@@ -2764,6 +3352,114 @@ window.QUESTIONS = [
       fact: "Por las normas de cuarentena, la hípica se celebró en Estocolmo."
     }
   },
+  {
+    sport: "athletics", level: 3, tags: ["birthplace","record"],
+    q: "Karsten Warholm, 400 m hurdles world record holder, grew up in which small coastal town?",
+    answer: "Ulsteinvik, Norway",
+    lat: 62.3433, lng: 5.8487, year: 1996,
+    fact: "His 45.94 in 2021 was the first 400 m hurdles run under 46 seconds.",
+    es: {
+      q: "¿En qué pequeña ciudad costera se crió Karsten Warholm, plusmarquista mundial de 400 m vallas?",
+      answer: "Ulsteinvik, Noruega",
+      fact: "Su 45,94 de 2021 fue la primera vez que alguien bajó de 46 segundos en los 400 m vallas."
+    }
+  },
+  {
+    sport: "olympics", level: 2, tags: ["venue","olympics"],
+    q: "A statue of Paavo Nurmi, winner of nine Olympic golds, stands outside which stadium?",
+    answer: "Helsinki Olympic Stadium",
+    lat: 60.187, lng: 24.927, year: 1925,
+    fact: "Nurmi lit the Olympic flame there in 1952.",
+    es: {
+      q: "¿Ante qué estadio se alza una estatua de Paavo Nurmi, ganador de nueve oros olímpicos?",
+      answer: "Estadio Olímpico de Helsinki",
+      fact: "Nurmi encendió allí la llama olímpica en 1952."
+    }
+  },
+  {
+    sport: "athletics", level: 3, tags: ["first","venue"],
+    q: "Europe's oldest marathon has been run every year since 1924. In which city?",
+    answer: "Košice, Slovakia",
+    lat: 48.7164, lng: 21.2611, year: 1924,
+    fact: "Only the Boston Marathon is older.",
+    es: {
+      q: "El maratón más antiguo de Europa se corre cada año desde 1924. ¿En qué ciudad?",
+      answer: "Košice, Eslovaquia",
+      fact: "Solo el Maratón de Boston es más antiguo."
+    }
+  },
+  {
+    sport: "athletics", level: 3, tags: ["record","first"],
+    q: "Sergey Bubka became the first man to clear 6 metres in the pole vault in 1985. Where?",
+    answer: "Stade Jean-Bouin, Paris",
+    lat: 48.8432, lng: 2.253, year: 1985,
+    fact: "He broke the world record 35 times, indoors and out.",
+    es: {
+      q: "Serguéi Bubka fue el primer hombre en superar los 6 metros en pértiga en 1985. ¿Dónde?",
+      answer: "Stade Jean-Bouin, París",
+      fact: "Batió el récord mundial 35 veces, en pista cubierta y al aire libre."
+    }
+  },
+  {
+    sport: "olympics", level: 3, tags: ["olympics","history"],
+    q: "Weeks after the Soviet invasion of their country, Hungary beat the USSR in the 1956 Olympic water polo 'Blood in the Water' match. Where?",
+    answer: "Swimming Stadium, Melbourne",
+    lat: -37.8226, lng: 144.981, year: 1956,
+    fact: "Hungary went on to win the gold medal.",
+    es: {
+      q: "Semanas después de la invasión soviética de su país, Hungría ganó a la URSS en el partido de waterpolo olímpico de 1956 conocido como 'Sangre en el agua'. ¿Dónde?",
+      answer: "Piscina olímpica, Melbourne",
+      fact: "Hungría acabó ganando la medalla de oro."
+    }
+  },
+  {
+    sport: "athletics", level: 2, tags: ["women","first","history"],
+    q: "Kathrine Switzer became the first woman to run a marathon with an official number in 1967, despite an official trying to push her off the course. Where?",
+    answer: "Boston",
+    lat: 42.3497, lng: -71.0786, year: 1967,
+    fact: "Women were only officially allowed to enter five years later.",
+    es: {
+      q: "Kathrine Switzer fue la primera mujer en correr un maratón con dorsal oficial en 1967, pese a que un juez intentó sacarla del recorrido. ¿Dónde?",
+      answer: "Boston",
+      fact: "Las mujeres no pudieron inscribirse oficialmente hasta cinco años después."
+    }
+  },
+  {
+    sport: "athletics", level: 2, tags: ["birthplace","women"],
+    q: "Rosa Mota, the 1988 Olympic marathon champion, comes from which city?",
+    answer: "Porto",
+    lat: 41.1579, lng: -8.6291, year: 1958,
+    fact: "She also won three European marathon titles in a row.",
+    es: {
+      q: "¿De qué ciudad es Rosa Mota, campeona olímpica de maratón en 1988?",
+      answer: "Oporto",
+      fact: "También ganó tres títulos europeos de maratón seguidos."
+    }
+  },
+  {
+    sport: "olympics", level: 1, tags: ["olympics","host"],
+    q: "Which city hosted the 1960 Summer Olympics, where an 18-year-old Cassius Clay won boxing gold?",
+    answer: "Rome",
+    lat: 41.9339, lng: 12.4547, year: 1960,
+    fact: "Clay later changed his name to Muhammad Ali.",
+    es: {
+      q: "¿Qué ciudad organizó los Juegos Olímpicos de 1960, en los que un Cassius Clay de 18 años ganó el oro en boxeo?",
+      answer: "Roma",
+      fact: "Clay se cambió después el nombre por Muhammad Ali."
+    }
+  },
+  {
+    sport: "athletics", level: 3, tags: ["record"],
+    q: "Hicham El Guerrouj ran the mile in 3:43.13 in 1999. Where?",
+    answer: "Stadio Olimpico, Rome",
+    lat: 41.9339, lng: 12.4547, year: 1999,
+    fact: "It has stood as the mile world record ever since.",
+    es: {
+      q: "Hicham El Guerrouj corrió la milla en 3:43,13 en 1999. ¿Dónde?",
+      answer: "Estadio Olímpico, Roma",
+      fact: "Desde entonces sigue siendo el récord mundial de la milla."
+    }
+  },
 
   // ───────────── Winter sports ─────────────
   {
@@ -3174,6 +3870,66 @@ window.QUESTIONS = [
       fact: "Ocupa en parte un antiguo edificio bancario."
     }
   },
+  {
+    sport: "winter", level: 3, tags: ["birthplace"],
+    q: "Ski jumper Adam Małysz, four-time world champion, comes from which mountain town?",
+    answer: "Wisła, Poland",
+    lat: 49.655, lng: 18.859, year: 1977,
+    fact: "The town's ski jump is now named after him.",
+    es: {
+      q: "El saltador de esquí Adam Małysz, cuatro veces campeón del mundo, es de ¿qué pueblo de montaña?",
+      answer: "Wisła, Polonia",
+      fact: "El trampolín del pueblo lleva hoy su nombre."
+    }
+  },
+  {
+    sport: "winter", level: 3, tags: ["birthplace","record"],
+    q: "Ingemar Stenmark, winner of a record 86 World Cup races, grew up in which small northern village?",
+    answer: "Tärnaby, Sweden",
+    lat: 65.7167, lng: 15.2667, year: 1956,
+    fact: "His record stood for 34 years.",
+    es: {
+      q: "¿En qué pequeño pueblo del norte se crió Ingemar Stenmark, ganador de un récord de 86 carreras de la Copa del Mundo?",
+      answer: "Tärnaby, Suecia",
+      fact: "Su récord duró 34 años."
+    }
+  },
+  {
+    sport: "winter", level: 3, tags: ["record","women"],
+    q: "Mikaela Shiffrin broke Ingemar Stenmark's record with her 87th World Cup win in 2023. Where?",
+    answer: "Åre, Sweden",
+    lat: 63.399, lng: 13.08, year: 2023,
+    fact: "She has since passed 100 World Cup wins.",
+    es: {
+      q: "Mikaela Shiffrin batió el récord de Ingemar Stenmark con su 87.ª victoria en la Copa del Mundo en 2023. ¿Dónde?",
+      answer: "Åre, Suecia",
+      fact: "Desde entonces ha superado las 100 victorias."
+    }
+  },
+  {
+    sport: "winter", level: 3, tags: ["birthplace"],
+    q: "Ice hockey legend Jaromír Jágr was born and grew up in which city?",
+    answer: "Kladno, Czech Republic",
+    lat: 50.1473, lng: 14.1029, year: 1972,
+    fact: "He wore number 68 in memory of the 1968 Prague Spring.",
+    es: {
+      q: "¿En qué ciudad nació y se crió la leyenda del hockey Jaromír Jágr?",
+      answer: "Kladno, República Checa",
+      fact: "Llevaba el dorsal 68 en recuerdo de la Primavera de Praga de 1968."
+    }
+  },
+  {
+    sport: "winter", level: 2, tags: ["winter-olympics","upset"],
+    q: "Dominik Hašek's saves won ice hockey gold for the Czech Republic at the 1998 Winter Olympics. Where?",
+    answer: "Big Hat arena, Nagano",
+    lat: 36.6514, lng: 138.2, year: 1998,
+    fact: "It was the first Olympics with NHL players.",
+    es: {
+      q: "Las paradas de Dominik Hašek dieron a la República Checa el oro de hockey en los Juegos de Invierno de 1998. ¿Dónde?",
+      answer: "Pabellón Big Hat, Nagano",
+      fact: "Fueron los primeros Juegos con jugadores de la NHL."
+    }
+  },
 
   // ───────────── Rugby ─────────────
   {
@@ -3258,6 +4014,18 @@ window.QUESTIONS = [
       q: "Sudáfrica ganó a Inglaterra en la final del Mundial de rugby de 2019. ¿Dónde?",
       answer: "Estadio Internacional de Yokohama",
       fact: "Siya Kolisi fue el primer capitán negro de Sudáfrica en levantar el trofeo."
+    }
+  },
+  {
+    sport: "rugby", level: 3, tags: ["upset","first"],
+    q: "Ireland beat New Zealand at rugby for the first time in 2016, after 111 years of trying. Where?",
+    answer: "Soldier Field, Chicago",
+    lat: 41.8623, lng: -87.6167, year: 2016,
+    fact: "Ireland won 40-29.",
+    es: {
+      q: "Irlanda ganó por primera vez a Nueva Zelanda en rugby en 2016, tras 111 años intentándolo. ¿Dónde?",
+      answer: "Soldier Field, Chicago",
+      fact: "Irlanda ganó 40-29."
     }
   },
 
@@ -3394,6 +4162,42 @@ window.QUESTIONS = [
       fact: "De niño practicaba con un único y viejo hierro 3."
     }
   },
+  {
+    sport: "golf", level: 2, tags: ["history"],
+    q: "Shane Lowry won the 2019 Open in front of a home crowd, at a course hosting it for the first time since 1951. Where?",
+    answer: "Royal Portrush, Northern Ireland",
+    lat: 55.2008, lng: -6.634, year: 2019,
+    fact: "He won by six shots.",
+    es: {
+      q: "Shane Lowry ganó el Open de 2019 ante su público, en un campo que no lo acogía desde 1951. ¿Dónde?",
+      answer: "Royal Portrush, Irlanda del Norte",
+      fact: "Ganó con seis golpes de ventaja."
+    }
+  },
+  {
+    sport: "golf", level: 3, tags: ["women","record"],
+    q: "Annika Sörenstam shot a 59 in 2001, the first round under 60 in women's professional golf. Where?",
+    answer: "Moon Valley Country Club, Phoenix",
+    lat: 33.6372, lng: -112.0718, year: 2001,
+    fact: "She won 10 major titles.",
+    es: {
+      q: "Annika Sörenstam hizo 59 golpes en 2001, la primera vuelta por debajo de 60 en el golf profesional femenino. ¿Dónde?",
+      answer: "Moon Valley Country Club, Phoenix",
+      fact: "Ganó 10 grandes."
+    }
+  },
+  {
+    sport: "golf", level: 3, tags: ["women"],
+    q: "The 2023 Solheim Cup ended in a 14-14 draw, with Europe keeping the trophy. Where?",
+    answer: "Finca Cortesín, Casares (Spain)",
+    lat: 36.4161, lng: -5.2647, year: 2023,
+    fact: "It was the first Solheim Cup held in Spain.",
+    es: {
+      q: "La Solheim Cup de 2023 acabó en empate 14-14 y Europa retuvo el trofeo. ¿Dónde?",
+      answer: "Finca Cortesín, Casares (España)",
+      fact: "Fue la primera Solheim Cup celebrada en España."
+    }
+  },
 
   // ───────────── Cricket ─────────────
   {
@@ -3442,6 +4246,18 @@ window.QUESTIONS = [
       q: "¿Qué ciudad tiene el mayor estadio de críquet del mundo, con capacidad para unas 130.000 personas?",
       answer: "Estadio Narendra Modi, Ahmedabad",
       fact: "Acogió la final del Mundial de críquet de 2023."
+    }
+  },
+  {
+    sport: "cricket", level: 2, tags: ["final"],
+    q: "India won the 2011 Cricket World Cup final, with MS Dhoni finishing it with a six. Where?",
+    answer: "Wankhede Stadium, Mumbai",
+    lat: 18.9389, lng: 72.8258, year: 2011,
+    fact: "Sachin Tendulkar, playing in his home city, finally won the World Cup.",
+    es: {
+      q: "India ganó la final del Mundial de críquet de 2011, que MS Dhoni cerró con un seis. ¿Dónde?",
+      answer: "Wankhede Stadium, Bombay",
+      fact: "Sachin Tendulkar, que jugaba en su ciudad, ganó por fin el Mundial."
     }
   },
 
@@ -3792,6 +4608,126 @@ window.QUESTIONS = [
       q: "Garrett McNamara surfeó una ola gigante de récord en 2011 frente a un pueblo pesquero famoso por su cañón submarino. ¿Dónde?",
       answer: "Nazaré, Portugal",
       fact: "El cañón concentra el oleaje del Atlántico en olas de más de 20 metros."
+    }
+  },
+  {
+    sport: "gaelic games", level: 2, tags: ["venue"],
+    q: "Which stadium, one of Europe's biggest, hosts hurling's championship final every summer?",
+    answer: "Croke Park, Dublin",
+    lat: 53.3607, lng: -6.2512, year: 1884,
+    fact: "It holds 82,300 people.",
+    es: {
+      q: "¿Qué estadio, uno de los más grandes de Europa, acoge cada verano la final del campeonato de hurling?",
+      answer: "Croke Park, Dublín",
+      fact: "Tiene capacidad para 82.300 personas."
+    }
+  },
+  {
+    sport: "basketball", level: 3, tags: ["final","first"],
+    q: "Spain won their first EuroBasket title in 2009, thrashing Serbia in the final. Where?",
+    answer: "Spodek arena, Katowice",
+    lat: 50.2664, lng: 19.0255, year: 2009,
+    fact: "Pau Gasol was named MVP.",
+    es: {
+      q: "España ganó su primer Eurobasket en 2009, arrollando a Serbia en la final. ¿Dónde?",
+      answer: "Pabellón Spodek, Katowice",
+      fact: "Pau Gasol fue elegido MVP."
+    }
+  },
+  {
+    sport: "basketball", level: 2, tags: ["birthplace"],
+    q: "Luka Dončić was born and raised in which capital?",
+    answer: "Ljubljana",
+    lat: 46.0569, lng: 14.5058, year: 1999,
+    fact: "He made his professional debut for Real Madrid at 16.",
+    es: {
+      q: "¿En qué capital nació y se crió Luka Dončić?",
+      answer: "Liubliana",
+      fact: "Debutó como profesional con el Real Madrid a los 16 años."
+    }
+  },
+  {
+    sport: "basketball", level: 3, tags: ["final","upset"],
+    q: "Nikos Galis scored 40 points as Greece beat the USSR in the EuroBasket 1987 final. Where?",
+    answer: "Peace and Friendship Stadium, Piraeus",
+    lat: 37.9436, lng: 23.665, year: 1987,
+    fact: "The win sparked a basketball boom in Greece.",
+    es: {
+      q: "Nikos Galis anotó 40 puntos y Grecia ganó a la URSS en la final del Eurobasket de 1987. ¿Dónde?",
+      answer: "Estadio de la Paz y la Amistad, El Pireo",
+      fact: "La victoria desató la fiebre del baloncesto en Grecia."
+    }
+  },
+  {
+    sport: "sailing", level: 3, tags: ["olympics","host"],
+    q: "The sailing at the 1980 Moscow Olympics was held hundreds of kilometres away, in another city. Which one?",
+    answer: "Pirita, Tallinn",
+    lat: 59.4683, lng: 24.8331, year: 1980,
+    fact: "The Olympic sailing centre is still in use.",
+    es: {
+      q: "La vela de los Juegos de Moscú 1980 se disputó a cientos de kilómetros, en otra ciudad. ¿Cuál?",
+      answer: "Pirita, Tallin",
+      fact: "El centro olímpico de vela sigue en uso."
+    }
+  },
+  {
+    sport: "swimming", level: 3, tags: ["olympics","first"],
+    q: "The swimming events of the first modern Olympics, in 1896, were held in the open sea. Where?",
+    answer: "Bay of Zea, Piraeus",
+    lat: 37.937, lng: 23.646, year: 1896,
+    fact: "Alfréd Hajós won two golds in water of around 13°C.",
+    es: {
+      q: "La natación de los primeros Juegos modernos, en 1896, se disputó en mar abierto. ¿Dónde?",
+      answer: "Bahía de Zea, El Pireo",
+      fact: "Alfréd Hajós ganó dos oros en agua a unos 13 °C."
+    }
+  },
+  {
+    sport: "equestrian", level: 3, tags: ["venue"],
+    q: "Which city hosts show jumping's most prestigious meeting, nicknamed 'the Wimbledon of equestrian sport'?",
+    answer: "Aachen (Soers showground)",
+    lat: 50.793, lng: 6.095, year: 1924,
+    fact: "The event has been held there since 1924.",
+    es: {
+      q: "¿Qué ciudad acoge la reunión más prestigiosa de los saltos ecuestres, apodada 'el Wimbledon de la hípica'?",
+      answer: "Aquisgrán (recinto de Soers)",
+      fact: "El evento se celebra allí desde 1924."
+    }
+  },
+  {
+    sport: "snooker", level: 2, tags: ["record"],
+    q: "Ronnie O'Sullivan made a maximum 147 break in 5 minutes 8 seconds in 1997. Where?",
+    answer: "Crucible Theatre, Sheffield",
+    lat: 53.38, lng: -1.467, year: 1997,
+    fact: "It's still the fastest 147 in professional snooker.",
+    es: {
+      q: "Ronnie O'Sullivan hizo un 147, la tacada máxima, en 5 minutos y 8 segundos en 1997. ¿Dónde?",
+      answer: "Crucible Theatre, Sheffield",
+      fact: "Sigue siendo el 147 más rápido del snooker profesional."
+    }
+  },
+  {
+    sport: "basketball", level: 2, tags: ["venue"],
+    q: "Žalgiris, the 1999 EuroLeague champions, play in front of 15,000 fans in which city?",
+    answer: "Kaunas, Lithuania",
+    lat: 54.89, lng: 23.915, year: 2011,
+    fact: "Their arena holds around 5% of the city's population.",
+    es: {
+      q: "¿En qué ciudad juega el Žalgiris, campeón de la Euroliga en 1999, ante 15.000 aficionados?",
+      answer: "Kaunas, Lituania",
+      fact: "Su pabellón tiene capacidad para cerca del 5 % de la población de la ciudad."
+    }
+  },
+  {
+    sport: "climbing", level: 2, tags: ["first"],
+    q: "In 1950 a French expedition made the first ascent of any 8,000-metre peak. Which mountain?",
+    answer: "Annapurna",
+    lat: 28.5961, lng: 83.8203, year: 1950,
+    fact: "Maurice Herzog and Louis Lachenal reached the summit.",
+    es: {
+      q: "En 1950 una expedición francesa hizo la primera ascensión a un ochomil. ¿Qué montaña?",
+      answer: "Annapurna",
+      fact: "Maurice Herzog y Louis Lachenal llegaron a la cima."
     }
   }
 ];
