@@ -14,7 +14,8 @@ Inspired by [Farflung](https://farflung.game/) and [GeoSports](https://geosports
 - Football plus F1, cycling, tennis, winter sports, rugby, golf, Olympics and more
 - Shareable emoji result (🟩🟨🟧🟥), stats & streaks saved in the browser
 - Practice rounds with random questions after finishing the daily game
-- Unlabelled map tiles (no cheating by reading city names), light & dark mode, mobile friendly
+- Map without labels (no cheating by reading city names), bundled with the game: no tile server or API key needed
+- Light & dark mode, mobile friendly
 
 ## Run locally
 
@@ -54,4 +55,4 @@ upcoming sequence, so it's best to add them in batches.
 ## Credits
 
 - Map: [Leaflet](https://leafletjs.com/) (vendored in `vendor/leaflet`, BSD-2-Clause)
-- Tiles: © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors, © [CARTO](https://carto.com/attributions)
+- Country shapes: [Natural Earth](https://www.naturalearthdata.com/) 1:50m via [world-atlas](https://github.com/topojson/world-atlas) (ISC), read with [topojson-client](https://github.com/topojson/topojson-client) (ISC)

@@ -9,6 +9,9 @@
   --accent-ink: #ffffff;
   --guess: #2563eb;
   --target: #dc2626;
+  --ocean: #c9dfec;
+  --land: #f7f4ec;
+  --land-border: #a9a294;
   --shadow: 0 10px 30px rgba(15, 27, 45, .18);
   --radius: 16px;
 }
@@ -25,6 +28,9 @@
     --accent-ink: #06210f;
     --guess: #60a5fa;
     --target: #f87171;
+    --ocean: #0c1726;
+    --land: #223146;
+    --land-border: #4a5d78;
     --shadow: 0 10px 30px rgba(0, 0, 0, .5);
   }
 }
@@ -84,11 +90,8 @@ button { font: inherit; cursor: pointer; }
 #map {
   position: fixed;
   inset: 56px 0 0 0;
-  background: #cad2d3;
+  background: var(--ocean);
   cursor: crosshair;
-}
-@media (prefers-color-scheme: dark) {
-  #map { background: #262626; }
 }
 .leaflet-container { font-family: inherit; }
 .map-locked { cursor: grab !important; }
