@@ -1,0 +1,23 @@
+# Validates the question bank on every push and pull request.
+name: Check questions
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate questions
+        run: node tools/questions.mjs check
+      - name: Coverage report
+        run: |
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          node tools/questions.mjs report >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
