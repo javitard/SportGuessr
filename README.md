@@ -11,7 +11,8 @@ Inspired by [Farflung](https://farflung.game/) and [GeoSports](https://geosports
 - Same 5 questions for everyone each day (deterministic, no backend needed), new set at local midnight
 - Distance-based scoring: `1000 × e^(-km / 500)`, full marks within 10 km
 - Every day has the same difficulty curve: 2 easy, 2 medium and 1 hard question, played in that order
-- Football plus F1, cycling, tennis, winter sports, rugby, golf, Olympics and more
+- Football plus F1, cycling, tennis, winter sports, rugby, golf, Olympics and more (193 questions)
+- English and Spanish: picks the browser language, switchable with the EN/ES button
 - Shareable emoji result (🟩🟨🟧🟥), stats & streaks saved in the browser
 - Practice rounds with random questions after finishing the daily game
 - Map without labels (no cheating by reading city names), bundled with the game: no tile server or API key needed
@@ -45,9 +46,19 @@ Questions live in [`js/questions.js`](js/questions.js):
   answer: "Stadium name, City",
   lat: 41.0745, lng: 28.7656,        // the venue itself
   year: 2005,
-  fact: "Short trivia shown after guessing."
+  fact: "Short trivia shown after guessing.",
+  es: {                              // Spanish texts
+    q: "¿Dónde ocurrió ...?",
+    answer: "Nombre del estadio, Ciudad",
+    fact: "Dato curioso que se muestra al responder."
+  }
 }
 ```
+
+Golden rule: **the question must never name the place** (city, region, stadium) or anything right next to it,
+including inside team or event names (e.g. "Miracle of Bern", "Lisbon Lions", Paris–Roubaix).
+
+Interface texts are in [`js/i18n.js`](js/i18n.js).
 
 Puzzle #1 is 22 October 2026 (`LAUNCH` in `js/game.js`). Adding questions to the bank changes the
 upcoming sequence, so it's best to add them in batches.

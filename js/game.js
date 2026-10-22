@@ -11,6 +11,7 @@
   const SEED = 0x5f0a7;
   const STORE_STATE = "sg_state_v1";
   const STORE_STATS = "sg_stats_v1";
+  const STORE_LANG = "sg_lang";
 
   const SPORT_ICONS = {
     football: "⚽", tennis: "🎾", cycling: "🚴", motorsport: "🏎️", athletics: "🏃",
@@ -21,6 +22,39 @@
   };
 
   const $ = (id) => document.getElementById(id);
+
+  // ── Language ────────────────────────────────────────────
+  const LANGS = Object.keys(window.I18N);
+  let lang = load(STORE_LANG, null);
+  if (!LANGS.includes(lang)) {
+    const prefs = navigator.languages || [navigator.language || "en"];
+    lang = prefs.some((l) => l.toLowerCase().startsWith("es")) ? "es" : "en";
+  }
+
+  function t(key, vars = {}) {
+    const text = window.I18N[lang][key] ?? window.I18N.en[key];
+    return typeof text === "string" ? text.replace(/\{(\w+)\}/g, (_, k) => vars[k]) : text;
+  }
+
+  // Question text in the current language, falling back to English.
+  function loc(q, field) {
+    return (q[lang] && q[lang][field]) || q[field];
+  }
+
+  function num(n) {
+    return n.toLocaleString(t("locale"));
+  }
+
+  function applyStaticTexts() {
+    document.documentElement.lang = lang;
+    document.title = t("title");
+    document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => { el.innerHTML = t(el.dataset.i18nHtml); });
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
+    $("btn-lang").textContent = lang === "es" ? "EN" : "ES";
+    $("sport-badge").dataset.practice = t("practiceTag");
+    $("final-max").textContent = `/ ${num(ROUNDS * MAX_POINTS)}`;
+  }
 
   // ── Seeded randomness & daily selection ─────────────────
   function mulberry32(a) {
@@ -104,13 +138,12 @@
     if (points >= 250) return 2;
     return 1;
   }
-  const LEVEL_NAMES = { 1: "Easy", 2: "Medium", 3: "Hard" };
   const TIER_EMOJI = { 4: "🟩", 3: "🟨", 2: "🟧", 1: "🟥" };
 
   function fmtKm(km) {
     if (km < 1) return `${Math.round(km * 1000)} m`;
     if (km < 10) return `${km.toFixed(1)} km`;
-    return `${Math.round(km).toLocaleString("en-GB")} km`;
+    return `${num(Math.round(km))} km`;
   }
 
   // ── Storage (fails gracefully in private mode) ──────────
@@ -208,7 +241,7 @@
     else pendingMarker = L.marker(ll, { icon: pinIcon("guess"), interactive: false }).addTo(layer);
     const btn = $("btn-confirm");
     btn.disabled = false;
-    btn.textContent = "Confirm guess";
+    btn.textContent = t("confirm");
   });
 
   // ── Rendering ───────────────────────────────────────────
@@ -217,12 +250,12 @@
     const idx = game.revealed ? game.guesses.length - 1 : game.guesses.length;
     const q = game.questions[Math.min(idx, ROUNDS - 1)];
     const badge = $("sport-badge");
-    badge.textContent = `${SPORT_ICONS[q.sport] || "🏆"} ${q.sport} · ${round}/${ROUNDS}`;
+    badge.textContent = `${SPORT_ICONS[q.sport] || "🏆"} ${t("sports")[q.sport] || q.sport} · ${round}/${ROUNDS}`;
     const level = $("level");
-    level.textContent = LEVEL_NAMES[q.level] || "";
+    level.textContent = t("levels")[q.level] || "";
     level.className = `level l${q.level}`;
     badge.classList.toggle("practice", game.practice);
-    $("score").textContent = totalScore().toLocaleString("en-GB");
+    $("score").textContent = num(totalScore());
 
     const dots = $("dots");
     dots.innerHTML = "";
@@ -244,11 +277,7 @@
     pendingMarker = null;
     game.pending = null;
     game.revealed = false;
-    const q = game.questions[game.guesses.length];
-    $("question").textContent = q.q;
-    const btn = $("btn-confirm");
-    btn.disabled = true;
-    btn.textContent = "Tap the map to place your pin";
+    renderQuestion();
     $("ask").hidden = false;
     $("reveal").hidden = true;
     $("panel").classList.remove("hidden");
@@ -256,6 +285,23 @@
     map.getContainer().classList.remove("map-locked");
     renderHeader();
     map.flyTo([48, 12], 4, { duration: 0.8 });
+  }
+
+  function renderQuestion() {
+    $("question").textContent = loc(game.questions[game.guesses.length], "q");
+    const btn = $("btn-confirm");
+    btn.disabled = !game.pending;
+    btn.textContent = game.pending ? t("confirm") : t("tapMap");
+  }
+
+  function renderReveal() {
+    const q = game.questions[game.guesses.length - 1];
+    const g = game.guesses[game.guesses.length - 1];
+    $("answer").textContent = loc(q, "answer") + (q.year > 0 ? ` (${q.year})` : "");
+    $("distance").textContent = t("away", { distance: fmtKm(g.km) });
+    $("points").textContent = `+${num(g.points)} ${t("pts")}`;
+    $("fact").textContent = loc(q, "fact");
+    $("btn-next").textContent = game.guesses.length >= ROUNDS ? t("seeResults") : t("next");
   }
 
   function confirmGuess() {
@@ -272,15 +318,11 @@
     const bounds = drawPair(game.pending, q);
     map.getContainer().classList.add("map-locked");
 
-    $("answer").textContent = q.answer + (q.year > 0 ? ` (${q.year})` : "");
-    $("distance").textContent = `${fmtKm(km)} away`;
-    $("points").textContent = `+${points.toLocaleString("en-GB")} pts`;
-    $("fact").textContent = q.fact;
+    renderReveal();
     $("bar-fill").style.width = "0";
     requestAnimationFrame(() => requestAnimationFrame(() => {
       $("bar-fill").style.width = `${(points / MAX_POINTS) * 100}%`;
     }));
-    $("btn-next").textContent = game.guesses.length >= ROUNDS ? "See results" : "Next question";
     $("ask").hidden = true;
     $("reveal").hidden = false;
     renderHeader();
@@ -331,17 +373,14 @@
   }
 
   function verdict(total) {
-    if (total >= 4500) return "🏆 World class! Hall of Fame stuff.";
-    if (total >= 3500) return "🥇 Brilliant — you really know your sport.";
-    if (total >= 2500) return "🥈 Solid performance. Podium finish.";
-    if (total >= 1500) return "🥉 Not bad! Room to climb the table.";
-    return "📚 Tough day at the office. Tomorrow's another match.";
+    const thresholds = [1500, 2500, 3500, 4500];
+    return t("verdicts")[thresholds.filter((x) => total >= x).length];
   }
 
   function openResults() {
     const total = totalScore();
-    $("results-kicker").textContent = game.practice ? "Practice round" : `SportGuessr #${game.day}`;
-    $("final-score").textContent = total.toLocaleString("en-GB");
+    $("results-kicker").textContent = game.practice ? t("practiceRound") : `SportGuessr #${game.day}`;
+    $("final-score").textContent = num(total);
     $("verdict").textContent = verdict(total);
 
     const recap = $("recap");
@@ -353,10 +392,10 @@
         <span class="r-place"></span>
         <span class="r-pts">${g.points}</span>`;
       const place = li.querySelector(".r-place");
-      place.textContent = `${SPORT_ICONS[q.sport] || "🏆"} ${q.answer}`;
+      place.textContent = `${SPORT_ICONS[q.sport] || "🏆"} ${loc(q, "answer")}`;
       const dist = document.createElement("span");
       dist.className = "r-dist";
-      dist.textContent = `${fmtKm(g.km)} away`;
+      dist.textContent = t("away", { distance: fmtKm(g.km) });
       place.appendChild(dist);
       recap.appendChild(li);
     });
@@ -371,7 +410,7 @@
     const total = totalScore();
     const squares = game.guesses.map((g) => TIER_EMOJI[tier(g.points)]).join("");
     const url = location.origin + location.pathname;
-    return `SportGuessr #${game.day} 📍 ${total.toLocaleString("en-GB")}/5,000\n${squares}\n${url}`;
+    return `SportGuessr #${game.day} 📍 ${num(total)}/${num(ROUNDS * MAX_POINTS)}\n${squares}\n${url}`;
   }
 
   async function share() {
@@ -383,11 +422,11 @@
         return;
       }
       await navigator.clipboard.writeText(text);
-      btn.textContent = "Copied to clipboard!";
+      btn.textContent = t("copied");
     } catch {
-      btn.textContent = "Couldn't copy 😕";
+      btn.textContent = t("copyFailed");
     }
-    setTimeout(() => { btn.textContent = "Share result"; }, 2000);
+    setTimeout(() => { btn.textContent = t("share"); }, 2000);
   }
 
   let countdownTimer = null;
@@ -411,13 +450,13 @@
     const s = { ...DEFAULT_STATS, ...load(STORE_STATS, {}) };
     const avg = s.played ? Math.round(s.total / s.played) : 0;
     const items = [
-      [s.played, "Played"],
-      [avg.toLocaleString("en-GB"), "Average"],
-      [s.streak, "Current streak"],
-      [s.maxStreak, "Best streak"]
+      [s.played, t("played")],
+      [num(avg), t("average")],
+      [s.streak, t("streak")],
+      [s.maxStreak, t("maxStreak")]
     ];
     $("stat-grid").innerHTML = items.map(([v, l]) => `<div><b>${v}</b><small>${l}</small></div>`).join("") +
-      `<div style="grid-column: 1 / -1; margin-top: 6px"><small>Best score: <b style="font-size:14px">${s.best.toLocaleString("en-GB")}</b></small></div>`;
+      `<div style="grid-column: 1 / -1; margin-top: 6px"><small>${t("best")}: <b style="font-size:14px">${num(s.best)}</b></small></div>`;
 
     const max = Math.max(1, ...s.dist);
     const todayBucket = s.lastDay === game.day && !game.practice && game.guesses.length === ROUNDS ? distBucket(totalScore()) : -1;
@@ -449,11 +488,24 @@
     showQuestion();
   }
 
+  // Re-render whatever is on screen in the other language.
+  function toggleLanguage() {
+    lang = lang === "es" ? "en" : "es";
+    save(STORE_LANG, lang);
+    applyStaticTexts();
+    if (game.questions.length) renderHeader();
+    if (!$("ask").hidden) renderQuestion();
+    if (!$("reveal").hidden) renderReveal();
+    if ($("modal-results").open) openResults();
+    if ($("modal-stats").open) openStats();
+  }
+
   // ── Wiring ──────────────────────────────────────────────
   $("btn-confirm").addEventListener("click", confirmGuess);
   $("btn-next").addEventListener("click", next);
   $("btn-help").addEventListener("click", () => openModal("modal-help"));
   $("btn-stats").addEventListener("click", openStats);
+  $("btn-lang").addEventListener("click", toggleLanguage);
   $("btn-share").addEventListener("click", share);
   $("btn-map").addEventListener("click", () => $("modal-results").close());
   $("btn-show-results").addEventListener("click", openResults);
@@ -466,6 +518,7 @@
 
   // ── Boot ────────────────────────────────────────────────
   function boot() {
+    applyStaticTexts();
     game.questions = questionsForDay(game.day);
     const saved = load(STORE_STATE, null);
     if (saved && saved.date === todayKey() && saved.day === game.day && saved.puzzle === puzzleKey() &&

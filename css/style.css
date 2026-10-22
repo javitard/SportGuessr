@@ -55,14 +55,16 @@ button { font: inherit; cursor: pointer; }
   inset: 0 0 auto 0;
   height: 56px;
   z-index: 1000;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   padding: 0 12px;
   background: var(--brand);
   color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
 }
+.topbar-side { display: flex; gap: 8px; }
+.topbar-side.right { justify-content: flex-end; }
 
 .logo {
   margin: 0;
@@ -85,6 +87,7 @@ button { font: inherit; cursor: pointer; }
   place-items: center;
 }
 .icon-btn:hover { background: rgba(255, 255, 255, .1); }
+.lang-btn { font-size: 12px; letter-spacing: .5px; }
 
 /* ── Map ── */
 #map {
@@ -153,7 +156,7 @@ button { font: inherit; cursor: pointer; }
   color: var(--muted);
 }
 .badge.practice::after {
-  content: "Practice";
+  content: attr(data-practice);
   margin-left: 6px;
   padding: 1px 6px;
   border-radius: 6px;
@@ -293,6 +296,7 @@ button { font: inherit; cursor: pointer; }
   line-height: 1.45;
 }
 .how li span { font-size: 22px; line-height: 1.1; }
+.how li p { margin: 0; }
 
 .legend {
   display: flex;
@@ -357,24 +361,6 @@ button { font: inherit; cursor: pointer; }
 }
 .next-row small { color: var(--muted); font-size: 12px; }
 .countdown { font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
-
-.toast {
-  position: fixed;
-  z-index: 3000;
-  top: 70px;
-  left: 50%;
-  transform: translate(-50%, -20px);
-  background: var(--text);
-  color: var(--surface);
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 14px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s, transform .2s;
-}
-.toast.show { opacity: 1; transform: translate(-50%, 0); }
 
 @media (max-width: 480px) {
   .round-info { gap: 7px; }
