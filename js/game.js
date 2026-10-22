@@ -12,6 +12,7 @@
   const STORE_STATE = "sg_state_v1";
   const STORE_STATS = "sg_stats_v1";
   const STORE_LANG = "sg_lang";
+  const GAME_VIEW = { center: [48, 12], zoom: 4 };
 
   const SPORT_ICONS = {
     football: "⚽", tennis: "🎾", cycling: "🚴", motorsport: "🏎️", athletics: "🏃",
@@ -20,8 +21,13 @@
     sailing: "⛵", swimming: "🏊", equestrian: "🐎", climbing: "🧗",
     basketball: "🏀", "gaelic games": "🏑"
   };
+  const LEVEL_COLORS = { 1: "var(--t4)", 2: "var(--t3)", 3: "var(--t1)" };
+  const TIER_COLORS = { 4: "var(--t4)", 3: "var(--t3)", 2: "var(--t2)", 1: "var(--t1)" };
+  const TIER_EMOJI = { 4: "🟩", 3: "🟨", 2: "🟧", 1: "🟥" };
 
   const $ = (id) => document.getElementById(id);
+  const icon = (q) => SPORT_ICONS[q.sport] || "🏆";
+  const pad2 = (n) => String(n).padStart(2, "0");
 
   // ── Language ────────────────────────────────────────────
   const LANGS = Object.keys(window.I18N);
@@ -42,7 +48,7 @@
   }
 
   function num(n) {
-    return n.toLocaleString(t("locale"));
+    return n.toLocaleString(t("locale"), { useGrouping: "always" });
   }
 
   function applyStaticTexts() {
@@ -52,7 +58,7 @@
     document.querySelectorAll("[data-i18n-html]").forEach((el) => { el.innerHTML = t(el.dataset.i18nHtml); });
     document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
     $("btn-lang").textContent = lang === "es" ? "EN" : "ES";
-    $("sport-badge").dataset.practice = t("practiceTag");
+    $("practice-tag").textContent = t("practiceTag");
     $("final-max").textContent = `/ ${num(ROUNDS * MAX_POINTS)}`;
   }
 
@@ -108,7 +114,7 @@
 
   // ── Dates ───────────────────────────────────────────────
   function todayKey(d = new Date()) {
-    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
   }
 
   function dayNumber(d = new Date()) {
@@ -138,7 +144,6 @@
     if (points >= 250) return 2;
     return 1;
   }
-  const TIER_EMOJI = { 4: "🟩", 3: "🟨", 2: "🟧", 1: "🟥" };
 
   function fmtKm(km) {
     if (km < 1) return `${Math.round(km * 1000)} m`;
@@ -156,8 +161,12 @@
 
   const DEFAULT_STATS = { played: 0, total: 0, best: 0, streak: 0, maxStreak: 0, lastDay: 0, dist: [0, 0, 0, 0, 0] };
 
+  function loadStats() {
+    return { ...DEFAULT_STATS, ...load(STORE_STATS, {}) };
+  }
+
   function recordGame(day, total) {
-    const s = { ...DEFAULT_STATS, ...load(STORE_STATS, {}) };
+    const s = loadStats();
     if (s.lastDay === day) return s;
     s.played += 1;
     s.total += total;
@@ -173,6 +182,25 @@
   const DIST_LABELS = ["0–999", "1000–1999", "2000–2999", "3000–3999", "4000–5000"];
   function distBucket(total) { return Math.min(4, Math.floor(total / 1000)); }
 
+  // ── Small animation helpers ─────────────────────────────
+  const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function countUp(el, from, to, ms = 700) {
+    if (reducedMotion || from === to) { el.textContent = num(to); return; }
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min(1, (now - start) / ms);
+      const eased = 1 - (1 - p) ** 3;
+      el.textContent = num(Math.round(from + (to - from) * eased));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  function buzz(pattern) {
+    if (navigator.vibrate) navigator.vibrate(pattern);
+  }
+
   // ── Game state ──────────────────────────────────────────
   const game = {
     practice: false,
@@ -184,10 +212,9 @@
   };
 
   // ── Map ─────────────────────────────────────────────────
-  const dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   const map = L.map("map", {
-    center: [48, 12],
-    zoom: 4,
+    center: GAME_VIEW.center,
+    zoom: GAME_VIEW.zoom,
     minZoom: 2,
     maxZoom: 10,
     preferCanvas: true,
@@ -201,40 +228,80 @@
 
   // Country shapes are bundled with the game (no tile server, no API key, no labels).
   const css = getComputedStyle(document.documentElement);
-  L.geoJSON(topojson.feature(window.WORLD_TOPO, window.WORLD_TOPO.objects.countries), {
+  const cssVar = (name) => css.getPropertyValue(name).trim();
+  for (let lng = -180; lng <= 180; lng += 15) {
+    L.polyline([[-85, lng], [85, lng]], { color: cssVar("--graticule"), weight: 1, interactive: false }).addTo(map);
+  }
+  for (let lat = -75; lat <= 75; lat += 15) {
+    L.polyline([[lat, -180], [lat, 180]], { color: cssVar("--graticule"), weight: 1, interactive: false }).addTo(map);
+  }
+  // Rings that cross the antimeridian (eastern Russia, Fiji) would be drawn as a band
+  // across the whole map; shift their western half by 360° so they stay in one piece.
+  const countries = topojson.feature(window.WORLD_TOPO, window.WORLD_TOPO.objects.countries);
+  countries.features.forEach((f) => {
+    const polygons = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates;
+    polygons.forEach((rings) => rings.forEach((ring) => {
+      const lngs = ring.map((c) => c[0]);
+      const lats = ring.map((c) => c[1]);
+      if (Math.max(...lngs) - Math.min(...lngs) > 180 && Math.min(...lats) > -80) {
+        ring.forEach((c) => { if (c[0] < 0) c[0] += 360; });
+      }
+    }));
+  });
+  L.geoJSON(countries, {
     interactive: false,
-    style: {
-      fillColor: css.getPropertyValue("--land").trim(),
-      fillOpacity: 1,
-      color: css.getPropertyValue("--land-border").trim(),
-      weight: 0.8
-    }
+    style: { fillColor: cssVar("--land"), fillOpacity: 1, color: cssVar("--land-border"), weight: 0.7 }
   }).addTo(map);
-  map.attributionControl.addAttribution('Map data: <a href="https://www.naturalearthdata.com/">Natural Earth</a>');
+  map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+  map.attributionControl.addAttribution('<a href="https://www.naturalearthdata.com/">Natural Earth</a>');
 
   const layer = L.layerGroup().addTo(map);
+  const svgRenderer = L.svg({ padding: 0.5 });   // routes are SVG so they can be animated
   let pendingMarker = null;
 
   function pinIcon(kind, label) {
     return L.divIcon({
       className: "",
-      html: `<div class="pin ${kind}"></div>${label ? `<div class="pin-label">${label}</div>` : ""}`,
-      iconSize: [26, 26],
-      iconAnchor: [13, 30]
+      html: `<div class="pin ${kind}">${label ? `<span class="pin-label">${label}</span>` : ""}</div>`,
+      iconSize: [18, 18],
+      iconAnchor: [9, 9]
     });
   }
 
-  function drawPair(guess, q, label) {
-    const g = [guess.lat, guess.lng];
-    const t = [q.lat, q.lng];
-    L.polyline([g, t], { color: dark ? "#e8edf5" : "#0f1b2d", weight: 2, dashArray: "6 6", opacity: .8 }).addTo(layer);
-    L.marker(g, { icon: pinIcon("guess"), interactive: false }).addTo(layer);
-    L.marker(t, { icon: pinIcon("target", label), interactive: false }).addTo(layer);
-    return L.latLngBounds([g, t]);
+  function addRoute(guess, q) {
+    return L.polyline([[guess.lat, guess.lng], [q.lat, q.lng]], {
+      renderer: svgRenderer, className: "route", interactive: false
+    }).addTo(layer);
+  }
+
+  function addPair(guess, q, label) {
+    addRoute(guess, q);
+    L.marker([guess.lat, guess.lng], { icon: pinIcon("guess"), interactive: false }).addTo(layer);
+    L.marker([q.lat, q.lng], { icon: pinIcon("target", label), interactive: false }).addTo(layer);
+    return L.latLngBounds([[guess.lat, guess.lng], [q.lat, q.lng]]);
+  }
+
+  // Draws the line from the guess to the answer, then drops the answer pin.
+  function animateRoute(guess, q, done) {
+    const line = addRoute(guess, q);
+    const path = line.getElement();
+    const finish = () => {
+      path.style.transition = path.style.strokeDasharray = path.style.strokeDashoffset = "";
+      L.marker([q.lat, q.lng], { icon: pinIcon("target"), interactive: false }).addTo(layer);
+      done();
+    };
+    if (reducedMotion || !path || !path.getTotalLength) { finish(); return; }
+    const len = path.getTotalLength();
+    path.style.strokeDasharray = `${len}`;
+    path.style.strokeDashoffset = `${len}`;
+    path.getBoundingClientRect();
+    path.style.transition = "stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)";
+    path.style.strokeDashoffset = "0";
+    setTimeout(finish, 620);
   }
 
   map.on("click", (e) => {
-    if (game.revealed || game.guesses.length >= ROUNDS) return;
+    if (document.body.classList.contains("is-intro") || game.revealed || game.guesses.length >= ROUNDS) return;
     const ll = e.latlng.wrap();
     game.pending = ll;
     if (pendingMarker) pendingMarker.setLatLng(ll);
@@ -242,34 +309,69 @@
     const btn = $("btn-confirm");
     btn.disabled = false;
     btn.textContent = t("confirm");
+    buzz(8);
   });
 
-  // ── Rendering ───────────────────────────────────────────
-  function renderHeader() {
-    const round = Math.min(game.guesses.length + (game.revealed ? 0 : 1), ROUNDS);
+  // ── Intro screen ────────────────────────────────────────
+  function renderIntro() {
+    const date = new Intl.DateTimeFormat(t("locale"), { day: "numeric", month: "long" }).format(new Date());
+    $("intro-eyebrow").textContent = t("eyebrow", { n: game.day, date });
+    $("lineup").innerHTML = game.questions.map((q, i) => `
+      <li class="${game.guesses[i] ? "done" : ""}" style="--lvl:${LEVEL_COLORS[q.level]}">
+        <span class="l-icon">${icon(q)}</span>
+        <span class="l-sport">${t("sports")[q.sport] || q.sport}</span>
+        <span class="l-level">${t("levels")[q.level]}</span>
+      </li>`).join("");
+    $("start-label").textContent = game.guesses.length ? t("resume", { n: game.guesses.length + 1 }) : t("start");
+    const s = loadStats();
+    const streakAlive = s.streak > 0 && s.lastDay === game.day - 1;
+    $("intro-meta").innerHTML = streakAlive ? t("introStreak", { n: s.streak }) : t("introMeta");
+  }
+
+  function showIntro() {
+    document.body.classList.add("is-intro");
+    renderIntro();
+    const wide = window.innerWidth > 900;
+    map.setView(wide ? [47, -14] : [42, 10], wide ? 4 : 3, { animate: false });
+  }
+
+  function startGame() {
+    document.body.classList.remove("is-intro");
+    showQuestion();
+  }
+
+  // ── Question card ───────────────────────────────────────
+  function currentQuestion() {
     const idx = game.revealed ? game.guesses.length - 1 : game.guesses.length;
-    const q = game.questions[Math.min(idx, ROUNDS - 1)];
-    const badge = $("sport-badge");
-    badge.textContent = `${SPORT_ICONS[q.sport] || "🏆"} ${t("sports")[q.sport] || q.sport} · ${round}/${ROUNDS}`;
+    return game.questions[Math.min(idx, ROUNDS - 1)];
+  }
+
+  function renderPanelHead() {
+    const q = currentQuestion();
+    const round = Math.min(game.guesses.length + (game.revealed ? 0 : 1), ROUNDS);
+    $("sport-tag").textContent = `${icon(q)} ${t("sports")[q.sport] || q.sport}`;
     const level = $("level");
     level.textContent = t("levels")[q.level] || "";
-    level.className = `level l${q.level}`;
-    badge.classList.toggle("practice", game.practice);
-    $("score").textContent = num(totalScore());
+    level.style.setProperty("--lvl", LEVEL_COLORS[q.level]);
+    $("practice-tag").hidden = !game.practice;
+    $("round").innerHTML = `${t("round")} <b>${pad2(round)}</b>/${pad2(ROUNDS)}`;
 
-    const dots = $("dots");
-    dots.innerHTML = "";
-    for (let i = 0; i < ROUNDS; i++) {
-      const d = document.createElement("span");
-      d.className = "dot";
-      if (game.guesses[i]) d.classList.add(`s${tier(game.guesses[i].points)}`);
-      else if (i === game.guesses.length) d.classList.add("current");
-      dots.appendChild(d);
-    }
+    $("progress").innerHTML = Array.from({ length: ROUNDS }, (_, i) => {
+      const g = game.guesses[i];
+      const cls = g ? `s${tier(g.points)}` : i === game.guesses.length ? "current" : "";
+      return `<span class="${cls}"></span>`;
+    }).join("");
   }
 
   function totalScore() {
     return game.guesses.reduce((s, g) => s + g.points, 0);
+  }
+
+  function renderQuestion() {
+    $("question").textContent = loc(game.questions[game.guesses.length], "q");
+    const btn = $("btn-confirm");
+    btn.disabled = !game.pending;
+    btn.textContent = game.pending ? t("confirm") : t("tapMap");
   }
 
   function showQuestion() {
@@ -283,23 +385,25 @@
     $("panel").classList.remove("hidden");
     $("btn-show-results").hidden = true;
     map.getContainer().classList.remove("map-locked");
-    renderHeader();
-    map.flyTo([48, 12], 4, { duration: 0.8 });
+    renderPanelHead();
+    map.flyTo(GAME_VIEW.center, GAME_VIEW.zoom, { duration: 0.8 });
   }
 
-  function renderQuestion() {
-    $("question").textContent = loc(game.questions[game.guesses.length], "q");
-    const btn = $("btn-confirm");
-    btn.disabled = !game.pending;
-    btn.textContent = game.pending ? t("confirm") : t("tapMap");
-  }
-
+  // Static texts of the answer card (safe to call again after a language switch).
   function renderReveal() {
     const q = game.questions[game.guesses.length - 1];
     const g = game.guesses[game.guesses.length - 1];
-    $("answer").textContent = loc(q, "answer") + (q.year > 0 ? ` (${q.year})` : "");
+    const tr = tier(g.points);
+    $("panel").style.setProperty("--tier", TIER_COLORS[tr]);
+    $("tier-label").textContent = t("tiers")[tr];
+    $("answer").innerHTML = "";
+    $("answer").append(loc(q, "answer"));
+    if (q.year > 0) {
+      const y = document.createElement("small");
+      y.textContent = ` · ${q.year}`;
+      $("answer").append(y);
+    }
     $("distance").textContent = t("away", { distance: fmtKm(g.km) });
-    $("points").textContent = `+${num(g.points)} ${t("pts")}`;
     $("fact").textContent = loc(q, "fact");
     $("btn-next").textContent = game.guesses.length >= ROUNDS ? t("seeResults") : t("next");
   }
@@ -307,31 +411,47 @@
   function confirmGuess() {
     if (!game.pending) return;
     const q = game.questions[game.guesses.length];
-    const km = haversineKm(game.pending, q);
+    const guess = game.pending;
+    const km = haversineKm(guess, q);
     const points = scoreFor(km);
-    game.guesses.push({ lat: game.pending.lat, lng: game.pending.lng, km, points });
+    const before = totalScore();
+    game.guesses.push({ lat: guess.lat, lng: guess.lng, km, points });
     game.revealed = true;
     persist();
 
     layer.clearLayers();
     pendingMarker = null;
-    const bounds = drawPair(game.pending, q);
+    L.marker(guess, { icon: pinIcon("guess"), interactive: false }).addTo(layer);
     map.getContainer().classList.add("map-locked");
 
     renderReveal();
-    $("bar-fill").style.width = "0";
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      $("bar-fill").style.width = `${(points / MAX_POINTS) * 100}%`;
-    }));
+    $("points").textContent = "0";
+    $("score").textContent = num(before);
+    $("meter-fill").style.width = "0";
     $("ask").hidden = true;
     $("reveal").hidden = false;
-    renderHeader();
-    // Fit both pins in the part of the map not covered by the (now taller) panel.
+    renderPanelHead();
+
+    // Fly so both pins fit above the card, then draw the route and count the points up.
+    const bounds = L.latLngBounds([guess, [q.lat, q.lng]]);
+    let played = false;
+    const play = () => {
+      if (played) return;
+      played = true;
+      animateRoute(guess, q, () => {
+        countUp($("points"), 0, points);
+        countUp($("score"), before, before + points);
+        $("meter-fill").style.width = `${(points / MAX_POINTS) * 100}%`;
+        buzz(tier(points) >= 3 ? [18, 50, 18] : 12);
+      });
+    };
+    map.once("moveend", play);
+    setTimeout(play, 1100);   // in case the map didn't need to move
     map.flyToBounds(bounds, {
-      paddingTopLeft: [50, 50],
+      paddingTopLeft: [50, 80],
       paddingBottomRight: [50, $("panel").offsetHeight + 40],
-      maxZoom: 9,
-      duration: 0.9
+      maxZoom: 8,
+      duration: 0.8
     });
   }
 
@@ -352,10 +472,9 @@
 
   // ── End of game ─────────────────────────────────────────
   function finish() {
-    const total = totalScore();
-    if (!game.practice) recordGame(game.day, total);
+    if (!game.practice) recordGame(game.day, totalScore());
     showSummaryMap();
-    openResults();
+    openResults(true);
   }
 
   function showSummaryMap() {
@@ -364,12 +483,12 @@
     game.questions.forEach((q, i) => {
       const g = game.guesses[i];
       if (!g) return;
-      const b = drawPair(g, q, String(i + 1));
+      const b = addPair(g, q, String(i + 1));
       bounds = bounds ? bounds.extend(b) : b;
     });
     $("panel").classList.add("hidden");
     map.getContainer().classList.add("map-locked");
-    if (bounds) map.flyToBounds(bounds, { padding: [50, 50], maxZoom: 6, duration: 0.9 });
+    if (bounds) map.flyToBounds(bounds, { paddingTopLeft: [50, 90], paddingBottomRight: [50, 90], maxZoom: 6, duration: 0.9 });
   }
 
   function verdict(total) {
@@ -377,26 +496,24 @@
     return t("verdicts")[thresholds.filter((x) => total >= x).length];
   }
 
-  function openResults() {
+  function openResults(animate = false) {
     const total = totalScore();
     $("results-kicker").textContent = game.practice ? t("practiceRound") : `SportGuessr #${game.day}`;
-    $("final-score").textContent = num(total);
+    if (animate) countUp($("final-score"), 0, total, 1100);
+    else $("final-score").textContent = num(total);
     $("verdict").textContent = verdict(total);
+    $("tiers").innerHTML = game.guesses.map((g) => `<span class="s${tier(g.points)}"></span>`).join("");
 
     const recap = $("recap");
     recap.innerHTML = "";
     game.questions.forEach((q, i) => {
       const g = game.guesses[i];
       const li = document.createElement("li");
-      li.innerHTML = `<span>${TIER_EMOJI[tier(g.points)]}</span>
-        <span class="r-place"></span>
-        <span class="r-pts">${g.points}</span>`;
-      const place = li.querySelector(".r-place");
-      place.textContent = `${SPORT_ICONS[q.sport] || "🏆"} ${loc(q, "answer")}`;
-      const dist = document.createElement("span");
-      dist.className = "r-dist";
-      dist.textContent = t("away", { distance: fmtKm(g.km) });
-      place.appendChild(dist);
+      li.innerHTML = `<span class="r-n">${pad2(i + 1)}</span>
+        <span class="r-place"><span class="r-name"></span><span class="r-sub"></span></span>
+        <span class="r-pts s${tier(g.points)}">${num(g.points)}</span>`;
+      li.querySelector(".r-name").textContent = loc(q, "answer");
+      li.querySelector(".r-sub").textContent = `${icon(q)} ${t("away", { distance: fmtKm(g.km) })}`;
       recap.appendChild(li);
     });
 
@@ -410,23 +527,23 @@
     const total = totalScore();
     const squares = game.guesses.map((g) => TIER_EMOJI[tier(g.points)]).join("");
     const url = location.origin + location.pathname;
-    return `SportGuessr #${game.day} 📍 ${num(total)}/${num(ROUNDS * MAX_POINTS)}\n${squares}\n${url}`;
+    return `SportGuessr #${game.day} · ${num(total)}/${num(ROUNDS * MAX_POINTS)}\n${squares}\n${url}`;
   }
 
   async function share() {
     const text = shareText();
-    const btn = $("btn-share");
+    const label = $("share-label");
     try {
       if (navigator.share && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
         await navigator.share({ text });
         return;
       }
       await navigator.clipboard.writeText(text);
-      btn.textContent = t("copied");
+      label.textContent = t("copied");
     } catch {
-      btn.textContent = t("copyFailed");
+      label.textContent = t("copyFailed");
     }
-    setTimeout(() => { btn.textContent = t("share"); }, 2000);
+    setTimeout(() => { label.textContent = t("share"); }, 2200);
   }
 
   let countdownTimer = null;
@@ -439,7 +556,7 @@
       if (s === 0 && !game.practice) { location.reload(); return; }
       const h = Math.floor(s / 3600); s -= h * 3600;
       const m = Math.floor(s / 60); s -= m * 60;
-      $("countdown").textContent = [h, m, s].map((x) => String(x).padStart(2, "0")).join(":");
+      $("countdown").textContent = [h, m, s].map(pad2).join(":");
     };
     tick();
     countdownTimer = setInterval(tick, 1000);
@@ -447,7 +564,7 @@
 
   // ── Stats modal ─────────────────────────────────────────
   function openStats() {
-    const s = { ...DEFAULT_STATS, ...load(STORE_STATS, {}) };
+    const s = loadStats();
     const avg = s.played ? Math.round(s.total / s.played) : 0;
     const items = [
       [s.played, t("played")],
@@ -455,14 +572,14 @@
       [s.streak, t("streak")],
       [s.maxStreak, t("maxStreak")]
     ];
-    $("stat-grid").innerHTML = items.map(([v, l]) => `<div><b>${v}</b><small>${l}</small></div>`).join("") +
-      `<div style="grid-column: 1 / -1; margin-top: 6px"><small>${t("best")}: <b style="font-size:14px">${num(s.best)}</b></small></div>`;
+    $("stat-grid").innerHTML = items.map(([v, l]) => `<div class="stat"><b>${v}</b><small>${l}</small></div>`).join("") +
+      `<div class="stat wide"><small>${t("best")}</small><b>${num(s.best)}</b></div>`;
 
     const max = Math.max(1, ...s.dist);
     const todayBucket = s.lastDay === game.day && !game.practice && game.guesses.length === ROUNDS ? distBucket(totalScore()) : -1;
     $("dist").innerHTML = s.dist.map((n, i) =>
       `<div class="dist-row"><span>${DIST_LABELS[i]}</span>
-        <div class="dist-bar${i === todayBucket ? " today" : ""}" style="width:${8 + (n / max) * 80}%">${n}</div></div>`
+        <div class="dist-bar${i === todayBucket ? " today" : ""}" style="width:${10 + (n / max) * 90}%">${n}</div></div>`
     ).reverse().join("");
     openModal("modal-stats");
   }
@@ -485,7 +602,7 @@
     game.questions = randomQuestions();
     game.guesses = [];
     $("modal-results").close();
-    showQuestion();
+    startGame();
   }
 
   // Re-render whatever is on screen in the other language.
@@ -493,14 +610,16 @@
     lang = lang === "es" ? "en" : "es";
     save(STORE_LANG, lang);
     applyStaticTexts();
-    if (game.questions.length) renderHeader();
+    if (document.body.classList.contains("is-intro")) renderIntro();
+    if (game.questions.length) renderPanelHead();
     if (!$("ask").hidden) renderQuestion();
-    if (!$("reveal").hidden) renderReveal();
+    if (!$("reveal").hidden && game.revealed) renderReveal();
     if ($("modal-results").open) openResults();
     if ($("modal-stats").open) openStats();
   }
 
   // ── Wiring ──────────────────────────────────────────────
+  $("btn-start").addEventListener("click", startGame);
   $("btn-confirm").addEventListener("click", confirmGuess);
   $("btn-next").addEventListener("click", next);
   $("btn-help").addEventListener("click", () => openModal("modal-help"));
@@ -508,11 +627,12 @@
   $("btn-lang").addEventListener("click", toggleLanguage);
   $("btn-share").addEventListener("click", share);
   $("btn-map").addEventListener("click", () => $("modal-results").close());
-  $("btn-show-results").addEventListener("click", openResults);
+  $("btn-show-results").addEventListener("click", () => openResults());
   $("btn-practice").addEventListener("click", startPractice);
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Enter" || document.querySelector("dialog[open]")) return;
-    if (!$("ask").hidden && !$("btn-confirm").disabled) confirmGuess();
+    if (document.body.classList.contains("is-intro")) startGame();
+    else if (!$("ask").hidden && !$("btn-confirm").disabled) confirmGuess();
     else if (!$("reveal").hidden) next();
   });
 
@@ -527,17 +647,13 @@
     }
 
     if (game.guesses.length >= ROUNDS) {
-      renderHeader();
+      document.body.classList.remove("is-intro");
+      renderPanelHead();
       showSummaryMap();
       openResults();
       return;
     }
-
-    showQuestion();
-    if (!load("sg_seen_help", false)) {
-      save("sg_seen_help", true);
-      openModal("modal-help");
-    }
+    showIntro();
   }
 
   // Expose a few internals for debugging / tests.
