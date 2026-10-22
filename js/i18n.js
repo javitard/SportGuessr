@@ -3,7 +3,7 @@
 window.I18N = {
   en: {
     locale: "en-GB",
-    title: "SportGuessr — the daily sports geography game",
+    title: "Matchpin — the daily sports geography game",
     help: "How to play",
     stats: "Statistics",
     language: "Language",
@@ -64,7 +64,7 @@ window.I18N = {
   },
   es: {
     locale: "es-ES",
-    title: "SportGuessr — el juego diario de geografía deportiva",
+    title: "Matchpin — el juego diario de geografía deportiva",
     help: "Cómo jugar",
     stats: "Estadísticas",
     language: "Idioma",

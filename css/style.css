@@ -1,4 +1,4 @@
-/* SportGuessr — night-stadium theme: dark map, floodlight volt accent,
+/* Matchpin — night-stadium theme: dark map, floodlight volt accent,
    broadcast-style condensed numerals. */
 :root {
   --bg: #07090c;
@@ -70,11 +70,10 @@ button { font: inherit; color: inherit; cursor: pointer; }
   text-decoration: none;
 }
 .brand-mark {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--volt);
-  box-shadow: 0 0 0 4px rgba(212, 255, 58, .18), 0 0 18px rgba(212, 255, 58, .45);
+  width: 19px;
+  height: 25px;
+  color: var(--volt);
+  filter: drop-shadow(0 0 10px rgba(212, 255, 58, .45));
 }
 .brand-word {
   font-family: var(--display);
@@ -531,6 +530,7 @@ body:not(.is-intro) .intro { opacity: 0; visibility: hidden; pointer-events: non
   html, body { font-size: 14px; }
   .topbar { height: 56px; padding: 0 12px; }
   .brand-word { font-size: 20px; }
+  .brand-mark { width: 17px; height: 23px; }
   .intro {
     align-items: flex-end;
     padding: 80px 16px calc(20px + var(--safe-b));

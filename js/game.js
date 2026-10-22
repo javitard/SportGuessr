@@ -544,7 +544,7 @@
 
   function openResults(animate = false) {
     const total = totalScore();
-    $("results-kicker").textContent = game.practice ? t("practiceRound") : `SportGuessr #${game.day}`;
+    $("results-kicker").textContent = game.practice ? t("practiceRound") : `Matchpin #${game.day}`;
     if (animate) countUp($("final-score"), 0, total, 1100);
     else $("final-score").textContent = num(total);
     $("verdict").textContent = verdict(total);
@@ -573,7 +573,7 @@
     const total = totalScore();
     const squares = game.guesses.map((g) => TIER_EMOJI[tier(g.points)]).join("");
     const url = location.origin + location.pathname;
-    return `SportGuessr #${game.day} · ${num(total)}/${num(ROUNDS * MAX_POINTS)}\n${squares}\n${url}`;
+    return `Matchpin #${game.day} · ${num(total)}/${num(ROUNDS * MAX_POINTS)}\n${squares}\n${url}`;
   }
 
   async function share() {
@@ -729,7 +729,7 @@
   }
 
   // Expose a few internals for debugging / tests.
-  window.SportGuessr = { questionsForDay, scoreFor, haversineKm, dayNumber };
+  window.Matchpin = { questionsForDay, scoreFor, haversineKm, dayNumber };
 
   boot();
   checkForUpdate();
