@@ -300,7 +300,12 @@
 
   function persist() {
     if (game.practice) return;
-    save(STORE_STATE, { date: todayKey(), day: game.day, guesses: game.guesses });
+    save(STORE_STATE, { date: todayKey(), day: game.day, puzzle: puzzleKey(), guesses: game.guesses });
+  }
+
+  // Identifies today's question set, so saved progress is dropped if the bank was edited.
+  function puzzleKey() {
+    return game.questions.map((q) => q.answer).join("|");
   }
 
   // ── End of game ─────────────────────────────────────────
@@ -463,7 +468,8 @@
   function boot() {
     game.questions = questionsForDay(game.day);
     const saved = load(STORE_STATE, null);
-    if (saved && saved.date === todayKey() && saved.day === game.day && Array.isArray(saved.guesses)) {
+    if (saved && saved.date === todayKey() && saved.day === game.day && saved.puzzle === puzzleKey() &&
+        Array.isArray(saved.guesses)) {
       game.guesses = saved.guesses.slice(0, ROUNDS);
     }
 

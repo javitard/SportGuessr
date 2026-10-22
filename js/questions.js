@@ -21,7 +21,7 @@ window.QUESTIONS = [
   },
   {
     sport: "football", level: 1,
-    q: "Where did Greece shock hosts Portugal to win the Euro 2004 final?",
+    q: "Where did Greece shock Portugal to win the Euro 2004 final?",
     answer: "Estádio da Luz, Lisbon",
     lat: 38.7527, lng: -9.1847, year: 2004,
     fact: "Angelos Charisteas headed the only goal. Greece had also beaten Portugal in the opening game."
@@ -41,20 +41,6 @@ window.QUESTIONS = [
     fact: "Geoff Hurst scored a hat-trick — a feat only matched in a men's final by Kylian Mbappé in 2022."
   },
   {
-    sport: "football", level: 1,
-    q: "West Germany beat the 'Mighty Magyars' of Hungary in the 1954 World Cup final, the 'Miracle of Bern'. Where exactly?",
-    answer: "Wankdorf Stadium, Bern",
-    lat: 46.9632, lng: 7.4646, year: 1954,
-    fact: "Hungary had beaten West Germany 8-3 in the group stage of the same tournament."
-  },
-  {
-    sport: "football", level: 1,
-    q: "5000-1 outsiders Leicester City won the 2015-16 Premier League. Where is their home ground?",
-    answer: "King Power Stadium, Leicester",
-    lat: 52.6204, lng: -1.1422, year: 2016,
-    fact: "Jamie Vardy scored in 11 consecutive Premier League games that season, a league record."
-  },
-  {
     sport: "football", level: 3,
     q: "Antonín Panenka chipped the decisive penalty to win Euro 1976 for Czechoslovakia. In which stadium?",
     answer: "Red Star Stadium (Marakana), Belgrade",
@@ -67,13 +53,6 @@ window.QUESTIONS = [
     answer: "Olympiastadion, Berlin",
     lat: 52.5147, lng: 13.2395, year: 2006,
     fact: "Italy went on to beat France 5-3 on penalties."
-  },
-  {
-    sport: "football", level: 1,
-    q: "Sergio Agüero's 93:20 winner snatched the 2012 Premier League title for Manchester City. Where was it scored?",
-    answer: "Etihad Stadium, Manchester",
-    lat: 53.4831, lng: -2.2004, year: 2012,
-    fact: "City beat QPR 3-2 after trailing 2-1 going into stoppage time."
   },
   {
     sport: "football", level: 3,
@@ -90,13 +69,6 @@ window.QUESTIONS = [
     fact: "The stadium was designed by architect Renzo Piano for the 1990 World Cup."
   },
   {
-    sport: "football", level: 1,
-    q: "Celtic's 'Lisbon Lions' became the first British European Cup winners in 1967. In which stadium?",
-    answer: "Estádio Nacional, Oeiras (near Lisbon)",
-    lat: 38.7086, lng: -9.261, year: 1967,
-    fact: "Every player in the Celtic team was born within 30 miles of Celtic Park."
-  },
-  {
     sport: "football", level: 3,
     q: "José Mourinho's Porto won the 2004 Champions League final against Monaco. Where was it played?",
     answer: "Arena AufSchalke, Gelsenkirchen",
@@ -109,20 +81,6 @@ window.QUESTIONS = [
     answer: "Allianz Riviera, Nice",
     lat: 43.7051, lng: 7.1926, year: 2016,
     fact: "Iceland's 'Viking clap' with their fans became the image of the tournament."
-  },
-  {
-    sport: "football", level: 1,
-    q: "Divock Origi completed Liverpool's 4-0 comeback against Barcelona in the 2019 Champions League semi-final. Where?",
-    answer: "Anfield, Liverpool",
-    lat: 53.4308, lng: -2.9608, year: 2019,
-    fact: "The winner came from a quickly taken corner by Trent Alexander-Arnold."
-  },
-  {
-    sport: "football", level: 1,
-    q: "Chelsea won their first Champions League in 2012 by beating Bayern Munich in Bayern's own stadium. Where?",
-    answer: "Allianz Arena, Munich",
-    lat: 48.2188, lng: 11.6247, year: 2012,
-    fact: "Didier Drogba equalised in the 88th minute and scored the winning penalty."
   },
   {
     sport: "football", level: 2,
@@ -189,13 +147,6 @@ window.QUESTIONS = [
   },
   {
     sport: "football", level: 3,
-    q: "San Marino's Davide Gualtieri scored after 8 seconds against England in 1993. San Marino's 'home' game was played where?",
-    answer: "Stadio Renato Dall'Ara, Bologna",
-    lat: 44.4925, lng: 11.3097, year: 1993,
-    fact: "It stood as the fastest goal in World Cup history for over 20 years. England won 7-1."
-  },
-  {
-    sport: "football", level: 3,
     q: "Hal Robson-Kanu's 'Cruyff turn' goal helped Wales beat Belgium 3-1 in the Euro 2016 quarter-final. Where?",
     answer: "Stade Pierre-Mauroy, Lille",
     lat: 50.6119, lng: 3.1305, year: 2016,
@@ -210,17 +161,10 @@ window.QUESTIONS = [
   },
   {
     sport: "football", level: 2,
-    q: "Real Madrid won the first ever European Cup final in 1956, beating Stade de Reims 4-3. Where?",
+    q: "Real Madrid won the very first European Cup final in 1956, coming back from 2-0 down to win 4-3. Where?",
     answer: "Parc des Princes, Paris",
     lat: 48.8414, lng: 2.253, year: 1956,
     fact: "Real Madrid went on to win the first five European Cups in a row."
-  },
-  {
-    sport: "football", level: 1,
-    q: "Diego Maradona led Napoli to their first Serie A title in 1987. Where is their stadium, now named after him?",
-    answer: "Stadio Diego Armando Maradona, Naples",
-    lat: 40.8279, lng: 14.1931, year: 1987,
-    fact: "Napoli won again in 1990, then waited 33 years for their third title in 2023."
   },
   {
     sport: "football", level: 1,
@@ -228,13 +172,6 @@ window.QUESTIONS = [
     answer: "Signal Iduna Park, Dortmund",
     lat: 51.4926, lng: 7.4519, year: 1974,
     fact: "The Südtribüne holds about 25,000 standing fans."
-  },
-  {
-    sport: "football", level: 1,
-    q: "Athletic Club only field players from the Basque Country. Where is their stadium, nicknamed 'La Catedral'?",
-    answer: "San Mamés, Bilbao",
-    lat: 43.2641, lng: -2.9494, year: 2013,
-    fact: "Athletic have never been relegated from La Liga, along with Real Madrid and Barcelona."
   },
   {
     sport: "football", level: 2,
@@ -251,15 +188,8 @@ window.QUESTIONS = [
     fact: "A memorial to the truce matches stands near Saint-Yvon, in the Ploegsteert area."
   },
   {
-    sport: "football", level: 2,
-    q: "FC St. Pauli, the cult club with the skull-and-crossbones flag, play at the Millerntor. In which city?",
-    answer: "Millerntor-Stadion, Hamburg",
-    lat: 53.5546, lng: 9.9678, year: 1910,
-    fact: "The stadium is a short walk from the Reeperbahn in the St. Pauli district."
-  },
-  {
     sport: "football", level: 3,
-    q: "Germany humiliated hosts Brazil 7-1 in the 2014 World Cup semi-final. Where?",
+    q: "Germany beat Brazil 7-1 in the 2014 World Cup semi-final. Where?",
     answer: "Estádio Mineirão, Belo Horizonte",
     lat: -19.8658, lng: -43.9711, year: 2014,
     fact: "Germany scored four goals in six minutes in the first half."
@@ -296,24 +226,10 @@ window.QUESTIONS = [
   },
   {
     sport: "tennis", level: 2,
-    q: "The Monte-Carlo Masters is famous as a Monaco event, but the Country Club is actually in another country. Where?",
-    answer: "Monte-Carlo Country Club, Roquebrune-Cap-Martin (France)",
-    lat: 43.7517, lng: 7.44, year: 1897,
-    fact: "The club sits just across the border from Monaco, in France."
-  },
-  {
-    sport: "tennis", level: 2,
     q: "Roger Federer played his final professional match, a doubles with Rafael Nadal, at the 2022 Laver Cup. Where?",
     answer: "The O2 Arena, London",
     lat: 51.503, lng: 0.0032, year: 2022,
     fact: "The picture of Federer and Nadal crying side by side went around the world."
-  },
-  {
-    sport: "tennis", level: 2,
-    q: "Roger Federer won his hometown tournament, the Swiss Indoors, 10 times — and was once a ball boy there. Where?",
-    answer: "St. Jakobshalle, Basel",
-    lat: 47.5383, lng: 7.62, year: 2019,
-    fact: "Federer was a ball boy at the tournament in the early 1990s."
   },
   {
     sport: "tennis", level: 2,
@@ -340,45 +256,10 @@ window.QUESTIONS = [
   },
   {
     sport: "cycling", level: 2,
-    q: "British rider Tom Simpson died on the slopes of the 'Giant of Provence' during the 1967 Tour. Which mountain?",
-    answer: "Mont Ventoux",
-    lat: 44.174, lng: 5.2789, year: 1967,
-    fact: "A memorial to Simpson stands just below the summit."
-  },
-  {
-    sport: "cycling", level: 1,
-    q: "The 'Hell of the North', Paris–Roubaix, ends with a lap of an old velodrome. Where is it?",
-    answer: "Vélodrome André-Pétrieux, Roubaix",
-    lat: 50.68, lng: 3.204, year: 1896,
-    fact: "Winners receive a cobblestone as a trophy."
-  },
-  {
-    sport: "cycling", level: 3,
-    q: "The Stelvio Pass, at 2,758 m, is the highest paved pass in the Eastern Alps and a Giro d'Italia favourite. Where is its summit?",
-    answer: "Passo dello Stelvio, Italy",
-    lat: 46.5286, lng: 10.4533, year: 1953,
-    fact: "The road climbs through 48 hairpins on its north-eastern side."
-  },
-  {
-    sport: "cycling", level: 2,
     q: "The 2022 Tour de France had its Grand Départ in the most northern city ever to host the start. Which one?",
     answer: "Copenhagen",
     lat: 55.6761, lng: 12.5683, year: 2022,
     fact: "Denmark's Jonas Vingegaard went on to win that Tour."
-  },
-  {
-    sport: "cycling", level: 1,
-    q: "Liège–Bastogne–Liège is the oldest of cycling's 'Monuments', first run in 1892. Where does it finish?",
-    answer: "Liège, Belgium",
-    lat: 50.6326, lng: 5.5797, year: 1892,
-    fact: "It's nicknamed 'La Doyenne' — the old lady."
-  },
-  {
-    sport: "cycling", level: 3,
-    q: "The Koppenberg, a brutally steep cobbled climb, is a highlight of the Tour of Flanders. Near which town?",
-    answer: "Oudenaarde, Belgium",
-    lat: 50.818, lng: 3.596, year: 1976,
-    fact: "With gradients up to 22%, even pros sometimes have to get off and walk."
   },
 
   // ───────────── Motorsport ─────────────
@@ -398,7 +279,7 @@ window.QUESTIONS = [
   },
   {
     sport: "motorsport", level: 1,
-    q: "The 'Temple of Speed', where the Tifosi invade the track after every Italian Grand Prix, is where?",
+    q: "The 'Temple of Speed', where the Tifosi invade the track after every Grand Prix, is where?",
     answer: "Autodromo Nazionale Monza",
     lat: 45.6156, lng: 9.2811, year: 1922,
     fact: "Monza has hosted more F1 world championship races than any other circuit."
@@ -412,17 +293,10 @@ window.QUESTIONS = [
   },
   {
     sport: "motorsport", level: 2,
-    q: "Niki Lauda was nearly killed in a fiery crash at the 1976 German Grand Prix — and was racing again six weeks later. Where?",
+    q: "Niki Lauda was nearly killed in a fiery crash in 1976 — and was racing again six weeks later. Where?",
     answer: "Nürburgring Nordschleife",
     lat: 50.3356, lng: 6.9475, year: 1976,
     fact: "Jackie Stewart nicknamed the 20 km Nordschleife 'The Green Hell'."
-  },
-  {
-    sport: "motorsport", level: 3,
-    q: "Ayrton Senna lost his life at the 1994 San Marino Grand Prix. Where was the race held?",
-    answer: "Autodromo Enzo e Dino Ferrari, Imola",
-    lat: 44.3439, lng: 11.7167, year: 1994,
-    fact: "Despite its name, the San Marino GP was held in Italy, about 100 km from San Marino."
   },
   {
     sport: "motorsport", level: 1,
@@ -439,15 +313,8 @@ window.QUESTIONS = [
     fact: "Riders average over 135 mph on a 37.7-mile lap of public roads."
   },
   {
-    sport: "motorsport", level: 3,
-    q: "Rally Finland is known as the 'Grand Prix on gravel' for its huge jumps. Which city is its base?",
-    answer: "Jyväskylä, Finland",
-    lat: 62.2426, lng: 25.7473, year: 1951,
-    fact: "Cars regularly fly more than 40 metres off the crests."
-  },
-  {
     sport: "motorsport", level: 2,
-    q: "Max Verstappen's home race returned to the F1 calendar in 2021 on a circuit among the sand dunes. Where?",
+    q: "F1 returned in 2021, after 36 years away, to a circuit among the sand dunes. Where?",
     answer: "Circuit Zandvoort, Netherlands",
     lat: 52.3888, lng: 4.5409, year: 2021,
     fact: "The track features banked corners, rare in modern F1."
@@ -468,7 +335,7 @@ window.QUESTIONS = [
   },
   {
     sport: "motorsport", level: 3,
-    q: "Valentino Rossi won seven consecutive Italian MotoGP races at this Tuscan circuit. Which one?",
+    q: "Valentino Rossi won seven consecutive MotoGP races here, from 2002 to 2008. Which circuit?",
     answer: "Mugello Circuit, Scarperia",
     lat: 43.9975, lng: 11.3719, year: 2002,
     fact: "The circuit is owned by Ferrari."
@@ -505,31 +372,10 @@ window.QUESTIONS = [
   },
   {
     sport: "olympics", level: 2,
-    q: "Legend says a messenger ran to Athens to announce victory over the Persians in 490 BC. Where did he start?",
-    answer: "Marathon, Greece",
-    lat: 38.1536, lng: 23.9636, year: -490,
-    fact: "The marathon's 42.195 km distance comes from the 1908 London Olympics."
-  },
-  {
-    sport: "olympics", level: 2,
     q: "Where were the Ancient Olympic Games held, from 776 BC onwards?",
     answer: "Olympia, Greece",
     lat: 37.6383, lng: 21.63, year: -776,
     fact: "The Olympic flame is still lit there using the sun's rays before every Games."
-  },
-  {
-    sport: "olympics", level: 2,
-    q: "The 1992 'Dream Team' of Jordan, Magic and Bird didn't play in Barcelona itself. In which town did they play?",
-    answer: "Pavelló Olímpic, Badalona",
-    lat: 41.4447, lng: 2.2357, year: 1992,
-    fact: "They won their eight games by an average of almost 44 points."
-  },
-  {
-    sport: "olympics", level: 1,
-    q: "On 'Super Saturday' at London 2012, Ennis, Rutherford and Farah won gold within 46 minutes. Where?",
-    answer: "Olympic Stadium, Stratford (London)",
-    lat: 51.5386, lng: -0.0166, year: 2012,
-    fact: "The stadium is now home to West Ham United."
   },
   {
     sport: "olympics", level: 1,
@@ -563,21 +409,21 @@ window.QUESTIONS = [
   },
   {
     sport: "winter", level: 1,
-    q: "Which iconic ski jump in a capital city has hosted competitions since 1892?",
+    q: "Which iconic ski jump has hosted competitions since 1892?",
     answer: "Holmenkollbakken, Oslo",
     lat: 59.9636, lng: 10.6672, year: 1892,
     fact: "More than 100,000 spectators watched the jumping at the 1952 Winter Olympics there."
   },
   {
     sport: "winter", level: 3,
-    q: "The Four Hills Tournament begins every December in a Bavarian village. Which one?",
+    q: "The Four Hills Tournament begins every December in which village?",
     answer: "Oberstdorf, Germany",
     lat: 47.4097, lng: 10.2789, year: 1953,
     fact: "It continues in Garmisch-Partenkirchen, Innsbruck and Bischofshofen."
   },
   {
     sport: "winter", level: 3,
-    q: "Ski jumpers have flown over 250 metres on the giant hill in the 'Valley under Ponce'. Where?",
+    q: "The first ski jump of over 100 metres was made here in 1936; today jumpers fly over 250 metres. Where?",
     answer: "Planica, Slovenia",
     lat: 46.4797, lng: 13.7231, year: 1934,
     fact: "The first jump of over 100 m was made here in 1936."
@@ -605,7 +451,7 @@ window.QUESTIONS = [
   },
   {
     sport: "winter", level: 2,
-    q: "Norway hosted what many call the best Winter Olympics ever in 1994, in a small town of around 25,000 people. Which one?",
+    q: "What many call the best Winter Olympics ever were held in 1994, in a small town of around 25,000 people. Which one?",
     answer: "Lillehammer, Norway",
     lat: 61.1153, lng: 10.4662, year: 1994,
     fact: "Norway won more medals than any other nation: 26."
@@ -626,7 +472,7 @@ window.QUESTIONS = [
   },
   {
     sport: "winter", level: 3,
-    q: "The Netherlands' temple of speed skating, where dozens of world records have been set, is where?",
+    q: "Speed skating's most famous oval, where dozens of world records have been set, is where?",
     answer: "Thialf, Heerenveen",
     lat: 52.95, lng: 5.935, year: 1967,
     fact: "Heerenveen is in Friesland, the heartland of Dutch skating."
@@ -648,13 +494,6 @@ window.QUESTIONS = [
 
   // ───────────── Rugby ─────────────
   {
-    sport: "rugby", level: 2,
-    q: "According to legend, William Webb Ellis first picked up the ball and ran with it in 1823. At which school?",
-    answer: "Rugby School, Rugby",
-    lat: 52.3713, lng: -1.2643, year: 1823,
-    fact: "The Rugby World Cup trophy is named after him."
-  },
-  {
     sport: "rugby", level: 1,
     q: "Jonny Wilkinson's last-minute drop goal won England the 2003 Rugby World Cup. Where?",
     answer: "Stadium Australia, Sydney",
@@ -663,24 +502,17 @@ window.QUESTIONS = [
   },
   {
     sport: "rugby", level: 1,
-    q: "The 'Home of England Rugby', the largest dedicated rugby union stadium in the world, is where?",
+    q: "The largest dedicated rugby union stadium in the world is where?",
     answer: "Twickenham Stadium, London",
     lat: 51.456, lng: -0.3415, year: 1909,
     fact: "It's nicknamed 'The Cabbage Patch' because the land was a market garden."
   },
   {
     sport: "rugby", level: 1,
-    q: "Wales play their home games in a stadium with a retractable roof, right in the city centre. Where?",
+    q: "A national rugby stadium with a retractable roof, right in a city centre, hosted the 1999 Rugby World Cup final. Where?",
     answer: "Principality (Millennium) Stadium, Cardiff",
     lat: 51.4782, lng: -3.1826, year: 1999,
     fact: "It opened in time to host the 1999 Rugby World Cup final."
-  },
-  {
-    sport: "rugby", level: 1,
-    q: "Scotland's national rugby stadium, the largest in the country, is where?",
-    answer: "Murrayfield Stadium, Edinburgh",
-    lat: 55.9422, lng: -3.2409, year: 1925,
-    fact: "Scotland won the Grand Slam there in its very first season, 1925."
   },
 
   // ───────────── Golf ─────────────
@@ -690,13 +522,6 @@ window.QUESTIONS = [
     answer: "Old Course, St Andrews",
     lat: 56.3433, lng: -2.803, year: 1552,
     fact: "Golf has been played there since at least the 15th century."
-  },
-  {
-    sport: "golf", level: 2,
-    q: "Europe won the 2023 Ryder Cup at a course near an ancient capital. Where?",
-    answer: "Marco Simone Golf Club, near Rome",
-    lat: 41.9807, lng: 12.6247, year: 2023,
-    fact: "Europe won 16½–11½ and haven't lost a home Ryder Cup since 1993."
   },
   {
     sport: "golf", level: 3,
@@ -723,14 +548,14 @@ window.QUESTIONS = [
   // ───────────── Cricket ─────────────
   {
     sport: "cricket", level: 1,
-    q: "Which ground in London is known as 'The Home of Cricket'?",
+    q: "Which ground is known as 'The Home of Cricket'?",
     answer: "Lord's Cricket Ground, St John's Wood",
     lat: 51.5297, lng: -0.1729, year: 1814,
     fact: "Lord's has a noticeable slope: about 2.5 m from one side to the other."
   },
   {
     sport: "cricket", level: 1,
-    q: "Australia's first Test win on English soil in 1882 led to a mock obituary for English cricket — and the birth of The Ashes. Where?",
+    q: "Australia's first Test win in 1882 led to a mock obituary for English cricket — and the birth of The Ashes. Where was it?",
     answer: "The Oval, Kennington (London)",
     lat: 51.4837, lng: -0.115, year: 1882,
     fact: "The Sporting Times wrote that 'the body will be cremated and the ashes taken to Australia'."
@@ -773,59 +598,10 @@ window.QUESTIONS = [
     fact: "A horse can win without its rider (a 'cavallo scosso')."
   },
   {
-    sport: "horse racing", level: 1,
-    q: "The Prix de l'Arc de Triomphe, Europe's richest flat race, is usually run at which racecourse?",
-    answer: "ParisLongchamp, Bois de Boulogne",
-    lat: 48.8578, lng: 2.2333, year: 1920,
-    fact: "It was moved to Chantilly in 2016 and 2017 while Longchamp was rebuilt."
-  },
-  {
-    sport: "rowing", level: 1,
-    q: "The Boat Race between Oxford and Cambridge starts by a bridge on the Thames. Which one?",
-    answer: "Putney Bridge, London",
-    lat: 51.467, lng: -0.213, year: 1845,
-    fact: "The course runs 6.8 km upstream to Mortlake."
-  },
-  {
-    sport: "sailing", level: 2,
-    q: "The schooner America won a race around the Isle of Wight in 1851, giving the America's Cup its name. Which town hosted the race?",
-    answer: "Cowes, Isle of Wight",
-    lat: 50.762, lng: -1.298, year: 1851,
-    fact: "The trophy stayed in American hands for 132 years."
-  },
-  {
-    sport: "swimming", level: 1,
-    q: "In 1875, Captain Matthew Webb became the first person to swim the English Channel. From which port did he set off?",
-    answer: "Dover, England",
-    lat: 51.1279, lng: 1.3134, year: 1875,
-    fact: "He swam for almost 22 hours, covered in porpoise oil."
-  },
-  {
     sport: "equestrian", level: 3,
     q: "The famous horse trials — and the sport of badminton — take their name from a country estate. Where?",
     answer: "Badminton House, Gloucestershire",
     lat: 51.544, lng: -2.284, year: 1949,
     fact: "Badminton the racket sport was popularised by guests at the house in the 1870s."
-  },
-  {
-    sport: "climbing", level: 2,
-    q: "The deadly 'Nordwand' (north face) of which mountain was first climbed in 1938?",
-    answer: "Eiger, Switzerland",
-    lat: 46.5775, lng: 8.0053, year: 1938,
-    fact: "Its nickname is the 'Mordwand' — the murder wall."
-  },
-  {
-    sport: "basketball", level: 2,
-    q: "Basketball is the national religion of Lithuania. Where do Žalgiris, the 1999 EuroLeague champions, play?",
-    answer: "Žalgiris Arena, Kaunas",
-    lat: 54.89, lng: 23.915, year: 1999,
-    fact: "The arena holds over 15,000 — around 5% of the city's population."
-  },
-  {
-    sport: "gaelic games", level: 1,
-    q: "The All-Ireland hurling and Gaelic football finals are played in one of Europe's biggest stadiums. Where?",
-    answer: "Croke Park, Dublin",
-    lat: 53.3607, lng: -6.2512, year: 1884,
-    fact: "With 82,300 seats, it's one of the largest stadiums in Europe."
   }
 ];
