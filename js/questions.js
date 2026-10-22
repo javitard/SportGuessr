@@ -883,6 +883,678 @@ window.QUESTIONS = [
       fact: "La UEFA se trasladó allí desde Berna en 1995."
     }
   },
+  {
+    sport: "football", level: 1,
+    q: "The 'Superclásico' between Boca Juniors and River Plate is played in which city?",
+    answer: "La Bombonera, Buenos Aires",
+    lat: -34.6356, lng: -58.3647, year: 1913,
+    fact: "Boca's stands are so steep that the ground is said to 'tremble' when the fans jump.",
+    es: {
+      q: "¿En qué ciudad se juega el 'Superclásico' entre Boca Juniors y River Plate?",
+      answer: "La Bombonera, Buenos Aires",
+      fact: "Las gradas de Boca son tan empinadas que se dice que el estadio 'tiembla' cuando salta la afición."
+    }
+  },
+  {
+    sport: "football", level: 1,
+    q: "The 'Intercontinental Derby' between Fenerbahçe and Galatasaray gets its name because the two clubs are on different continents. In which city?",
+    answer: "Istanbul",
+    lat: 40.9876, lng: 29.0369, year: 1934,
+    fact: "Fenerbahçe play on the Asian side of the Bosphorus, Galatasaray on the European side.",
+    es: {
+      q: "El 'Derbi Intercontinental' entre Fenerbahçe y Galatasaray se llama así porque los clubes están en continentes distintos. ¿En qué ciudad?",
+      answer: "Estambul",
+      fact: "El Fenerbahçe juega en la orilla asiática del Bósforo y el Galatasaray, en la europea."
+    }
+  },
+  {
+    sport: "football", level: 1,
+    q: "The 'Old Firm' derby between Celtic and Rangers is played in which city?",
+    answer: "Glasgow",
+    lat: 55.8497, lng: -4.2055, year: 1888,
+    fact: "The two clubs have won more than 100 Scottish league titles between them.",
+    es: {
+      q: "¿En qué ciudad se juega el derbi 'Old Firm' entre el Celtic y el Rangers?",
+      answer: "Glasgow",
+      fact: "Entre los dos clubes suman más de 100 ligas escocesas."
+    }
+  },
+  {
+    sport: "football", level: 1,
+    q: "Where is the famous stand called 'The Kop', home of 'You'll Never Walk Alone'?",
+    answer: "Anfield, Liverpool",
+    lat: 53.4308, lng: -2.9608, year: 1906,
+    fact: "It's named after Spion Kop, a hill fought over in the Boer War.",
+    es: {
+      q: "¿Dónde está la famosa grada llamada 'The Kop', donde se canta el 'You'll Never Walk Alone'?",
+      answer: "Anfield, Liverpool",
+      fact: "Debe su nombre a Spion Kop, una colina disputada en la guerra de los Bóers."
+    }
+  },
+  {
+    sport: "football", level: 1,
+    q: "Lionel Messi played his home games for 17 seasons in Europe's biggest stadium. Which one?",
+    answer: "Camp Nou, Barcelona",
+    lat: 41.3809, lng: 2.1228, year: 2021,
+    fact: "He scored 672 goals for his club before leaving in 2021.",
+    es: {
+      q: "Leo Messi jugó como local durante 17 temporadas en el estadio más grande de Europa. ¿Cuál?",
+      answer: "Camp Nou, Barcelona",
+      fact: "Marcó 672 goles con su club antes de marcharse en 2021."
+    }
+  },
+  {
+    sport: "football", level: 1,
+    q: "Kylian Mbappé grew up in a suburb of which city, where a giant mural of him now hangs?",
+    answer: "Bondy, near Paris",
+    lat: 48.9022, lng: 2.4828, year: 1998,
+    fact: "The mural reads 'Bondy, the city of possibilities'.",
+    es: {
+      q: "Kylian Mbappé creció en un suburbio de ¿qué ciudad?, donde hoy cuelga un mural gigante suyo.",
+      answer: "Bondy, junto a París",
+      fact: "El mural dice 'Bondy, la ciudad de las posibilidades'."
+    }
+  },
+  {
+    sport: "football", level: 1,
+    q: "Johan Cruyff grew up a few hundred metres from his club's old stadium. In which city?",
+    answer: "Betondorp, Amsterdam",
+    lat: 52.3485, lng: 4.9447, year: 1947,
+    fact: "His mother worked as a cleaner at the club.",
+    es: {
+      q: "Johan Cruyff creció a pocos cientos de metros del antiguo estadio de su club. ¿En qué ciudad?",
+      answer: "Betondorp, Ámsterdam",
+      fact: "Su madre trabajaba como limpiadora en el club."
+    }
+  },
+  {
+    sport: "football", level: 1,
+    q: "Which city is home to the Santiago Bernabéu stadium?",
+    answer: "Madrid",
+    lat: 40.4531, lng: -3.6883, year: 1947,
+    fact: "It's named after the club president who had it built in 1947.",
+    es: {
+      q: "¿En qué ciudad está el estadio Santiago Bernabéu?",
+      answer: "Madrid",
+      fact: "Lleva el nombre del presidente del club que lo mandó construir en 1947."
+    }
+  },
+  {
+    sport: "football", level: 1,
+    q: "Which city renamed its football stadium after Diego Maradona in 2020?",
+    answer: "Naples",
+    lat: 40.8279, lng: 14.1931, year: 2020,
+    fact: "Maradona led the local club to their first two league titles, in 1987 and 1990.",
+    es: {
+      q: "¿Qué ciudad rebautizó su estadio de fútbol con el nombre de Diego Maradona en 2020?",
+      answer: "Nápoles",
+      fact: "Maradona llevó al club local a sus dos primeras ligas, en 1987 y 1990."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "The 'Derby della Madonnina' is played in a stadium shared by both rivals. Where?",
+    answer: "San Siro, Milan",
+    lat: 45.4781, lng: 9.124, year: 1926,
+    fact: "Its giant cylindrical towers were added for the 1990 World Cup.",
+    es: {
+      q: "El 'Derby della Madonnina' se juega en un estadio que comparten los dos rivales. ¿Dónde?",
+      answer: "San Siro, Milán",
+      fact: "Sus enormes torres cilíndricas se añadieron para el Mundial de 1990."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Red Star and Partizan contest the 'Eternal Derby'. In which city?",
+    answer: "Belgrade",
+    lat: 44.7833, lng: 20.4647, year: 1946,
+    fact: "The two clubs' stadiums are only about a kilometre apart.",
+    es: {
+      q: "El Estrella Roja y el Partizán disputan el 'Derbi Eterno'. ¿En qué ciudad?",
+      answer: "Belgrado",
+      fact: "Los estadios de los dos clubes están a solo un kilómetro, más o menos."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Which city is home to the Stade Vélodrome?",
+    answer: "Marseille",
+    lat: 43.2699, lng: 5.3959, year: 1937,
+    fact: "It was built for the 1938 World Cup and once had a cycling track around the pitch.",
+    es: {
+      q: "¿En qué ciudad está el Stade Vélodrome?",
+      answer: "Marsella",
+      fact: "Se construyó para el Mundial de 1938 y tuvo una pista de ciclismo alrededor del césped."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Which city is home to the Mestalla, a stadium opened in 1923?",
+    answer: "Valencia",
+    lat: 39.4746, lng: -0.3583, year: 1923,
+    fact: "It's famous for having some of the steepest stands in Spain.",
+    es: {
+      q: "¿En qué ciudad está Mestalla, un estadio inaugurado en 1923?",
+      answer: "Valencia",
+      fact: "Es famoso por tener algunas de las gradas más empinadas de España."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Pelé scored his 1,000th goal, a penalty, in 1969. In which stadium?",
+    answer: "Maracanã, Rio de Janeiro",
+    lat: -22.9122, lng: -43.2302, year: 1969,
+    fact: "The match stopped for around 20 minutes while fans invaded the pitch.",
+    es: {
+      q: "Pelé marcó su gol número 1.000, de penalti, en 1969. ¿En qué estadio?",
+      answer: "Maracaná, Río de Janeiro",
+      fact: "El partido se paró unos 20 minutos mientras la afición invadía el campo."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "A 17-year-old Pelé scored twice as Brazil won their first World Cup final in 1958, against the hosts. Where?",
+    answer: "Råsunda Stadium, Solna (Stockholm)",
+    lat: 59.3628, lng: 18.0, year: 1958,
+    fact: "Brazil beat Sweden 5-2.",
+    es: {
+      q: "Un Pelé de 17 años marcó dos goles y Brasil ganó su primera final del Mundial en 1958, contra la anfitriona. ¿Dónde?",
+      answer: "Estadio Råsunda, Solna (Estocolmo)",
+      fact: "Brasil ganó 5-2 a Suecia."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Italy won their first World Cup in 1934, beating Czechoslovakia in extra time. Where?",
+    answer: "Stadio Nazionale PNF (later Flaminio), Rome",
+    lat: 41.9285, lng: 12.472, year: 1934,
+    fact: "Italy won it again four years later, in France.",
+    es: {
+      q: "Italia ganó su primer Mundial en 1934, a Checoslovaquia en la prórroga. ¿Dónde?",
+      answer: "Estadio Nacional PNF (después Flaminio), Roma",
+      fact: "Italia volvió a ganarlo cuatro años después, en Francia."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Argentina won their first World Cup in 1978, beating the Netherlands in extra time. Where?",
+    answer: "Estadio Monumental, Buenos Aires",
+    lat: -34.5453, lng: -58.4498, year: 1978,
+    fact: "Mario Kempes scored twice in the final and was the tournament's top scorer.",
+    es: {
+      q: "Argentina ganó su primer Mundial en 1978, a Países Bajos en la prórroga. ¿Dónde?",
+      answer: "Estadio Monumental, Buenos Aires",
+      fact: "Mario Kempes marcó dos goles en la final y fue el máximo goleador del torneo."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Roberto Baggio missed the decisive penalty in the 1994 World Cup final. Where?",
+    answer: "Rose Bowl, Pasadena",
+    lat: 34.1613, lng: -118.1676, year: 1994,
+    fact: "It was the first World Cup final decided on penalties.",
+    es: {
+      q: "Roberto Baggio falló el penalti decisivo en la final del Mundial de 1994. ¿Dónde?",
+      answer: "Rose Bowl, Pasadena",
+      fact: "Fue la primera final del Mundial decidida en los penaltis."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Which stadium was chosen to host the 2026 World Cup final, the first with 48 teams?",
+    answer: "MetLife Stadium, East Rutherford (New York area)",
+    lat: 40.8135, lng: -74.0745, year: 2026,
+    fact: "It's normally home to two NFL teams, the Giants and the Jets.",
+    es: {
+      q: "¿Qué estadio fue elegido para la final del Mundial de 2026, el primero con 48 selecciones?",
+      answer: "MetLife Stadium, East Rutherford (zona de Nueva York)",
+      fact: "Normalmente es la casa de dos equipos de la NFL, los Giants y los Jets."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "The 2026 World Cup opened in the first stadium to host matches at three World Cups. Which one?",
+    answer: "Estadio Azteca, Mexico City",
+    lat: 19.3029, lng: -99.1505, year: 2026,
+    fact: "It had already hosted the 1970 and 1986 finals.",
+    es: {
+      q: "El Mundial de 2026 se inauguró en el primer estadio con partidos en tres Mundiales. ¿Cuál?",
+      answer: "Estadio Azteca, Ciudad de México",
+      fact: "Ya había acogido las finales de 1970 y 1986."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Michel Platini scored nine goals in five games as France won Euro 1984. Where was the final?",
+    answer: "Parc des Princes, Paris",
+    lat: 48.8414, lng: 2.253, year: 1984,
+    fact: "Nobody has scored more goals at a single Euro.",
+    es: {
+      q: "Michel Platini marcó nueve goles en cinco partidos y Francia ganó la Eurocopa de 1984. ¿Dónde fue la final?",
+      answer: "Parque de los Príncipes, París",
+      fact: "Nadie ha marcado más goles en una sola Eurocopa."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Manchester United became the first English European champions in 1968, with George Best scoring in extra time. Where?",
+    answer: "Wembley Stadium, London",
+    lat: 51.556, lng: -0.2796, year: 1968,
+    fact: "They beat Benfica 4-1, ten years after the Munich air disaster.",
+    es: {
+      q: "El Manchester United fue el primer campeón de Europa inglés en 1968, con un gol de George Best en la prórroga. ¿Dónde?",
+      answer: "Estadio de Wembley, Londres",
+      fact: "Ganó 4-1 al Benfica, diez años después de la tragedia aérea de Múnich."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "John Terry slipped taking a penalty in the 2008 Champions League final between Manchester United and Chelsea. Where?",
+    answer: "Luzhniki Stadium, Moscow",
+    lat: 55.7158, lng: 37.5539, year: 2008,
+    fact: "It was the first all-English Champions League final.",
+    es: {
+      q: "John Terry resbaló al lanzar un penalti en la final de la Champions de 2008 entre el Manchester United y el Chelsea. ¿Dónde?",
+      answer: "Estadio Luzhnikí, Moscú",
+      fact: "Fue la primera final de la Champions entre dos equipos ingleses."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Messi, Suárez and Neymar's Barcelona beat Juventus in the 2015 Champions League final. Where?",
+    answer: "Olympiastadion, Berlin",
+    lat: 52.5147, lng: 13.2395, year: 2015,
+    fact: "It completed Barcelona's second treble.",
+    es: {
+      q: "El Barcelona de Messi, Suárez y Neymar ganó a la Juventus en la final de la Champions de 2015. ¿Dónde?",
+      answer: "Olympiastadion, Berlín",
+      fact: "Con ella el Barcelona cerró su segundo triplete."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Real Madrid won their 15th European Cup in 2024, beating Borussia Dortmund 2-0. Where?",
+    answer: "Wembley Stadium, London",
+    lat: 51.556, lng: -0.2796, year: 2024,
+    fact: "Dani Carvajal and Vinícius Júnior scored the goals.",
+    es: {
+      q: "El Real Madrid ganó su 15.ª Copa de Europa en 2024, 2-0 al Borussia Dortmund. ¿Dónde?",
+      answer: "Estadio de Wembley, Londres",
+      fact: "Marcaron Dani Carvajal y Vinícius Júnior."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "George Best was born and grew up in which city?",
+    answer: "Belfast",
+    lat: 54.5973, lng: -5.9301, year: 1946,
+    fact: "The city's airport is named after him.",
+    es: {
+      q: "¿En qué ciudad nació y se crió George Best?",
+      answer: "Belfast",
+      fact: "El aeropuerto de la ciudad lleva su nombre."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Zlatan Ibrahimović grew up on a housing estate in which city, where he started his professional career?",
+    answer: "Malmö",
+    lat: 55.585, lng: 13.0333, year: 1981,
+    fact: "A statue of him was unveiled outside the club's stadium in 2019.",
+    es: {
+      q: "Zlatan Ibrahimović creció en un barrio de viviendas sociales de ¿qué ciudad?, donde empezó su carrera profesional.",
+      answer: "Malmö",
+      fact: "En 2019 se inauguró una estatua suya frente al estadio del club."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Franz Beckenbauer was born and grew up in which city?",
+    answer: "Munich",
+    lat: 48.1351, lng: 11.582, year: 1945,
+    fact: "He nearly joined his club's local rivals, until one of their players slapped him in a youth match.",
+    es: {
+      q: "¿En qué ciudad nació y se crió Franz Beckenbauer?",
+      answer: "Múnich",
+      fact: "Estuvo a punto de fichar por el rival de la ciudad, hasta que uno de sus jugadores le dio una bofetada en un partido juvenil."
+    }
+  },
+  {
+    sport: "football", level: 2,
+    q: "Diego Maradona grew up in a shanty town on the edge of which city?",
+    answer: "Villa Fiorito, Buenos Aires",
+    lat: -34.7036, lng: -58.444, year: 1960,
+    fact: "He played for the youth side 'Los Cebollitas' before turning professional at 15.",
+    es: {
+      q: "Diego Maradona creció en un barrio humilde a las afueras de ¿qué ciudad?",
+      answer: "Villa Fiorito, Buenos Aires",
+      fact: "Jugó en el equipo juvenil 'Los Cebollitas' antes de debutar como profesional con 15 años."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Italy retained the World Cup in 1938, beating Hungary 4-2 in the final. Where?",
+    answer: "Stade Olympique Yves-du-Manoir, Colombes (Paris)",
+    lat: 48.9294, lng: 2.2482, year: 1938,
+    fact: "The stadium had also hosted the 1924 Olympics.",
+    es: {
+      q: "Italia revalidó el Mundial en 1938, ganando 4-2 a Hungría en la final. ¿Dónde?",
+      answer: "Estadio Olímpico Yves-du-Manoir, Colombes (París)",
+      fact: "El estadio también había acogido los Juegos Olímpicos de 1924."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Garrincha starred as Brazil won the 1962 World Cup, with Pelé injured. Where was the final?",
+    answer: "Estadio Nacional, Santiago",
+    lat: -33.4646, lng: -70.6106, year: 1962,
+    fact: "Brazil beat Czechoslovakia 3-1.",
+    es: {
+      q: "Garrincha fue la estrella del Brasil campeón del Mundial de 1962, con Pelé lesionado. ¿Dónde fue la final?",
+      answer: "Estadio Nacional, Santiago de Chile",
+      fact: "Brasil ganó 3-1 a Checoslovaquia."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Megan Rapinoe's USA beat the Netherlands in the 2019 Women's World Cup final. Where?",
+    answer: "Groupama Stadium, Décines (Lyon)",
+    lat: 45.7653, lng: 4.9822, year: 2019,
+    fact: "Rapinoe won both the Golden Boot and the Golden Ball.",
+    es: {
+      q: "La selección de Estados Unidos de Megan Rapinoe ganó a Países Bajos en la final del Mundial femenino de 2019. ¿Dónde?",
+      answer: "Groupama Stadium, Décines (Lyon)",
+      fact: "Rapinoe ganó la Bota de Oro y el Balón de Oro del torneo."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "England beat Spain on penalties in the final of the Women's Euro 2025. Where?",
+    answer: "St. Jakob-Park, Basel",
+    lat: 47.5414, lng: 7.6201, year: 2025,
+    fact: "Chloe Kelly scored the winning penalty.",
+    es: {
+      q: "Inglaterra ganó a España en los penaltis en la final de la Eurocopa femenina de 2025. ¿Dónde?",
+      answer: "St. Jakob-Park, Basilea",
+      fact: "Chloe Kelly marcó el penalti decisivo."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "The USSR won the very first European Championship in 1960, beating Yugoslavia after extra time. Where?",
+    answer: "Parc des Princes, Paris",
+    lat: 48.8414, lng: 2.253, year: 1960,
+    fact: "Lev Yashin, the only goalkeeper to win the Ballon d'Or, was in goal.",
+    es: {
+      q: "La URSS ganó la primera Eurocopa de la historia en 1960, a Yugoslavia en la prórroga. ¿Dónde?",
+      answer: "Parque de los Príncipes, París",
+      fact: "En la portería estaba Lev Yashin, el único portero que ha ganado el Balón de Oro."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Horst Hrubesch scored twice as West Germany beat Belgium in the Euro 1980 final. Where?",
+    answer: "Stadio Olimpico, Rome",
+    lat: 41.9339, lng: 12.4547, year: 1980,
+    fact: "His winner, a header, came two minutes from time.",
+    es: {
+      q: "Horst Hrubesch marcó dos goles y la RFA ganó a Bélgica en la final de la Eurocopa de 1980. ¿Dónde?",
+      answer: "Estadio Olímpico, Roma",
+      fact: "Su gol de la victoria, de cabeza, llegó a dos minutos del final."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Benfica won their first European Cup in 1961, beating Barcelona 3-2. Where?",
+    answer: "Wankdorf Stadium, Bern",
+    lat: 46.9632, lng: 7.4646, year: 1961,
+    fact: "Barcelona hit the woodwork several times; the square goalposts were blamed.",
+    es: {
+      q: "El Benfica ganó su primera Copa de Europa en 1961, 3-2 al Barcelona. ¿Dónde?",
+      answer: "Estadio Wankdorf, Berna",
+      fact: "El Barcelona estrelló varios balones en los palos; se culpó a los postes cuadrados."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Eusébio scored twice as Benfica beat Real Madrid 5-3 in the 1962 European Cup final. Where?",
+    answer: "Olympic Stadium, Amsterdam",
+    lat: 52.3434, lng: 4.8547, year: 1962,
+    fact: "After the match, Alfredo Di Stéfano gave Eusébio his shirt.",
+    es: {
+      q: "Eusébio marcó dos goles y el Benfica ganó 5-3 al Real Madrid en la final de la Copa de Europa de 1962. ¿Dónde?",
+      answer: "Estadio Olímpico, Ámsterdam",
+      fact: "Tras el partido, Alfredo Di Stéfano le regaló su camiseta a Eusébio."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Rabah Madjer's backheel helped Porto beat Bayern Munich in the 1987 European Cup final. Where?",
+    answer: "Ernst-Happel-Stadion (then Prater Stadium), Vienna",
+    lat: 48.2072, lng: 16.4206, year: 1987,
+    fact: "A backheeled goal is still called a 'Madjer' in Portugal.",
+    es: {
+      q: "El taconazo de Rabah Madjer ayudó al Oporto a ganar al Bayern de Múnich en la final de la Copa de Europa de 1987. ¿Dónde?",
+      answer: "Ernst-Happel-Stadion (entonces Estadio del Prater), Viena",
+      fact: "En Portugal, a un gol de tacón se le sigue llamando 'un Madjer'."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Arrigo Sacchi's AC Milan crushed Steaua Bucharest 4-0 in the 1989 European Cup final, cheered on by tens of thousands of travelling fans. Where?",
+    answer: "Camp Nou, Barcelona",
+    lat: 41.3809, lng: 2.1228, year: 1989,
+    fact: "Ruud Gullit and Marco van Basten scored two goals each.",
+    es: {
+      q: "El AC Milan de Arrigo Sacchi aplastó 4-0 al Steaua de Bucarest en la final de la Copa de Europa de 1989, ante decenas de miles de aficionados desplazados. ¿Dónde?",
+      answer: "Camp Nou, Barcelona",
+      fact: "Ruud Gullit y Marco van Basten marcaron dos goles cada uno."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Predrag Mijatović's goal ended Real Madrid's 32-year wait for a European Cup in 1998. Where?",
+    answer: "Amsterdam ArenA (now Johan Cruijff ArenA)",
+    lat: 52.3143, lng: 4.9419, year: 1998,
+    fact: "Real beat Juventus 1-0.",
+    es: {
+      q: "El gol de Predrag Mijatović acabó con 32 años de espera del Real Madrid por una Copa de Europa en 1998. ¿Dónde?",
+      answer: "Amsterdam ArenA (hoy Johan Cruijff ArenA)",
+      fact: "El Real ganó 1-0 a la Juventus."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "The first all-Spanish Champions League final, Real Madrid vs Valencia, was played in 2000. Where?",
+    answer: "Stade de France, Saint-Denis",
+    lat: 48.9245, lng: 2.3602, year: 2000,
+    fact: "Real Madrid won 3-0, with a famous volley from Steve McManaman.",
+    es: {
+      q: "La primera final española de la Champions, Real Madrid contra Valencia, se jugó en 2000. ¿Dónde?",
+      answer: "Stade de France, Saint-Denis",
+      fact: "El Real Madrid ganó 3-0, con una famosa volea de Steve McManaman."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Barcelona came from behind to beat Arsenal in the 2006 Champions League final. Where?",
+    answer: "Stade de France, Saint-Denis",
+    lat: 48.9245, lng: 2.3602, year: 2006,
+    fact: "Jens Lehmann became the first player sent off in a Champions League final.",
+    es: {
+      q: "El Barcelona remontó para ganar al Arsenal en la final de la Champions de 2006. ¿Dónde?",
+      answer: "Stade de France, Saint-Denis",
+      fact: "Jens Lehmann fue el primer expulsado en una final de la Champions."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "AC Milan got revenge for their 2005 defeat by beating Liverpool in the 2007 Champions League final. Where?",
+    answer: "Olympic Stadium (OAKA), Athens",
+    lat: 38.0362, lng: 23.7876, year: 2007,
+    fact: "Filippo Inzaghi scored both of Milan's goals.",
+    es: {
+      q: "El AC Milan se vengó de la derrota de 2005 ganando al Liverpool en la final de la Champions de 2007. ¿Dónde?",
+      answer: "Estadio Olímpico (OAKA), Atenas",
+      fact: "Filippo Inzaghi marcó los dos goles del Milan."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Real Madrid beat Juventus 4-1 in the 2017 Champions League final, the first played under a closed roof. Where?",
+    answer: "Principality Stadium, Cardiff",
+    lat: 51.4782, lng: -3.1826, year: 2017,
+    fact: "Cristiano Ronaldo scored twice.",
+    es: {
+      q: "El Real Madrid ganó 4-1 a la Juventus en la final de la Champions de 2017, la primera jugada con el techo cerrado. ¿Dónde?",
+      answer: "Principality Stadium, Cardiff",
+      fact: "Cristiano Ronaldo marcó dos goles."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Alex Ferguson's Aberdeen beat Real Madrid in the 1983 Cup Winners' Cup final. Where?",
+    answer: "Ullevi, Gothenburg",
+    lat: 57.7058, lng: 11.9873, year: 1983,
+    fact: "John Hewitt scored the winner in extra time.",
+    es: {
+      q: "El Aberdeen de Alex Ferguson ganó al Real Madrid en la final de la Recopa de 1983. ¿Dónde?",
+      answer: "Ullevi, Gotemburgo",
+      fact: "John Hewitt marcó el gol de la victoria en la prórroga."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Around 80,000 Celtic fans travelled to the 2003 UEFA Cup final, which they lost to José Mourinho's Porto. Where?",
+    answer: "Estadio de La Cartuja, Seville",
+    lat: 37.4166, lng: -6.0047, year: 2003,
+    fact: "Celtic's fans later received a UEFA fair play award for their behaviour.",
+    es: {
+      q: "Unos 80.000 aficionados del Celtic viajaron a la final de la Copa de la UEFA de 2003, que perdieron ante el Oporto de José Mourinho. ¿Dónde?",
+      answer: "Estadio de La Cartuja, Sevilla",
+      fact: "La afición del Celtic recibió después un premio de la UEFA al juego limpio."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Sevilla won their first European trophy in 2006, thrashing Middlesbrough 4-0 in the UEFA Cup final. Where?",
+    answer: "Philips Stadion, Eindhoven",
+    lat: 51.4417, lng: 5.4675, year: 2006,
+    fact: "It was the start of a record run of seven titles in the competition.",
+    es: {
+      q: "El Sevilla ganó su primer título europeo en 2006, goleando 4-0 al Middlesbrough en la final de la Copa de la UEFA. ¿Dónde?",
+      answer: "Philips Stadion, Eindhoven",
+      fact: "Fue el inicio de una racha récord de siete títulos en la competición."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Sevilla won a record seventh Europa League in 2023, beating José Mourinho's Roma on penalties. Where?",
+    answer: "Puskás Aréna, Budapest",
+    lat: 47.503, lng: 19.098, year: 2023,
+    fact: "It was the first European final Mourinho had ever lost.",
+    es: {
+      q: "El Sevilla ganó su séptima Europa League, un récord, en 2023, a la Roma de José Mourinho en los penaltis. ¿Dónde?",
+      answer: "Puskás Aréna, Budapest",
+      fact: "Fue la primera final europea que perdió Mourinho."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Antoine Griezmann scored twice as Atlético Madrid beat Marseille in the 2018 Europa League final. Where?",
+    answer: "Groupama Stadium, Décines (Lyon)",
+    lat: 45.7653, lng: 4.9822, year: 2018,
+    fact: "Atlético won 3-0 for their third title in the competition.",
+    es: {
+      q: "Antoine Griezmann marcó dos goles y el Atlético de Madrid ganó al Olympique de Marsella en la final de la Europa League de 2018. ¿Dónde?",
+      answer: "Groupama Stadium, Décines (Lyon)",
+      fact: "El Atlético ganó 3-0, su tercer título en la competición."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Tottenham ended a 17-year wait for a trophy by beating Manchester United in the 2025 Europa League final. Where?",
+    answer: "San Mamés, Bilbao",
+    lat: 43.2641, lng: -2.9494, year: 2025,
+    fact: "Brennan Johnson scored the only goal.",
+    es: {
+      q: "El Tottenham acabó con 17 años sin títulos ganando al Manchester United en la final de la Europa League de 2025. ¿Dónde?",
+      answer: "San Mamés, Bilbao",
+      fact: "Brennan Johnson marcó el único gol."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "José Mourinho's Roma won the first ever Conference League final in 2022, against Feyenoord. Where?",
+    answer: "Air Albania Stadium, Tirana",
+    lat: 41.3184, lng: 19.8241, year: 2022,
+    fact: "Nicolò Zaniolo scored the only goal.",
+    es: {
+      q: "La Roma de José Mourinho ganó la primera final de la historia de la Conference League en 2022, al Feyenoord. ¿Dónde?",
+      answer: "Air Albania Stadium, Tirana",
+      fact: "Nicolò Zaniolo marcó el único gol."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Erling Haaland was born in 2000 in which city, where his father was playing at the time?",
+    answer: "Leeds",
+    lat: 53.8008, lng: -1.5491, year: 2000,
+    fact: "His father, Alf-Inge Haaland, played for the city's club.",
+    es: {
+      q: "Erling Haaland nació en 2000 en ¿qué ciudad?, donde jugaba entonces su padre.",
+      answer: "Leeds",
+      fact: "Su padre, Alf-Inge Haaland, jugaba en el club de la ciudad."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Luka Modrić spent his childhood as a war refugee living in a hotel in which coastal city?",
+    answer: "Zadar",
+    lat: 44.1194, lng: 15.2314, year: 1985,
+    fact: "He practised in the hotel car park, where the windows were often broken by his shots.",
+    es: {
+      q: "Luka Modrić pasó su infancia como refugiado de guerra viviendo en un hotel de ¿qué ciudad costera?",
+      answer: "Zadar",
+      fact: "Entrenaba en el aparcamiento del hotel, donde rompía a menudo los cristales a balonazos."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Eusébio, 'the Black Panther', was born in which city?",
+    answer: "Maputo (then Lourenço Marques)",
+    lat: -25.9692, lng: 32.5732, year: 1942,
+    fact: "He scored 9 goals at the 1966 World Cup, more than anyone else.",
+    es: {
+      q: "¿En qué ciudad nació Eusébio, 'la Pantera Negra'?",
+      answer: "Maputo (entonces Lourenço Marques)",
+      fact: "Marcó 9 goles en el Mundial de 1966, más que nadie."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "The oldest stadium in the world still hosting professional football opened in 1855 as a cricket ground. Where?",
+    answer: "Bramall Lane, Sheffield",
+    lat: 53.3703, lng: -1.4709, year: 1855,
+    fact: "It hosted the world's first floodlit match in 1878.",
+    es: {
+      q: "El estadio más antiguo del mundo que sigue acogiendo fútbol profesional se inauguró en 1855 como campo de críquet. ¿Dónde?",
+      answer: "Bramall Lane, Sheffield",
+      fact: "En 1878 acogió el primer partido con luz artificial del mundo."
+    }
+  },
+  {
+    sport: "football", level: 3,
+    q: "Which city has the stadium officially listed as the largest in the world, with room for over 100,000?",
+    answer: "Rungrado 1st of May Stadium, Pyongyang",
+    lat: 39.0496, lng: 125.7752, year: 1989,
+    fact: "Its roof is designed to look like a magnolia flower.",
+    es: {
+      q: "¿Qué ciudad tiene el estadio considerado oficialmente el más grande del mundo, con capacidad para más de 100.000 personas?",
+      answer: "Estadio Primero de Mayo, Pionyang",
+      fact: "Su techo imita la forma de una flor de magnolia."
+    }
+  },
 
   // ───────────── Tennis ─────────────
   {
@@ -1029,6 +1701,42 @@ window.QUESTIONS = [
       fact: "Ganó 10 veces el torneo de su ciudad, donde de niño fue recogepelotas."
     }
   },
+  {
+    sport: "tennis", level: 2,
+    q: "Steffi Graf completed her 'Golden Slam' in 1988, adding Olympic gold to all four majors. Where?",
+    answer: "Olympic Park, Seoul",
+    lat: 37.5205, lng: 127.1215, year: 1988,
+    fact: "Nobody else has won all four majors and Olympic singles gold in the same year.",
+    es: {
+      q: "Steffi Graf completó su 'Golden Slam' en 1988, añadiendo el oro olímpico a los cuatro grandes. ¿Dónde?",
+      answer: "Parque Olímpico, Seúl",
+      fact: "Nadie más ha ganado los cuatro grandes y el oro olímpico individual en el mismo año."
+    }
+  },
+  {
+    sport: "tennis", level: 2,
+    q: "Novak Djokovic finally won Olympic gold in 2024, beating Carlos Alcaraz. Where was the tennis played?",
+    answer: "Stade Roland-Garros, Paris",
+    lat: 48.847, lng: 2.2494, year: 2024,
+    fact: "He completed a career 'Golden Slam' at 37.",
+    es: {
+      q: "Novak Djokovic ganó por fin el oro olímpico en 2024, ante Carlos Alcaraz. ¿Dónde se jugó el tenis?",
+      answer: "Stade Roland-Garros, París",
+      fact: "Completó su 'Golden Slam' de carrera con 37 años."
+    }
+  },
+  {
+    sport: "tennis", level: 3,
+    q: "Billie Jean King beat Bobby Riggs in the 1973 'Battle of the Sexes' in front of 30,000 fans. Where?",
+    answer: "Astrodome, Houston",
+    lat: 29.6847, lng: -95.4107, year: 1973,
+    fact: "Around 90 million people watched it on television worldwide.",
+    es: {
+      q: "Billie Jean King ganó a Bobby Riggs en la 'Batalla de los Sexos' de 1973 ante 30.000 espectadores. ¿Dónde?",
+      answer: "Astrodome, Houston",
+      fact: "Unos 90 millones de personas lo vieron por televisión en todo el mundo."
+    }
+  },
 
   // ───────────── Cycling ─────────────
   {
@@ -1125,6 +1833,90 @@ window.QUESTIONS = [
       q: "Eddy Merckx batió el récord de la hora en 1972, rodando en altitud. ¿Dónde?",
       answer: "Velódromo Agustín Melgar, Ciudad de México",
       fact: "Recorrió 49,431 km y dijo que fue el esfuerzo más duro de su vida."
+    }
+  },
+  {
+    sport: "cycling", level: 1,
+    q: "The 2023 Tour de France started in a city famous for its titanium-clad art museum. Which one?",
+    answer: "Bilbao",
+    lat: 43.263, lng: -2.935, year: 2023,
+    fact: "Huge crowds of local fans lined the hills of the opening stages.",
+    es: {
+      q: "El Tour de Francia 2023 arrancó en una ciudad famosa por su museo de arte recubierto de titanio. ¿Cuál?",
+      answer: "Bilbao",
+      fact: "Multitudes de aficionados locales llenaron las cuestas de las primeras etapas."
+    }
+  },
+  {
+    sport: "cycling", level: 1,
+    q: "In 2024 the Tour de France started in Italy for the first time, in the city of the Renaissance. Which one?",
+    answer: "Florence",
+    lat: 43.7696, lng: 11.2558, year: 2024,
+    fact: "Romain Bardet won the opening stage and took the yellow jersey.",
+    es: {
+      q: "En 2024 el Tour de Francia salió por primera vez desde Italia, desde la ciudad del Renacimiento. ¿Cuál?",
+      answer: "Florencia",
+      fact: "Romain Bardet ganó la primera etapa y se vistió de amarillo."
+    }
+  },
+  {
+    sport: "cycling", level: 2,
+    q: "The 2026 Tour de France began with a team time trial in a city outside France. Which one?",
+    answer: "Barcelona",
+    lat: 41.3851, lng: 2.1734, year: 2026,
+    fact: "The city also hosted the 1992 Olympics.",
+    es: {
+      q: "El Tour de Francia 2026 empezó con una contrarreloj por equipos en una ciudad fuera de Francia. ¿Cuál?",
+      answer: "Barcelona",
+      fact: "La ciudad también organizó los Juegos Olímpicos de 1992."
+    }
+  },
+  {
+    sport: "cycling", level: 2,
+    q: "The 2019 Tour de France started in the capital where Eddy Merckx grew up, 50 years after his first Tour win. Where?",
+    answer: "Brussels",
+    lat: 50.8466, lng: 4.3528, year: 2019,
+    fact: "Merckx won the Tour five times.",
+    es: {
+      q: "El Tour de Francia 2019 salió de la capital donde se crió Eddy Merckx, 50 años después de su primera victoria en el Tour. ¿Dónde?",
+      answer: "Bruselas",
+      fact: "Merckx ganó el Tour cinco veces."
+    }
+  },
+  {
+    sport: "cycling", level: 2,
+    q: "Five-time Tour winner Miguel Induráin comes from a town on the edge of which city, famous for its bull run?",
+    answer: "Villava (Pamplona)",
+    lat: 42.8333, lng: -1.6167, year: 1964,
+    fact: "He won five Tours in a row, from 1991 to 1995.",
+    es: {
+      q: "Miguel Induráin, cinco veces ganador del Tour, es de un pueblo a las afueras de ¿qué ciudad?, famosa por sus encierros.",
+      answer: "Villava (Pamplona)",
+      fact: "Ganó cinco Tours seguidos, de 1991 a 1995."
+    }
+  },
+  {
+    sport: "cycling", level: 3,
+    q: "Where did the very first Tour de France start, in 1903?",
+    answer: "Montgeron, south of Paris",
+    lat: 48.705, lng: 2.46, year: 1903,
+    fact: "The first stage, to Lyon, was 467 km long.",
+    es: {
+      q: "¿Dónde salió el primer Tour de Francia de la historia, en 1903?",
+      answer: "Montgeron, al sur de París",
+      fact: "La primera etapa, hasta Lyon, tenía 467 km."
+    }
+  },
+  {
+    sport: "cycling", level: 3,
+    q: "Which steep cobbled 'wall', with a chapel at the top, is one of the most famous climbs of the spring classics?",
+    answer: "Muur van Geraardsbergen (Kapelmuur)",
+    lat: 50.7693, lng: 3.8676, year: 1950,
+    fact: "Its steepest section reaches about 20%.",
+    es: {
+      q: "¿Qué empinado 'muro' adoquinado, con una capilla en la cima, es una de las subidas más famosas de las clásicas de primavera?",
+      answer: "Muur van Geraardsbergen (Kapelmuur)",
+      fact: "Su tramo más duro llega a cerca del 20 %."
     }
   },
 
@@ -1355,6 +2147,90 @@ window.QUESTIONS = [
       q: "¿Dónde se celebró la primera carrera nocturna de la historia de la F1, en 2008?",
       answer: "Circuito urbano de Marina Bay, Singapur",
       fact: "La ganó Fernando Alonso, en una carrera que luego se hizo famosa por el 'Crashgate'."
+    }
+  },
+  {
+    sport: "motorsport", level: 1,
+    q: "Lewis Hamilton won his home Grand Prix a record nine times. Where is it held?",
+    answer: "Silverstone",
+    lat: 52.0786, lng: -1.0169, year: 2024,
+    fact: "His ninth win there came in 2024.",
+    es: {
+      q: "Lewis Hamilton ganó el Gran Premio de su país un récord de nueve veces. ¿Dónde se corre?",
+      answer: "Silverstone",
+      fact: "Su novena victoria allí llegó en 2024."
+    }
+  },
+  {
+    sport: "motorsport", level: 2,
+    q: "Fernando Alonso was born and grew up in which city?",
+    answer: "Oviedo",
+    lat: 43.3614, lng: -5.8494, year: 1981,
+    fact: "He started karting at the age of three.",
+    es: {
+      q: "¿En qué ciudad nació y se crió Fernando Alonso?",
+      answer: "Oviedo",
+      fact: "Empezó a correr en karts con tres años."
+    }
+  },
+  {
+    sport: "motorsport", level: 2,
+    q: "Ayrton Senna won his home Grand Prix for the first time in 1991, stuck in sixth gear and barely able to lift the trophy. Where?",
+    answer: "Interlagos, São Paulo",
+    lat: -23.7036, lng: -46.6997, year: 1991,
+    fact: "The circuit was later renamed after Brazilian driver José Carlos Pace.",
+    es: {
+      q: "Ayrton Senna ganó por primera vez el Gran Premio de su país en 1991, con la sexta marcha bloqueada y casi sin fuerzas para levantar el trofeo. ¿Dónde?",
+      answer: "Interlagos, São Paulo",
+      fact: "El circuito lleva el nombre del piloto brasileño José Carlos Pace."
+    }
+  },
+  {
+    sport: "motorsport", level: 3,
+    q: "Fernando Alonso won his first F1 race in 2003, becoming the youngest winner at the time. Where?",
+    answer: "Hungaroring, near Budapest",
+    lat: 47.5789, lng: 19.2486, year: 2003,
+    fact: "He lapped Michael Schumacher on his way to victory.",
+    es: {
+      q: "Fernando Alonso ganó su primera carrera de F1 en 2003 y fue el ganador más joven hasta entonces. ¿Dónde?",
+      answer: "Hungaroring, cerca de Budapest",
+      fact: "Dobló a Michael Schumacher camino de la victoria."
+    }
+  },
+  {
+    sport: "motorsport", level: 3,
+    q: "Carlos Sainz won his first Formula 1 race in 2022. Where?",
+    answer: "Silverstone",
+    lat: 52.0786, lng: -1.0169, year: 2022,
+    fact: "It was his 150th Grand Prix start.",
+    es: {
+      q: "Carlos Sainz ganó su primera carrera de Fórmula 1 en 2022. ¿Dónde?",
+      answer: "Silverstone",
+      fact: "Era su Gran Premio número 150."
+    }
+  },
+  {
+    sport: "motorsport", level: 3,
+    q: "Where is the famous 'Corkscrew', a blind, plunging chicane that drops about five storeys?",
+    answer: "Laguna Seca, California",
+    lat: 36.5847, lng: -121.7536, year: 1957,
+    fact: "MotoGP raced there until 2013.",
+    es: {
+      q: "¿Dónde está el famoso 'Sacacorchos', una chicane ciega que cae el equivalente a cinco pisos?",
+      answer: "Laguna Seca, California",
+      fact: "MotoGP corrió allí hasta 2013."
+    }
+  },
+  {
+    sport: "motorsport", level: 3,
+    q: "Where was the world's first purpose-built motor racing circuit, opened in 1907 with steep banked corners?",
+    answer: "Brooklands, Weybridge",
+    lat: 51.3517, lng: -0.4734, year: 1907,
+    fact: "It's now a museum.",
+    es: {
+      q: "¿Dónde estaba el primer circuito del mundo construido para carreras de coches, inaugurado en 1907 con curvas peraltadas?",
+      answer: "Brooklands, Weybridge",
+      fact: "Hoy es un museo."
     }
   },
 
@@ -1707,6 +2583,186 @@ window.QUESTIONS = [
       fact: "Los organizó el neurólogo Ludwig Guttmann."
     }
   },
+  {
+    sport: "athletics", level: 1,
+    q: "Usain Bolt won the 100 m in a world record 9.69 seconds in 2008, while slowing down to celebrate. Where?",
+    answer: "Beijing National Stadium ('Bird's Nest')",
+    lat: 39.9917, lng: 116.3906, year: 2008,
+    fact: "His shoelace was untied during the race.",
+    es: {
+      q: "Usain Bolt ganó los 100 m con récord mundial de 9,69 en 2008, frenando para celebrarlo. ¿Dónde?",
+      answer: "Estadio Nacional de Pekín ('Nido de Pájaro')",
+      fact: "Corrió con un cordón desatado."
+    }
+  },
+  {
+    sport: "athletics", level: 1,
+    q: "The world's largest marathon starts on a bridge and passes through five boroughs. Which city?",
+    answer: "New York (finish in Central Park)",
+    lat: 40.7725, lng: -73.9753, year: 1970,
+    fact: "More than 50,000 runners finish it every year.",
+    es: {
+      q: "El maratón más grande del mundo sale de un puente y pasa por cinco distritos. ¿Qué ciudad?",
+      answer: "Nueva York (meta en Central Park)",
+      fact: "Lo terminan más de 50.000 corredores cada año."
+    }
+  },
+  {
+    sport: "athletics", level: 2,
+    q: "Mondo Duplantis cleared a world record 6.30 m to win the 2025 World Championships. Where?",
+    answer: "Japan National Stadium, Tokyo",
+    lat: 35.6778, lng: 139.7145, year: 2025,
+    fact: "It was the 14th time he had broken the world record.",
+    es: {
+      q: "Mondo Duplantis saltó 6,30 m, récord mundial, para ganar el Mundial de 2025. ¿Dónde?",
+      answer: "Estadio Nacional de Japón, Tokio",
+      fact: "Era la 14.ª vez que batía el récord mundial."
+    }
+  },
+  {
+    sport: "athletics", level: 3,
+    q: "Jonathan Edwards set a triple jump world record of 18.29 m at the 1995 World Championships. Where?",
+    answer: "Ullevi, Gothenburg",
+    lat: 57.7058, lng: 11.9873, year: 1995,
+    fact: "Decades later, his record still stands.",
+    es: {
+      q: "Jonathan Edwards batió el récord mundial de triple salto, 18,29 m, en el Mundial de 1995. ¿Dónde?",
+      answer: "Ullevi, Gotemburgo",
+      fact: "Décadas después, su récord sigue en pie."
+    }
+  },
+  {
+    sport: "athletics", level: 3,
+    q: "Florence Griffith-Joyner ran a 100 m world record of 10.49 seconds at the 1988 US Olympic trials. Where?",
+    answer: "Indianapolis",
+    lat: 39.7735, lng: -86.172, year: 1988,
+    fact: "Her record has stood since 1988.",
+    es: {
+      q: "Florence Griffith-Joyner corrió los 100 m en 10,49, récord mundial, en las pruebas de selección de EE. UU. de 1988. ¿Dónde?",
+      answer: "Indianápolis",
+      fact: "Su récord sigue en pie desde 1988."
+    }
+  },
+  {
+    sport: "athletics", level: 3,
+    q: "The first ever World Athletics Championships were held in 1983. Where?",
+    answer: "Helsinki Olympic Stadium",
+    lat: 60.187, lng: 24.927, year: 1983,
+    fact: "Carl Lewis won three gold medals.",
+    es: {
+      q: "El primer Mundial de atletismo de la historia se celebró en 1983. ¿Dónde?",
+      answer: "Estadio Olímpico de Helsinki",
+      fact: "Carl Lewis ganó tres medallas de oro."
+    }
+  },
+  {
+    sport: "athletics", level: 2,
+    q: "The headquarters of World Athletics are in a tiny state better known for a Grand Prix. Where?",
+    answer: "Monaco",
+    lat: 43.7347, lng: 7.4206, year: 1993,
+    fact: "The federation moved there from London in 1993.",
+    es: {
+      q: "La sede de World Athletics está en un pequeño estado más conocido por un Gran Premio. ¿Dónde?",
+      answer: "Mónaco",
+      fact: "La federación se trasladó allí desde Londres en 1993."
+    }
+  },
+  {
+    sport: "olympics", level: 1,
+    q: "Which city hosted the 1988 Summer Olympics, where Ben Johnson was stripped of his 100 m gold?",
+    answer: "Seoul",
+    lat: 37.5157, lng: 127.0728, year: 1988,
+    fact: "Johnson tested positive for steroids days after the race.",
+    es: {
+      q: "¿Qué ciudad organizó los Juegos Olímpicos de 1988, en los que Ben Johnson perdió su oro de 100 m?",
+      answer: "Seúl",
+      fact: "Johnson dio positivo por esteroides días después de la carrera."
+    }
+  },
+  {
+    sport: "olympics", level: 1,
+    q: "Which city hosted the 1972 Summer Olympics, where Mark Spitz won seven gold medals?",
+    answer: "Olympiastadion, Munich",
+    lat: 48.1731, lng: 11.5466, year: 1972,
+    fact: "Spitz set a world record in all seven events.",
+    es: {
+      q: "¿Qué ciudad organizó los Juegos Olímpicos de 1972, en los que Mark Spitz ganó siete oros?",
+      answer: "Olympiastadion, Múnich",
+      fact: "Spitz batió el récord mundial en las siete pruebas."
+    }
+  },
+  {
+    sport: "olympics", level: 1,
+    q: "Which city hosted the 1964 Summer Olympics, the first held in Asia?",
+    answer: "Tokyo",
+    lat: 35.6778, lng: 139.7145, year: 1964,
+    fact: "The bullet train opened just in time for the Games.",
+    es: {
+      q: "¿Qué ciudad organizó los Juegos Olímpicos de 1964, los primeros en Asia?",
+      answer: "Tokio",
+      fact: "El tren bala se inauguró justo a tiempo para los Juegos."
+    }
+  },
+  {
+    sport: "olympics", level: 2,
+    q: "Jim Thorpe won both the pentathlon and the decathlon at the 1912 Olympics. Where?",
+    answer: "Stockholm Olympic Stadium",
+    lat: 59.3456, lng: 18.0786, year: 1912,
+    fact: "The stadium is still in use more than a century later.",
+    es: {
+      q: "Jim Thorpe ganó el pentatlón y el decatlón en los Juegos de 1912. ¿Dónde?",
+      answer: "Estadio Olímpico de Estocolmo",
+      fact: "El estadio se sigue usando más de un siglo después."
+    }
+  },
+  {
+    sport: "olympics", level: 2,
+    q: "An Olympic flame burned in the stadium for the first time at the 1928 Games. Where?",
+    answer: "Olympic Stadium, Amsterdam",
+    lat: 52.3434, lng: 4.8547, year: 1928,
+    fact: "The torch relay was only introduced in 1936.",
+    es: {
+      q: "En los Juegos de 1928 ardió por primera vez una llama olímpica en el estadio. ¿Dónde?",
+      answer: "Estadio Olímpico, Ámsterdam",
+      fact: "El relevo de la antorcha no llegó hasta 1936."
+    }
+  },
+  {
+    sport: "olympics", level: 3,
+    q: "The Olympic flag with its five rings flew for the first time at the 1920 Games. Where?",
+    answer: "Olympisch Stadion, Antwerp",
+    lat: 51.1859, lng: 4.4114, year: 1920,
+    fact: "The athletes' oath was also taken for the first time.",
+    es: {
+      q: "La bandera olímpica de los cinco anillos ondeó por primera vez en los Juegos de 1920. ¿Dónde?",
+      answer: "Estadio Olímpico, Amberes",
+      fact: "También se pronunció por primera vez el juramento de los atletas."
+    }
+  },
+  {
+    sport: "olympics", level: 2,
+    q: "Which city will host the 2032 Summer Olympics?",
+    answer: "Brisbane",
+    lat: -27.4858, lng: 153.0381, year: 2032,
+    fact: "It will be the third Australian city to host the Summer Games, after Melbourne and Sydney.",
+    es: {
+      q: "¿Qué ciudad organizará los Juegos Olímpicos de 2032?",
+      answer: "Brisbane",
+      fact: "Será la tercera ciudad australiana en organizarlos, tras Melbourne y Sídney."
+    }
+  },
+  {
+    sport: "olympics", level: 2,
+    q: "The 1956 Summer Olympics were the first held in the Southern Hemisphere. Where?",
+    answer: "Melbourne Cricket Ground",
+    lat: -37.82, lng: 144.9834, year: 1956,
+    fact: "Quarantine rules meant the equestrian events were held in Stockholm instead.",
+    es: {
+      q: "Los Juegos Olímpicos de 1956 fueron los primeros en el hemisferio sur. ¿Dónde?",
+      answer: "Melbourne Cricket Ground",
+      fact: "Por las normas de cuarentena, la hípica se celebró en Estocolmo."
+    }
+  },
 
   // ───────────── Winter sports ─────────────
   {
@@ -1985,6 +3041,138 @@ window.QUESTIONS = [
       fact: "En Canadá se le suele llamar 'el gol del siglo'."
     }
   },
+  {
+    sport: "winter", level: 1,
+    q: "Which city hosted the 2002 Winter Olympics?",
+    answer: "Salt Lake City",
+    lat: 40.76, lng: -111.8489, year: 2002,
+    fact: "It will host the Winter Games again in 2034.",
+    es: {
+      q: "¿Qué ciudad organizó los Juegos Olímpicos de Invierno de 2002?",
+      answer: "Salt Lake City",
+      fact: "Volverá a organizarlos en 2034."
+    }
+  },
+  {
+    sport: "winter", level: 2,
+    q: "Which city hosted the 1998 Winter Olympics?",
+    answer: "Nagano",
+    lat: 36.6485, lng: 138.195, year: 1998,
+    fact: "Japan's ski jumpers won the team gold in front of their home fans.",
+    es: {
+      q: "¿Qué ciudad organizó los Juegos Olímpicos de Invierno de 1998?",
+      answer: "Nagano",
+      fact: "Los saltadores japoneses ganaron el oro por equipos ante su público."
+    }
+  },
+  {
+    sport: "winter", level: 2,
+    q: "Which town hosted the 1992 Winter Olympics, the last held in the same year as the Summer Games?",
+    answer: "Albertville",
+    lat: 45.6755, lng: 6.3925, year: 1992,
+    fact: "From 1994 the Winter and Summer Games alternated every two years.",
+    es: {
+      q: "¿Qué ciudad organizó los Juegos de Invierno de 1992, los últimos celebrados el mismo año que los de verano?",
+      answer: "Albertville",
+      fact: "Desde 1994, los Juegos de invierno y de verano se alternan cada dos años."
+    }
+  },
+  {
+    sport: "winter", level: 2,
+    q: "Which city hosted the Winter Olympics in both 1964 and 1976?",
+    answer: "Innsbruck",
+    lat: 47.2692, lng: 11.4041, year: 1976,
+    fact: "Franz Klammer won a legendary downhill there in 1976.",
+    es: {
+      q: "¿Qué ciudad organizó los Juegos de Invierno de 1964 y 1976?",
+      answer: "Innsbruck",
+      fact: "Franz Klammer ganó allí un descenso legendario en 1976."
+    }
+  },
+  {
+    sport: "winter", level: 2,
+    q: "Jean-Claude Killy won all three alpine skiing golds at the 1968 Winter Olympics. Where?",
+    answer: "Grenoble",
+    lat: 45.1885, lng: 5.7245, year: 1968,
+    fact: "Only Toni Sailer had done it before, in 1956.",
+    es: {
+      q: "Jean-Claude Killy ganó los tres oros de esquí alpino en los Juegos de Invierno de 1968. ¿Dónde?",
+      answer: "Grenoble",
+      fact: "Solo Toni Sailer lo había logrado antes, en 1956."
+    }
+  },
+  {
+    sport: "winter", level: 2,
+    q: "Which city hosted the 1972 Winter Olympics, the first held in Asia?",
+    answer: "Sapporo",
+    lat: 43.0618, lng: 141.3545, year: 1972,
+    fact: "The city is also famous for its winter snow festival.",
+    es: {
+      q: "¿Qué ciudad organizó los Juegos de Invierno de 1972, los primeros en Asia?",
+      answer: "Sapporo",
+      fact: "La ciudad también es famosa por su festival de la nieve."
+    }
+  },
+  {
+    sport: "winter", level: 2,
+    q: "At the 2018 Winter Olympics, athletes from North and South Korea marched together at the opening ceremony. Where?",
+    answer: "PyeongChang",
+    lat: 37.6705, lng: 128.7059, year: 2018,
+    fact: "The two Koreas also fielded a joint women's ice hockey team.",
+    es: {
+      q: "En los Juegos de Invierno de 2018, los atletas de Corea del Norte y del Sur desfilaron juntos en la inauguración. ¿Dónde?",
+      answer: "PyeongChang",
+      fact: "Las dos Coreas formaron además un equipo conjunto de hockey femenino."
+    }
+  },
+  {
+    sport: "winter", level: 3,
+    q: "The 1956 Winter Olympics were the first to be broadcast on television. Which resort hosted them?",
+    answer: "Cortina d'Ampezzo",
+    lat: 46.5405, lng: 12.1357, year: 1956,
+    fact: "It co-hosted the Winter Games again in 2026.",
+    es: {
+      q: "Los Juegos de Invierno de 1956 fueron los primeros retransmitidos por televisión. ¿Qué estación los organizó?",
+      answer: "Cortina d'Ampezzo",
+      fact: "Volvió a coorganizar los Juegos de Invierno en 2026."
+    }
+  },
+  {
+    sport: "winter", level: 3,
+    q: "Alpine skiing made its Olympic debut at the 1936 Winter Games. Where?",
+    answer: "Garmisch-Partenkirchen",
+    lat: 47.4921, lng: 11.0958, year: 1936,
+    fact: "The town still hosts ski jumping on New Year's Day.",
+    es: {
+      q: "El esquí alpino debutó en unos Juegos Olímpicos en los de Invierno de 1936. ¿Dónde?",
+      answer: "Garmisch-Partenkirchen",
+      fact: "La localidad sigue acogiendo saltos de esquí cada día de Año Nuevo."
+    }
+  },
+  {
+    sport: "winter", level: 3,
+    q: "The 1960 Winter Olympics went to a resort that had barely one chairlift when it won the bid. Where?",
+    answer: "Squaw Valley (now Palisades Tahoe)",
+    lat: 39.197, lng: -120.2357, year: 1960,
+    fact: "Walt Disney organised the opening ceremony.",
+    es: {
+      q: "Los Juegos de Invierno de 1960 fueron a una estación que apenas tenía un telesilla cuando ganó la candidatura. ¿Dónde?",
+      answer: "Squaw Valley (hoy Palisades Tahoe)",
+      fact: "Walt Disney organizó la ceremonia de inauguración."
+    }
+  },
+  {
+    sport: "winter", level: 2,
+    q: "Where is the Hockey Hall of Fame, home of the Stanley Cup?",
+    answer: "Toronto",
+    lat: 43.6473, lng: -79.3772, year: 1943,
+    fact: "It's housed partly in an old bank building.",
+    es: {
+      q: "¿Dónde está el Salón de la Fama del hockey, hogar de la Stanley Cup?",
+      answer: "Toronto",
+      fact: "Ocupa en parte un antiguo edificio bancario."
+    }
+  },
 
   // ───────────── Rugby ─────────────
   {
@@ -2033,6 +3221,42 @@ window.QUESTIONS = [
       q: "Nelson Mandela entregó el trofeo a Sudáfrica, campeona del Mundial de rugby de 1995. ¿Dónde?",
       answer: "Ellis Park, Johannesburgo",
       fact: "Un drop de Joel Stransky en la prórroga ganó 15-12 a Nueva Zelanda."
+    }
+  },
+  {
+    sport: "rugby", level: 2,
+    q: "Where was the very first Rugby World Cup final played, in 1987?",
+    answer: "Eden Park, Auckland",
+    lat: -36.875, lng: 174.7444, year: 1987,
+    fact: "New Zealand beat France 29-9.",
+    es: {
+      q: "¿Dónde se jugó la primera final del Mundial de rugby, en 1987?",
+      answer: "Eden Park, Auckland",
+      fact: "Nueva Zelanda ganó 29-9 a Francia."
+    }
+  },
+  {
+    sport: "rugby", level: 2,
+    q: "South Africa won a record fourth Rugby World Cup in 2023, beating New Zealand 12-11. Where?",
+    answer: "Stade de France, Saint-Denis",
+    lat: 48.9245, lng: 2.3602, year: 2023,
+    fact: "Siya Kolisi lifted the trophy for the second time running.",
+    es: {
+      q: "Sudáfrica ganó su cuarto Mundial de rugby, un récord, en 2023, 12-11 a Nueva Zelanda. ¿Dónde?",
+      answer: "Stade de France, Saint-Denis",
+      fact: "Siya Kolisi levantó el trofeo por segunda vez seguida."
+    }
+  },
+  {
+    sport: "rugby", level: 3,
+    q: "South Africa beat England in the 2019 Rugby World Cup final. Where?",
+    answer: "International Stadium Yokohama",
+    lat: 35.51, lng: 139.6062, year: 2019,
+    fact: "Siya Kolisi became South Africa's first Black captain to lift the trophy.",
+    es: {
+      q: "Sudáfrica ganó a Inglaterra en la final del Mundial de rugby de 2019. ¿Dónde?",
+      answer: "Estadio Internacional de Yokohama",
+      fact: "Siya Kolisi fue el primer capitán negro de Sudáfrica en levantar el trofeo."
     }
   },
 
@@ -2133,6 +3357,42 @@ window.QUESTIONS = [
       fact: "El hoyo 8 mide solo unos 110 metros."
     }
   },
+  {
+    sport: "golf", level: 2,
+    q: "Rory McIlroy completed golf's career Grand Slam in a play-off in 2025. Where?",
+    answer: "Augusta National Golf Club",
+    lat: 33.503, lng: -82.023, year: 2025,
+    fact: "He beat Justin Rose at the first extra hole.",
+    es: {
+      q: "Rory McIlroy completó el Grand Slam de carrera en un desempate en 2025. ¿Dónde?",
+      answer: "Augusta National Golf Club",
+      fact: "Ganó a Justin Rose en el primer hoyo extra."
+    }
+  },
+  {
+    sport: "golf", level: 3,
+    q: "Francesco Molinari won all five of his matches as Europe won the 2018 Ryder Cup. Where?",
+    answer: "Le Golf National, Guyancourt (Paris)",
+    lat: 48.7541, lng: 2.0742, year: 2018,
+    fact: "Europe won 17½–10½.",
+    es: {
+      q: "Francesco Molinari ganó sus cinco partidos y Europa se llevó la Ryder Cup de 2018. ¿Dónde?",
+      answer: "Le Golf National, Guyancourt (París)",
+      fact: "Europa ganó 17½–10½."
+    }
+  },
+  {
+    sport: "golf", level: 3,
+    q: "Seve Ballesteros grew up learning golf on the beach of which village?",
+    answer: "Pedreña, Cantabria",
+    lat: 43.4475, lng: -3.7547, year: 1957,
+    fact: "As a boy he practised with a single, old 3-iron.",
+    es: {
+      q: "¿En la playa de qué pueblo aprendió a jugar al golf Seve Ballesteros?",
+      answer: "Pedreña, Cantabria",
+      fact: "De niño practicaba con un único y viejo hierro 3."
+    }
+  },
 
   // ───────────── Cricket ─────────────
   {
@@ -2157,6 +3417,30 @@ window.QUESTIONS = [
       q: "Una sorprendente victoria australiana en 1882 provocó una esquela en broma por el críquet inglés… y el nacimiento de The Ashes. ¿Dónde fue el partido?",
       answer: "The Oval, Kennington (Londres)",
       fact: "El Sporting Times escribió que 'el cuerpo será incinerado y las cenizas llevadas a Australia'."
+    }
+  },
+  {
+    sport: "cricket", level: 2,
+    q: "The very first Test match, Australia vs England, was played in 1877. Where?",
+    answer: "Melbourne Cricket Ground",
+    lat: -37.82, lng: 144.9834, year: 1877,
+    fact: "Australia won by 45 runs, and won the centenary Test 100 years later by exactly the same margin.",
+    es: {
+      q: "El primer partido test de la historia, Australia contra Inglaterra, se jugó en 1877. ¿Dónde?",
+      answer: "Melbourne Cricket Ground",
+      fact: "Australia ganó por 45 carreras, y el test del centenario, 100 años después, por exactamente lo mismo."
+    }
+  },
+  {
+    sport: "cricket", level: 3,
+    q: "Which city has the world's largest cricket stadium, with room for about 130,000?",
+    answer: "Narendra Modi Stadium, Ahmedabad",
+    lat: 23.0917, lng: 72.5976, year: 2020,
+    fact: "It hosted the 2023 Cricket World Cup final.",
+    es: {
+      q: "¿Qué ciudad tiene el mayor estadio de críquet del mundo, con capacidad para unas 130.000 personas?",
+      answer: "Estadio Narendra Modi, Ahmedabad",
+      fact: "Acogió la final del Mundial de críquet de 2023."
     }
   },
 
@@ -2339,6 +3623,174 @@ window.QUESTIONS = [
       q: "La famosa Escuela Española de Equitación, hogar de los caballos lipizanos, está en realidad en ¿qué ciudad?",
       answer: "Hofburg, Viena",
       fact: "Debe su nombre a los caballos españoles de los que desciende la raza."
+    }
+  },
+  {
+    sport: "boxing", level: 2,
+    q: "Muhammad Ali regained his title from George Foreman with his 'rope-a-dope' in the 1974 'Rumble in the Jungle'. Where?",
+    answer: "Stade du 20 Mai, Kinshasa",
+    lat: -4.3317, lng: 15.3122, year: 1974,
+    fact: "The fight started at 4 am local time for US television.",
+    es: {
+      q: "Muhammad Ali recuperó el título ante George Foreman con su táctica de las cuerdas en el 'Rumble in the Jungle' de 1974. ¿Dónde?",
+      answer: "Estadio 20 de Mayo, Kinsasa",
+      fact: "El combate empezó a las 4 de la madrugada, hora local, por la televisión estadounidense."
+    }
+  },
+  {
+    sport: "boxing", level: 3,
+    q: "Buster Douglas knocked out the 'unbeatable' Mike Tyson in 1990, a 42-1 outsider. Where?",
+    answer: "Tokyo Dome",
+    lat: 35.7056, lng: 139.7519, year: 1990,
+    fact: "It's considered one of the biggest upsets in sporting history.",
+    es: {
+      q: "Buster Douglas noqueó al 'invencible' Mike Tyson en 1990, con apuestas de 42 a 1 en contra. ¿Dónde?",
+      answer: "Tokyo Dome",
+      fact: "Se considera una de las mayores sorpresas de la historia del deporte."
+    }
+  },
+  {
+    sport: "boxing", level: 3,
+    q: "Oleksandr Usyk beat Tyson Fury in 2024 to become the first undisputed heavyweight champion in 25 years. Where?",
+    answer: "Kingdom Arena, Riyadh",
+    lat: 24.7136, lng: 46.6753, year: 2024,
+    fact: "Usyk won on a split decision.",
+    es: {
+      q: "Oleksandr Usyk ganó a Tyson Fury en 2024 y fue el primer campeón indiscutido de los pesos pesados en 25 años. ¿Dónde?",
+      answer: "Kingdom Arena, Riad",
+      fact: "Usyk ganó por decisión dividida."
+    }
+  },
+  {
+    sport: "darts", level: 3,
+    q: "Darts' World Matchplay has been held since 1994 in a Victorian ballroom in a seaside resort. Where?",
+    answer: "Winter Gardens, Blackpool",
+    lat: 53.8165, lng: -3.051, year: 1994,
+    fact: "Phil Taylor won it a record 16 times.",
+    es: {
+      q: "El World Matchplay de dardos se celebra desde 1994 en un salón de baile victoriano de una ciudad costera. ¿Dónde?",
+      answer: "Winter Gardens, Blackpool",
+      fact: "Phil Taylor lo ganó un récord de 16 veces."
+    }
+  },
+  {
+    sport: "horse racing", level: 2,
+    q: "Which racecourse hosts the 'Royal' meeting every June, attended by the monarch?",
+    answer: "Ascot Racecourse",
+    lat: 51.413, lng: -0.675, year: 1711,
+    fact: "It was founded by Queen Anne in 1711.",
+    es: {
+      q: "¿Qué hipódromo acoge cada junio la reunión 'Royal', a la que asiste el monarca?",
+      answer: "Hipódromo de Ascot",
+      fact: "Lo fundó la reina Ana en 1711."
+    }
+  },
+  {
+    sport: "horse racing", level: 2,
+    q: "Which horse race is said to 'stop a nation' on the first Tuesday of every November?",
+    answer: "Flemington Racecourse, Melbourne (Melbourne Cup)",
+    lat: -37.7908, lng: 144.9127, year: 1861,
+    fact: "It's a public holiday in the city.",
+    es: {
+      q: "¿Qué carrera de caballos se dice que 'paraliza a un país' el primer martes de cada noviembre?",
+      answer: "Hipódromo de Flemington, Melbourne (Melbourne Cup)",
+      fact: "Ese día es festivo en la ciudad."
+    }
+  },
+  {
+    sport: "horse racing", level: 2,
+    q: "Which race, first run in 1875, is called 'the most exciting two minutes in sports'?",
+    answer: "Churchill Downs, Louisville (Kentucky Derby)",
+    lat: 38.2034, lng: -85.7708, year: 1875,
+    fact: "The winner is draped in a blanket of over 400 red roses.",
+    es: {
+      q: "¿Qué carrera, disputada por primera vez en 1875, es conocida como 'los dos minutos más emocionantes del deporte'?",
+      answer: "Churchill Downs, Louisville (Kentucky Derby)",
+      fact: "Al ganador lo cubren con un manto de más de 400 rosas rojas."
+    }
+  },
+  {
+    sport: "sailing", level: 2,
+    q: "Emirates Team New Zealand won the 2024 America's Cup off the beaches of which city?",
+    answer: "Barcelona",
+    lat: 41.38, lng: 2.19, year: 2024,
+    fact: "It was the first time the Cup was raced in Spain since 2010.",
+    es: {
+      q: "Emirates Team New Zealand ganó la Copa América de vela de 2024 frente a las playas de ¿qué ciudad?",
+      answer: "Barcelona",
+      fact: "Era la primera vez que la Copa se disputaba en España desde 2010."
+    }
+  },
+  {
+    sport: "basketball", level: 1,
+    q: "Which arena is known as 'the Mecca of basketball'?",
+    answer: "Madison Square Garden, New York",
+    lat: 40.7505, lng: -73.9934, year: 1968,
+    fact: "It sits on top of a railway station.",
+    es: {
+      q: "¿Qué pabellón es conocido como 'la Meca del baloncesto'?",
+      answer: "Madison Square Garden, Nueva York",
+      fact: "Está construido encima de una estación de tren."
+    }
+  },
+  {
+    sport: "climbing", level: 1,
+    q: "Edmund Hillary and Tenzing Norgay first reached this summit in 1953. Which mountain?",
+    answer: "Mount Everest",
+    lat: 27.9881, lng: 86.925, year: 1953,
+    fact: "At 8,849 m, it's the highest point on Earth.",
+    es: {
+      q: "Edmund Hillary y Tenzing Norgay llegaron por primera vez a esta cima en 1953. ¿Qué montaña?",
+      answer: "Monte Everest",
+      fact: "Con 8.849 m, es el punto más alto de la Tierra."
+    }
+  },
+  {
+    sport: "climbing", level: 2,
+    q: "Which mountain, the second highest on Earth, was first climbed by an Italian expedition in 1954?",
+    answer: "K2",
+    lat: 35.8825, lng: 76.5133, year: 1954,
+    fact: "Climbers call it 'the Savage Mountain'.",
+    es: {
+      q: "¿Qué montaña, la segunda más alta de la Tierra, escaló por primera vez una expedición italiana en 1954?",
+      answer: "K2",
+      fact: "Los alpinistas la llaman 'la Montaña Salvaje'."
+    }
+  },
+  {
+    sport: "climbing", level: 2,
+    q: "Hans Meyer and Ludwig Purtscheller first reached the summit of Africa's highest peak in 1889. Which mountain?",
+    answer: "Kilimanjaro",
+    lat: -3.0674, lng: 37.3556, year: 1889,
+    fact: "It's the highest free-standing mountain in the world.",
+    es: {
+      q: "Hans Meyer y Ludwig Purtscheller llegaron por primera vez a la cima más alta de África en 1889. ¿Qué montaña?",
+      answer: "Kilimanjaro",
+      fact: "Es la montaña aislada más alta del mundo."
+    }
+  },
+  {
+    sport: "climbing", level: 2,
+    q: "Which mountain's north face, nicknamed the 'Mordwand' (murder wall), was first climbed in 1938?",
+    answer: "Eiger, Switzerland",
+    lat: 46.5775, lng: 8.0053, year: 1938,
+    fact: "Heinrich Harrer, later of 'Seven Years in Tibet', was in the first team.",
+    es: {
+      q: "¿La cara norte de qué montaña, apodada 'Mordwand' (el muro asesino), se escaló por primera vez en 1938?",
+      answer: "Eiger, Suiza",
+      fact: "En la primera cordada iba Heinrich Harrer, el de 'Siete años en el Tíbet'."
+    }
+  },
+  {
+    sport: "surfing", level: 2,
+    q: "Garrett McNamara rode a record-breaking giant wave in 2011 off a fishing town famous for its underwater canyon. Where?",
+    answer: "Nazaré, Portugal",
+    lat: 39.6041, lng: -9.0846, year: 2011,
+    fact: "The canyon channels Atlantic swells into waves over 20 metres high.",
+    es: {
+      q: "Garrett McNamara surfeó una ola gigante de récord en 2011 frente a un pueblo pesquero famoso por su cañón submarino. ¿Dónde?",
+      answer: "Nazaré, Portugal",
+      fact: "El cañón concentra el oleaje del Atlántico en olas de más de 20 metros."
     }
   }
 ];
