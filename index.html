@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>SportGuessr — the daily sports geography game</title>
+  <meta name="description" content="Five sporting moments a day. Click the map where they happened — the closer you are, the more points you score.">
+  <meta property="og:title" content="SportGuessr">
+  <meta property="og:description" content="Five sporting moments a day. Can you place them on the map?">
+  <meta name="theme-color" content="#0f1b2d">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-btn" id="btn-help" aria-label="How to play">?</button>
+    <h1 class="logo">Sport<span>Guessr</span></h1>
+    <button class="icon-btn" id="btn-stats" aria-label="Statistics">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 20h3V10H4v10zm6.5 0h3V4h-3v16zM17 20h3v-7h-3v7z"/></svg>
+    </button>
+  </header>
+
+  <div id="map" aria-label="World map"></div>
+
+  <section class="panel" id="panel" aria-live="polite">
+    <div class="panel-head">
+      <div class="round-info">
+        <span class="badge" id="sport-badge"></span>
+        <span class="level" id="level"></span>
+        <span class="dots" id="dots"></span>
+      </div>
+      <div class="score"><span id="score">0</span><small> pts</small></div>
+    </div>
+
+    <div id="ask">
+      <p class="question" id="question"></p>
+      <button class="btn primary" id="btn-confirm" disabled>Tap the map to place your pin</button>
+    </div>
+
+    <div id="reveal" hidden>
+      <p class="answer" id="answer"></p>
+      <div class="result-row">
+        <span id="distance"></span>
+        <span class="points" id="points"></span>
+      </div>
+      <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
+      <p class="fact" id="fact"></p>
+      <button class="btn primary" id="btn-next">Next question</button>
+    </div>
+  </section>
+
+  <!-- How to play -->
+  <dialog class="modal" id="modal-help">
+    <button class="close" data-close aria-label="Close">×</button>
+    <h2>How to play</h2>
+    <ol class="how">
+      <li><span>📰</span>Every day there are <b>5 new questions</b> about famous sporting moments, mostly from Europe — from easy to hard.</li>
+      <li><span>📍</span><b>Tap the map</b> where you think it happened. Zoom in for precision, then confirm.</li>
+      <li><span>🎯</span>The closer you are, the more points: up to <b>1,000 per question</b>, 5,000 in total.</li>
+      <li><span>🔁</span>Come back tomorrow for a new set and keep your streak going!</li>
+    </ol>
+    <div class="legend">
+      <span>🟩 &lt; 50 km</span><span>🟨 &lt; 250 km</span><span>🟧 &lt; 700 km</span><span>🟥 further</span>
+    </div>
+    <button class="btn primary" data-close>Let's play</button>
+  </dialog>
+
+  <!-- Stats -->
+  <dialog class="modal" id="modal-stats">
+    <button class="close" data-close aria-label="Close">×</button>
+    <h2>Statistics</h2>
+    <div class="stat-grid" id="stat-grid"></div>
+    <h3>Score distribution</h3>
+    <div class="dist" id="dist"></div>
+  </dialog>
+
+  <!-- End of game -->
+  <dialog class="modal" id="modal-results">
+    <button class="close" data-close aria-label="Close">×</button>
+    <p class="kicker" id="results-kicker"></p>
+    <div class="final-score"><span id="final-score">0</span><small>/ 5,000</small></div>
+    <p class="verdict" id="verdict"></p>
+    <ul class="recap" id="recap"></ul>
+    <div class="actions">
+      <button class="btn primary" id="btn-share">Share result</button>
+      <button class="btn ghost" id="btn-map">See the map</button>
+    </div>
+    <div class="next-row">
+      <div>
+        <small>Next puzzle in</small>
+        <div class="countdown" id="countdown">--:--:--</div>
+      </div>
+      <button class="btn ghost small" id="btn-practice">Practice round</button>
+    </div>
+  </dialog>
+
+  <button class="btn primary floating" id="btn-show-results" hidden>Show results</button>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
