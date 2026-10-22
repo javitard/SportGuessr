@@ -156,7 +156,8 @@
     center: [48, 12],
     zoom: 4,
     minZoom: 2,
-    maxZoom: 16,
+    maxZoom: 10,
+    preferCanvas: true,
     worldCopyJump: false,
     maxBounds: [[-85, -200], [85, 200]],
     maxBoundsViscosity: 1,
@@ -164,12 +165,19 @@
     attributionControl: true
   });
   L.control.zoom({ position: "topright" }).addTo(map);
-  L.tileLayer(`https://{s}.basemaps.cartocdn.com/${dark ? "dark" : "light"}_nolabels/{z}/{x}/{y}{r}.png`, {
-    subdomains: "abcd",
-    maxZoom: 19,
-    noWrap: true,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+
+  // Country shapes are bundled with the game (no tile server, no API key, no labels).
+  const css = getComputedStyle(document.documentElement);
+  L.geoJSON(topojson.feature(window.WORLD_TOPO, window.WORLD_TOPO.objects.countries), {
+    interactive: false,
+    style: {
+      fillColor: css.getPropertyValue("--land").trim(),
+      fillOpacity: 1,
+      color: css.getPropertyValue("--land-border").trim(),
+      weight: 0.8
+    }
   }).addTo(map);
+  map.attributionControl.addAttribution('Map data: <a href="https://www.naturalearthdata.com/">Natural Earth</a>');
 
   const layer = L.layerGroup().addTo(map);
   let pendingMarker = null;
