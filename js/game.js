@@ -636,6 +636,32 @@
     else if (!$("reveal").hidden) next();
   });
 
+  // ── Updates ─────────────────────────────────────────────
+  // A deployed page carries its own version. If the server already has a newer one
+  // (the browser served this page from its cache), reload once to pick it up.
+  const APP_VERSION = document.querySelector('meta[name="app-version"]').content;
+
+  async function checkForUpdate() {
+    if (APP_VERSION.startsWith("__")) return;   // local copy, not a deploy
+    try {
+      const res = await fetch(`version.json?t=${Date.now()}`, { cache: "no-store" });
+      const { version } = await res.json();
+      if (!version || version === APP_VERSION || sessionStorage.getItem("sg_reloaded_for") === version) return;
+      sessionStorage.setItem("sg_reloaded_for", version);
+      location.reload();
+    } catch { /* offline, or no version file: keep playing */ }
+  }
+
+  // Coming back to a tab left open: load the new day's puzzle or a new release,
+  // but never in the middle of a question.
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState !== "visible" || game.practice) return;
+    const idle = document.body.classList.contains("is-intro") || game.guesses.length >= ROUNDS;
+    if (!idle) return;
+    if (dayNumber() !== game.day) location.reload();
+    else checkForUpdate();
+  });
+
   // ── Boot ────────────────────────────────────────────────
   function boot() {
     applyStaticTexts();
@@ -660,4 +686,5 @@
   window.SportGuessr = { questionsForDay, scoreFor, haversineKm, dayNumber };
 
   boot();
+  checkForUpdate();
 })();

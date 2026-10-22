@@ -30,9 +30,14 @@ Then open http://localhost:8080.
 
 ## Deploy (GitHub Pages)
 
-1. Go to **Settings → Pages** in the repository.
-2. Under *Build and deployment*, choose **Deploy from a branch**, select `main` and `/ (root)`.
-3. The game will be live at `https://<user>.github.io/SportGuessr/`.
+The workflow in [`.github/workflows/pages.yml`](.github/workflows/pages.yml) publishes the site on every push to `main`.
+
+1. Go to **Settings → Pages** and set *Source* to **GitHub Actions** (one-time setup).
+2. Push to `main`: the game is live at `https://<user>.github.io/SportGuessr/` a minute later.
+
+On deploy, the workflow replaces the `__VERSION__` placeholders in `index.html` with the commit id and writes
+`version.json`. Every CSS/JS file is requested as `file?v=<commit>`, so a refresh never mixes old cached files with a
+new release, and a page served from the browser cache notices the newer `version.json` and reloads itself once.
 
 ## Adding questions
 

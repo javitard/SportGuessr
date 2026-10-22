@@ -3,23 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <!-- The version placeholders below are replaced with the commit id on deploy (.github/workflows/pages.yml) -->
+  <meta name="app-version" content="__VERSION__">
   <title>SportGuessr — the daily sports geography game</title>
   <meta name="description" content="Five legendary sporting moments a day. Drop a pin where they happened — the closer you are, the more you score.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SportGuessr">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="es_ES">
   <meta property="og:title" content="SportGuessr — Where did it happen?">
   <meta property="og:description" content="Five legendary sporting moments a day. Drop a pin where they happened. How close can you get?">
   <meta property="og:url" content="https://javitard.github.io/SportGuessr/">
   <meta property="og:image" content="https://javitard.github.io/SportGuessr/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SportGuessr: Where did it happen? Pins and a route on a dark map of Europe">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SportGuessr — Where did it happen?">
+  <meta name="twitter:description" content="Five legendary sporting moments a day. Drop a pin where they happened. How close can you get?">
+  <meta name="twitter:image" content="https://javitard.github.io/SportGuessr/og-image.png">
   <meta name="theme-color" content="#07090c">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="vendor/fonts/barlow-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="vendor/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fonts.css?v=__VERSION__">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=__VERSION__">
+  <link rel="stylesheet" href="css/style.css?v=__VERSION__">
 </head>
 <body class="is-intro">
   <header class="topbar">
@@ -154,11 +163,11 @@
 
   <button class="btn primary floating" id="btn-show-results" data-i18n="showResults" hidden></button>
 
-  <script src="vendor/leaflet/leaflet.js"></script>
-  <script src="vendor/topojson/topojson-client.min.js"></script>
-  <script src="vendor/world/countries-50m.js"></script>
-  <script src="js/i18n.js"></script>
-  <script src="js/questions.js"></script>
-  <script src="js/game.js"></script>
+  <script src="vendor/leaflet/leaflet.js?v=__VERSION__"></script>
+  <script src="vendor/topojson/topojson-client.min.js?v=__VERSION__"></script>
+  <script src="vendor/world/countries-50m.js?v=__VERSION__"></script>
+  <script src="js/i18n.js?v=__VERSION__"></script>
+  <script src="js/questions.js?v=__VERSION__"></script>
+  <script src="js/game.js?v=__VERSION__"></script>
 </body>
 </html>
