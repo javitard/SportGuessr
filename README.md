@@ -21,6 +21,7 @@ Inspired by [Farflung](https://farflung.game/) and [GeoSports](https://geosports
 - Satellite map without labels (cities show up, but no names to read), from
   [Sentinel-2 cloudless](https://s2maps.eu) with no API key; the bundled country shapes draw the borders and stand
   in if the imagery can't load
+- Zoom in and each country shows its two-letter code (ES, FR…), big countries first and small ones as they get room
 - Night-stadium dark theme, start screen with today's line-up, animated reveal, share preview image (`og-image.png`), mobile friendly
 
 ## Run locally

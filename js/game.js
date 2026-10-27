@@ -178,6 +178,53 @@
   const pct = (precision) => `${Math.round((precision / PRECISION_MAX) * 100)}%`;
   const mult = (round) => `×${num(window.Scoring.MULTIPLIERS[round])}`;
 
+  // ── Label placement (GeoJSON rings are [lng, lat]) ──────
+  function ringArea(ring) {
+    let a = 0;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) a += ring[j][0] * ring[i][1] - ring[i][0] * ring[j][1];
+    return a / 2;
+  }
+
+  // Outer ring of the country's biggest polygon (its mainland).
+  function largestRing(geometry) {
+    const polygons = geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates;
+    return polygons.map((rings) => rings[0]).reduce((a, b) => (Math.abs(ringArea(b)) > Math.abs(ringArea(a)) ? b : a));
+  }
+
+  // Longitudes where the ring crosses a parallel, sorted: pairs of them bound the inside.
+  function crossings(ring, lat) {
+    const xs = [];
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [x1, y1] = ring[j];
+      const [x2, y2] = ring[i];
+      if ((y1 > lat) !== (y2 > lat)) xs.push(x1 + ((lat - y1) / (y2 - y1)) * (x2 - x1));
+    }
+    return xs.sort((a, b) => a - b);
+  }
+
+  // A point well inside the ring, as [lat, lng]: its centroid, or for odd shapes whose
+  // centroid falls outside (crescents, long coasts), the middle of the widest stretch of
+  // land along the centroid's parallel.
+  function labelPoint(ring) {
+    let a = 0, cx = 0, cy = 0;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const f = ring[j][0] * ring[i][1] - ring[i][0] * ring[j][1];
+      a += f;
+      cx += (ring[j][0] + ring[i][0]) * f;
+      cy += (ring[j][1] + ring[i][1]) * f;
+    }
+    if (a === 0) return [ring[0][1], ring[0][0]];
+    cx /= 3 * a;
+    cy /= 3 * a;
+    const xs = crossings(ring, cy);
+    let best = null;
+    for (let i = 0; i + 1 < xs.length; i += 2) {
+      if (cx >= xs[i] && cx <= xs[i + 1]) return [cy, cx];
+      if (!best || xs[i + 1] - xs[i] > best[1] - best[0]) best = [xs[i], xs[i + 1]];
+    }
+    return best ? [cy, (best[0] + best[1]) / 2] : [cy, cx];
+  }
+
   function fmtKm(km) {
     if (km < 1) return `${Math.round(km * 1000)} m`;
     if (km < 10) return `${km.toFixed(1)} km`;
@@ -305,6 +352,37 @@
     interactive: false,
     style: { fill: false, color: cssVar("--sat-border"), weight: 0.8 }
   }).addTo(map);
+
+  // Country codes (ES, FR…) once you zoom in. A country is labelled when its main landmass is
+  // wide enough on screen to hold the code, so big countries show up first and small ones later.
+  const LABEL_MIN_ZOOM = 3;
+  const LABEL_MIN_PX = 40;
+  map.createPane("labels").style.zIndex = 450;   // over the borders, under the pins
+  const countryLabels = countries.features.flatMap((f) => {
+    const code = window.COUNTRY_CODES[f.id] || window.COUNTRY_CODES[f.properties.name];
+    if (!code) return [];
+    const ring = largestRing(f.geometry);
+    const lngs = ring.map((c) => c[0]);
+    const marker = L.marker(labelPoint(ring), {
+      pane: "labels",
+      interactive: false,
+      keyboard: false,
+      icon: L.divIcon({ className: "country-label", html: `<span>${code}</span>`, iconSize: null })
+    });
+    return [{ width: Math.max(...lngs) - Math.min(...lngs), marker }];
+  });
+
+  function updateCountryLabels() {
+    const zoom = map.getZoom();
+    const worldPx = 256 * 2 ** zoom;
+    for (const l of countryLabels) {
+      const show = zoom >= LABEL_MIN_ZOOM && (l.width / 360) * worldPx >= LABEL_MIN_PX;
+      if (show && !map.hasLayer(l.marker)) l.marker.addTo(map);
+      else if (!show && map.hasLayer(l.marker)) l.marker.remove();
+    }
+  }
+  map.on("zoomend", updateCountryLabels);
+  updateCountryLabels();
   map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
   map.attributionControl.addAttribution('<a href="https://www.naturalearthdata.com/">Natural Earth</a>');
 
