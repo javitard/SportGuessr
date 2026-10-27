@@ -252,6 +252,7 @@ body:not(.is-intro) .intro { opacity: 0; visibility: hidden; pointer-events: non
 .lineup .l-icon { display: block; font-size: 22px; line-height: 1; margin-bottom: 10px; }
 .lineup .l-sport { display: block; font-size: 12px; font-weight: 600; text-transform: capitalize; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .lineup .l-level { display: block; margin-top: 2px; font-size: 11px; color: var(--muted); }
+.lineup .l-mult { display: block; font-size: 11px; font-weight: 700; color: var(--volt); }
 .lineup li.done { opacity: .45; }
 .lineup li.done .l-level::after { content: " ✓"; color: var(--volt); }
 
@@ -325,6 +326,7 @@ body:not(.is-intro) .intro { opacity: 0; visibility: hidden; pointer-events: non
   color: var(--muted);
 }
 .tag.level { color: var(--lvl); border-color: color-mix(in srgb, var(--lvl) 35%, transparent); }
+.tag.mult { color: var(--volt); border-color: color-mix(in srgb, var(--volt) 35%, transparent); }
 .tag.practice { color: var(--t3); border-color: rgba(255, 210, 63, .35); }
 .round { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 1px; color: var(--muted); }
 .round b { color: var(--text); }

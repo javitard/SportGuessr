@@ -2,9 +2,11 @@
 // can later be synced to an account (phase 2) without changing how stats are computed.
 //
 // History format, saved in localStorage under STORE_HISTORY (and, later, in the cloud):
-//   [{ v: 1, day, date: "2026-10-22", practice: false, score,
+//   [{ v: 2, day, date: "2026-10-22", practice: false, score,
 //      rounds: [{ id: "q0042", sport, level, km, points, glat, glng }] }]
 // `id` is the question's permanent id; `glat`/`glng` is where the player dropped the pin.
+// `points` is the answer's precision (0–1,000, see scoring.js). `score` is the day total:
+// out of 1,000 from v2, out of 5,000 in v1, so use gameScore() rather than reading it.
 window.Profile = (() => {
   "use strict";
 
@@ -30,11 +32,11 @@ window.Profile = (() => {
     if (!practice && history.some((g) => !g.practice && g.day === day)) return history;
     const round2 = (x) => Math.round(x * 1000) / 1000;
     history.push({
-      v: 1,
+      v: 2,
       day,
       date,
       practice: !!practice,
-      score: guesses.reduce((s, g) => s + g.points, 0),
+      score: window.Scoring.total(guesses.map((g) => g.points)),
       rounds: questions.map((q, i) => ({
         id: q.id,
         sport: q.sport,
@@ -50,6 +52,7 @@ window.Profile = (() => {
   }
 
   const average = (xs) => (xs.length ? Math.round(xs.reduce((a, b) => a + b, 0) / xs.length) : 0);
+  const gameScore = (g) => window.Scoring.total(g.rounds.map((r) => r.points));
 
   // Achievements are checked against the whole history plus the running stats.
   const ACHIEVEMENTS = [
@@ -57,7 +60,7 @@ window.Profile = (() => {
     { key: "bullseye", test: (h) => h.some((g) => g.rounds.some((r) => r.points >= 1000)) },
     { key: "hattrick", test: (h) => h.some((g) => g.rounds.filter((r) => r.points >= 900).length >= 3) },
     { key: "cleansheet", test: (h) => h.some((g) => g.rounds.length === 5 && g.rounds.every((r) => r.points >= 250)) },
-    { key: "club4000", test: (h) => h.some((g) => !g.practice && g.score >= 4000) },
+    { key: "club800", test: (h) => h.some((g) => !g.practice && gameScore(g) >= 800) },
     { key: "week", goal: 7, progress: (h, s) => s.maxStreak },
     {
       key: "allrounder",

@@ -2,14 +2,17 @@
 
 A daily sports geography game. Every day you get **5 famous sporting moments** (mostly European) —
 click on the map where they happened. The closer you are, the more points you score (up to 1,000 per
-question, 5,000 per day).
+day).
 
 Inspired by [Farflung](https://farflung.game/) and [GeoSports](https://geosports.app/).
 
 ## Features
 
 - Same 5 questions for everyone each day (deterministic, no backend needed), new set at local midnight
-- Distance-based scoring: `1000 × e^(-km / 500)`, full marks within 10 km
+- Distance-based scoring with a growing multiplier (rules in [`js/scoring.js`](js/scoring.js)): each answer's
+  precision is `e^(-km / 500)`, full marks within 10 km, applied to the question's maximum. The first question is
+  worth up to 100 points and the multiplier rises by 0.5 each round (×1, ×1.5, ×2, ×2.5, ×3), so a perfect day is
+  1,000 points
 - Every day has the same difficulty curve: 2 easy, 2 medium and 1 hard question, played in that order
 - Football plus F1, cycling, tennis, winter sports, rugby, golf, Olympics and more (392 questions)
 - English and Spanish: picks the browser language, switchable with the EN/ES button

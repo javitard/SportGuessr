@@ -3,14 +3,13 @@
 
   // ── Config ──────────────────────────────────────────────
   const LAUNCH = Date.UTC(2026, 9, 22);   // Puzzle #1 (months are 0-based)
-  const ROUNDS = 5;
-  const MAX_POINTS = 1000;
-  const PERFECT_KM = 10;                   // anything this close scores 1000
-  const DECAY_KM = 500;                    // points = 1000 * e^(-km / DECAY_KM)
+  const { PRECISION_MAX, MAX_TOTAL } = window.Scoring;   // scoring rules live in scoring.js
+  const ROUNDS = window.Scoring.MULTIPLIERS.length;
   const LEVEL_MIX = [2, 2, 1];             // easy, medium, hard questions per day
   const SEED = 0x5f0a7;
   const STORE_STATE = "sg_state_v1";
-  const STORE_STATS = "sg_stats_v1";
+  const STORE_STATS = "sg_stats_v2";        // v1 kept day totals out of 5,000
+  const STORE_STATS_V1 = "sg_stats_v1";
   const STORE_LANG = "sg_lang";
   // Starting view for every question: the inhabited world, so no continent is favoured.
   const WORLD_VIEW = [[-42, -125], [66, 150]];
@@ -60,7 +59,7 @@
     document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
     $("btn-lang").textContent = lang === "es" ? "EN" : "ES";
     $("practice-tag").textContent = t("practiceTag");
-    $("final-max").textContent = `/ ${num(ROUNDS * MAX_POINTS)}`;
+    $("final-max").textContent = `/ ${num(MAX_TOTAL)}`;
   }
 
   // ── Seeded randomness & daily selection ─────────────────
@@ -168,17 +167,16 @@
     return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
   }
 
-  function scoreFor(km) {
-    if (km <= PERFECT_KM) return MAX_POINTS;
-    return Math.round(MAX_POINTS * Math.exp(-km / DECAY_KM));
-  }
-
-  function tier(points) {
-    if (points >= 900) return 4;
-    if (points >= 600) return 3;
-    if (points >= 250) return 2;
+  // Colour band of an answer, from its precision (0–1,000), so every question is judged alike.
+  function tier(precision) {
+    if (precision >= 900) return 4;
+    if (precision >= 600) return 3;
+    if (precision >= 250) return 2;
     return 1;
   }
+
+  const pct = (precision) => `${Math.round((precision / PRECISION_MAX) * 100)}%`;
+  const mult = (round) => `×${num(window.Scoring.MULTIPLIERS[round])}`;
 
   function fmtKm(km) {
     if (km < 1) return `${Math.round(km * 1000)} m`;
@@ -197,7 +195,14 @@
   const DEFAULT_STATS = { played: 0, total: 0, best: 0, streak: 0, maxStreak: 0, lastDay: 0, dist: [0, 0, 0, 0, 0] };
 
   function loadStats() {
-    return { ...DEFAULT_STATS, ...load(STORE_STATS, {}) };
+    let saved = load(STORE_STATS, null);
+    if (!saved) {
+      // Old stats were out of 5,000: scale them to 1,000. The five score bands line up one to one.
+      const old = load(STORE_STATS_V1, null);
+      saved = old ? { ...old, total: Math.round(old.total / 5), best: Math.round(old.best / 5) } : {};
+      if (old) save(STORE_STATS, saved);
+    }
+    return { ...DEFAULT_STATS, ...saved };
   }
 
   function recordGame(day, total) {
@@ -214,8 +219,8 @@
     return s;
   }
 
-  const DIST_LABELS = ["0–999", "1000–1999", "2000–2999", "3000–3999", "4000–5000"];
-  function distBucket(total) { return Math.min(4, Math.floor(total / 1000)); }
+  const DIST_LABELS = ["0–199", "200–399", "400–599", "600–799", "800–1000"];
+  function distBucket(total) { return Math.min(4, Math.floor(total / 200)); }
 
   // ── Small animation helpers ─────────────────────────────
   const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -241,7 +246,7 @@
     practice: false,
     day: dayNumber(),
     questions: [],
-    guesses: [],          // { lat, lng, km, points }
+    guesses: [],          // { lat, lng, km, points }: points is the precision, 0–1,000
     pending: null,        // L.LatLng of the unconfirmed guess
     revealed: false
   };
@@ -357,6 +362,7 @@
         <span class="l-icon">${icon(q)}</span>
         <span class="l-sport">${t("sports")[q.sport] || q.sport}</span>
         <span class="l-level">${t("levels")[q.level]}</span>
+        <span class="l-mult">${mult(i)}</span>
       </li>`).join("");
     $("start-label").textContent = game.guesses.length ? t("resume", { n: game.guesses.length + 1 }) : t("start");
     const s = loadStats();
@@ -395,6 +401,7 @@
     const level = $("level");
     level.textContent = t("levels")[q.level] || "";
     level.style.setProperty("--lvl", LEVEL_COLORS[q.level]);
+    $("mult-tag").textContent = t("multTag", { mult: mult(round - 1), max: num(window.Scoring.maxFor(round - 1)) });
     $("practice-tag").hidden = !game.practice;
     $("round").innerHTML = `${t("round")} <b>${pad2(round)}</b>/${pad2(ROUNDS)}`;
 
@@ -406,7 +413,7 @@
   }
 
   function totalScore() {
-    return game.guesses.reduce((s, g) => s + g.points, 0);
+    return window.Scoring.total(game.guesses.map((g) => g.points));
   }
 
   function renderQuestion() {
@@ -449,6 +456,7 @@
       y.textContent = ` · ${q.year}`;
       $("answer").append(y);
     }
+    $("points-max").textContent = `/ ${num(window.Scoring.maxFor(game.guesses.length - 1))} ${t("pts")}`;
     $("distance").textContent = t("away", { distance: fmtKm(g.km) });
     $("fact").textContent = loc(q, "fact");
     $("btn-next").textContent = game.guesses.length >= ROUNDS ? t("seeResults") : t("next");
@@ -459,9 +467,10 @@
     const q = game.questions[game.guesses.length];
     const guess = game.pending;
     const km = haversineKm(guess, q);
-    const points = scoreFor(km);
+    const precision = window.Scoring.precisionFor(km);
+    const points = window.Scoring.pointsFor(precision, game.guesses.length);
     const before = totalScore();
-    game.guesses.push({ lat: guess.lat, lng: guess.lng, km, points });
+    game.guesses.push({ lat: guess.lat, lng: guess.lng, km, points: precision });
     game.revealed = true;
     persist();
 
@@ -487,8 +496,8 @@
       animateRoute(guess, q, () => {
         countUp($("points"), 0, points);
         countUp($("score"), before, before + points);
-        $("meter-fill").style.width = `${(points / MAX_POINTS) * 100}%`;
-        buzz(tier(points) >= 3 ? [18, 50, 18] : 12);
+        $("meter-fill").style.width = pct(precision);
+        buzz(tier(precision) >= 3 ? [18, 50, 18] : 12);
       });
     };
     map.once("moveend", play);
@@ -549,7 +558,7 @@
   }
 
   function verdict(total) {
-    const thresholds = [1500, 2500, 3500, 4500];
+    const thresholds = [300, 500, 700, 900];
     return t("verdicts")[thresholds.filter((x) => total >= x).length];
   }
 
@@ -568,7 +577,7 @@
       const li = document.createElement("li");
       li.innerHTML = `<span class="r-n">${pad2(i + 1)}</span>
         <span class="r-place"><span class="r-name"></span><span class="r-sub"></span></span>
-        <span class="r-pts s${tier(g.points)}">${num(g.points)}</span>`;
+        <span class="r-pts s${tier(g.points)}">${num(window.Scoring.pointsFor(g.points, i))}</span>`;
       li.querySelector(".r-name").textContent = loc(q, "answer");
       li.querySelector(".r-sub").textContent = `${icon(q)} ${t("away", { distance: fmtKm(g.km) })}`;
       recap.appendChild(li);
@@ -584,7 +593,7 @@
     const total = totalScore();
     const squares = game.guesses.map((g) => TIER_EMOJI[tier(g.points)]).join("");
     const url = location.origin + location.pathname;
-    return `Matchpin #${game.day} · ${num(total)}/${num(ROUNDS * MAX_POINTS)}\n${squares}\n${url}`;
+    return `Matchpin #${game.day} · ${num(total)}/${num(MAX_TOTAL)}\n${squares}\n${url}`;
   }
 
   async function share() {
@@ -625,7 +634,7 @@
     bullseye: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
     hattrick: '<circle cx="5.5" cy="12" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="18.5" cy="12" r="2.5"/>',
     cleansheet: '<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
-    club4000: '<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M8 20h8"/>',
+    club800: '<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M8 20h8"/>',
     week: '<path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5.5.5 2 1.5 3 2.5 3.5 0-3 0-5.5 0-8z"/>',
     allrounder: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
     marathon: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>'
@@ -671,8 +680,8 @@
   function meterRow(label, avg, sub) {
     return `<div class="meter-row">
       <span class="mr-label">${label}</span>
-      <span class="mr-bar"><span style="width:${(avg / MAX_POINTS) * 100}%; background:${TIER_COLORS[tier(avg)]}"></span></span>
-      <span class="mr-value num">${num(avg)}</span>
+      <span class="mr-bar"><span style="width:${pct(avg)}; background:${TIER_COLORS[tier(avg)]}"></span></span>
+      <span class="mr-value num">${pct(avg)}</span>
       <small class="mr-sub">${sub}</small>
     </div>`;
   }
@@ -707,8 +716,8 @@
 
     if (hasData) {
       $("highlights").innerHTML = p.strongest
-        ? `<div class="highlight"><small>${t("strongest")}</small><b>${sportName(p.strongest.sport)}</b><span class="num">${num(p.strongest.avg)}</span></div>
-           <div class="highlight"><small>${t("weakest")}</small><b>${sportName(p.weakest.sport)}</b><span class="num">${num(p.weakest.avg)}</span></div>`
+        ? `<div class="highlight"><small>${t("strongest")}</small><b>${sportName(p.strongest.sport)}</b><span class="num">${pct(p.strongest.avg)}</span></div>
+           <div class="highlight"><small>${t("weakest")}</small><b>${sportName(p.weakest.sport)}</b><span class="num">${pct(p.weakest.avg)}</span></div>`
         : `<p class="muted">${t("needMore")}</p>`;
       const answers = (n) => (n === 1 ? t("answersOne") : t("answersN", { n }));
       const sportRows = p.bySport.map((x) => meterRow(sportName(x.sport), x.avg, answers(x.n)));
@@ -836,7 +845,7 @@
   }
 
   // Expose a few internals for debugging / tests.
-  window.Matchpin = { questionsForDay, scoreFor, haversineKm, dayNumber };
+  window.Matchpin = { questionsForDay, scoring: window.Scoring, haversineKm, dayNumber };
 
   boot();
   checkForUpdate();

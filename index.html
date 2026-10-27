@@ -68,6 +68,7 @@
       <div class="tags">
         <span class="tag" id="sport-tag"></span>
         <span class="tag level" id="level"></span>
+        <span class="tag mult" id="mult-tag"></span>
         <span class="tag practice" id="practice-tag" hidden></span>
       </div>
       <div class="round" id="round"></div>
@@ -86,7 +87,7 @@
         </div>
         <div class="reveal-points">
           <span class="num" id="points">0</span>
-          <small data-i18n="pts"></small>
+          <small id="points-max"></small>
         </div>
       </div>
       <div class="meter"><div class="meter-fill" id="meter-fill"></div></div>
@@ -184,6 +185,7 @@
   <script src="vendor/world/countries-50m.js?v=__VERSION__"></script>
   <script src="js/i18n.js?v=__VERSION__"></script>
   <script src="js/tags.js?v=__VERSION__"></script>
+  <script src="js/scoring.js?v=__VERSION__"></script>
   <script src="js/profile.js?v=__VERSION__"></script>
   <script src="js/questions.js?v=__VERSION__"></script>
   <script src="js/game.js?v=__VERSION__"></script>
