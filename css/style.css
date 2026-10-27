@@ -6,6 +6,7 @@
   --land: #151b24;
   --land-border: #2b3544;
   --graticule: rgba(255, 255, 255, .035);
+  --sat-border: rgba(255, 255, 255, .45);
   --surface: rgba(14, 18, 24, .88);
   --surface-solid: #0f1319;
   --elev: #171c25;

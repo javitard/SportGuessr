@@ -267,14 +267,21 @@
   });
   L.control.zoom({ position: "topright" }).addTo(map);
 
-  // Country shapes are bundled with the game (no tile server, no API key, no labels).
+  // Satellite imagery (no labels, no API key), so cities show up without giving names away.
+  // The bundled country shapes are drawn underneath as a fallback if the tiles can't load,
+  // and their borders again on top so you can tell which country you're in.
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name) => css.getPropertyValue(name).trim();
+  map.createPane("fallback").style.zIndex = 150;   // below the tile pane (200)
+  L.tileLayer("https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2024_3857/default/g/{z}/{y}/{x}.jpg", {
+    maxNativeZoom: 14,
+    attribution: '<a href="https://s2maps.eu">Sentinel-2 cloudless</a> by EOX (modified Copernicus Sentinel data 2024)'
+  }).addTo(map);
   for (let lng = -180; lng <= 180; lng += 15) {
-    L.polyline([[-85, lng], [85, lng]], { color: cssVar("--graticule"), weight: 1, interactive: false }).addTo(map);
+    L.polyline([[-85, lng], [85, lng]], { pane: "fallback", color: cssVar("--graticule"), weight: 1, interactive: false }).addTo(map);
   }
   for (let lat = -75; lat <= 75; lat += 15) {
-    L.polyline([[lat, -180], [lat, 180]], { color: cssVar("--graticule"), weight: 1, interactive: false }).addTo(map);
+    L.polyline([[lat, -180], [lat, 180]], { pane: "fallback", color: cssVar("--graticule"), weight: 1, interactive: false }).addTo(map);
   }
   // Rings that cross the antimeridian (eastern Russia, Fiji) would be drawn as a band
   // across the whole map; shift their western half by 360° so they stay in one piece.
@@ -290,8 +297,13 @@
     }));
   });
   L.geoJSON(countries, {
+    pane: "fallback",
     interactive: false,
     style: { fillColor: cssVar("--land"), fillOpacity: 1, color: cssVar("--land-border"), weight: 0.7 }
+  }).addTo(map);
+  L.geoJSON(countries, {
+    interactive: false,
+    style: { fill: false, color: cssVar("--sat-border"), weight: 0.8 }
   }).addTo(map);
   map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
   map.attributionControl.addAttribution('<a href="https://www.naturalearthdata.com/">Natural Earth</a>');

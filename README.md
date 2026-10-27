@@ -18,7 +18,9 @@ Inspired by [Farflung](https://farflung.game/) and [GeoSports](https://geosports
 - English and Spanish: picks the browser language, switchable with the EN/ES button
 - Shareable emoji result (🟩🟨🟧🟥), stats & streaks saved in the browser
 - Practice rounds with random questions after finishing the daily game
-- Map without labels (no cheating by reading city names), bundled with the game: no tile server or API key needed
+- Satellite map without labels (cities show up, but no names to read), from
+  [Sentinel-2 cloudless](https://s2maps.eu) with no API key; the bundled country shapes draw the borders and stand
+  in if the imagery can't load
 - Night-stadium dark theme, start screen with today's line-up, animated reveal, share preview image (`og-image.png`), mobile friendly
 
 ## Run locally
@@ -61,4 +63,6 @@ best to add them in batches.
 
 - Fonts: [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) and [Geist](https://vercel.com/font) (SIL OFL), self-hosted in `vendor/fonts`
 - Map: [Leaflet](https://leafletjs.com/) (vendored in `vendor/leaflet`, BSD-2-Clause)
+- Satellite imagery: [Sentinel-2 cloudless](https://s2maps.eu) by EOX IT Services GmbH, contains modified Copernicus
+  Sentinel data 2024 ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), non-commercial use)
 - Country shapes: [Natural Earth](https://www.naturalearthdata.com/) 1:50m via [world-atlas](https://github.com/topojson/world-atlas) (ISC), read with [topojson-client](https://github.com/topojson/topojson-client) (ISC)
