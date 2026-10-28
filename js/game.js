@@ -21,7 +21,8 @@
     sailing: "⛵", swimming: "🏊", equestrian: "🐎", climbing: "🧗",
     basketball: "🏀", "gaelic games": "🏑", surfing: "🏄"
   };
-  const LEVEL_COLORS = { 1: "var(--t4)", 2: "var(--t3)", 3: "var(--t1)" };
+  // Each round is harder and worth more: its colour warms up from green to red.
+  const ROUND_COLORS = ["var(--t4)", "color-mix(in srgb, var(--t4), var(--t3))", "var(--t3)", "var(--t2)", "var(--t1)"];
   const TIER_COLORS = { 4: "var(--t4)", 3: "var(--t3)", 2: "var(--t2)", 1: "var(--t1)" };
   const TIER_EMOJI = { 4: "🟩", 3: "🟨", 2: "🟧", 1: "🟥" };
 
@@ -447,12 +448,13 @@
   function renderIntro() {
     const date = new Intl.DateTimeFormat(t("locale"), { day: "numeric", month: "long" }).format(new Date());
     $("intro-eyebrow").textContent = t("eyebrow", { n: game.day, date });
-    $("lineup").innerHTML = game.questions.map((q, i) => `
-      <li class="${game.guesses[i] ? "done" : ""}" style="--lvl:${LEVEL_COLORS[q.level]}">
-        <span class="l-icon">${icon(q)}</span>
-        <span class="l-sport">${t("sports")[q.sport] || q.sport}</span>
-        <span class="l-level">${t("levels")[q.level]}</span>
-        <span class="l-mult">${mult(i)}</span>
+    // A staircase of rounds: each card a step higher, with more difficulty bars lit and a bigger multiplier.
+    $("lineup").innerHTML = game.questions.map((_, i) => `
+      <li class="${game.guesses[i] ? "done" : ""}" style="--lvl:${ROUND_COLORS[i]}; --step:${i}">
+        <span class="l-round"><span class="l-word">${t("round")}</span> ${i + 1}</span>
+        <span class="l-bars" aria-hidden="true">${ROUND_COLORS.map((_, b) => `<i class="${b <= i ? "on" : ""}"></i>`).join("")}</span>
+        <span class="l-mult num">${mult(i)}</span>
+        <span class="l-max">${num(window.Scoring.maxFor(i))} ${t("pts")}</span>
       </li>`).join("");
     $("start-label").textContent = game.guesses.length ? t("resume", { n: game.guesses.length + 1 }) : t("start");
     const s = loadStats();
@@ -488,10 +490,10 @@
     const q = currentQuestion();
     const round = Math.min(game.guesses.length + (game.revealed ? 0 : 1), ROUNDS);
     $("sport-tag").textContent = `${icon(q)} ${t("sports")[q.sport] || q.sport}`;
-    const level = $("level");
-    level.textContent = t("levels")[q.level] || "";
-    level.style.setProperty("--lvl", LEVEL_COLORS[q.level]);
-    $("mult-tag").textContent = t("multTag", { mult: mult(round - 1), max: num(window.Scoring.maxFor(round - 1)) });
+    $("max-tag").textContent = t("maxTag", { max: num(window.Scoring.maxFor(round - 1)) });
+    const badge = $("mult-badge");
+    badge.textContent = mult(round - 1);
+    badge.style.setProperty("--lvl", ROUND_COLORS[round - 1]);
     $("practice-tag").hidden = !game.practice;
     $("round").innerHTML = `${t("round")} <b>${pad2(round)}</b>/${pad2(ROUNDS)}`;
 

@@ -237,17 +237,27 @@ body:not(.is-intro) .intro { opacity: 0; visibility: hidden; pointer-events: non
   color: var(--muted);
 }
 
+.lineup-hint {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lineup-hint::after { content: " →"; color: var(--t1); }
 .lineup {
   list-style: none;
   margin: 0 0 28px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  align-items: end;   /* cards grow upwards like a staircase */
   gap: 8px;
 }
 .lineup li {
   position: relative;
-  padding: 12px 10px 10px;
+  padding: calc(10px + var(--step) * 7px) 10px 10px;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: rgba(14, 18, 24, .75);
@@ -262,12 +272,14 @@ body:not(.is-intro) .intro { opacity: 0; visibility: hidden; pointer-events: non
   height: 2px;
   background: var(--lvl);
 }
-.lineup .l-icon { display: block; font-size: 22px; line-height: 1; margin-bottom: 10px; }
-.lineup .l-sport { display: block; font-size: 12px; font-weight: 600; text-transform: capitalize; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.lineup .l-level { display: block; margin-top: 2px; font-size: 11px; color: var(--muted); }
-.lineup .l-mult { display: block; font-size: 11px; font-weight: 700; color: var(--volt); }
+.lineup .l-round { display: block; font-size: 11px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.lineup .l-bars { display: flex; gap: 2px; margin: 8px 0 10px; }
+.lineup .l-bars i { flex: 1; height: 4px; border-radius: 2px; background: var(--line-strong); }
+.lineup .l-bars i.on { background: var(--lvl); }
+.lineup .l-mult { display: block; font-size: 28px; font-weight: 800; line-height: 1; color: var(--lvl); white-space: nowrap; }
+.lineup .l-max { display: block; margin-top: 4px; font-size: 11px; color: var(--muted); white-space: nowrap; }
 .lineup li.done { opacity: .45; }
-.lineup li.done .l-level::after { content: " ✓"; color: var(--volt); }
+.lineup li.done .l-round::after { content: " ✓"; color: var(--volt); }
 
 .cta {
   display: inline-flex;
@@ -338,9 +350,17 @@ body:not(.is-intro) .intro { opacity: 0; visibility: hidden; pointer-events: non
   text-transform: uppercase;
   color: var(--muted);
 }
-.tag.level { color: var(--lvl); border-color: color-mix(in srgb, var(--lvl) 35%, transparent); }
-.tag.mult { color: var(--volt); border-color: color-mix(in srgb, var(--volt) 35%, transparent); }
 .tag.practice { color: var(--t3); border-color: rgba(255, 210, 63, .35); }
+.round-wrap { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.mult-badge {
+  padding: 3px 10px;
+  border-radius: 8px;
+  background: var(--lvl);
+  color: var(--volt-ink);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+}
 .round { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 1px; color: var(--muted); }
 .round b { color: var(--text); }
 
@@ -582,9 +602,12 @@ body:not(.is-intro) .intro { opacity: 0; visibility: hidden; pointer-events: non
   }
   .lede { font-size: 15px; margin: 14px 0 20px; }
   .lineup { gap: 6px; margin-bottom: 20px; }
-  .lineup li { padding: 10px 6px 8px; text-align: center; }
-  .lineup .l-icon { font-size: 20px; margin-bottom: 6px; }
-  .lineup .l-sport { display: none; }
+  .lineup li { padding: calc(8px + var(--step) * 6px) 4px 8px; text-align: center; }
+  .lineup .l-word { display: none; }   /* just the round number on phones */
+  .lineup .l-round { font-size: 13px; font-weight: 700; }
+  .lineup .l-bars { margin: 6px 2px 8px; }
+  .lineup .l-mult { font-size: 22px; }
+  .lineup .l-max { font-size: 10px; }
   .cta { width: 100%; justify-content: center; }
   .cta kbd { display: none; }
   .panel { bottom: 0; width: 100%; border-radius: 20px 20px 0 0; border-bottom: 0; padding: 14px 16px calc(16px + var(--safe-b)); }
