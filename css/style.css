@@ -338,6 +338,15 @@ body:not(.is-intro) .intro { opacity: 0; visibility: hidden; pointer-events: non
 .progress span.s2 { background: var(--t2); }
 .progress span.s1 { background: var(--t1); }
 
+.timer { display: flex; align-items: center; gap: 10px; margin: -6px 0 12px; }
+.timer[hidden] { display: none; }
+.timer-track { flex: 1; height: 4px; border-radius: 4px; background: var(--line-strong); overflow: hidden; }
+.timer-fill { height: 100%; width: 100%; border-radius: 4px; background: var(--volt); transition: width .25s linear; }
+.timer-text { min-width: 38px; font-size: 16px; font-weight: 700; text-align: right; color: var(--text); }
+.panel.hurry .timer-fill { background: var(--t1); }
+.panel.hurry .timer-text { color: var(--t1); animation: hurry 1s steps(2) infinite; }
+@keyframes hurry { 50% { opacity: .45; } }
+
 .panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .tags { display: flex; gap: 6px; flex-wrap: wrap; }
 .tag {

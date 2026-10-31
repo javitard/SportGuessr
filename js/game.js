@@ -5,6 +5,7 @@
   const LAUNCH = Date.UTC(2026, 9, 22);   // Puzzle #1 (months are 0-based)
   const { PRECISION_MAX, MAX_TOTAL } = window.Scoring;   // scoring rules live in scoring.js
   const ROUNDS = window.Scoring.MULTIPLIERS.length;
+  const ROUND_SECONDS = 60;                // time to answer each question
   const LEVEL_MIX = [2, 2, 1];             // easy, medium, hard questions per day
   const SEED = 0x5f0a7;
   const STORE_STATE = "sg_state_v1";
@@ -294,7 +295,9 @@
     practice: false,
     day: dayNumber(),
     questions: [],
-    guesses: [],          // { lat, lng, km, points }: points is the precision, 0–1,000
+    guesses: [],          // { lat, lng, km, points }: points is the precision, 0–1,000;
+                          // lat, lng and km are null when the time ran out
+    deadline: null,       // { round, at }: when the current question's time runs out
     pending: null,        // L.LatLng of the unconfirmed guess
     revealed: false
   };
@@ -527,12 +530,65 @@
     $("btn-show-results").hidden = true;
     map.getContainer().classList.remove("map-locked");
     renderPanelHead();
+    $("timer-wrap").hidden = false;
     map.flyToBounds(WORLD_VIEW, {
       paddingTopLeft: [8, 64],
       paddingBottomRight: [8, $("panel").offsetHeight + 24],
       duration: 0.8
     });
+    startRoundTimer();
   }
+
+  // ── Round timer ─────────────────────────────────────────
+  // Each question has ROUND_SECONDS. The deadline is saved with the game, so reloading
+  // the page doesn't reset the clock. When it runs out, a pin already on the map is
+  // taken as the answer; with no pin the question scores 0.
+  let roundTimer = null;
+
+  function startRoundTimer() {
+    stopRoundTimer();
+    const round = game.guesses.length;
+    if (!game.deadline || game.deadline.round !== round) {
+      game.deadline = { round, at: Date.now() + ROUND_SECONDS * 1000 };
+      persist();
+    }
+    // Capped, so a device clock set back can't hand out extra time.
+    const left = () => Math.min(game.deadline.at - Date.now(), ROUND_SECONDS * 1000);
+
+    const tick = () => {
+      const s = Math.max(0, Math.ceil(left() / 1000));
+      $("timer").textContent = `${Math.floor(s / 60)}:${pad2(s % 60)}`;
+      $("timer-fill").style.width = `${Math.max(0, left()) / (ROUND_SECONDS * 10)}%`;
+      $("panel").classList.toggle("hurry", s <= 10);
+      if (left() <= 0) timeUp();
+    };
+    roundTimer = setInterval(tick, 250);
+    tick();
+  }
+
+  function stopRoundTimer() {
+    clearInterval(roundTimer);
+    roundTimer = null;
+    $("panel").classList.remove("hurry");
+  }
+
+  function timeUp() {
+    stopRoundTimer();
+    if (game.revealed || game.guesses.length >= ROUNDS) return;
+    if (game.pending) { confirmGuess(); return; }
+    const q = game.questions[game.guesses.length];
+    const before = totalScore();
+    game.guesses.push({ lat: null, lng: null, km: null, points: 0 });
+    game.revealed = true;
+    persist();
+    openReveal(before);
+    L.marker([q.lat, q.lng], { icon: pinIcon("target"), interactive: false }).addTo(layer);
+    buzz([30, 60, 30]);
+    map.flyTo([q.lat, q.lng], Math.max(map.getZoom(), 4), { duration: 0.8 });
+  }
+
+  // An answer given in time has a pin; one that ran out of time has none.
+  const timedOut = (g) => g.km == null;
 
   // Static texts of the answer card (safe to call again after a language switch).
   function renderReveal() {
@@ -540,7 +596,7 @@
     const g = game.guesses[game.guesses.length - 1];
     const tr = tier(g.points);
     $("panel").style.setProperty("--tier", TIER_COLORS[tr]);
-    $("tier-label").textContent = t("tiers")[tr];
+    $("tier-label").textContent = timedOut(g) ? t("timeUp") : t("tiers")[tr];
     $("answer").innerHTML = "";
     $("answer").append(loc(q, "answer"));
     if (q.year > 0) {
@@ -549,13 +605,29 @@
       $("answer").append(y);
     }
     $("points-max").textContent = `/ ${num(window.Scoring.maxFor(game.guesses.length - 1))} ${t("pts")}`;
-    $("distance").textContent = t("away", { distance: fmtKm(g.km) });
+    $("distance").textContent = timedOut(g) ? t("noAnswer") : t("away", { distance: fmtKm(g.km) });
     $("fact").textContent = loc(q, "fact");
     $("btn-next").textContent = game.guesses.length >= ROUNDS ? t("seeResults") : t("next");
   }
 
+  // Switches the card from the question to its answer, with the points still at 0.
+  function openReveal(before) {
+    layer.clearLayers();
+    pendingMarker = null;
+    map.getContainer().classList.add("map-locked");
+    renderReveal();
+    $("points").textContent = "0";
+    $("score").textContent = num(before);
+    $("meter-fill").style.width = "0";
+    $("timer-wrap").hidden = true;
+    $("ask").hidden = true;
+    $("reveal").hidden = false;
+    renderPanelHead();
+  }
+
   function confirmGuess() {
     if (!game.pending) return;
+    stopRoundTimer();
     const q = game.questions[game.guesses.length];
     const guess = game.pending;
     const km = haversineKm(guess, q);
@@ -565,19 +637,8 @@
     game.guesses.push({ lat: guess.lat, lng: guess.lng, km, points: precision });
     game.revealed = true;
     persist();
-
-    layer.clearLayers();
-    pendingMarker = null;
+    openReveal(before);
     L.marker(guess, { icon: pinIcon("guess"), interactive: false }).addTo(layer);
-    map.getContainer().classList.add("map-locked");
-
-    renderReveal();
-    $("points").textContent = "0";
-    $("score").textContent = num(before);
-    $("meter-fill").style.width = "0";
-    $("ask").hidden = true;
-    $("reveal").hidden = false;
-    renderPanelHead();
 
     // Fly so both pins fit above the card, then draw the route and count the points up.
     const bounds = L.latLngBounds([guess, [q.lat, q.lng]]);
@@ -609,7 +670,7 @@
 
   function persist() {
     if (game.practice) return;
-    save(STORE_STATE, { date: todayKey(), day: game.day, puzzle: puzzleKey(), guesses: game.guesses });
+    save(STORE_STATE, { date: todayKey(), day: game.day, puzzle: puzzleKey(), guesses: game.guesses, deadline: game.deadline });
   }
 
   // Identifies today's question set, so saved progress is dropped if the bank was edited.
@@ -641,7 +702,13 @@
     game.questions.forEach((q, i) => {
       const g = game.guesses[i];
       if (!g) return;
-      const b = addPair(g, q, String(i + 1));
+      let b;
+      if (timedOut(g)) {
+        L.marker([q.lat, q.lng], { icon: pinIcon("target", String(i + 1)), interactive: false }).addTo(layer);
+        b = L.latLngBounds([[q.lat, q.lng], [q.lat, q.lng]]);
+      } else {
+        b = addPair(g, q, String(i + 1));
+      }
       bounds = bounds ? bounds.extend(b) : b;
     });
     $("panel").classList.add("hidden");
@@ -671,7 +738,7 @@
         <span class="r-place"><span class="r-name"></span><span class="r-sub"></span></span>
         <span class="r-pts s${tier(g.points)}">${num(window.Scoring.pointsFor(g.points, i))}</span>`;
       li.querySelector(".r-name").textContent = loc(q, "answer");
-      li.querySelector(".r-sub").textContent = `${icon(q)} ${t("away", { distance: fmtKm(g.km) })}`;
+      li.querySelector(".r-sub").textContent = `${icon(q)} ${timedOut(g) ? t("timeUp") : t("away", { distance: fmtKm(g.km) })}`;
       recap.appendChild(li);
     });
 
@@ -854,6 +921,7 @@
     game.practice = true;
     game.questions = randomQuestions();
     game.guesses = [];
+    game.deadline = null;
     $("modal-results").close();
     startGame();
   }
@@ -923,6 +991,7 @@
     if (saved && saved.date === todayKey() && saved.day === game.day && saved.puzzle === puzzleKey() &&
         Array.isArray(saved.guesses)) {
       game.guesses = saved.guesses.slice(0, ROUNDS);
+      game.deadline = saved.deadline || null;
     }
 
     if (game.guesses.length >= ROUNDS) {

@@ -13,6 +13,7 @@ Inspired by [Farflung](https://farflung.game/) and [GeoSports](https://geosports
   precision is `e^(-km / 500)`, full marks within 10 km, applied to the question's maximum. The first question is
   worth up to 100 points and the multiplier rises by 0.5 each round (×1, ×1.5, ×2, ×2.5, ×3), so a perfect day is
   1,000 points
+- 60 seconds per question: when time runs out, a pin already on the map counts as the answer, and no pin scores 0
 - Every day has the same difficulty curve: 2 easy, 2 medium and 1 hard question, played in that order
 - Football plus F1, cycling, tennis, winter sports, rugby, golf, Olympics and more (392 questions)
 - English and Spanish: picks the browser language, switchable with the EN/ES button

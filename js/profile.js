@@ -41,10 +41,11 @@ window.Profile = (() => {
         id: q.id,
         sport: q.sport,
         level: q.level,
-        km: Math.round(guesses[i].km * 10) / 10,
+        // km and the pin are null when the time ran out
+        km: guesses[i].km == null ? null : Math.round(guesses[i].km * 10) / 10,
         points: guesses[i].points,
-        glat: round2(guesses[i].lat),
-        glng: round2(guesses[i].lng)
+        glat: guesses[i].lat == null ? null : round2(guesses[i].lat),
+        glng: guesses[i].lng == null ? null : round2(guesses[i].lng)
       }))
     });
     saveHistory(history);
