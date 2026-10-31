@@ -482,7 +482,8 @@
         <span class="l-mult num">${mult(i)}</span>
         <span class="l-max">${num(window.Scoring.maxFor(i))} ${t("pts")}</span>
       </li>`).join("");
-    $("start-label").textContent = game.guesses.length ? t("resume", { n: game.guesses.length + 1 }) : t("start");
+    $("start-label").textContent = game.guesses.length >= ROUNDS ? t("todayResults")
+      : game.guesses.length ? t("resume", { n: game.guesses.length + 1 }) : t("start");
     const s = loadStats();
     const streakAlive = s.streak > 0 && s.lastDay === game.day - 1;
     $("intro-meta").innerHTML = streakAlive ? t("introStreak", { n: s.streak }) : t("introMeta");
@@ -510,6 +511,11 @@
 
   function startGame() {
     document.body.classList.remove("is-intro");
+    if (game.guesses.length >= ROUNDS) {   // today's game is over: back to its results
+      showSummaryMap();
+      openResults();
+      return;
+    }
     showQuestion();
   }
 
@@ -949,6 +955,19 @@
   });
 
   // ── Practice ────────────────────────────────────────────
+  // Back to the front page from the results, after the daily game or a practice round.
+  function goHome() {
+    stopRoundTimer();
+    document.activeElement.blur();   // so Enter on the front page doesn't press this button again
+    document.querySelectorAll("dialog[open]").forEach((d) => d.close());
+    if (game.practice) loadDaily();
+    layer.clearLayers();
+    $("panel").classList.add("hidden");
+    $("btn-show-results").hidden = true;
+    map.getContainer().classList.remove("map-locked");
+    showIntro();
+  }
+
   function startPractice() {
     game.practice = true;
     game.questions = randomQuestions();
@@ -982,8 +1001,10 @@
   $("btn-map").addEventListener("click", () => $("modal-results").close());
   $("btn-show-results").addEventListener("click", () => openResults());
   $("btn-practice").addEventListener("click", startPractice);
+  $("btn-home").addEventListener("click", goHome);
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Enter" || document.querySelector("dialog[open]")) return;
+    e.preventDefault();   // or the same Enter also presses whatever button gets focus (e.g. a modal's close button)
     if (document.body.classList.contains("is-intro")) startGame();
     else if (!$("ask").hidden && !$("btn-confirm").disabled) confirmGuess();
     else if (!$("reveal").hidden) next();
@@ -1016,15 +1037,23 @@
   });
 
   // ── Boot ────────────────────────────────────────────────
-  function boot() {
-    applyStaticTexts();
+  // Today's puzzle, with whatever has already been played of it.
+  function loadDaily() {
+    game.practice = false;
     game.questions = questionsForDay(game.day);
+    game.guesses = [];
+    game.deadline = null;
     const saved = load(STORE_STATE, null);
     if (saved && saved.date === todayKey() && saved.day === game.day && saved.puzzle === puzzleKey() &&
         Array.isArray(saved.guesses)) {
       game.guesses = saved.guesses.slice(0, ROUNDS);
       game.deadline = saved.deadline || null;
     }
+  }
+
+  function boot() {
+    applyStaticTexts();
+    loadDaily();
 
     if (game.guesses.length >= ROUNDS) {
       recordHistory();   // no-op if already recorded; fills in games finished before history existed

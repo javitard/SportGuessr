@@ -17,6 +17,7 @@ window.I18N = {
     earGeo: "Geography",
     start: "Play today's puzzle",
     resume: "Continue · round {n}/5",
+    todayResults: "See today's results",
     introMeta: "5 questions · 60 seconds each · a new puzzle every day",
     introStreak: "You're on a <b>{n}-day streak</b>. Don't break it.",
     round: "Round",
@@ -72,6 +73,7 @@ window.I18N = {
     copied: "Copied — paste it anywhere",
     copyFailed: "Couldn't copy",
     seeMap: "Map",
+    home: "Front page",
     nextPuzzle: "Next puzzle in",
     showResults: "Show results",
     verdicts: [
@@ -106,6 +108,7 @@ window.I18N = {
     earGeo: "Geografía",
     start: "Jugar el reto de hoy",
     resume: "Continuar · ronda {n}/5",
+    todayResults: "Ver los resultados de hoy",
     introMeta: "5 preguntas · 60 segundos cada una · un reto nuevo cada día",
     introStreak: "Llevas una <b>racha de {n} días</b>. No la rompas.",
     round: "Ronda",
@@ -161,6 +164,7 @@ window.I18N = {
     copied: "Copiado: pégalo donde quieras",
     copyFailed: "No se pudo copiar",
     seeMap: "Mapa",
+    home: "Portada",
     nextPuzzle: "Siguiente reto en",
     showResults: "Ver resultados",
     verdicts: [
