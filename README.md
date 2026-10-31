@@ -1,4 +1,4 @@
-# Matchpin 📍
+# SportGeo 📍
 
 A daily sports geography game. Every day you get **5 famous sporting moments** (mostly European) —
 click on the map where they happened. The closer you are, the more points you score (up to 1,000 per
@@ -23,7 +23,7 @@ Inspired by [Farflung](https://farflung.game/) and [GeoSports](https://geosports
   [Sentinel-2 cloudless](https://s2maps.eu) with no API key; the bundled country shapes draw the borders and stand
   in if the imagery can't load
 - Zoom in and each country shows its two-letter code (ES, FR…), big countries first and small ones as they get room
-- Night-stadium dark theme, start screen with today's line-up, animated reveal, share preview image (`og-image.png`), mobile friendly
+- Old sports newspaper theme (yellowed newsprint, letterpress headlines, typewriter text, burgundy ink, sepia map), front page with the rounds as stadium tickets, animated reveal, share preview image (`og-image.png`), mobile friendly
 
 ## Run locally
 
@@ -63,7 +63,7 @@ best to add them in batches.
 
 ## Credits
 
-- Fonts: [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) and [Geist](https://vercel.com/font) (SIL OFL), self-hosted in `vendor/fonts`
+- Fonts: [Alfa Slab One](https://fonts.google.com/specimen/Alfa+Slab+One) (SIL OFL) and [Special Elite](https://fonts.google.com/specimen/Special+Elite) (Apache 2.0), via @fontsource 5.3.0, self-hosted in `vendor/fonts`
 - Map: [Leaflet](https://leafletjs.com/) (vendored in `vendor/leaflet`, BSD-2-Clause)
 - Satellite imagery: [Sentinel-2 cloudless](https://s2maps.eu) by EOX IT Services GmbH, contains modified Copernicus
   Sentinel data 2024 ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), non-commercial use)

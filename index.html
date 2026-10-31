@@ -5,36 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
   <!-- The version placeholders below are replaced with the commit id on deploy (.github/workflows/pages.yml) -->
   <meta name="app-version" content="__VERSION__">
-  <title>Matchpin — the daily sports geography game</title>
+  <title>SportGeo — the daily sports geography game</title>
   <meta name="description" content="Five legendary sporting moments a day. Drop a pin where they happened — the closer you are, the more you score.">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Matchpin">
+  <meta property="og:site_name" content="SportGeo">
   <meta property="og:locale" content="en_GB">
   <meta property="og:locale:alternate" content="es_ES">
-  <meta property="og:title" content="Matchpin — Where did it happen?">
+  <meta property="og:title" content="SportGeo — Where did it happen?">
   <meta property="og:description" content="Five legendary sporting moments a day. Drop a pin where they happened. How close can you get?">
   <meta property="og:url" content="https://javitard.github.io/SportGuessr/">
   <meta property="og:image" content="https://javitard.github.io/SportGuessr/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Matchpin: Where did it happen? Pins and a route on a dark map of Europe">
+  <meta property="og:image:alt" content="SportGeo: Where did it happen? Pins and a route on a map of Europe">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Matchpin — Where did it happen?">
+  <meta name="twitter:title" content="SportGeo — Where did it happen?">
   <meta name="twitter:description" content="Five legendary sporting moments a day. Drop a pin where they happened. How close can you get?">
   <meta name="twitter:image" content="https://javitard.github.io/SportGuessr/og-image.png">
-  <meta name="theme-color" content="#07090c">
+  <meta name="theme-color" content="#f3e7cf">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="vendor/fonts/barlow-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="vendor/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="vendor/fonts/special-elite-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="vendor/fonts/alfa-slab-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/fonts.css?v=__VERSION__">
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=__VERSION__">
   <link rel="stylesheet" href="css/style.css?v=__VERSION__">
 </head>
 <body class="is-intro">
   <header class="topbar">
-    <a class="brand" href="./" aria-label="Matchpin">
-      <svg class="brand-mark" viewBox="0 0 48 64" aria-hidden="true"><path d="M24 2C12 2 3 11.2 3 23c0 15.5 21 39 21 39s21-23.5 21-39C45 11.2 36 2 24 2z" fill="currentColor"/><circle cx="24" cy="23" r="11.5" fill="#07090c"/><circle cx="24" cy="23" r="5" fill="currentColor"/></svg>
-      <span class="brand-word">Match<b>pin</b></span>
+    <a class="brand" href="./" aria-label="SportGeo">
+      <svg class="brand-mark" viewBox="0 0 48 64" aria-hidden="true"><path d="M24 2C12 2 3 11.2 3 23c0 15.5 21 39 21 39s21-23.5 21-39C45 11.2 36 2 24 2z" fill="currentColor"/><circle cx="24" cy="23" r="11.5" fill="#f3e7cf"/><circle cx="24" cy="23" r="5" fill="currentColor"/></svg>
+      <span class="brand-word">Sport<b>Geo</b></span>
     </a>
     <nav class="topbar-actions">
       <button class="ghost-btn lang-btn" id="btn-lang" data-i18n-aria="language">ES</button>
@@ -52,13 +52,27 @@
   <!-- Start screen -->
   <section class="intro" id="intro">
     <div class="intro-inner">
-      <p class="eyebrow"><span class="live-dot"></span><span id="intro-eyebrow"></span></p>
-      <h1 class="hero" data-i18n-html="heroTitle"></h1>
-      <p class="lede" data-i18n="heroLede"></p>
-      <p class="lineup-hint" data-i18n="lineupHint"></p>
-      <ol class="lineup" id="lineup"></ol>
-      <button class="cta" id="btn-start"><span id="start-label"></span><kbd>↵</kbd></button>
-      <p class="intro-meta" id="intro-meta"></p>
+      <!-- Front page of an old sports paper: dateline, masthead, headline -->
+      <div class="title-card">
+        <p class="dateline">
+          <span id="intro-edition"></span>
+          <span id="intro-date"></span>
+          <span data-i18n="price"></span>
+        </p>
+        <div class="masthead">
+          <div class="ear" aria-hidden="true"><span class="ear-emoji" id="ear-sport">⚽</span><small data-i18n="earSport"></small></div>
+          <h1 class="hero">SportGeo</h1>
+          <div class="ear" aria-hidden="true"><span class="ear-emoji" id="ear-geo">🌍</span><small data-i18n="earGeo"></small></div>
+        </div>
+        <p class="tagline" data-i18n="tagline"></p>
+        <p class="hero-sub"><span data-i18n="heroSub"></span></p>
+        <p class="lede" data-i18n="heroLede"></p>
+      </div>
+      <div class="play-card">
+        <ol class="lineup" id="lineup"></ol>
+        <button class="cta" id="btn-start"><span id="start-label"></span><kbd>↵</kbd></button>
+        <p class="intro-meta" id="intro-meta"></p>
+      </div>
     </div>
   </section>
 
@@ -112,7 +126,7 @@
     <button class="close" data-close data-i18n-aria="close">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
-    <p class="modal-kicker">Matchpin</p>
+    <p class="modal-kicker">SportGeo</p>
     <h2 data-i18n="howTitle"></h2>
     <ol class="steps">
       <li><span class="step-n">01</span><p data-i18n-html="how1"></p></li>
@@ -133,7 +147,7 @@
     <button class="close" data-close data-i18n-aria="close">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
-    <p class="modal-kicker">Matchpin</p>
+    <p class="modal-kicker">SportGeo</p>
     <h2 data-i18n="statsTitle"></h2>
     <div class="stat-grid" id="stat-grid"></div>
     <p class="muted" id="profile-empty" data-i18n="emptyProfile"></p>

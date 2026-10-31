@@ -22,6 +22,18 @@
     sailing: "⛵", swimming: "🏊", equestrian: "🐎", climbing: "🧗",
     basketball: "🏀", "gaelic games": "🏑", surfing: "🏄"
   };
+  // How a locked-in pin moves once it has turned into its sport: balls bounce,
+  // anything ridden or sailed rocks along, the rest spin or pulse.
+  const SPORT_MOTION = {
+    football: "bounce", tennis: "bounce", rugby: "bounce", basketball: "bounce", golf: "bounce",
+    cricket: "bounce", "gaelic games": "bounce", snooker: "spin", olympics: "spin", darts: "pop",
+    boxing: "pop", cycling: "ride", motorsport: "ride", "horse racing": "ride", equestrian: "ride",
+    rowing: "ride", sailing: "ride", swimming: "ride", surfing: "ride", athletics: "ride",
+    winter: "ride", climbing: "pop"
+  };
+  // Masthead "ears" (the boxes beside an old paper's title) flip through these.
+  const EAR_SPORTS = ["⚽", "🏀", "🎾", "🚴", "⛳", "🏉", "🏎️", "⛷️", "🥊", "🏇"];
+  const EAR_GEO = ["🌍", "🏔️", "🇪🇸", "🧭", "🇧🇷", "🗺️", "🇮🇹", "🏟️", "🇬🇧", "⛰️", "🇯🇵", "🇫🇷"];
   // Each round is harder and worth more: its colour warms up from green to red.
   const ROUND_COLORS = ["var(--t4)", "color-mix(in srgb, var(--t4), var(--t3))", "var(--t3)", "var(--t2)", "var(--t1)"];
   const TIER_COLORS = { 4: "var(--t4)", 3: "var(--t3)", 2: "var(--t2)", 1: "var(--t1)" };
@@ -403,6 +415,17 @@
     });
   }
 
+  // The guess pin turned into the question's sport. `still` for the summary map.
+  function sportPin(q, still) {
+    const motion = still ? "still" : `m-${SPORT_MOTION[q.sport] || "pop"}`;
+    return L.divIcon({
+      className: "",
+      html: `<div class="sport-pin ${motion}"><span>${icon(q)}</span></div>`,
+      iconSize: [36, 36],
+      iconAnchor: [18, 18]
+    });
+  }
+
   function addRoute(guess, q) {
     return L.polyline([[guess.lat, guess.lng], [q.lat, q.lng]], {
       renderer: svgRenderer, className: "route", interactive: false
@@ -411,7 +434,7 @@
 
   function addPair(guess, q, label) {
     addRoute(guess, q);
-    L.marker([guess.lat, guess.lng], { icon: pinIcon("guess"), interactive: false }).addTo(layer);
+    L.marker([guess.lat, guess.lng], { icon: sportPin(q, true), interactive: false }).addTo(layer);
     L.marker([q.lat, q.lng], { icon: pinIcon("target", label), interactive: false }).addTo(layer);
     return L.latLngBounds([[guess.lat, guess.lng], [q.lat, q.lng]]);
   }
@@ -449,13 +472,13 @@
 
   // ── Intro screen ────────────────────────────────────────
   function renderIntro() {
-    const date = new Intl.DateTimeFormat(t("locale"), { day: "numeric", month: "long" }).format(new Date());
-    $("intro-eyebrow").textContent = t("eyebrow", { n: game.day, date });
-    // A staircase of rounds: each card a step higher, with more difficulty bars lit and a bigger multiplier.
+    $("intro-edition").textContent = t("edition", { n: game.day });
+    $("intro-date").textContent = new Intl.DateTimeFormat(t("locale"), { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(new Date());
+    // A staircase of stadium tickets: each one a step higher, with more stars and a bigger multiplier.
     $("lineup").innerHTML = game.questions.map((_, i) => `
       <li class="${game.guesses[i] ? "done" : ""}" style="--lvl:${ROUND_COLORS[i]}; --step:${i}">
         <span class="l-round"><span class="l-word">${t("round")}</span> ${i + 1}</span>
-        <span class="l-bars" aria-hidden="true">${ROUND_COLORS.map((_, b) => `<i class="${b <= i ? "on" : ""}"></i>`).join("")}</span>
+        <span class="l-stars" aria-hidden="true">${"★".repeat(i + 1)}${"☆".repeat(ROUNDS - i - 1)}</span>
         <span class="l-mult num">${mult(i)}</span>
         <span class="l-max">${num(window.Scoring.maxFor(i))} ${t("pts")}</span>
       </li>`).join("");
@@ -465,17 +488,24 @@
     $("intro-meta").innerHTML = streakAlive ? t("introStreak", { n: s.streak }) : t("introMeta");
   }
 
+  // The masthead ears flip to their next emoji in turn, only while the front page is showing.
+  let earTick = 0;
+  function flipEar(id, list) {
+    if (!document.body.classList.contains("is-intro")) return;
+    const el = $(id);
+    el.textContent = list[earTick % list.length];
+    el.classList.remove("flip");
+    void el.offsetWidth;   // restart the animation
+    el.classList.add("flip");
+  }
+  setInterval(() => { earTick++; flipEar("ear-sport", EAR_SPORTS); }, 2800);
+  setTimeout(() => setInterval(() => flipEar("ear-geo", EAR_GEO), 2800), 1400);
+
   function showIntro() {
     document.body.classList.add("is-intro");
     renderIntro();
-    // Keep the world clear of the intro text: on the right on wide screens, above it on phones.
-    const wide = window.innerWidth > 900;
-    const text = document.querySelector(".intro-inner").getBoundingClientRect();
-    map.fitBounds(WORLD_VIEW, {
-      paddingTopLeft: [wide ? text.right + 24 : 8, 64],
-      paddingBottomRight: [8, wide ? 24 : window.innerHeight - text.top + 8],
-      animate: false
-    });
+    // The title and play cards sit in the middle, over a faded world map that fills the screen.
+    map.fitBounds(WORLD_VIEW, { paddingTopLeft: [8, 64], paddingBottomRight: [8, 8], animate: false });
   }
 
   function startGame() {
@@ -638,7 +668,9 @@
     game.revealed = true;
     persist();
     openReveal(before);
-    L.marker(guess, { icon: pinIcon("guess"), interactive: false }).addTo(layer);
+    // The pin lands, then turns into the question's sport and keeps moving.
+    const guessMarker = L.marker(guess, { icon: pinIcon("guess"), interactive: false }).addTo(layer);
+    setTimeout(() => guessMarker.setIcon(sportPin(q)), 350);
 
     // Fly so both pins fit above the card, then draw the route and count the points up.
     const bounds = L.latLngBounds([guess, [q.lat, q.lng]]);
@@ -723,7 +755,7 @@
 
   function openResults(animate = false) {
     const total = totalScore();
-    $("results-kicker").textContent = game.practice ? t("practiceRound") : `Matchpin #${game.day}`;
+    $("results-kicker").textContent = game.practice ? t("practiceRound") : `SportGeo #${game.day}`;
     if (animate) countUp($("final-score"), 0, total, 1100);
     else $("final-score").textContent = num(total);
     $("verdict").textContent = verdict(total);
@@ -752,7 +784,7 @@
     const total = totalScore();
     const squares = game.guesses.map((g) => TIER_EMOJI[tier(g.points)]).join("");
     const url = location.origin + location.pathname;
-    return `Matchpin #${game.day} · ${num(total)}/${num(MAX_TOTAL)}\n${squares}\n${url}`;
+    return `SportGeo #${game.day} · ${num(total)}/${num(MAX_TOTAL)}\n${squares}\n${url}`;
   }
 
   async function share() {
@@ -933,7 +965,7 @@
     applyStaticTexts();
     if (document.body.classList.contains("is-intro")) renderIntro();
     if (game.questions.length) renderPanelHead();
-    if (!$("ask").hidden) renderQuestion();
+    if (!$("ask").hidden && game.guesses.length < ROUNDS) renderQuestion();
     if (!$("reveal").hidden && game.revealed) renderReveal();
     if ($("modal-results").open) openResults();
     if ($("modal-stats").open) openStats();
@@ -1006,7 +1038,7 @@
   }
 
   // Expose a few internals for debugging / tests.
-  window.Matchpin = { questionsForDay, scoring: window.Scoring, haversineKm, dayNumber };
+  window.SportGeo = { questionsForDay, scoring: window.Scoring, haversineKm, dayNumber };
 
   boot();
   checkForUpdate();
